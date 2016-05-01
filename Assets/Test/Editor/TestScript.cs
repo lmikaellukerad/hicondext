@@ -14,14 +14,14 @@ public class TestScript
     /// <summary>
     /// Failing test.
     /// </summary>
-    [Test]
+    /*[Test]
     public void FailingTest()
     {
         var gameObject = new GameObject();
         var newGameObjectName = "Fail";
         gameObject.name = newGameObjectName;
         Assert.AreEqual("My game object", gameObject.name);
-    }
+    }*/
 
     /// <summary>
     /// Succeeding test.

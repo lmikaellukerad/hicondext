@@ -1,11 +1,19 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿// <copyright file="TestScript.cs" company="CondExt">
+//     CondExt. All rights reserved.
+// </copyright>
+// <author>Jasper van Esveld</author>
 using NUnit.Framework;
-/// <summary>
-/// Example test script showing a failing and succeeding test.
-/// </summary>
-public class EditorTest {
+using UnityEditor;
+using UnityEngine;
 
+/// <summary>
+/// Example test cases showing a failing and succeeding test.
+/// </summary>
+public class TestScript
+{
+    /// <summary>
+    /// Failing test.
+    /// </summary>
     [Test]
     public void FailingTest()
     {
@@ -15,6 +23,9 @@ public class EditorTest {
         Assert.AreEqual("My game object", gameObject.name);
     }
 
+    /// <summary>
+    /// Succeeding test.
+    /// </summary>
     [Test]
     public void SucceedingTest()
     {   

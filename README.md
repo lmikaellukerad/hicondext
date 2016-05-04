@@ -20,6 +20,6 @@ To run the tests we made you can open the Editor Tests Runner view found under t
 StyleCop is used to make sure all of our code has the same style. GhostDoc can autogenerate documentation which makes documenting our code faster and easier. 
 To prevent spelling errors we use VSSpellingChecker and CodeMaid makes it easier to run StyleCop on our code.
 
- We also make use of Unity Cloud Buil which is an easy to use continuous integration solution for Unity projects.
-To see our builds and wether or not they succeeded please make a unity account and send us the email adress so we can add you to the project.
-After that the Unity Cloud Build project is located at https://build.cloud.unity3d.com/orgs/tentacola/projects/context/
+ We also make use of Unity Cloud Build which is an easy to use continuous integration solution for Unity projects.
+To see our builds and wether or not they succeeded please create a Unity id and send us the email adress that was used so we can add you to the project.
+When added the Unity Cloud Build project can be viewed at https://build.cloud.unity3d.com/orgs/tentacola/projects/context/

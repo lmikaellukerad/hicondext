@@ -12,3 +12,14 @@ Our group name is ContExt, our members are:
     Matthias Tavasszy	    4368401	    m.h.tavasszy@student.tudelft.nl
 
     Bart Ziengs		        4391799 	a.h.ziengs@student.tudelft.nl
+
+ To open our project in Unity simply select this folder when in the open project dialog of unity.
+To run the tests we made you can open the Editor Tests Runner view found under the Window tab.
+
+ We use the following tools as recommended by CleVR: StyleCop, CodeMaid, GhostDoc and VSSpellingChecker. We use all these tools to improve our final product quality and increase productivity.
+StyleCop is used to make sure all of our code has the same style. GhostDoc can autogenerate documentation which makes documenting our code faster and easier. 
+To prevent spelling errors we use VSSpellingChecker and CodeMaid makes it easier to run StyleCop on our code.
+
+ We also make use of Unity Cloud Buil which is an easy to use continuous integration solution for Unity projects.
+To see our builds and wether or not they succeeded please make a unity account and send us the email adress so we can add you to the project.
+After that the Unity Cloud Build project is located at https://build.cloud.unity3d.com/orgs/tentacola/projects/context/

@@ -183,10 +183,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 82933089}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1538800473}
   m_Father: {fileID: 325433930}
@@ -224,39 +224,13 @@ GameObject:
   - 33: {fileID: 234314533}
   - 65: {fileID: 234314532}
   - 23: {fileID: 234314531}
-  - 114: {fileID: 234314530}
   m_Layer: 0
-  m_Name: RightHand
+  m_Name: Palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &234314530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 234314529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88793050c1038a444b6cad33f3c57e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handedness: 1
-  handModelPalmWidth: 0.085
-  fingers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  palm: {fileID: 234314534}
-  forearm: {fileID: 0}
-  wristJoint: {fileID: 0}
-  elbowJoint: {fileID: 0}
-  modelFingerPointing: {x: 0, y: 0, z: 1}
-  modelPalmFacing: {x: -0, y: -1, z: -0}
 --- !u!23 &234314531
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -308,18 +282,18 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 234314529}
-  m_LocalRotation: {x: -0.000000115202326, y: 0.7071067, z: 0.7071068, w: -0.00000011520231}
-  m_LocalPosition: {x: -0.038000155, y: 0.4782899, z: 0.073681906}
+  m_LocalRotation: {x: -0.000000059604645, y: 2.842171e-14, z: -8.881784e-15, w: -1}
+  m_LocalPosition: {x: 1.0239244e-14, y: 0.000000029706737, z: 0.000000002384992}
   m_LocalScale: {x: 0.1, y: 0.05000001, z: 0.10000002}
-  m_LocalEulerAnglesHint: {x: -89.980194, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1766299413}
   - {fileID: 1340740730}
   - {fileID: 466794968}
   - {fileID: 425285928}
   - {fileID: 449284498}
-  m_Father: {fileID: 1538800473}
-  m_RootOrder: 1
+  m_Father: {fileID: 1709183185}
+  m_RootOrder: 0
 --- !u!1 &325433925
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +900,61 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 629712521}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1302307076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1302307077}
+  - 114: {fileID: 1302307078}
+  m_Layer: 0
+  m_Name: LeftHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1302307077
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1302307076}
+  m_LocalRotation: {x: -0.99919784, y: 0.00000017423042, z: 0.00000020082584, w: 0.04004565}
+  m_LocalPosition: {x: 0.09999996, y: 0.30106497, z: -0.101404056}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: -4.5901, y: -540, z: -180}
+  m_Children:
+  - {fileID: 1393787271}
+  m_Father: {fileID: 1538800473}
+  m_RootOrder: 0
+--- !u!114 &1302307078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1302307076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88793050c1038a444b6cad33f3c57e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handedness: 0
+  handModelPalmWidth: 0.085
+  fingers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  palm: {fileID: 1393787271}
+  forearm: {fileID: 0}
+  wristJoint: {fileID: 0}
+  elbowJoint: {fileID: 0}
+  modelFingerPointing: {x: 0, y: 0, z: 1}
+  modelPalmFacing: {x: -0, y: -1, z: -0}
 --- !u!1 &1340740729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,9 +1042,8 @@ GameObject:
   - 33: {fileID: 1393787270}
   - 65: {fileID: 1393787269}
   - 23: {fileID: 1393787268}
-  - 114: {fileID: 1393787272}
   m_Layer: 0
-  m_Name: LeftHand
+  m_Name: Palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1072,43 +1100,18 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1393787267}
-  m_LocalRotation: {x: -0.000000115202326, y: 0.7071067, z: 0.7071068, w: -0.00000011520231}
-  m_LocalPosition: {x: 0.20279688, y: 0.47832423, z: 0.073681906}
-  m_LocalScale: {x: 0.1, y: 0.05000001, z: 0.10000002}
-  m_LocalEulerAnglesHint: {x: -89.980194, y: -540, z: 0}
+  m_LocalRotation: {x: -7.1054274e-15, y: 1, z: 0.000000059604645, w: 2.1316282e-14}
+  m_LocalPosition: {x: 9.897259e-15, y: 0.000000029706737, z: -0.000000002384992}
+  m_LocalScale: {x: 0.1, y: 0.05, z: 0.1}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -720}
   m_Children:
   - {fileID: 502127141}
   - {fileID: 629712522}
   - {fileID: 457763120}
   - {fileID: 4752397}
   - {fileID: 1495113693}
-  m_Father: {fileID: 1538800473}
+  m_Father: {fileID: 1302307077}
   m_RootOrder: 0
---- !u!114 &1393787272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1393787267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88793050c1038a444b6cad33f3c57e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handedness: 0
-  handModelPalmWidth: 0.085
-  fingers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  palm: {fileID: 1393787271}
-  forearm: {fileID: 0}
-  wristJoint: {fileID: 0}
-  elbowJoint: {fileID: 0}
-  modelFingerPointing: {x: 0, y: 0, z: 1}
-  modelPalmFacing: {x: -0, y: -1, z: -0}
 --- !u!1 &1495113692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,13 +1212,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1538800472}
-  m_LocalRotation: {x: -0.7071067, y: -1.4210855e-14, z: 0.00000023040464, w: -0.7071068}
+  m_LocalRotation: {x: 0.00000014901161, y: 0.7072289, z: 0.70698464, w: 0.00000014463913}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 89.980194, y: -360, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.980194, y: 180, z: 0}
   m_Children:
-  - {fileID: 1393787271}
-  - {fileID: 234314534}
+  - {fileID: 1302307077}
+  - {fileID: 1709183185}
   m_Father: {fileID: 82933090}
   m_RootOrder: 0
 --- !u!114 &1538800474
@@ -1242,10 +1245,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModelCollection:
-  - {fileID: 1393787272}
-  - {fileID: 234314530}
+  - {fileID: 1302307078}
+  - {fileID: 1709183184}
   ModelPool: []
-  EnforceHandedness: 0
+  EnforceHandedness: 1
 --- !u!114 &1538800476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,6 +1263,61 @@ MonoBehaviour:
   _isHeadMounted: 1
   overrideDeviceType: 1
   _overrideDeviceTypeWith: 1
+--- !u!1 &1709183183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1709183185}
+  - 114: {fileID: 1709183184}
+  m_Layer: 0
+  m_Name: RightHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1709183184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1709183183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88793050c1038a444b6cad33f3c57e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handedness: 1
+  handModelPalmWidth: 0.085
+  fingers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  palm: {fileID: 234314534}
+  forearm: {fileID: 0}
+  wristJoint: {fileID: 0}
+  elbowJoint: {fileID: 0}
+  modelFingerPointing: {x: 0, y: 0, z: 1}
+  modelPalmFacing: {x: -0, y: -1, z: -0}
+--- !u!4 &1709183185
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1709183183}
+  m_LocalRotation: {x: 0.00000035056735, y: -0.04004565, z: 0.99919784, w: -0.00000015787397}
+  m_LocalPosition: {x: -0.100000046, y: 0.30106497, z: -0.10140397}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 4.5901, y: 0, z: -180}
+  m_Children:
+  - {fileID: 234314534}
+  m_Father: {fileID: 1538800473}
+  m_RootOrder: 1
 --- !u!1 &1727318559
 GameObject:
   m_ObjectHideFlags: 0

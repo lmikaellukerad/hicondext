@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 246565667}
   - 114: {fileID: 246565668}
+  - 114: {fileID: 246565669}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -169,10 +170,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 246565666}
-  m_LocalRotation: {x: -0.99919784, y: 0.00000017423042, z: 0.00000020082584, w: 0.04004565}
-  m_LocalPosition: {x: 0.09999996, y: 0.30106497, z: -0.101404056}
+  m_LocalRotation: {x: 0.4980979, y: -0.86272967, z: -0.07547883, w: -0.04357834}
+  m_LocalPosition: {x: -0.09056997, y: 0.18391472, z: -0.10283619}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: -4.5901, y: -540, z: -180}
+  m_LocalEulerAnglesHint: {x: -10, y: -540, z: -420.0001}
   m_Children:
   - {fileID: 1377830978}
   m_Father: {fileID: 890962157}
@@ -185,7 +186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 246565666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88793050c1038a444b6cad33f3c57e05, type: 3}
+  m_Script: {fileID: 11500000, guid: 7554ca467f388b547ba02ea8ec1870ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   handedness: 0
@@ -200,8 +201,17 @@ MonoBehaviour:
   forearm: {fileID: 0}
   wristJoint: {fileID: 0}
   elbowJoint: {fileID: 0}
-  modelFingerPointing: {x: 0, y: 0, z: 1}
-  modelPalmFacing: {x: -0, y: -1, z: -0}
+--- !u!114 &246565669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246565666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed8caa48ee20c34fbc3195831737ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &283345204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,10 +1170,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1323638807}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000002235175, y: 0.00000006299097, z: -0.000000039790102}
+  m_LocalRotation: {x: -0.000000013038516, y: -0.000000014901161, z: 0.000000029569492,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.05000001, z: 0.10000002}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children:
   - {fileID: 295194907}
   - {fileID: 283345205}
@@ -1241,8 +1252,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1377830977}
-  m_LocalRotation: {x: 6.217249e-15, y: -1, z: 3.498997e-14, w: 0}
-  m_LocalPosition: {x: -0.00000005215406, y: 0.000000055836004, z: -0.00000004933007}
+  m_LocalRotation: {x: 0.00000007916241, y: 1, z: 0.0000000074505797, w: -0.0000000074505797}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.05, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -720}
   m_Children:
@@ -1623,6 +1634,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2027201988}
   - 114: {fileID: 2027201989}
+  - 114: {fileID: 2027201990}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -1636,10 +1648,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2027201987}
-  m_LocalRotation: {x: 0.00000035056735, y: -0.04004565, z: 0.99919784, w: -0.00000015787397}
-  m_LocalPosition: {x: -0.100000046, y: 0.30106497, z: -0.10140397}
+  m_LocalRotation: {x: 0.0754791, y: 0.04357785, z: -0.49809712, w: 0.86273}
+  m_LocalPosition: {x: 0.09043896, y: 0.18369156, z: -0.10287553}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 4.5901, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: -60}
   m_Children:
   - {fileID: 1323638808}
   m_Father: {fileID: 890962157}
@@ -1652,7 +1664,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2027201987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88793050c1038a444b6cad33f3c57e05, type: 3}
+  m_Script: {fileID: 11500000, guid: 7554ca467f388b547ba02ea8ec1870ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   handedness: 1
@@ -1667,8 +1679,17 @@ MonoBehaviour:
   forearm: {fileID: 0}
   wristJoint: {fileID: 0}
   elbowJoint: {fileID: 0}
-  modelFingerPointing: {x: 0, y: 0, z: 1}
-  modelPalmFacing: {x: -0, y: -1, z: -0}
+--- !u!114 &2027201990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2027201987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed8caa48ee20c34fbc3195831737ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2056218295
 GameObject:
   m_ObjectHideFlags: 0

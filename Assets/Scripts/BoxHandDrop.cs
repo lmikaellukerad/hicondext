@@ -13,11 +13,18 @@ namespace Leap.Unity
         private Vector3 startingPalmPosition;
         private Quaternion startingOrientation;
         private Transform palm;
+        private Transform forearm;
+        private Vector3 armCenter;
+        private Quaternion armRotation;
 
         protected override void Awake()
         {
             base.Awake();
             palm = GetComponent<HandModel>().palm;
+            forearm = GetComponent<HandModel>().forearm;
+            armCenter = forearm.localPosition;
+            armRotation = forearm.localRotation;
+            startingPalmPosition = palm.localPosition;
             startingPalmPosition = palm.localPosition;
             startingOrientation = palm.localRotation;
         }
@@ -38,6 +45,8 @@ namespace Leap.Unity
 
         private IEnumerator LerpToStart()
         {
+            Vector3 droppedArmCenter = forearm.localPosition;
+            Quaternion droppedArmRotation = forearm.localRotation;
             Vector3 droppedPosition = palm.localPosition;
             Quaternion droppedOrientation = palm.localRotation;
             float duration = 0.7f;
@@ -49,6 +58,8 @@ namespace Leap.Unity
                 float t = (Time.time - startTime) / duration;
                 palm.localPosition = Vector3.Lerp(droppedPosition, startingPalmPosition, NonLinearInterpolation(t));
                 palm.localRotation = Quaternion.Lerp(droppedOrientation, startingOrientation, NonLinearInterpolation(t));
+                forearm.localPosition = Vector3.Lerp(droppedArmCenter, armCenter, NonLinearInterpolation(t));
+                forearm.localRotation = Quaternion.Lerp(droppedArmRotation, armRotation, NonLinearInterpolation(t));
                 yield return null;
             }
         }

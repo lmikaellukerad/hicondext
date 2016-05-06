@@ -101,7 +101,7 @@ GameObject:
   - 114: {fileID: 11490854}
   - 114: {fileID: 11425792}
   m_Layer: 0
-  m_Name: Player
+  m_Name: RightHandPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,8 +162,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110120}
-  m_LocalRotation: {x: -0.000000059604645, y: 2.842171e-14, z: -8.881784e-15, w: -1}
-  m_LocalPosition: {x: 0.000000022351731, y: -0.000000029706744, z: -0.000000002385008}
+  m_LocalRotation: {x: 0.000000009313226, y: 0.000000014901161, z: -0.000000030267984,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.05000001, z: 0.10000002}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children:
@@ -180,10 +181,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153490}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 1.4210855e-14}
-  m_LocalPosition: {x: -0.00705807, y: 0.004000023, z: 0.17500004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0071000177, y: 0.0039999513, z: -0.17530069}
   m_LocalScale: {x: 0.10999998, y: 0.06, z: 0.29999995}
-  m_LocalEulerAnglesHint: {x: 0, y: -720, z: -1260}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 488414}
   m_RootOrder: 1
@@ -232,10 +233,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161178}
-  m_LocalRotation: {x: 0.00000035056735, y: -0.04004565, z: 0.99919784, w: -0.00000015787397}
-  m_LocalPosition: {x: -0.100000046, y: 0.30106497, z: -0.10140397}
+  m_LocalRotation: {x: 0.075479105, y: 0.043577857, z: -0.49809715, w: 0.8627301}
+  m_LocalPosition: {x: 0.09043896, y: 0.18369156, z: -0.10287529}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 4.5901, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 10, y: -360, z: -60}
   m_Children:
   - {fileID: 424504}
   - {fileID: 435210}

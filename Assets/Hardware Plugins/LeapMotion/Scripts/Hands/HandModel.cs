@@ -134,7 +134,7 @@ namespace Leap.Unity{
     * @returns A Vector3 representing the direction of the forearm (pointing from elbow to wrist).
     */
     public Vector3 GetArmDirection() {
-      if (hand_ != null) {
+      if (hand_ != null && IsTracked) {
         return hand_.Arm.Direction.ToVector3();
       }
       if (forearm) {
@@ -147,7 +147,7 @@ namespace Leap.Unity{
     * @returns A Vector3 containing the Unity coordinates of the center of the forearm.
     */
     public Vector3 GetArmCenter() {
-      if (hand_ != null) {
+      if (hand_ != null && IsTracked) {
         Vector leap_center = 0.5f * (hand_.Arm.WristPosition + hand_.Arm.ElbowPosition);
         return leap_center.ToVector3();
       }
@@ -199,7 +199,7 @@ namespace Leap.Unity{
     * @returns A Quaternion representing the rotation of the arm. 
     */
     public Quaternion GetArmRotation() {
-      if (hand_ != null) {
+      if (hand_ != null && IsTracked) {
         Quaternion local_rotation = hand_.Arm.Basis.Rotation ();
         return local_rotation;
       }

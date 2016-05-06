@@ -34,7 +34,10 @@ namespace Leap.Unity
             }
 
             if (forearm != null)
-                forearm.rotation = GetArmRotation() * Reorientation();
+            {
+                forearm.position = GetArmCenter();
+                forearm.rotation = GetArmRotation();
+            }
         }
     }
 }

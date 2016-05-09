@@ -60,6 +60,7 @@ namespace Leap.Unity
                 palm.localRotation = Quaternion.Lerp(droppedOrientation, startingOrientation, NonLinearInterpolation(t));
                 forearm.localPosition = Vector3.Lerp(droppedArmCenter, armCenter, NonLinearInterpolation(t));
                 forearm.localRotation = Quaternion.Lerp(droppedArmRotation, armRotation, NonLinearInterpolation(t));
+
                 yield return null;
             }
         }

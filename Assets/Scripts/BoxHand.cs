@@ -25,6 +25,11 @@ namespace Leap.Unity
             return Quaternion.Inverse(Quaternion.LookRotation(Vector3.forward, Vector3.up));
         }
 
+        public override void InitHand()
+        {
+            base.InitHand();
+        }
+
         public override void UpdateHand()
         {
             if (palm != null)

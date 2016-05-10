@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: unnamed
+  m_Name: WoodMat
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -38,66 +38,56 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _MetallicGlossMap
-=======
           name: _ParallaxMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _ParallaxMap
-=======
           name: _OcclusionMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _OcclusionMap
-=======
           name: _EmissionMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _EmissionMap
-=======
           name: _DetailMask
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _DetailMask
-=======
           name: _DetailAlbedoMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _DetailAlbedoMap
-=======
           name: _MetallicGlossMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecGlossMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DetailTex
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -117,13 +107,22 @@ Material:
         second: 0.5
       data:
         first:
-<<<<<<< HEAD
-=======
+          name: _Shininess
+        second: 0.1
+      data:
+        first:
+          name: _WindQuality
+        second: 0
+      data:
+        first:
+          name: PixelSnap
+        second: 0
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
         first:
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
           name: _ZWrite
         second: 1
       data:
@@ -132,24 +131,10 @@ Material:
         second: 0.5
       data:
         first:
-<<<<<<< HEAD
-          name: _Metallic
-        second: 0
-      data:
-        first:
-=======
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
           name: _BumpScale
         second: 1
       data:
         first:
-<<<<<<< HEAD
-          name: _Parallax
-        second: 0.02
-      data:
-        first:
-=======
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
           name: _OcclusionStrength
         second: 1
       data:
@@ -164,13 +149,14 @@ Material:
         first:
           name: _Mode
         second: 0
-<<<<<<< HEAD
-=======
       data:
         first:
           name: _Metallic
         second: 0
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
+      data:
+        first:
+          name: _Cull
+        second: 2
     m_Colors:
       data:
         first:
@@ -180,3 +166,11 @@ Material:
         first:
           name: _Color
         second: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+      data:
+        first:
+          name: _HueVariation
+        second: {r: 1, g: 0.5, b: 0, a: 0.1}

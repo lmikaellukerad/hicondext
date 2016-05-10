@@ -5,30 +5,42 @@ using NSubstitute;
 using Leap.Unity;
 
 /**
- * WIP
+ * ToDo: more relevant tests
  * Author: Luke
- * 
+ * Test script for FixedJointGrab
  * 
  */
-public class FixedJointGrabTest : MonoBehaviour
+public class FixedJointGrabTest
 { 
 
-    private HandModel GetHandModelMock()
-    {
-        return Substitute.For<SkeletalHand>();
-    }
 
-    private FingerModel GetFingerModelMock()
+    [Test]
+    public void holdTest()
     {
-        return Substitute.For<SkeletalFinger>();
+       GameObject empty = new GameObject();
+       empty.AddComponent<SkeletalHand>();
+       FixedJointGrab grab = empty.AddComponent<FixedJointGrab>();
+       grab.Hold();
+       Assert.False(grab.pinching);
     }
 
     [Test]
-    public void GrabTest()
+    public void onPinchTest()
     {
-        var grab = new FixedJointGrab();
-        HandModel handModelMock = GetHandModelMock();
-        FingerModel fingerModelMock = GetFingerModelMock();
-        Assert.AreEqual(GetHandModelMock(), GetHandModelMock());
+        GameObject empty = new GameObject();
+        empty.AddComponent<SkeletalHand>();
+        FixedJointGrab grab = empty.AddComponent<FixedJointGrab>()
+        grab.onPinch(Vector3.zero);
+        Assert.True(grab.pinching);
+    }
+
+    [Test]
+    public void onRelease()
+    {
+        GameObject empty = new GameObject();
+        empty.AddComponent<SkeletalHand>();
+        FixedJointGrab grab = empty.AddComponent<FixedJointGrab>();
+        grab.onPinch(Vector3.zero);
+        Assert.False(grab.pinching && grab.pinch);
     }
 }

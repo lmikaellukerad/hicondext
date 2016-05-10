@@ -29,7 +29,7 @@ public class FixedJointGrabTest
     {
         GameObject empty = new GameObject();
         empty.AddComponent<SkeletalHand>();
-        FixedJointGrab grab = empty.AddComponent<FixedJointGrab>()
+        FixedJointGrab grab = empty.AddComponent<FixedJointGrab>();
         grab.onPinch(Vector3.zero);
         Assert.True(grab.pinching);
     }

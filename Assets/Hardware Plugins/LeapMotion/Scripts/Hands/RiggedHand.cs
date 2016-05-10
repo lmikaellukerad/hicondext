@@ -39,7 +39,7 @@ namespace Leap.Unity
             {
                 if (palm != null)
                 {
-                    palm.position = GetPalmPosition();
+                    palm.position = GetWristPosition();
                     palm.rotation = GetPalmRotation() * Reorientation();
                 }
 

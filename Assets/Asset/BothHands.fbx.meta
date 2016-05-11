@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: 5bfec1a74098eb34992fd5ecf1788c1f
+timeCreated: 1462831139
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm
+    100002: Arm 1
+    100004: Arm_end
+    100006: Arm_end 1
+    100008: ArmatureLeft
+    100010: ArmatureRight
+    100012: //RootNode
+    100014: IndexBone
+    100016: IndexBone 1
+    100018: LeftHand.001
+    100020: LeftHandGroup
+    100022: MiddleFinger
+    100024: MiddleFinger 1
+    100026: Palm
+    100028: Palm 1
+    100030: Pinky
+    100032: Pinky 1
+    100034: RightHand
+    100036: RightHandGroup
+    100038: RingFinger
+    100040: RingFinger 1
+    100042: Thumb0
+    100044: Thumb0 1
+    100046: Thumb1
+    100048: Thumb1 1
+    100050: Thumb2
+    100052: Thumb2 1
+    100054: Thumb2_end
+    100056: Thumb2_end 1
+    100058: ThumbBone
+    100060: ThumbBone 1
+    100062: TwistBone.002
+    100064: TwistBone.002 1
+    100066: TwistBone.003
+    100068: TwistBone.003 1
+    100070: TwistBone.004
+    100072: TwistBone.004 1
+    100074: TwistBone.004_end
+    100076: TwistBone.004_end 1
+    100078: TwistBone.006
+    100080: TwistBone.006 1
+    100082: TwistBone.007
+    100084: TwistBone.007 1
+    100086: TwistBone.008
+    100088: TwistBone.008 1
+    100090: TwistBone.008_end
+    100092: TwistBone.008_end 1
+    100094: TwistBone.010
+    100096: TwistBone.010 1
+    100098: TwistBone.011
+    100100: TwistBone.011 1
+    100102: TwistBone.012
+    100104: TwistBone.012 1
+    100106: TwistBone.012_end
+    100108: TwistBone.012_end 1
+    100110: TwistBone.014
+    100112: TwistBone.014 1
+    100114: TwistBone.015
+    100116: TwistBone.015 1
+    100118: TwistBone.016
+    100120: TwistBone.016 1
+    100122: TwistBone.016_end
+    100124: TwistBone.016_end 1
+    100126: ArmatureLeft2
+    400000: Arm
+    400002: Arm 1
+    400004: Arm_end
+    400006: Arm_end 1
+    400008: ArmatureLeft
+    400010: ArmatureRight
+    400012: //RootNode
+    400014: IndexBone
+    400016: IndexBone 1
+    400018: LeftHand.001
+    400020: LeftHandGroup
+    400022: MiddleFinger
+    400024: MiddleFinger 1
+    400026: Palm
+    400028: Palm 1
+    400030: Pinky
+    400032: Pinky 1
+    400034: RightHand
+    400036: RightHandGroup
+    400038: RingFinger
+    400040: RingFinger 1
+    400042: Thumb0
+    400044: Thumb0 1
+    400046: Thumb1
+    400048: Thumb1 1
+    400050: Thumb2
+    400052: Thumb2 1
+    400054: Thumb2_end
+    400056: Thumb2_end 1
+    400058: ThumbBone
+    400060: ThumbBone 1
+    400062: TwistBone.002
+    400064: TwistBone.002 1
+    400066: TwistBone.003
+    400068: TwistBone.003 1
+    400070: TwistBone.004
+    400072: TwistBone.004 1
+    400074: TwistBone.004_end
+    400076: TwistBone.004_end 1
+    400078: TwistBone.006
+    400080: TwistBone.006 1
+    400082: TwistBone.007
+    400084: TwistBone.007 1
+    400086: TwistBone.008
+    400088: TwistBone.008 1
+    400090: TwistBone.008_end
+    400092: TwistBone.008_end 1
+    400094: TwistBone.010
+    400096: TwistBone.010 1
+    400098: TwistBone.011
+    400100: TwistBone.011 1
+    400102: TwistBone.012
+    400104: TwistBone.012 1
+    400106: TwistBone.012_end
+    400108: TwistBone.012_end 1
+    400110: TwistBone.014
+    400112: TwistBone.014 1
+    400114: TwistBone.015
+    400116: TwistBone.015 1
+    400118: TwistBone.016
+    400120: TwistBone.016 1
+    400122: TwistBone.016_end
+    400124: TwistBone.016_end 1
+    400126: ArmatureLeft2
+    4300000: LeftHand.001
+    4300002: RightHand
+    9500000: //RootNode
+    13700000: LeftHand.001
+    13700002: RightHand
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

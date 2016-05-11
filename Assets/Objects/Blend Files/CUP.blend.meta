@@ -6,10 +6,20 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: NurbsPath_MeshPart0
+    100004: NurbsPath_MeshPart1
     400000: //RootNode
+    400002: NurbsPath_MeshPart0
+    400004: NurbsPath_MeshPart1
     2300000: //RootNode
+    2300002: NurbsPath_MeshPart0
+    2300004: NurbsPath_MeshPart1
     3300000: //RootNode
+    3300002: NurbsPath_MeshPart0
+    3300004: NurbsPath_MeshPart1
     4300000: NurbsPath
+    4300002: NurbsPath_MeshPart0
+    4300004: NurbsPath_MeshPart1
     7400000: Default Take
     9500000: //RootNode
   materials:

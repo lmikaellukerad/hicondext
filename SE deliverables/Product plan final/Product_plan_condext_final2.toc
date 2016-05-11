@@ -1,0 +1,8 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}MoSCoW}{3}
+\contentsline {section}{\numberline {1.1}Functional}{3}
+\contentsline {section}{\numberline {1.2}Non-functional}{4}
+\contentsline {chapter}{\numberline {2}Product Backlog}{5}
+\contentsline {section}{\numberline {2.1}User stories of features}{5}
+\contentsline {section}{\numberline {2.2}Initial release plan}{6}
+\contentsline {chapter}{\numberline {3}Roadmap}{7}

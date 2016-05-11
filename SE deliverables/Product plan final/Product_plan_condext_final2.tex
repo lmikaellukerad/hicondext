@@ -1,0 +1,257 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+%\usepackage[Glenn]{fncychap}
+
+\usepackage{amssymb}
+\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=2.5cm]{geometry}
+\title{Product Plan }
+\author{
+Matthias Tavasszy \\
+\texttt{4368401}	
+\and
+Arjan van Schendel \\
+\texttt{4366212}
+\and
+Luke Prananta \\ 
+\texttt{4288386}  
+\and
+Jasper van Esveld \\
+\texttt{4372581}
+\and
+Bart Ziengs \\ 
+\texttt{4391799}
+}
+
+\begin{document}
+
+\maketitle
+
+
+\tableofcontents
+\chapter*{Introduction}
+This product plan is written in the context of a project that is scheduled for the last quarter of the second year for computer science students. Besides the Delft University of technology, this project is conducted with collaboration of CleVR, a company that specializes in software solutions with virtual reality. CLeVR is
+currently building a product that therapists can use during the treatment of psychosis. Our goal for thisproject is to let a future user, which in this case is the client, be able to interact with the virtual reality
+using several hardware tools. \\ \\
+The purpose of this document is to provide guidelines for the seven weeks that follow after writing this.
+All the sub-parts of the final product are listed in the release plan. The planning for each week has
+been outlined in the product roadmap and the initial requirements are also documented. However,
+additional requirements could arise during the development.
+\newpage
+\chapter{MoSCoW}
+This chapter lists both the functional and non-functional requirements
+The MoSCoW method is a prioritization technique, we divided our requirements into must, should, could, and won't haves. 
+\section{Functional}
+%%%%%%%%%MUST HAVES%%%%%%%%%
+\textbf{Must haves} \\
+\textit{Essential features required for a successful product}
+\begin{itemize}
+\item The user must be able to see his whole virtual body within the virtual world
+\item The user must be able to move his virtual body by moving his real body with the use of the Kinect
+\item  The user must be able to move his fingers separately using the provided tracking hardware:
+Manus VR and Leap Motion
+\item The user must be able to pick up items using a grabbing gesture with his hands
+\item The virtual body must behave in a physically possible way, avoiding unnatural bending, and not
+distressing the user
+\end{itemize}
+%%%%%%%%%SHOULD HAVES%%%%%%%%%
+\textbf{Should haves} \\
+\textit{Features that greatly improve the quality of the product but aren't essential}
+\begin{itemize}
+\item The user’s virtual body should not clip through objects in the virtual world
+\item Virtual items should not clip through objects in the virtual world
+\item The user should be able to put grocery items in a shopping cart or basket
+\end{itemize}  \newpage
+%%%%%%%%%COULD HAVES%%%%%%%%%
+\textbf{Could haves} \\
+\textit{Non-essential features that are only implemented if there is enough time}
+\begin{itemize}
+\item The body of the user could be represented by a realistic looking 3D model
+\item The user could move around in the virtual world with a controller
+\item The user could interact with objects in another way than picking up, like pushing
+\end{itemize}
+%%%%%%%%%WONT HAVES%%%%%%%%%
+\textbf{Won't haves} \\
+\textit{Interesting features for future development that are not going to be implemented}
+\begin{itemize}
+\item The user won’t be able to move around in the virtual world using a VR walking pad like the Virtuix Omni
+\item The hands will not get tracked when outside the vision of the leap motion (in front of the player)
+\end{itemize}
+\section{Non-functional}
+\begin{itemize}
+\item The project must be developed on Unity3D
+\item Classes must be unit tested when not hardware related
+\item The frame rate must stay around or above 90 fps
+\item The final product should be finished before June 23, 2016, 18:55
+\end{itemize}
+
+\chapter{Product Backlog}
+This chapter describes the user stories. The features are sorted by priority from high to low.
+\section{User stories of features}
+\begin{enumerate}
+%%%%nr 1 %%%%%%
+\item As a typical user I want to interact (in terms of grabbing and dropping) with an virtual item in a virtual world in a realistic fashion.
+\begin{itemize}
+\item This is the most important feature of the product. CleVR has stated that this is the main problem that must solved and the simulation of this must be as realistic as possible. 
+\end{itemize}
+%%%%nr 2 %%%%%%
+\item As a user I want to be able to see my own virtual body in the virtual world.
+\begin{itemize}
+\item Since the focus of our project is on a working, realistic and interactable environment, the ability to see your own (part of the) body is of major importance to maintain a realistic setting.
+\end{itemize}
+%%%%nr 3%%%%%%
+\item As a user I want to be protected against visual glitches caused by loss of tracking, assuring a safe and visually realistic experience. 
+\begin{itemize}
+\item This is very important because we expect the user to have psychological issues, therefore we must be sure that no visual artifacts show during loss of tracking because this might cause more psychological harm. 
+\end{itemize}
+%%%%nr 4 %%%%%%
+\item As a user I want to be able to move my virtual body, while remaining in the same physical place.
+\begin{itemize}
+\item While not the most important feature, the user should still be able to move through the virtual world. The location of the user in VR must only be altered if he explicitly wants to.
+\end{itemize}
+%%%%nr 5 %%%%%%
+\item As a user I only want to interact with items that are set to be interactable, to prevent making a mess in the virtual world.
+\begin{itemize}
+\item This may be in contradiction with the reality, but there has to be limits set on the extend to which objects in the environment are interactable with, both for performance reasons and to keep the virtual environment clean. CleVR has stated this as an feature that should be upheld.
+\end{itemize}
+%%%%nr 6 %%%%%%
+\item As a user I don’t want my virtual body to pass through other virtual objects, avoiding a ghost like appearance.
+\begin{itemize}
+\item To ensure immersion during the simulation, we must be sure that any body interaction in VR with virtual objects are treated realistically. This is an important aspect of the simulation that we should strive to achieve.
+\end{itemize}
+%%%%nr 7 %%%%%%
+\item As a user I want to be able to use both hands individually to grab two different items at the same time during the simulation.
+\begin{itemize}
+\item This is less important than the possibility to move and grab items, but should be included anyway since it could affect reality of the experience
+\end{itemize}
+%%%%nr 8 %%%%%%
+\item As a user I want to be able to pass an object from the one hand to the other during the simulation.
+\begin{itemize}
+\item This is less important than the possibility to move and grab items, but should be included too both prevent a mess when the user tries to do this and to improve the experience.
+\end{itemize}
+%%%%nr 9 %%%%%%
+\item As a therapist I want to be able to use the product even when one of the hardware components (Kinect, Leap Motion or Manus VR) is unavailable.
+\begin{itemize}
+\item Even though we cannot ensure the quality of the tracking when not all of the hardware is available, it does enable the therapist to use the product while waiting for a replacement. The priority for this feature is fairly low since it is not necessary for the basic functionality. 
+\end{itemize}
+%%%%nr 10 %%%%%%
+\item As a user I want to be able to put the item I just picked up into a shopping cart.
+\begin{itemize}
+\item CleVR stated that this feature should not be focused on and should be considered extra. 
+\end{itemize}
+%%%%nr 11 %%%%%%
+\item As a user I want to be able to push the shopping cart to a new destination.
+\begin{itemize}
+\item Moving the shopping cart will increases usability and immersion but as the shopping cart itself was already an extra feature this will not have a high priority.
+\end{itemize}
+%%%%nr 12 %%%%%%
+\item As a user I want the groceries I put in the shopping cart to stay in the shopping cart.
+\begin{itemize}
+\item Just like stated in point 5 we want to protect the user from an unintentional mess and will have a high priority if we implement the shopping cart.  
+\end{itemize}
+\end{enumerate}
+
+\section{Initial release plan}
+\begin{enumerate}[label=\large{ \textbf{Sprint \arabic*}},leftmargin=3\parindent]
+\item Draft product plan, product vision
+\item Basic Unity3D environment (empty room with item shelf).
+\item System that can grab virtual items using Leap Motion.
+\item System that can grab virtual items using Leap Motion and Manus VR.
+\item System that can grab virtual items using Leap Motion and Manus VR and represent the physical body in the virtual world with Kinect.
+\item System with updated supermarket environment with shopping cart
+\item System with improved handling of tracking functionalities
+\item Final product
+\end{enumerate}
+
+\chapter{Roadmap}
+
+\begin{enumerate}[label=\large{ \textbf{Sprint \arabic*}},leftmargin=3\parindent]
+%%%%Sprint 1%%%
+\item
+\begin{itemize}
+\item Set up GitHub repo, google drive and other platforms necessary
+\item Product Vision draft finished
+\item Product Plan draft finished
+\item Architecture Design draft finished
+\end{itemize}
+\textit{Relevant user stories: 4}
+%%%%Sprint 2%%%
+\item 
+\begin{itemize}
+\item Setup Unity3D environment and project
+\item Product Vision finished
+\item Product Plan finished
+\item Project Skills assignment 1 finished
+\item Create a basic Unity3D map, does not contain any objects other than the player and a flat plane
+\item Create simple controllable object to traverse the map for testing purposes
+\end{itemize}
+\textit{Relevant user stories: 4, 5}
+%%%%Sprint 3%%%
+\item 
+\begin{itemize}
+\item Basic visualization of hands implemented (rigged without textures)
+\item Hand tracking and finger tracking with Leap Motion implemented
+\item Integrate Manus VR finger tracking
+\item Combine Manus VR finger tracking with the Leap Motion
+\item Improve existing Unity3D map to represent a virtual supermarket
+\item Implement picking up items using Leap Motion and Manus VR
+\end{itemize}
+\textit{Relevant user stories: 1, 2, 3, 7, 8, 9 }
+%%%%Sprint 4%%%
+\item 
+\begin{itemize}
+\item Visual model of body finished
+\item Integrate Kinect into system to provide body tracking for the simulation
+\item Bind Kinect data to the body model
+\item Optimize grabbing to prevent virtual hand going through objects
+\end{itemize}
+\textit{Relevant user stories: 1, 2, 3, 5, 6, 9 }
+%%%%Sprint 5%%%
+\item 
+\begin{itemize}
+\item Testing with VR headset
+\item Fix possible problems found when testing with the VR headset
+\item Apply positioning and rotation of head tracked by VR headset
+\item Prevent virtual body from clipping through objects
+\end{itemize}
+\textit{Relevant user stories: 3, 5, 6 }
+%%%%Sprint 6%%%
+\item 
+\begin{itemize}
+\item Add a shopping cart to the environment, in which objects that are picked up from the shelves can be put.
+\item Allow the shopping cart to be moved without creating a mess.
+\item Allow objects to be passed from one hand to the other, without having to throw or drop it first.
+\end{itemize}
+\textit{Relevant user stories: 8, 10, 11, 12 }
+%%%%Sprint 7%%%
+\item 
+\begin{itemize}
+\item Improvements on previously built functionalities	
+\item Implement input filters (if hardware loses connection or delivers strange input, solve this in a
+visually realistic way)
+\item Optimize the system for combining all hardware components
+\item Finalize all features of the system
+\end{itemize}
+\textit{Relevant user stories: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }
+%%%%Sprint 8%%%
+\item 
+\begin{itemize}
+\item Improvements and bugfixes
+\item Architecture Design finalized
+\item Final Product
+\end{itemize}
+\textit{Relevant user stories: 1, 2, 3, 4, 5 }
+%%%%Sprint 9%%%
+\item 
+\begin{itemize}
+\item Interaction Design Quiz (individual)
+\item Final Report
+\end{itemize}
+\end{enumerate}
+
+
+\end{document}

@@ -67,7 +67,7 @@ public class FixedJointManusGrab : GrabBehaviour
     public override void onPinch(Vector3 pinch)
     {
         Collider[] objects = Physics.OverlapSphere(pinch, radius, (1 << interactable));
-        float minimumDistance = radius;
+        float minimumDistance = float.MaxValue;
         pinching = true;
         for (int i = 0; i < objects.Length; i++)
         {

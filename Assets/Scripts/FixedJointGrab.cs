@@ -11,8 +11,8 @@ public class FixedJointGrab : GrabBehaviour
     private HandModel model;
     private int interactable = 8;       //Layer with interactables
     public bool pinching { get; private set; }
-    public bool pinch { get; private set; }
-    public Vector3 pinchPosition { get; private set; }
+    public bool pinch { get; protected set; }
+    public Vector3 pinchPosition { get; protected set; }
     private Vector3 previous ;
     private GameObject grabbedObject;
     //private Vector3 grabPosition;

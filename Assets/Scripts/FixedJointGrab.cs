@@ -3,6 +3,7 @@ using Leap.Unity;
 using Leap;
 
 /**
+* Author: Luke
 * TODO: Grabbed object lags behind when walking or moving.
 *   This script determines the behaviour when grabbing gesture is made with Leap Motion
 */
@@ -12,8 +13,8 @@ public class FixedJointGrab : GrabBehaviour
     private int interactable = 8;       //Layer with interactables
     public bool pinching { get; private set; }
     public bool pinch { get; protected set; }
-    public Vector3 pinchPosition { get; protected set; }
-    private Vector3 previous ;
+    public Vector3 pinchPosition;
+    private Vector3 previous;
     public GameObject grabbedObject { get; private set; }
     public float reference = 0.04f;
     public float radius = 0.05f;

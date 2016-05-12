@@ -14,21 +14,14 @@ public class FixedJointGrab : GrabBehaviour
     public bool pinch { get; private set; }
     public Vector3 pinchPosition { get; private set; }
     private Vector3 previous ;
-    private GameObject grabbedObject;
-    //private Vector3 grabPosition;
+    public GameObject grabbedObject { get; private set; }
     public float reference = 0.04f;
     public float radius = 0.05f;
 
     // Use this for initialization
-    void Start()
-    {
-        model = getHandModel();
-        pinching = false;
-        pinch = false;
-        pinchPosition = Vector3.zero;
-        grabbedObject = null;
-        previous = model.palm.transform.position;
-
+    void Start() 
+    { 
+        initialize();
     }
 
     //Debug only
@@ -45,6 +38,16 @@ public class FixedJointGrab : GrabBehaviour
         {
             Gizmos.DrawSphere(pinchPosition, 0.05f);
         }
+    }
+
+    public void initialize()
+    {
+        model = getHandModel();
+        pinching = false;
+        pinch = false;
+        pinchPosition = Vector3.zero;
+        grabbedObject = null;
+        previous = model.palm.transform.position;
     }
 
     public HandModel getHandModel()
@@ -76,7 +79,10 @@ public class FixedJointGrab : GrabBehaviour
         pinching = false;
         if (grabbedObject != null)
         {
-            Destroy(grabbedObject.GetComponent<FixedJoint>());
+            if (Application.isPlaying)
+            {
+                Destroy(grabbedObject.GetComponent<FixedJoint>());
+            }
             grabbedObject.GetComponent<Rigidbody>().velocity = (model.palm.transform.position - previous) / Time.deltaTime;
         }
 

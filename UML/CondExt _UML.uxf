@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>42</x>
+      <y>427</y>
+      <w>147</w>
+      <h>217</h>
+    </coordinates>
+    <panel_attributes>FixedJointGrab
+-
+-model : HandModel;
+-interactable: int;
++pinching: bool;
++pinch: bool;
++pinchPosition: Vector3 ;
+-previous: Vector3;
+-grabbedObject: GameObject;
++reference: float;
++radius: float;
+--
+-Start
+-OnDrawGizmos
++getHandModel
++onRelease
++recognizeGesture
++Hold
++updateGrab
+-Update</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>427</y>
+      <w>147</w>
+      <h>203</h>
+    </coordinates>
+    <panel_attributes>GrabbableObject
+-
++preferredOrientation: bool
++objectOrientation: bool
++palmOrientation: Vector3/
++ignoreOnGrab: Rigidbody[]
++breakableJoint: Rigidbody
++breakForce: float
++breakTorque: float
++rotateQuickly: bool
+#grabbed_: float
+#hovered_ : float
+--
++ IsHovered: bool
++OnStartHover
++OnStopHover
++OnGrab
++OnRelease
+-Update
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>427</y>
+      <w>245</w>
+      <h>378</h>
+    </coordinates>
+    <panel_attributes>GrabbingHand
+-
+#RELEASE_MAXIMUM_SPRING: float
+#RELEASE_DAMPING : float
++grabbableLayers: LayerMask
++grabObjectDistanceRatio: float
++releaseDistanceRatio: float
++grabObjectDistance: float
++releaseBreakDistance: float
++rotationFiltering : float
++positionFiltering: float
++minConfidence: float
++maxVelocity: float
++maxMovement: Vector3
++Vector3 : Vector3
+#pinch_state_: PinchState
+#active_object_: Collider
+#last_max_angular_velocity_: float
+#rotation_from_palm_: Quaternion
+#current_pinch_: Vector3
+#Quaternion palm_rotation_: Quaternion
+--
+#IgnoreCollisions(obj: GameObject,ignore: bool)
+#GetClosestGrabbableObject(pinch_position: Vector3 )
+#Hover(pinch_position: Vector3)
+#StartPinch(pinch_position: Vector3)
+-Onrelease
+#GetPinchState(pinch_position: Vector3): Pinchstate
+-GetPinchPosition: Vector3
+-UpdatePalmRotation
+-ContinueHardPinch(pinch_position: Vector3)
+-ObjectReleaseBreak(pinch_position: Vector3): bool
+-ContinueSoftPinch(pinch_position: Vector3)
+-FixedUpdate
+
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>203</x>
+      <y>427</y>
+      <w>147</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>BoxHandDrop
+-
+-startingPalmPosition : Vector3
+-startingOrientation : Quaternion
+-palm : Transform 
+-forearm : Transform 
+-armCenter: Vector3
+-armRotation : Quaternion
+--
+#Awake
+#HandFinish
+#HandReset
+-NonLinearInterPolation(t: float): float
+-LerpToStart : IEnumerator
+-LerpBack : IEnumerator
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>427</y>
+      <w>147</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>GrabBehaviour
+-
+
+--
+/+onPinch(Vector3 v);/
+/+onRelease/
+/+Hold/
+/+recognizeGesture/
+/+updateGrab/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>196</x>
+      <y>168</y>
+      <w>175</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Objects
+--
+Cup
+Doritos
+Mntdew
+shelf
+shelfDouble
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>42</x>
+      <y>168</y>
+      <w>147</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>Scenes
+--
+work_env
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>98</x>
+      <y>210</y>
+      <w>21</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;300.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>98</x>
+      <y>301</y>
+      <w>735</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>1030.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>273</x>
+      <y>301</y>
+      <w>21</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>427</x>
+      <y>301</y>
+      <w>21</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>301</y>
+      <w>21</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>812</x>
+      <y>301</y>
+      <w>21</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

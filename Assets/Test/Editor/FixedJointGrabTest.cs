@@ -14,10 +14,10 @@ using Leap.Unity;
 public class FixedJointGrabTest
 {
     public LayerMask interactable = 8;
-    private FixedJointGrab grab; 
+    protected FixedJointGrab grab; 
 
     [SetUp]
-    public void setup()
+    public virtual void setup()
     {
         GameObject empty = new GameObject();
         GameObject palm = new GameObject();

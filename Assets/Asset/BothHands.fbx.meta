@@ -69,6 +69,46 @@ ModelImporter:
     100122: TwistBone.016_end
     100124: TwistBone.016_end 1
     100126: ArmatureLeft2
+    100128: L_Finger_00
+    100130: L_Finger_01
+    100132: L_Finger_02
+    100134: L_Finger_02_end
+    100136: L_Finger_10
+    100138: L_Finger_11
+    100140: L_Finger_12
+    100142: L_Finger_12_end
+    100144: L_Finger_20
+    100146: L_Finger_21
+    100148: L_Finger_22
+    100150: L_Finger_22_end
+    100152: L_Finger_30
+    100154: L_Finger_31
+    100156: L_Finger_32
+    100158: L_Finger_32_end
+    100160: L_Finger_40
+    100162: L_Finger_41
+    100164: L_Finger_42
+    100166: L_Finger_42_end
+    100168: R_Finger_00
+    100170: R_Finger_01
+    100172: R_Finger_02
+    100174: R_Finger_02_end
+    100176: R_Finger_10
+    100178: R_Finger_11
+    100180: R_Finger_12
+    100182: R_Finger_12_end
+    100184: R_Finger_20
+    100186: R_Finger_21
+    100188: R_Finger_22
+    100190: R_Finger_22_end
+    100192: R_Finger_30
+    100194: R_Finger_31
+    100196: R_Finger_32
+    100198: R_Finger_32_end
+    100200: R_Finger_40
+    100202: R_Finger_41
+    100204: R_Finger_42
+    100206: R_Finger_42_end
     400000: Arm
     400002: Arm 1
     400004: Arm_end
@@ -133,8 +173,50 @@ ModelImporter:
     400122: TwistBone.016_end
     400124: TwistBone.016_end 1
     400126: ArmatureLeft2
+    400128: L_Finger_00
+    400130: L_Finger_01
+    400132: L_Finger_02
+    400134: L_Finger_02_end
+    400136: L_Finger_10
+    400138: L_Finger_11
+    400140: L_Finger_12
+    400142: L_Finger_12_end
+    400144: L_Finger_20
+    400146: L_Finger_21
+    400148: L_Finger_22
+    400150: L_Finger_22_end
+    400152: L_Finger_30
+    400154: L_Finger_31
+    400156: L_Finger_32
+    400158: L_Finger_32_end
+    400160: L_Finger_40
+    400162: L_Finger_41
+    400164: L_Finger_42
+    400166: L_Finger_42_end
+    400168: R_Finger_00
+    400170: R_Finger_01
+    400172: R_Finger_02
+    400174: R_Finger_02_end
+    400176: R_Finger_10
+    400178: R_Finger_11
+    400180: R_Finger_12
+    400182: R_Finger_12_end
+    400184: R_Finger_20
+    400186: R_Finger_21
+    400188: R_Finger_22
+    400190: R_Finger_22_end
+    400192: R_Finger_30
+    400194: R_Finger_31
+    400196: R_Finger_32
+    400198: R_Finger_32_end
+    400200: R_Finger_40
+    400202: R_Finger_41
+    400204: R_Finger_42
+    400206: R_Finger_42_end
     4300000: LeftHand.001
     4300002: RightHand
+    7400000: ArmatureLeft2|RightHandGrab.001
+    7400002: ArmatureRight|RightHandGrab
     9500000: //RootNode
     13700000: LeftHand.001
     13700002: RightHand

@@ -59,7 +59,7 @@ public class FixedJointGrab : GrabBehaviour
     public override void onPinch(Vector3 pinch)
     {
         Collider[] objects = Physics.OverlapSphere(pinch, radius, (1 << interactable));
-        float minimumDistance = radius;
+        float minimumDistance = float.MaxValue;
         pinching = true;
         for (int i = 0; i < objects.Length; i++)
         {
@@ -84,6 +84,7 @@ public class FixedJointGrab : GrabBehaviour
             {
                 Destroy(grabbedObject.GetComponent<FixedJoint>());
             }
+            grabbedObject.GetComponent<Collider>().enabled = true;
             grabbedObject.GetComponent<Rigidbody>().velocity = (model.palm.transform.position - previous) / Time.deltaTime;
         }
 
@@ -117,6 +118,7 @@ public class FixedJointGrab : GrabBehaviour
             {
                 FixedJoint joint = grabbedObject.AddComponent<FixedJoint>();
                 joint.connectedBody = model.palm.GetComponent<Rigidbody>();
+                grabbedObject.GetComponent<Collider>().enabled = false;
                 //joint.anchor = model.palm.transform.localPosition + new Vector3(0.5f, 0.2f, 0.6f);
             }
         }

@@ -17,10 +17,10 @@ namespace Leap.Unity {
 
     [Tooltip("Set true if the Leap Motion hardware is mounted on an HMD; otherwise, leave false.")]
     [SerializeField]
-    protected bool _isHeadMounted = false;
+    public bool _isHeadMounted = false;
 
     [SerializeField]
-    protected bool overrideDeviceType = false;
+    public bool overrideDeviceType = false;
 
     [Tooltip("If overrideDeviceType is enabled, the hand controller will return a device of this type.")]
     [SerializeField]

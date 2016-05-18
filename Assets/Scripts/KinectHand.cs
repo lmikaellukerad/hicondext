@@ -13,7 +13,7 @@ public class KinectHand : RiggedHand {
         {
             if (palm != null)
             {
-                palm.position = wrist.position;//
+                palm.position = wrist.position;//GetWristPosition();//
                 palm.rotation = GetPalmRotation() * Reorientation();
             }
             if (forearm != null)

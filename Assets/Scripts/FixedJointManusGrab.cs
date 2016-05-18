@@ -37,6 +37,9 @@ public class FixedJointManusGrab : FixedJointGrab
         }
     }
 
+    /// <summary>
+    /// Determines the current gesture given the current fingerpositions and -rotations
+    /// </summary>
     public override void recognizeGesture()
     {
         Transform[] fingerTipTransforms = getHandModel().GetComponent<HandSimulator>().FingerTipTransforms;

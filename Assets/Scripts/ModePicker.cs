@@ -6,8 +6,10 @@ public class ModePicker : MonoBehaviour {
 
 	public bool VRMode;
 
-	// Use this for initialization
-	void Start()
+    /// <summary>
+    /// initializes the Leap for either VR mounted or non-mounted mode.
+    /// </summary>
+    void Start()
     {
 		if (VRMode)
 		{
@@ -38,8 +40,10 @@ public class ModePicker : MonoBehaviour {
             transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
 		}
 	}
-	
-	// Update is called once per frame
+
+    /// <summary>
+    /// Updates this instance. An update is called once per frame.
+    /// </summary>
     void Update()
     {
         if (VRMode)

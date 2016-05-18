@@ -19,7 +19,9 @@ public class LightPinch : MonoBehaviour
     public float radius = 0.05f;
     public int force = 500;
 
-    // Use this for initialization
+    /// <summary>
+    /// Initializes  variables.
+    /// </summary>
     void Start()
     {
         model = transform.GetComponent<HandModel>();
@@ -35,6 +37,10 @@ public class LightPinch : MonoBehaviour
 
     // Update is called once per frame
 
+    /// <summary>
+    /// This method gets executed whenever the fingers are pinching.
+    /// </summary>
+    /// <param name="pinch">The pinch.</param>
     void onPinch(Vector3 pinch)
     {
         Collider[] objects = Physics.OverlapSphere(pinch, radius, (1 << interactable));
@@ -53,6 +59,9 @@ public class LightPinch : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Updates the hand within a fixed timeframe.
+    /// </summary>
     void FixedUpdate()
     {
         bool pinch = false;

@@ -41,6 +41,9 @@ public class FixedJointGrab : GrabBehaviour
         }
     }
 
+    /// <summary>
+    /// Initializes this instance.
+    /// </summary>
     public void initialize()
     {
         model = getHandModel();
@@ -51,11 +54,21 @@ public class FixedJointGrab : GrabBehaviour
         previous = model.palm.transform.position;
     }
 
+    /// <summary>
+    /// Returns the hand model.
+    /// </summary>
+    /// <returns>
+    /// HandModel
+    /// </returns>
     public HandModel getHandModel()
     {
         return transform.GetComponent<HandModel>();
     }
 
+    /// <summary>
+    /// This method gets executed whenever the fingers are pinching.
+    /// </summary>
+    /// <param name="pinch">The pinch.</param>
     public override void onPinch(Vector3 pinch)
     {
         Collider[] objects = Physics.OverlapSphere(pinch, radius, (1 << interactable));
@@ -74,6 +87,9 @@ public class FixedJointGrab : GrabBehaviour
 
     }
 
+    /// <summary>
+    /// This method gets executed whenever the fingers stop pinching.
+    /// </summary>
     public override void onRelease()
     {
         
@@ -91,6 +107,9 @@ public class FixedJointGrab : GrabBehaviour
         grabbedObject = null;
     }
 
+    /// <summary>
+    /// Determines the current gesture given the current fingerpositions and -rotations
+    /// </summary>
     public override void recognizeGesture()
     {
         Hand leapHand = model.GetLeapHand();
@@ -110,6 +129,9 @@ public class FixedJointGrab : GrabBehaviour
         }
     }
 
+    /// <summary>
+    /// connects a rigidbody to the fixedjoint, practically lets a hand hold an item.
+    /// </summary>
     public override void Hold()
     {
         if (grabbedObject != null)
@@ -124,6 +146,9 @@ public class FixedJointGrab : GrabBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates to check for grabbing, pinching or holding.
+    /// </summary>
     public override void updateGrab()
     {
         pinch = false;
@@ -140,6 +165,9 @@ public class FixedJointGrab : GrabBehaviour
         previous = model.palm.transform.position;
     }
 
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
     void Update()
     {
         updateGrab();

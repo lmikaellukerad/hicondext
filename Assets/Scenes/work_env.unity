@@ -85,6 +85,10 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &21792715 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
+  m_PrefabInternal: {fileID: 1787700753}
 --- !u!4 &36395375 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400052, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
@@ -1573,7 +1577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mirroredMovement: 0
-  verticalMovement: 0
+  verticalMovement: 1
   smoothFactor: 5
   offsetRelativeToSensor: 0
   HipCenter: {fileID: 0}
@@ -1594,7 +1598,7 @@ MonoBehaviour:
   RightThigh: {fileID: 36395375}
   RightKnee: {fileID: 1920469550}
   RightFoot: {fileID: 275883985}
-  BodyRoot: {fileID: 0}
+  BodyRoot: {fileID: 21792715}
   OffsetNode: {fileID: 0}
 --- !u!114 &1820355882
 MonoBehaviour:

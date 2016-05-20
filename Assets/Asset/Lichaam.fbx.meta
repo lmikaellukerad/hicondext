@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fd0c515802a50fe41a195e5e33403cb5
-timeCreated: 1463479653
+timeCreated: 1463588827
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -85,6 +85,12 @@ ModelImporter:
     100154: RingFinger.001
     100156: ThumbBone
     100158: ThumbBone.001
+    100160: Cube
+    100162: LeftShoe
+    100164: RightShoe
+    100166: Body
+    100168: Pants
+    100170: Shirt
     400000: Armature
     400002: Cube.001
     400004: Cube.001_MeshPart0
@@ -165,13 +171,38 @@ ModelImporter:
     400154: RingFinger.001
     400156: ThumbBone
     400158: ThumbBone.001
+    400160: Cube
+    400162: LeftShoe
+    400164: RightShoe
+    400166: Body
+    400168: Pants
+    400170: Shirt
+    2300000: Cube
+    2300002: Cube.001_MeshPart0
+    2300004: Cube.001_MeshPart1
+    3300000: Cube
+    3300002: Cube.001_MeshPart0
+    3300004: Cube.001_MeshPart1
     4300000: Cube.001_MeshPart0
     4300002: Cube.001_MeshPart1
-    7400000: Armature|RightHandGrab
+    4300004: LeftShoe
+    4300006: Cube
+    4300008: RightShoe
+    4300010: Shirt
+    4300012: Pants
+    4300014: Body
+    7400000: Armature|LeftHandGrab
     7400002: Armature|RightHandGrab.001
+    7400004: Armature|RightHandGrab
     9500000: //RootNode
     13700000: Cube.001_MeshPart0
     13700002: Cube.001_MeshPart1
+    13700004: Cube
+    13700006: LeftShoe
+    13700008: RightShoe
+    13700010: Body
+    13700012: Pants
+    13700014: Shirt
   materials:
     importMaterials: 1
     materialName: 0
@@ -181,18 +212,394 @@ ModelImporter:
     bakeSimulation: 0
     resampleRotations: 1
     optimizeGameObjects: 0
-    motionNodeName: 
+    motionNodeName: <Root Transform>
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationDoRetargetingWarnings: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|RightHandGrab
+      takeName: Armature|RightHandGrab
+      firstFrame: 0
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/HipSpine
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L/UpperLeg_L
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 0
+      - path: Armature/HipSpine/HipBone_R
+        weight: 1
+      - path: Armature/HipSpine/HipBone_R/UpperLeg_R
+        weight: 1
+      - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Head
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Head/Head_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11/L_Finger_12
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11/L_Finger_12/L_Finger_12_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21/L_Finger_22
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21/L_Finger_22/L_Finger_22_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41/L_Finger_42
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41/L_Finger_42/L_Finger_42_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31/L_Finger_32
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31/L_Finger_32/L_Finger_32_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01/L_Finger_02
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01/L_Finger_02/L_Finger_02_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11/R_Finger_12
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11/R_Finger_12/R_Finger_12_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21/R_Finger_22
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21/R_Finger_22/R_Finger_22_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41/R_Finger_42
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41/R_Finger_42/R_Finger_42_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31/R_Finger_32
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31/R_Finger_32/R_Finger_32_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01/R_Finger_02
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01/R_Finger_02/R_Finger_02_end
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Cube.001
+        weight: 0
+      - path: Cube.001/Cube.001_MeshPart0
+        weight: 0
+      - path: Cube.001/Cube.001_MeshPart1
+        weight: 0
+      - path: LeftShoe
+        weight: 0
+      - path: RightShoe
+        weight: 0
+      maskType: 0
+      maskSource: {fileID: 101100000, guid: f00268be78e6ce441aaf92d4f2f45747, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|LeftHandGrab
+      takeName: Armature|LeftHandGrab
+      firstFrame: 0
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/HipSpine
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L/UpperLeg_L
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L/Foot_L
+        weight: 1
+      - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
+        weight: 0
+      - path: Armature/HipSpine/HipBone_R
+        weight: 1
+      - path: Armature/HipSpine/HipBone_R/UpperLeg_R
+        weight: 1
+      - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R/Foot_R
+        weight: 1
+      - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Head
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Head/Head_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11/L_Finger_12
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11/L_Finger_12/L_Finger_12_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21/L_Finger_22
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21/L_Finger_22/L_Finger_22_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41/L_Finger_42
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41/L_Finger_42/L_Finger_42_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31/L_Finger_32
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31/L_Finger_32/L_Finger_32_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01/L_Finger_02
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01/L_Finger_02/L_Finger_02_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11/R_Finger_12
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11/R_Finger_12/R_Finger_12_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21/R_Finger_22
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21/R_Finger_22/R_Finger_22_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41/R_Finger_42
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41/R_Finger_42/R_Finger_42_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31/R_Finger_32
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31/R_Finger_32/R_Finger_32_end
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01
+        weight: 1
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01/R_Finger_02
+        weight: 0
+      - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01/R_Finger_02/R_Finger_02_end
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Cube.001
+        weight: 0
+      - path: Cube.001/Cube.001_MeshPart0
+        weight: 0
+      - path: Cube.001/Cube.001_MeshPart1
+        weight: 0
+      maskType: 0
+      maskSource: {fileID: 101100000, guid: f00268be78e6ce441aaf92d4f2f45747, type: 2}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

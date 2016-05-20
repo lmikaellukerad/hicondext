@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections;
 using Leap;
-using System;
+using UnityEngine;
 
 /**
  * Box Hand model for testing
@@ -60,7 +60,7 @@ namespace Leap.Unity
                 palm.rotation = GetPalmRotation() * Reorientation();
             }
 
-            if (forearm != null)
+            if (this.forearm != null)
             {
                 forearm.position = GetArmCenter();
                 forearm.rotation = GetArmRotation() * Reorientation();

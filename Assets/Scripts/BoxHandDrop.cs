@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using Leap;
+using UnityEngine;
 
 /**
  * Script for behaviour when tracking of hand is lost
@@ -23,13 +23,13 @@ namespace Leap.Unity
         protected override void Awake()
         {
             base.Awake();
-            palm = GetComponent<HandModel>().palm;
-            forearm = GetComponent<HandModel>().forearm;
-            armCenter = forearm.localPosition;
-            armRotation = forearm.localRotation;
-            startingPalmPosition = palm.localPosition;
-            startingPalmPosition = palm.localPosition;
-            startingOrientation = palm.localRotation;
+            this.palm = GetComponent<HandModel>().palm;
+            this.forearm = GetComponent<HandModel>().forearm;
+            this.armCenter = this.forearm.localPosition;
+            this.armRotation = this.forearm.localRotation;
+            this.startingPalmPosition = this.palm.localPosition;
+            this.startingPalmPosition = this.palm.localPosition;
+            this.startingOrientation = this.palm.localRotation;
         }
 
         /// <summary>
@@ -80,8 +80,8 @@ namespace Leap.Unity
                 float t = (Time.time - startTime) / duration;
                 palm.localPosition = Vector3.Lerp(droppedPosition, startingPalmPosition, NonLinearInterpolation(t));
                 palm.localRotation = Quaternion.Lerp(droppedOrientation, startingOrientation, NonLinearInterpolation(t));
-                forearm.localPosition = Vector3.Lerp(droppedArmCenter, armCenter, NonLinearInterpolation(t));
-                forearm.localRotation = Quaternion.Lerp(droppedArmRotation, armRotation, NonLinearInterpolation(t));
+                forearm.localPosition = Vector3.Lerp(droppedArmCenter, this.armCenter, NonLinearInterpolation(t));
+                forearm.localRotation = Quaternion.Lerp(droppedArmRotation, this.armRotation, NonLinearInterpolation(t));
 
                 yield return null;
             }

@@ -3,10 +3,11 @@ using System.Collections;
 
 public class headCam : MonoBehaviour {
     public GameObject Head;
+    private Quaternion initial;
 
     // Use this for initialization
     void Start () {
-	    
+        initial = transform.rotation;
 	}
 	
 	// Update is called once per frame
@@ -14,7 +15,7 @@ public class headCam : MonoBehaviour {
         if (Head != null)
         {
             transform.position = Head.GetComponent<Transform>().position;
-            transform.rotation = Head.GetComponent<Transform>().rotation;
+            transform.rotation = Quaternion.Euler(initial.eulerAngles + Head.GetComponent<Transform>().rotation.eulerAngles);
         }
     }
 }

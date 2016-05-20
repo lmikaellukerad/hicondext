@@ -8,6 +8,14 @@ using Leap;
 */
 public class FixedJointManusGrab : FixedJointGrab
 {
+    private HandSimulator sim;
+
+    void Start()
+    {
+        sim = GetComponent<HandSimulator>();
+    }
+
+
 
     //Debug only
     void OnDrawGizmos()
@@ -40,13 +48,18 @@ public class FixedJointManusGrab : FixedJointGrab
     public override void recognizeGesture()
     {
         Transform[] fingerTipTransforms = getHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
+        float dist = reference;
+        if (pinch)
+        {
+            dist = reference * 1.2f;
+        }
         if (fingerTipTransforms != null && fingerTipTransforms.Length != 0)
         {
             Transform thumb = fingerTipTransforms[0];
             for (int i = 1; i < fingerTipTransforms.Length; i++)
             {
                 Transform fingerTip = fingerTipTransforms[i];
-                if (Vector3.Distance(fingerTip.position, thumb.position) < reference)
+                if (Vector3.Distance(fingerTip.position, thumb.position) < dist)
                 {
                     pinch = true;
                     pinchPosition = thumb.position;
@@ -54,6 +67,7 @@ public class FixedJointManusGrab : FixedJointGrab
                 }
             }
         }
+        pinch = false;
     }
 
 }

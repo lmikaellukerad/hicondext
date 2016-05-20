@@ -31,6 +31,7 @@ public class HandSimulator : MonoBehaviour
     private Transform[][] gameTransforms;
     private Transform[][] modelTransforms;
     public Transform[] FingerTipTransforms;
+    public bool grabbing;
 
     /// <summary>
     /// Finds a deep child in a transform
@@ -68,6 +69,7 @@ public class HandSimulator : MonoBehaviour
         // centering mechanism.
         glove.Recenter();
 
+        grabbing = false;
 
         // Associate the game transforms with the skeletal model.
         gameTransforms = new Transform[5][];
@@ -107,6 +109,16 @@ public class HandSimulator : MonoBehaviour
         modelObject.SetActive(true);
     }
 
+    public void OnGrab()
+    {
+        grabbing = true;
+    }
+
+    public void OnRelease()
+    {
+        grabbing = false;
+    }
+
     /// <summary>
     /// Updates a skeletal from glove data
     /// </summary>
@@ -121,7 +133,14 @@ public class HandSimulator : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            animationClip.SampleAnimation(modelObject, fingers[i] * timeFactor);
+            if (grabbing)
+            {
+                animationClip.SampleAnimation(modelObject, fingers[i] * timeFactor * 0.5f);
+            } else
+            {
+                animationClip.SampleAnimation(modelObject, fingers[i] * timeFactor);
+            }
+            
             for (int j = 0; j < 4; j++)
             {
                 gameTransforms[i][j].localRotation = modelTransforms[i][j].localRotation;

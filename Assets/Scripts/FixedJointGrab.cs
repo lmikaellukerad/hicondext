@@ -10,6 +10,7 @@ using Leap;
 public class FixedJointGrab : GrabBehaviour
 {
     private HandModel model;
+
     private int interactable = 8;       //Layer with interactables
     public bool pinching { get; private set; }
     public bool pinch { get; protected set; }
@@ -60,47 +61,59 @@ public class FixedJointGrab : GrabBehaviour
     {
         Collider[] objects = Physics.OverlapSphere(pinch, radius, (1 << interactable));
         float minimumDistance = float.MaxValue;
-        pinching = true;
-        for (int i = 0; i < objects.Length; i++)
-        {
-            Collider o = objects[i];
-            float currentDistance = Vector3.Distance(pinch, o.GetComponent<Transform>().position);
-            if (currentDistance < minimumDistance)
+        
+        if (grabbedObject == null)
+        { 
+            pinching = true;
+        
+            for (int i = 0; i < objects.Length; i++)
             {
-                grabbedObject = o.gameObject;
-                minimumDistance = currentDistance;
+                Collider o = objects[i];
+                float currentDistance = Vector3.Distance(pinch, o.GetComponent<Transform>().position);
+                if (currentDistance <= minimumDistance)
+                {
+                    grabbedObject = o.gameObject;
+                    minimumDistance = currentDistance;
+                }
             }
         }
+
 
     }
 
     public override void onRelease()
     {
-        
-        pinching = false;
         if (grabbedObject != null)
         {
+            pinching = false;
             if (Application.isPlaying)
             {
                 Destroy(grabbedObject.GetComponent<FixedJoint>());
             }
             grabbedObject.GetComponent<Collider>().enabled = true;
             grabbedObject.GetComponent<Rigidbody>().velocity = (model.palm.transform.position - previous) / Time.deltaTime;
+            
         }
-
+        GetComponent<HandSimulator>().OnRelease();
         grabbedObject = null;
     }
 
     public override void recognizeGesture()
     {
+        float dist = reference;
         Hand leapHand = model.GetLeapHand();
+        if (pinch)
+        {
+            dist = reference * 1.1f;
+        }
         if (leapHand != null)
         {
             Finger thumb = leapHand.Fingers[0];
             for (int i = 1; i < HandModel.NUM_FINGERS; i++)
             {
                 Finger finger = leapHand.Fingers[i];
-                if (finger.TipPosition.DistanceTo(thumb.TipPosition) < reference)
+
+                if (finger.TipPosition.DistanceTo(thumb.TipPosition) < dist)
                 {
                     pinch = true;
                     pinchPosition = thumb.TipPosition.ToVector3();
@@ -108,6 +121,7 @@ public class FixedJointGrab : GrabBehaviour
                 }
             }
         }
+        pinch = false;
     }
 
     public override void Hold()
@@ -120,23 +134,31 @@ public class FixedJointGrab : GrabBehaviour
                 joint.connectedBody = model.palm.GetComponent<Rigidbody>();
                 grabbedObject.GetComponent<Collider>().enabled = false;
                 //joint.anchor = model.palm.transform.localPosition + new Vector3(0.5f, 0.2f, 0.6f);
+                
             }
+            GetComponent<HandSimulator>().OnGrab();
+
         }
     }
 
     public override void updateGrab()
     {
-        pinch = false;
+       // pinch = false;
         recognizeGesture();
         if (pinch && !pinching)
         {
             onPinch(pinchPosition);
         }
+        else if (pinch && pinching)
+        {
+            Hold();
+        }
         else if (!pinch && pinching)
         {
             onRelease();
         }
-        Hold();
+
+        
         previous = model.palm.transform.position;
     }
 

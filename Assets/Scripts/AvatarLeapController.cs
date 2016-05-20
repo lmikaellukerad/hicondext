@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 //using Windows.Kinect;
 
 using System;
@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Text;
 
-public class AvatarControllerClassic : AvatarController
+public class AvatarLeapController : AvatarController
 {
     // Public variables that will get matched to bones. If empty, the Kinect will simply not track it.
     public Transform HipCenter;
@@ -105,29 +105,20 @@ public class AvatarControllerClassic : AvatarController
         //		}
     }
 
-    public void OnDrawGizmos()
-    {
-        if (rightHandTarget != null)
-        {
-            Gizmos.DrawSphere(rightHandTarget.transform.position, 0.05f);
-        }
-        if (leftHandTarget != null)
-        {
-            Gizmos.DrawSphere(leftHandTarget.transform.position, 0.05f);
-        }
-    }
-
     public bool checkLeap(int boneIndex)
     {
+        print("HI");
         if (UseLeapHands)
         {
-            if (rightHandTarget != null && rightHandTarget.activeInHierarchy && (boneIndex == 4 || boneIndex == 5 || boneIndex == 6 || boneIndex == 7 || boneIndex == 8))
+            if (rightHandTarget != null && rightHandTarget.activeInHierarchy && (boneIndex == 5 || boneIndex == 6 || boneIndex == 7))
             {
+                print("HI");
                 return true;
             }
 
-            if (leftHandTarget != null && leftHandTarget.activeInHierarchy && (boneIndex == 9 || boneIndex == 10 || boneIndex == 11 || boneIndex == 12 || boneIndex == 13))
+            if (leftHandTarget != null && leftHandTarget.activeInHierarchy && (boneIndex == 10 || boneIndex == 11 || boneIndex == 12))
             {
+                print("HI");
                 return true;
             }
         }

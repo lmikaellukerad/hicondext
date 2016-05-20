@@ -68,7 +68,7 @@ public class HandSimulator : MonoBehaviour
         // centering mechanism.
         glove.Recenter();
 
-
+        Transform modelRoot = FindDeepChild(modelObject.transform, RootTransform.name);
         // Associate the game transforms with the skeletal model.
         gameTransforms = new Transform[5][];
         modelTransforms = new Transform[5][];
@@ -82,22 +82,22 @@ public class HandSimulator : MonoBehaviour
                 if (GLOVE_HAND.GLOVE_LEFT == glove.GloveHand)
                 {
                     gameTransforms[i][j] = FindDeepChild(RootTransform, "L_Finger_" + i.ToString() + j.ToString());
-                    modelTransforms[i][j] = FindDeepChild(modelObject.transform, "L_Finger_" + i.ToString() + j.ToString());
+                    modelTransforms[i][j] = FindDeepChild(modelRoot, "L_Finger_" + i.ToString() + j.ToString());
                     if (gameTransforms[i][j] == null)
                     {
                         gameTransforms[i][j] = FindDeepChild(RootTransform, "L_Finger_" + i.ToString() + (j - 1).ToString() + "_end");
-                        modelTransforms[i][j] = FindDeepChild(modelObject.transform, "L_Finger_" + i.ToString() + (j - 1).ToString() + "_end");
+                        modelTransforms[i][j] = FindDeepChild(modelRoot, "L_Finger_" + i.ToString() + (j - 1).ToString() + "_end");
                         FingerTipTransforms[i] = gameTransforms[i][j];
                     }
                 }
                 else
                 {
                     gameTransforms[i][j] = FindDeepChild(RootTransform, "R_Finger_" + i.ToString() + j.ToString());
-                    modelTransforms[i][j] = FindDeepChild(modelObject.transform, "R_Finger_" + i.ToString() + j.ToString());
+                    modelTransforms[i][j] = FindDeepChild(modelRoot, "R_Finger_" + i.ToString() + j.ToString());
                     if (gameTransforms[i][j] == null)
                     {
                         gameTransforms[i][j] = FindDeepChild(RootTransform, "R_Finger_" + i.ToString() + (j - 1).ToString() + "_end");
-                        modelTransforms[i][j] = FindDeepChild(modelObject.transform, "R_Finger_" + i.ToString() + (j - 1).ToString() + "_end");
+                        modelTransforms[i][j] = FindDeepChild(modelRoot, "R_Finger_" + i.ToString() + (j - 1).ToString() + "_end");
                         FingerTipTransforms[i] = gameTransforms[i][j];
                     }
                 }
@@ -110,7 +110,7 @@ public class HandSimulator : MonoBehaviour
     /// <summary>
     /// Updates a skeletal from glove data
     /// </summary>
-    void Update()
+    void LateUpdate()
     {
         Quaternion q = glove.Quaternion;
         float[] fingers = glove.Fingers;

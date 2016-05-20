@@ -29,8 +29,8 @@ public class FixedJointGrab : GrabBehaviour
     void OnDrawGizmos()
     {
 
-        HandModel hand_model = GetComponent<HandModel>();
-        Hand leap_hand = hand_model.GetLeapHand();
+        //HandModel hand_model = GetComponent<HandModel>();
+        //Hand leap_hand = hand_model.GetLeapHand();
 
         Gizmos.color = Color.red;
         //Gizmos.DrawSphere(pinchPosition, radius);

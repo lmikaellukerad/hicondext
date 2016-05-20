@@ -23,7 +23,6 @@ public class FixedJointManusGrab : FixedJointGrab
             Transform[] fingerTipTransforms = getHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
             if (fingerTipTransforms != null && fingerTipTransforms.Length != 0)
             {
-                Transform thumb = fingerTipTransforms[0];
                 for (int i = 0; i < fingerTipTransforms.Length; i++)
                 {
                     Transform fingerTip = fingerTipTransforms[i];

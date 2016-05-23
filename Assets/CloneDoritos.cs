@@ -64,7 +64,6 @@ public class CloneDoritos : MonoBehaviour
         this.position += layer * this.heightDistance;
         for (int i = 0; i < 38; i++)
         {
-            print(this.position);
             this.SpawnDoritos(this.position, this.rotation);
             this.position += this.distanceBetweenX;
         }

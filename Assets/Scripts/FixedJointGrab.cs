@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using Leap;
 using Leap.Unity;
-using Leap;
+using UnityEngine;
 
 /**
 * Author: Luke
@@ -10,12 +10,24 @@ using Leap;
 public class FixedJointGrab : GrabBehaviour
 {
     private HandModel model;
-    private int interactable = 8;       //Layer with interactables
-    public bool pinching { get; private set; }
-    public bool pinch { get; protected set; }
+    private int interactable = 8; // Layer with interactables
+    public bool pinching
+    {
+        get;
+        private set;
+    }
+    public bool pinch
+    {
+        get;
+        protected set;
+    }
     public Vector3 pinchPosition;
     private Vector3 previous;
-    public GameObject grabbedObject { get; private set; }
+    public GameObject grabbedObject
+    {
+        get;
+        private set;
+    }
     public float reference = 0.04f;
     public float radius = 0.05f;
 
@@ -25,7 +37,7 @@ public class FixedJointGrab : GrabBehaviour
         initialize();
     }
 
-    //Debug only
+    // Debug only
     void OnDrawGizmos()
     {
 
@@ -33,14 +45,17 @@ public class FixedJointGrab : GrabBehaviour
         Hand leap_hand = hand_model.GetLeapHand();
 
         Gizmos.color = Color.red;
-        //Gizmos.DrawSphere(pinchPosition, radius);
-        //Gizmos.DrawLine(thumb.GetTipPosition(), model.palm.transform.position);
+        // Gizmos.DrawSphere(pinchPosition, radius);
+        // Gizmos.DrawLine(thumb.GetTipPosition(), model.palm.transform.position);
         if (pinch && pinching)
         {
             Gizmos.DrawSphere(pinchPosition, 0.05f);
         }
     }
 
+    /// <summary>
+    /// Initializes this instance.
+    /// </summary>
     public void initialize()
     {
         model = getHandModel();
@@ -51,14 +66,24 @@ public class FixedJointGrab : GrabBehaviour
         previous = model.palm.transform.position;
     }
 
+    /// <summary>
+    /// Returns the hand model.
+    /// </summary>
+    /// <returns>
+    /// HandModel
+    /// </returns>
     public HandModel getHandModel()
     {
         return transform.GetComponent<HandModel>();
     }
 
+    /// <summary>
+    /// This method gets executed whenever the fingers are pinching.
+    /// </summary>
+    /// <param name="pinch">The pinch.</param>
     public override void onPinch(Vector3 pinch)
     {
-        Collider[] objects = Physics.OverlapSphere(pinch, radius, (1 << interactable));
+        Collider[] objects = Physics.OverlapSphere(pinch, radius, 1 << interactable);
         float minimumDistance = float.MaxValue;
         pinching = true;
         for (int i = 0; i < objects.Length; i++)
@@ -74,6 +99,9 @@ public class FixedJointGrab : GrabBehaviour
 
     }
 
+    /// <summary>
+    /// This method gets executed whenever the fingers stop pinching.
+    /// </summary>
     public override void onRelease()
     {
         
@@ -91,6 +119,9 @@ public class FixedJointGrab : GrabBehaviour
         grabbedObject = null;
     }
 
+    /// <summary>
+    /// Determines the current gesture given the current fingerpositions and -rotations
+    /// </summary>
     public override void recognizeGesture()
     {
         Hand leapHand = model.GetLeapHand();
@@ -110,6 +141,9 @@ public class FixedJointGrab : GrabBehaviour
         }
     }
 
+    /// <summary>
+    /// connects a rigidbody to the fixedjoint, practically lets a hand hold an item.
+    /// </summary>
     public override void Hold()
     {
         if (grabbedObject != null)
@@ -119,11 +153,14 @@ public class FixedJointGrab : GrabBehaviour
                 FixedJoint joint = grabbedObject.AddComponent<FixedJoint>();
                 joint.connectedBody = model.palm.GetComponent<Rigidbody>();
                 grabbedObject.GetComponent<Collider>().enabled = false;
-                //joint.anchor = model.palm.transform.localPosition + new Vector3(0.5f, 0.2f, 0.6f);
+                // joint.anchor = model.palm.transform.localPosition + new Vector3(0.5f, 0.2f, 0.6f);
             }
         }
     }
 
+    /// <summary>
+    /// Updates to check for grabbing, pinching or holding.
+    /// </summary>
     public override void updateGrab()
     {
         pinch = false;
@@ -140,6 +177,9 @@ public class FixedJointGrab : GrabBehaviour
         previous = model.palm.transform.position;
     }
 
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
     void Update()
     {
         updateGrab();

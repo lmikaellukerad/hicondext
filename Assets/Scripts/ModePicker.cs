@@ -1,25 +1,29 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using Leap.Unity;
+using UnityEngine;
 
-public class ModePicker : MonoBehaviour {
+public class ModePicker : MonoBehaviour
+{
+    public bool VRMode;
 
-	public bool VRMode;
-
-	// Use this for initialization
-	void Start()
+    /// <summary>
+    /// initializes the Leap for either VR mounted or non-mounted mode.
+    /// </summary>
+    void Start()
     {
-		if (VRMode)
-		{
+		if (this.VRMode)
+        {
             if (transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
             {
                 transform.GetChild(0).GetComponent<LeapServiceProvider>()._isHeadMounted = true;
                 transform.GetChild(0).GetComponent<LeapServiceProvider>().overrideDeviceType = true;
             }
+
             if (transform.GetComponent<LeapVRTemporalWarping>() != null)
             {
                 transform.GetComponent<LeapVRTemporalWarping>().enabled = true;
             }
+
 			transform.localPosition = new Vector3(0, 0, 0);
 			transform.localRotation = Quaternion.Euler(new Vector3(-90, 180, 0));
 		}
@@ -38,8 +42,10 @@ public class ModePicker : MonoBehaviour {
             transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
 		}
 	}
-	
-	// Update is called once per frame
+
+    /// <summary>
+    /// Updates this instance. An update is called once per frame.
+    /// </summary>
     void Update()
     {
         if (VRMode)

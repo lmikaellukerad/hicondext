@@ -51,13 +51,13 @@ public class GrabbableObject : MonoBehaviour
         for (int i = 0; i < ignoreOnGrab.Length; ++i)
             ignoreOnGrab[i].detectCollisions = false;
 
-        if (breakableJoint != null)
+        if (this.breakableJoint != null)
         {
-            Joint breakJoint = breakableJoint.GetComponent<Joint>();
+            Joint breakJoint = this.breakableJoint.GetComponent<Joint>();
             if (breakJoint != null)
             {
-                breakJoint.breakForce = breakForce;
-                breakJoint.breakTorque = breakTorque;
+                breakJoint.breakForce = this.breakForce;
+                breakJoint.breakTorque = this.breakTorque;
             }
         }
     }
@@ -68,9 +68,9 @@ public class GrabbableObject : MonoBehaviour
         for (int i = 0; i < ignoreOnGrab.Length; ++i)
             ignoreOnGrab[i].detectCollisions = true;
 
-        if (breakableJoint != null)
+        if (this.breakableJoint != null)
         {
-            Joint breakJoint = breakableJoint.GetComponent<Joint>();
+            Joint breakJoint = this.breakableJoint.GetComponent<Joint>();
             if (breakJoint != null)
             {
                 breakJoint.breakForce = Mathf.Infinity;
@@ -81,13 +81,13 @@ public class GrabbableObject : MonoBehaviour
 
     void Update()
     {
-        if (grabbed_ && breakableJoint != null)
+        if (grabbed_ && this.breakableJoint != null)
         {
-            Joint breakJoint = breakableJoint.GetComponent<Joint>();
+            Joint breakJoint = this.breakableJoint.GetComponent<Joint>();
             if (breakJoint != null)
             {
-                breakJoint.breakForce = breakForce;
-                breakJoint.breakTorque = breakTorque;
+                breakJoint.breakForce = this.breakForce;
+                breakJoint.breakTorque = this.breakTorque;
             }
         }
     }

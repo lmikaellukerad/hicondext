@@ -50,7 +50,7 @@ public class GrabbingHand : MonoBehaviour
     void Start()
     {
         pinch_state_ = PinchState.kReleased;
-        active_object_ = null;
+        this.active_object_ = null;
     }
 
     void OnDestroy()
@@ -99,9 +99,9 @@ public class GrabbingHand : MonoBehaviour
     {
         Collider hover = GetClosestGrabbableObject(pinch_position);
 
-        if (hover != active_object_ && active_object_ != null)
+        if (hover != this.active_object_ && this.active_object_ != null)
         {
-            GrabbableObject old_grabbable = active_object_.GetComponent<GrabbableObject>();
+            GrabbableObject old_grabbable = this.active_object_.GetComponent<GrabbableObject>();
 
             if (old_grabbable != null)
                 old_grabbable.OnStopHover();
@@ -115,25 +115,25 @@ public class GrabbingHand : MonoBehaviour
                 new_grabbable.OnStartHover();
         }
 
-        active_object_ = hover;
+        this.active_object_ = hover;
     }
 
     protected void StartPinch(Vector3 pinch_position)
     {
         HandModel hand_model = GetComponent<HandModel>();
-        if (active_object_ != null)
+        if (this.active_object_ != null)
         {
-            IgnoreCollisions(active_object_.gameObject, true);
+            IgnoreCollisions(this.active_object_.gameObject, true);
 
             palm_rotation_ = hand_model.GetPalmRotation();
-            rotation_from_palm_ = Quaternion.Inverse(palm_rotation_) * active_object_.transform.rotation;
-            current_pinch_ = active_object_.transform.position;
+            rotation_from_palm_ = Quaternion.Inverse(palm_rotation_) * this.active_object_.transform.rotation;
+            this.current_pinch_ = this.active_object_.transform.position;
 
-            GrabbableObject grabbable = active_object_.GetComponent<GrabbableObject>();
+            GrabbableObject grabbable = this.active_object_.GetComponent<GrabbableObject>();
             if (grabbable == null || grabbable.rotateQuickly)
             {
-                last_max_angular_velocity_ = active_object_.GetComponent<Rigidbody>().maxAngularVelocity;
-                active_object_.GetComponent<Rigidbody>().maxAngularVelocity = Mathf.Infinity;
+                last_max_angular_velocity_ = this.active_object_.GetComponent<Rigidbody>().maxAngularVelocity;
+                this.active_object_.GetComponent<Rigidbody>().maxAngularVelocity = Mathf.Infinity;
             }
 
             if (grabbable != null)
@@ -146,8 +146,7 @@ public class GrabbingHand : MonoBehaviour
                     if (hand_model.GetLeapHand().IsLeft)
                         palm_vector = Vector3.Scale(palm_vector, new Vector3(-1, 1, 1));
 
-                    Quaternion relative_rotation = Quaternion.Inverse(palm_rotation_) *
-                                                   active_object_.transform.rotation;
+                    Quaternion relative_rotation = Quaternion.Inverse(palm_rotation_) * this.active_object_.transform.rotation;
                     Vector3 axis_in_palm = relative_rotation * grabbable.objectOrientation;
                     Quaternion axis_correction = Quaternion.FromToRotation(axis_in_palm, palm_vector);
                     if (Vector3.Dot(axis_in_palm, palm_vector) < 0)
@@ -161,19 +160,19 @@ public class GrabbingHand : MonoBehaviour
 
     void OnRelease()
     {
-        if (active_object_ != null)
+        if (this.active_object_ != null)
         {
-            GrabbableObject grabbable = active_object_.GetComponent<GrabbableObject>();
+            GrabbableObject grabbable = this.active_object_.GetComponent<GrabbableObject>();
             if (grabbable != null)
                 grabbable.OnRelease();
 
             if (grabbable == null || grabbable.rotateQuickly)
-                active_object_.GetComponent<Rigidbody>().maxAngularVelocity = last_max_angular_velocity_;
+                this.active_object_.GetComponent<Rigidbody>().maxAngularVelocity = last_max_angular_velocity_;
 
-            IgnoreCollisions(active_object_.gameObject, false);
+            IgnoreCollisions(this.active_object_.gameObject, false);
 
         }
-        active_object_ = null;
+        this.active_object_ = null;
     }
 
     public PinchState GetPinchState(Vector3 pinch_position)
@@ -222,14 +221,13 @@ public class GrabbingHand : MonoBehaviour
     void UpdatePalmRotation()
     {
         HandModel hand_model = GetComponent<HandModel>();
-        palm_rotation_ = Quaternion.Slerp(palm_rotation_, hand_model.GetPalmRotation(),
-                                          1.0f - rotationFiltering);
+        palm_rotation_ = Quaternion.Slerp(palm_rotation_, hand_model.GetPalmRotation(), 1.0f - rotationFiltering);
     }
 
 
     void ContinueHardPinch(Vector3 pinch_position)
     {
-        Vector3 delta_pinch = pinch_position - current_pinch_;
+        Vector3 delta_pinch = pinch_position - this.current_pinch_;
         current_pinch_ = current_pinch_ + (1.0f - positionFiltering) * delta_pinch;
         Quaternion target_rotation = palm_rotation_ * rotation_from_palm_;
 
@@ -237,11 +235,11 @@ public class GrabbingHand : MonoBehaviour
         clamped_pinch.x = Mathf.Clamp(clamped_pinch.x, minMovement.x, maxMovement.x);
         clamped_pinch.y = Mathf.Clamp(clamped_pinch.y, minMovement.y, maxMovement.y);
         clamped_pinch.z = Mathf.Clamp(clamped_pinch.z, minMovement.z, maxMovement.z);
-        Vector3 velocity = (clamped_pinch - active_object_.transform.position) / Time.deltaTime;
-        active_object_.GetComponent<Rigidbody>().velocity = velocity;
+        Vector3 velocity = (clamped_pinch - this.active_object_.transform.position) / Time.deltaTime;
+        this.active_object_.GetComponent<Rigidbody>().velocity = velocity;
 
         Quaternion delta_rotation = target_rotation *
-                                    Quaternion.Inverse(active_object_.transform.rotation);
+                                    Quaternion.Inverse(this.active_object_.transform.rotation);
 
         float angle = 0.0f;
         Vector3 axis = Vector3.zero;
@@ -253,15 +251,15 @@ public class GrabbingHand : MonoBehaviour
             axis = -axis;
         }
         if (angle != 0)
-            active_object_.GetComponent<Rigidbody>().angularVelocity = angle * axis;
+            this.active_object_.GetComponent<Rigidbody>().angularVelocity = angle * axis;
     }
 
     bool ObjectReleaseBreak(Vector3 pinch_position)
     {
-        if (active_object_ == null)
+        if (this.active_object_ == null)
             return true;
 
-        Vector3 delta_position = pinch_position - active_object_.transform.position;
+        Vector3 delta_position = pinch_position - this.active_object_.transform.position;
         return delta_position.magnitude > releaseBreakDistance;
     }
 
@@ -272,14 +270,13 @@ public class GrabbingHand : MonoBehaviour
         Quaternion target_rotation = palm_rotation_ * rotation_from_palm_;
 
         float gravity_amount = RELEASE_MAXIMUM_SPRING;
-        Vector3 delta_position = current_pinch_ - active_object_.transform.position;
+        Vector3 delta_position = current_pinch_ - this.active_object_.transform.position;
 
         float force = 20 * gravity_amount / (0.04f + delta_position.magnitude * delta_position.magnitude);
-        active_object_.GetComponent<Rigidbody>().AddForce(delta_position.normalized * force);
-        active_object_.GetComponent<Rigidbody>().velocity *= 0.9f;
+        this.active_object_.GetComponent<Rigidbody>().AddForce(delta_position.normalized * force);
+        this.active_object_.GetComponent<Rigidbody>().velocity *= 0.9f;
 
-        Quaternion delta_rotation = target_rotation *
-                                    Quaternion.Inverse(active_object_.transform.rotation);
+        Quaternion delta_rotation = target_rotation * Quaternion.Inverse(this.active_object_.transform.rotation);
 
         float angle = 0.0f;
         Vector3 axis = Vector3.zero;
@@ -291,7 +288,7 @@ public class GrabbingHand : MonoBehaviour
             axis = -axis;
         }
         if (angle != 0)
-            active_object_.GetComponent<Rigidbody>().angularVelocity = gravity_amount * angle * axis;
+            this.active_object_.GetComponent<Rigidbody>().angularVelocity = gravity_amount * angle * axis;
     }
 
     void FixedUpdate()
@@ -312,7 +309,7 @@ public class GrabbingHand : MonoBehaviour
                 OnRelease();
                 Hover(pinch_position);
             }
-            else if (active_object_ != null)
+            else if (this.active_object_ != null)
                 ContinueHardPinch(pinch_position);
         }
         else if (pinch_state_ == PinchState.kReleasing)
@@ -322,7 +319,7 @@ public class GrabbingHand : MonoBehaviour
                 OnRelease();
                 Hover(pinch_position);
             }
-            else if (active_object_ != null)
+            else if (this.active_object_ != null)
                 ContinueSoftPinch(pinch_position);
         }
         else {

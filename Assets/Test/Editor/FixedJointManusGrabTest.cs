@@ -17,7 +17,7 @@ public class FixedJointManusGrabTest : FixedJointGrabTest {
         hand.palm = palm.transform;
         palm.AddComponent<Rigidbody>();
         grab = empty.AddComponent<FixedJointManusGrab>();
-        grab.initialize();
+        grab.Initialize();
 
     }
 }

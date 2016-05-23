@@ -25,7 +25,7 @@ public class FixedJointGrabTest
         hand.palm = palm.transform;
         palm.AddComponent<Rigidbody>();
         grab = empty.AddComponent<FixedJointGrab>();
-        grab.initialize();
+        grab.Initialize();
 
     }
 
@@ -49,73 +49,73 @@ public class FixedJointGrabTest
     public void holdPinchingTest()
     {
        grab.Hold();
-       Assert.False(grab.pinching);
+       Assert.False(grab.Pinching);
     }
 
     [Test]
     public void holdNoGrabbableItemTest()
     {
-        grab.onPinch(Vector3.zero);
+        grab.OnPinch(Vector3.zero);
         grab.Hold();
-        Assert.AreSame(null, grab.grabbedObject);
+        Assert.AreSame(null, grab.GrabbedObject);
     }
 
     [Test]
     public void holdGrabbableItemNoFixedJointTest()
     {
         GameObject grabbable = createPhysicalObject(Vector3.zero);
-        grab.onPinch(Vector3.zero);
+        grab.OnPinch(Vector3.zero);
         grab.Hold();
-        Assert.AreNotSame(null, grab.grabbedObject.GetComponent<FixedJoint>());
+        Assert.AreNotSame(null, grab.GrabbedObject.GetComponent<FixedJoint>());
         Object.DestroyImmediate(grabbable);
     }
 
     [Test]
     public void onPinchPinchingTest()
     {
-        grab.onPinch(Vector3.zero);
-        Assert.True(grab.pinching);
+        grab.OnPinch(Vector3.zero);
+        Assert.True(grab.Pinching);
     }
 
     [Test]
     public void onPinchNoGrabbableItemTest()
     {
-        grab.onPinch(Vector3.zero);
-        Assert.AreSame(null, grab.grabbedObject);
+        grab.OnPinch(Vector3.zero);
+        Assert.AreSame(null, grab.GrabbedObject);
     }
 
     [Test]
     public void onPinchGrabbableItemTest()
     {
         GameObject grabbable = createPhysicalObject(Vector3.zero);
-        grab.onPinch(Vector3.zero);
-        Assert.AreSame(grabbable, grab.grabbedObject);
+        grab.OnPinch(Vector3.zero);
+        Assert.AreSame(grabbable, grab.GrabbedObject);
         Object.DestroyImmediate(grabbable);
     }
 
     [Test]
     public void onReleasePinchingTest()
     {
-        grab.onRelease();
-        Assert.False(grab.pinching && grab.pinch);
+        grab.OnRelease();
+        Assert.False(grab.Pinching && grab.Pinch);
     }
 
     [Test]
     public void onReleaseNoGrabbableItemTest()
     {
-        grab.onPinch(Vector3.zero);
-        grab.onRelease();
-        Assert.AreSame(null, grab.grabbedObject);
+        grab.OnPinch(Vector3.zero);
+        grab.OnRelease();
+        Assert.AreSame(null, grab.GrabbedObject);
     }
 
     [Test]
     public void onReleaseGrabbableItemTest()
     {
         GameObject grabbable = createPhysicalObject(Vector3.zero);
-        grab.onPinch(Vector3.zero);
+        grab.OnPinch(Vector3.zero);
         grab.Hold();
-        grab.onRelease();
-        Assert.AreSame(null, grab.grabbedObject);
+        grab.OnRelease();
+        Assert.AreSame(null, grab.GrabbedObject);
         Object.DestroyImmediate(grabbable);
     }
 

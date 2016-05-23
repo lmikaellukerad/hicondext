@@ -2,55 +2,43 @@
 using Leap.Unity;
 using UnityEngine;
 
-/**
-* Author: Luke
-* TODO: Grabbed object lags behind when walking or moving.
-*   This script determines the behaviour when grabbing gesture is made with Leap Motion
-*/
+/// <summary>
+/// Author: Luke
+/// TODO: Grabbed object lags behind when walking or moving.
+/// This script determines the behavior when grabbing gesture is made with Leap Motion
+/// </summary>
 public class FixedJointGrab : GrabBehaviour
 {
+
+    public float Reference = 0.04f;
+    public float Radius = 0.05f;
+
     private HandModel model;
     private int interactable = 8; // Layer with interactables
+    private Vector3 previous;
+
     public bool Pinching
     {
         get;
         private set;
     }
-    public bool pinch
+
+    public bool Pinch
     {
         get;
         protected set;
     }
-    public Vector3 pinchPosition;
-    private Vector3 previous;
-    public GameObject grabbedObject
+
+    public GameObject GrabbedObject
     {
         get;
         private set;
     }
-    public float reference = 0.04f;
-    public float radius = 0.05f;
 
-    // Use this for initialization
-    void Start() 
-    { 
-        Initialize();
-    }
-
-    // Debug only
-    void OnDrawGizmos()
+    public Vector3 PinchPosition
     {
-
-        HandModel hand_model = GetComponent<HandModel>();
-        Hand leap_hand = hand_model.GetLeapHand();
-
-        Gizmos.color = Color.red;
-        // Gizmos.DrawSphere(pinchPosition, radius);
-        // Gizmos.DrawLine(thumb.GetTipPosition(), model.palm.transform.position);
-        if (pinch && pinching)
-        {
-            Gizmos.DrawSphere(pinchPosition, 0.05f);
-        }
+        get;
+        protected set;
     }
 
     /// <summary>
@@ -58,19 +46,19 @@ public class FixedJointGrab : GrabBehaviour
     /// </summary>
     public void Initialize()
     {
-        model = GetHandModel();
-        pinching = false;
-        pinch = false;
-        pinchPosition = Vector3.zero;
-        grabbedObject = null;
-        previous = model.palm.transform.position;
+        this.model = this.GetHandModel();
+        this.Pinching = false;
+        this.Pinch = false;
+        this.PinchPosition = Vector3.zero;
+        this.GrabbedObject = null;
+        this.previous = this.model.palm.transform.position;
     }
 
     /// <summary>
     /// Returns the hand model.
     /// </summary>
     /// <returns>
-    /// HandModel
+    /// HandModel of this
     /// </returns>
     public HandModel GetHandModel()
     {
@@ -83,20 +71,19 @@ public class FixedJointGrab : GrabBehaviour
     /// <param name="pinch">The pinch.</param>
     public override void OnPinch(Vector3 pinch)
     {
-        Collider[] objects = Physics.OverlapSphere(pinch, radius, 1 << interactable);
+        Collider[] objects = Physics.OverlapSphere(pinch, this.Radius, 1 << this.interactable);
         float minimumDistance = float.MaxValue;
-        pinching = true;
+        this.Pinching = true;
         for (int i = 0; i < objects.Length; i++)
         {
             Collider o = objects[i];
             float currentDistance = Vector3.Distance(pinch, o.GetComponent<Transform>().position);
             if (currentDistance < minimumDistance)
             {
-                grabbedObject = o.gameObject;
+                this.GrabbedObject = o.gameObject;
                 minimumDistance = currentDistance;
             }
         }
-
     }
 
     /// <summary>
@@ -104,37 +91,37 @@ public class FixedJointGrab : GrabBehaviour
     /// </summary>
     public override void OnRelease()
     {
-        
-        pinching = false;
-        if (grabbedObject != null)
+        this.Pinching = false;
+        if (this.GrabbedObject != null)
         {
             if (Application.isPlaying)
             {
-                Destroy(grabbedObject.GetComponent<FixedJoint>());
+                FixedJointGrab.Destroy(this.GrabbedObject.GetComponent<FixedJoint>());
             }
-            grabbedObject.GetComponent<Collider>().enabled = true;
-            grabbedObject.GetComponent<Rigidbody>().velocity = (model.palm.transform.position - previous) / Time.deltaTime;
+
+            this.GrabbedObject.GetComponent<Collider>().enabled = true;
+            this.GrabbedObject.GetComponent<Rigidbody>().velocity = (this.model.palm.transform.position - this.previous) / Time.deltaTime;
         }
 
-        grabbedObject = null;
+        this.GrabbedObject = null;
     }
 
     /// <summary>
-    /// Determines the current gesture given the current fingerpositions and -rotations
+    /// Determines the current gesture given the current finger positions and -rotations
     /// </summary>
     public override void RecognizeGesture()
     {
-        Hand leapHand = model.GetLeapHand();
+        Hand leapHand = this.model.GetLeapHand();
         if (leapHand != null)
         {
             Finger thumb = leapHand.Fingers[0];
             for (int i = 1; i < HandModel.NUM_FINGERS; i++)
             {
                 Finger finger = leapHand.Fingers[i];
-                if (finger.TipPosition.DistanceTo(thumb.TipPosition) < reference)
+                if (finger.TipPosition.DistanceTo(thumb.TipPosition) < this.Reference)
                 {
-                    pinch = true;
-                    pinchPosition = thumb.TipPosition.ToVector3();
+                    this.Pinch = true;
+                    this.PinchPosition = thumb.TipPosition.ToVector3();
                     return;
                 }
             }
@@ -142,18 +129,17 @@ public class FixedJointGrab : GrabBehaviour
     }
 
     /// <summary>
-    /// connects a rigidbody to the fixedjoint, practically lets a hand hold an item.
+    /// connects a RigidBody to the FixedJoint, practically lets a hand hold an item.
     /// </summary>
     public override void Hold()
     {
-        if (grabbedObject != null)
+        if (this.GrabbedObject != null)
         {
-            if (grabbedObject.GetComponent<FixedJoint>() == null)
+            if (this.GrabbedObject.GetComponent<FixedJoint>() == null)
             {
-                FixedJoint joint = grabbedObject.AddComponent<FixedJoint>();
-                joint.connectedBody = model.palm.GetComponent<Rigidbody>();
-                grabbedObject.GetComponent<Collider>().enabled = false;
-                // joint.anchor = model.palm.transform.localPosition + new Vector3(0.5f, 0.2f, 0.6f);
+                FixedJoint joint = this.GrabbedObject.AddComponent<FixedJoint>();
+                joint.connectedBody = this.model.palm.GetComponent<Rigidbody>();
+                this.GrabbedObject.GetComponent<Collider>().enabled = false;
             }
         }
     }
@@ -163,26 +149,50 @@ public class FixedJointGrab : GrabBehaviour
     /// </summary>
     public override void UpdateGrab()
     {
-        pinch = false;
-        RecognizeGesture();
-        if (pinch && !pinching)
+        this.Pinch = false;
+        this.RecognizeGesture();
+        if (this.Pinch && !this.Pinching)
         {
-            OnPinch(pinchPosition);
+            this.OnPinch(this.PinchPosition);
         }
-        else if (!pinch && pinching)
+        else if (!this.Pinch && this.Pinching)
         {
-            OnRelease();
+            this.OnRelease();
         }
-        Hold();
-        previous = model.palm.transform.position;
+
+        this.Hold();
+        this.previous = this.model.palm.transform.position;
     }
 
     /// <summary>
-    /// Updates this instance.
+    /// Called during initialization
     /// </summary>
-    void Update()
+    private void Start()
     {
-        UpdateGrab();
+        this.Initialize();
+    }
+
+    /// <summary>
+    /// Used for debug only
+    /// </summary>
+    private void OnDrawGizmos()
+    {
+        HandModel hand_model = GetComponent<HandModel>();
+        Hand leap_hand = hand_model.GetLeapHand();
+
+        Gizmos.color = Color.red;
+
+        if (this.Pinch && this.Pinching)
+        {
+            Gizmos.DrawSphere(this.PinchPosition, 0.05f);
+        }
+    }
+
+    /// <summary>
+    /// Updates this for each frame.
+    /// </summary>
+    private void Update()
+    {
+        this.UpdateGrab();
     }
 }
-

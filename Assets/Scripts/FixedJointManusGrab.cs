@@ -1,12 +1,12 @@
-﻿using Leap;
-using Leap.Unity;
+﻿using Leap.Unity;
 using UnityEngine;
 
 /**
 *   This script determines the behaviour when grabbing gesture is made with Leap Motion
 */
+
 public class FixedJointManusGrab : FixedJointGrab
-{ 
+{
     /// <summary>
     /// Determines the current gesture given the current finger positions and -rotations
     /// </summary>
@@ -19,10 +19,10 @@ public class FixedJointManusGrab : FixedJointGrab
             for (int i = 1; i < fingerTipTransforms.Length; i++)
             {
                 Transform fingerTip = fingerTipTransforms[i];
-                if (Vector3.Distance(fingerTip.position, thumb.position) < this.reference)
+                if (Vector3.Distance(fingerTip.position, thumb.position) < this.Reference)
                 {
-                    pinch = true;
-                    pinchPosition = thumb.position;
+                    this.Pinch = true;
+                    this.PinchPosition = thumb.position;
                     return;
                 }
             }
@@ -30,16 +30,14 @@ public class FixedJointManusGrab : FixedJointGrab
     }
 
     // Debug only
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         HandModel hand_model = GetComponent<HandModel>();
 
         Gizmos.color = Color.red;
-        // Gizmos.DrawSphere(pinchPosition, radius);
-        // Gizmos.DrawLine(thumb.GetTipPosition(), model.palm.transform.position);
-        if (GetHandModel() != null)
+        if (this.GetHandModel() != null)
         {
-            Transform[] fingerTipTransforms = GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
+            Transform[] fingerTipTransforms = this.GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
             if (fingerTipTransforms != null && fingerTipTransforms.Length != 0)
             {
                 Transform thumb = fingerTipTransforms[0];
@@ -50,10 +48,10 @@ public class FixedJointManusGrab : FixedJointGrab
                 }
             }
         }
-        if (pinch && pinching)
+
+        if (this.Pinch && this.Pinching)
         {
-            Gizmos.DrawSphere(pinchPosition, 0.05f);
+            Gizmos.DrawSphere(this.PinchPosition, 0.05f);
         }
     }
-
 }

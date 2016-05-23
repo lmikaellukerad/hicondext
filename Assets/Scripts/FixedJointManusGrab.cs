@@ -10,9 +10,9 @@ public class FixedJointManusGrab : FixedJointGrab
     /// <summary>
     /// Determines the current gesture given the current finger positions and -rotations
     /// </summary>
-    public override void recognizeGesture()
+    public override void RecognizeGesture()
     {
-        Transform[] fingerTipTransforms = getHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
+        Transform[] fingerTipTransforms = GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
         if (fingerTipTransforms != null && fingerTipTransforms.Length != 0)
         {
             Transform thumb = fingerTipTransforms[0];
@@ -37,9 +37,9 @@ public class FixedJointManusGrab : FixedJointGrab
         Gizmos.color = Color.red;
         // Gizmos.DrawSphere(pinchPosition, radius);
         // Gizmos.DrawLine(thumb.GetTipPosition(), model.palm.transform.position);
-        if (getHandModel() != null)
+        if (GetHandModel() != null)
         {
-            Transform[] fingerTipTransforms = getHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
+            Transform[] fingerTipTransforms = GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
             if (fingerTipTransforms != null && fingerTipTransforms.Length != 0)
             {
                 Transform thumb = fingerTipTransforms[0];

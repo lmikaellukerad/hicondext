@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class KinectHand : RiggedHand
 {
-
     public Transform Wrist;
 
     public override void UpdateHand()
@@ -20,10 +19,10 @@ public class KinectHand : RiggedHand
 
             if (this.forearm != null)
             {
-                if (IsTracked)
+                if (this.IsTracked)
                 {
                     Quaternion armRotation = GetArmRotation();
-                    forearm.rotation = Quaternion.Euler(0f, 180f, 0f) * (new Quaternion(-armRotation.x, armRotation.y, -armRotation.z, armRotation.w) * Reorientation());
+                    forearm.rotation = Quaternion.Euler(0f, 180f, 0f) * (new Quaternion(-armRotation.x, armRotation.y, -armRotation.z, armRotation.w) * this.Reorientation());
                 }
             }
 
@@ -35,7 +34,6 @@ public class KinectHand : RiggedHand
                     fingers[i].UpdateFinger();
                 }
             }
-        } 
+        }
     }
-
 }

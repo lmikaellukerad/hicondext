@@ -11,7 +11,7 @@ public class FixedJointGrab : GrabBehaviour
 {
     private HandModel model;
     private int interactable = 8; // Layer with interactables
-    public bool pinching
+    public bool Pinching
     {
         get;
         private set;
@@ -34,7 +34,7 @@ public class FixedJointGrab : GrabBehaviour
     // Use this for initialization
     void Start() 
     { 
-        initialize();
+        Initialize();
     }
 
     // Debug only
@@ -56,9 +56,9 @@ public class FixedJointGrab : GrabBehaviour
     /// <summary>
     /// Initializes this instance.
     /// </summary>
-    public void initialize()
+    public void Initialize()
     {
-        model = getHandModel();
+        model = GetHandModel();
         pinching = false;
         pinch = false;
         pinchPosition = Vector3.zero;
@@ -72,7 +72,7 @@ public class FixedJointGrab : GrabBehaviour
     /// <returns>
     /// HandModel
     /// </returns>
-    public HandModel getHandModel()
+    public HandModel GetHandModel()
     {
         return transform.GetComponent<HandModel>();
     }
@@ -81,7 +81,7 @@ public class FixedJointGrab : GrabBehaviour
     /// This method gets executed whenever the fingers are pinching.
     /// </summary>
     /// <param name="pinch">The pinch.</param>
-    public override void onPinch(Vector3 pinch)
+    public override void OnPinch(Vector3 pinch)
     {
         Collider[] objects = Physics.OverlapSphere(pinch, radius, 1 << interactable);
         float minimumDistance = float.MaxValue;
@@ -102,7 +102,7 @@ public class FixedJointGrab : GrabBehaviour
     /// <summary>
     /// This method gets executed whenever the fingers stop pinching.
     /// </summary>
-    public override void onRelease()
+    public override void OnRelease()
     {
         
         pinching = false;
@@ -122,7 +122,7 @@ public class FixedJointGrab : GrabBehaviour
     /// <summary>
     /// Determines the current gesture given the current fingerpositions and -rotations
     /// </summary>
-    public override void recognizeGesture()
+    public override void RecognizeGesture()
     {
         Hand leapHand = model.GetLeapHand();
         if (leapHand != null)
@@ -161,17 +161,17 @@ public class FixedJointGrab : GrabBehaviour
     /// <summary>
     /// Updates to check for grabbing, pinching or holding.
     /// </summary>
-    public override void updateGrab()
+    public override void UpdateGrab()
     {
         pinch = false;
-        recognizeGesture();
+        RecognizeGesture();
         if (pinch && !pinching)
         {
-            onPinch(pinchPosition);
+            OnPinch(pinchPosition);
         }
         else if (!pinch && pinching)
         {
-            onRelease();
+            OnRelease();
         }
         Hold();
         previous = model.palm.transform.position;
@@ -182,7 +182,7 @@ public class FixedJointGrab : GrabBehaviour
     /// </summary>
     void Update()
     {
-        updateGrab();
+        UpdateGrab();
     }
 }
 

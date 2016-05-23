@@ -27,19 +27,18 @@ namespace Leap.Unity
         }
 
         /// <summary>
-        /// Reorientates the lookrotation.
+        /// Reorients the look rotation.
         /// </summary>
         /// <returns>
-        /// the reorientated quaternion
+        /// the reoriented quaternion
         /// </returns>
         public Quaternion Reorientation()
         {
             return Quaternion.Inverse(Quaternion.LookRotation(Vector3.forward, Vector3.up));
         }
 
-
         /// <summary>
-        /// Initialises hand object .This function is called by the HandController during the Unity Update() phase when a new hand is detected
+        /// Initializes hand object .This function is called by the HandController during the Unity Update() phase when a new hand is detected
         /// by the Leap Motion device.
         /// </summary>
         public override void InitHand()
@@ -54,16 +53,16 @@ namespace Leap.Unity
         /// </summary>       
         public override void UpdateHand()
         {
-            if (palm != null)
+            if (this.palm != null)
             {
-                palm.position = GetPalmPosition();
-                palm.rotation = GetPalmRotation() * Reorientation();
+                palm.position = this.GetPalmPosition();
+                palm.rotation = this.GetPalmRotation() * this.Reorientation();
             }
 
             if (this.forearm != null)
             {
-                forearm.position = GetArmCenter();
-                forearm.rotation = GetArmRotation() * Reorientation();
+                forearm.position = this.GetArmCenter();
+                forearm.rotation = this.GetArmRotation() * this.Reorientation();
             }
         }
     }

@@ -5,8 +5,18 @@ using UnityEngine;
 /// A script that places different groceries on the shelves in the supermarket environment.
 /// Done so far: left shelf, back shelf.
 /// </summary>
-public class CloneObjects : MonoBehaviour 
+public class CloneObjects : MonoBehaviour
 {
+    /// <summary>
+    /// Whether or not to fill the back shelf, can be switched from within Unity.
+    /// </summary>
+    public bool FillBackShelf;
+
+    /// <summary>
+    /// Whether or not to fill the left shelf, can be switched from within Unity.
+    /// </summary>
+    public bool FillLeftShelf;
+
     /// <summary>
     /// The start position of the items that have to be placed against the back wall.
     /// </summary>
@@ -47,8 +57,15 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        this.BackShelfFiller();
-        this.LeftShelfFiller();
+        if (this.FillBackShelf)
+        {
+            this.BackShelfFiller();
+        }
+
+        if (this.FillLeftShelf)
+        {
+            this.LeftShelfFiller();
+        }
     }
 
     /// <summary>

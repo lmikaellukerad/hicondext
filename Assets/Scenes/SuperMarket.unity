@@ -2524,8 +2524,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1965173787}
-  - 114: {fileID: 1965173786}
-  - 114: {fileID: 1965173788}
+  - 114: {fileID: 1965173789}
   m_Layer: 0
   m_Name: cloneController
   m_TagString: Untagged
@@ -2533,17 +2532,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1965173786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1965173785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab8391f45fe5cc449965f0bf34e51e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1965173787
 Transform:
   m_ObjectHideFlags: 0
@@ -2557,7 +2545,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 24
---- !u!114 &1965173788
+--- !u!114 &1965173789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2565,9 +2553,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1965173785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6338cb3cf6dbed84592bbbea0beee114, type: 3}
+  m_Script: {fileID: 11500000, guid: 4550107064cd59948ad3c2a718c83f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FillBackShelf: 1
+  FillLeftShelf: 1
 --- !u!1 &1972901461 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 148880, guid: 665a8f70475154b48b61b616136d6589, type: 2}

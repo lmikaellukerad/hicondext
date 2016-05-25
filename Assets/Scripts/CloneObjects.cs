@@ -8,6 +8,28 @@ using UnityEngine;
 public class CloneObjects : MonoBehaviour
 {
     /// <summary>
+    /// The start position of the items that have to be placed against the back wall.
+    /// </summary>
+    private static Vector3 startPosBackwall = new Vector3(-2.198f, 0.6f, -1.875f);
+
+    /// <summary>
+    /// The distance that has to be left between objects on the Z axis.
+    /// </summary>
+    private static Vector3 distanceBetweenBack = new Vector3(0f, 0f, 0.25f);
+
+    private static Vector3 heightDistanceBack = new Vector3(0f, -0.13f, 0f);
+
+    private static Quaternion rotationBack = Quaternion.identity;
+
+
+    /// <summary>
+    /// The amount of items per layer on the back shelf.
+    /// </summary>
+    private static int backAmount = 17;
+
+    private ShelfData backShelf = new ShelfData(startPosBackwall, distanceBetweenBack, heightDistanceBack, rotationBack, backAmount);
+    
+    /// <summary>
     /// Whether or not to fill the back shelf, can be switched from within Unity.
     /// </summary>
     public bool FillBackShelf;
@@ -22,10 +44,6 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     public bool FillRightShelf;
 
-    /// <summary>
-    /// The start position of the items that have to be placed against the back wall.
-    /// </summary>
-    private Vector3 startPosBackwall = new Vector3(-2.198f, 0.6f, -1.875f);
 
     /// <summary>
     /// The distance that has to be left between objects on the Z axis.
@@ -77,10 +95,6 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     private int leftAmount = 38;
 
-    /// <summary>
-    /// The amount of items per layer on the back shelf.
-    /// </summary>
-    private int backAmount = 17;
 
     /// <summary>
     /// The amount of items per layer on the right shelf.
@@ -122,12 +136,12 @@ public class CloneObjects : MonoBehaviour
     {
         this.rotation = Quaternion.identity;
         this.heightDistance = new Vector3(0f, -0.13f, 0f);
-        this.position = this.startPosBackwall;
+        this.position = backShelf.getStartPos();
 
         for (int i = 0; i < this.layers; i++)
         {
             this.FillBackWallShelfLayer(i);
-            this.position = this.startPosBackwall;
+            this.position = backShelf.getStartPos();
         }
     }
 
@@ -169,13 +183,13 @@ public class CloneObjects : MonoBehaviour
     /// <param name="layer">The layer that has to be filled. layers are 0, 1, 2, 3 from top to bottom.</param>
     private void FillBackWallShelfLayer(int layer)
     {
-        this.position += layer * this.heightDistance;
-        this.position -= this.distanceBetweenZ;
-        for (int i = 0; i < this.backAmount; i++)
+        this.position += layer * backShelf.getHeightDistance();
+        this.position -= backShelf.getDistanceBetween();
+        for (int i = 0; i < backShelf.getWidth(); i++)
         {
             // print("spawning #" + i);
-            this.SpawnMtDew(this.position, this.rotation);
-            this.position += this.distanceBetweenZ;
+            this.SpawnMtDew(this.position, backShelf.getRotation());
+            this.position += backShelf.getDistanceBetween();
         }
     }
 
@@ -250,5 +264,87 @@ public class CloneObjects : MonoBehaviour
         {
             MonoBehaviour.Instantiate(rice, pos, quat);
         }
+    }
+}
+
+
+public class ShelfData
+{
+
+    private Vector3 startPos;
+    private Vector3 distanceBetween;
+    private Vector3 heightDistance;
+    private Quaternion rotation;
+    private int shelves;
+    private int width;
+    
+    public ShelfData(Vector3 sp, Vector3 db, Vector3 hd, Quaternion rot, int w)
+    {
+        startPos = sp;
+        distanceBetween = db;
+        heightDistance = hd;
+        rotation = rot;
+        shelves = 4;
+        width = w;
+    }
+
+    public Vector3 getStartPos()
+    {
+        return startPos;
+    }
+
+    public Vector3 getDistanceBetween()
+    {
+        return distanceBetween;
+    }
+
+    public Vector3 getHeightDistance()
+    {
+        return heightDistance;
+    }
+
+    public Quaternion getRotation()
+    {
+        return rotation;
+    }
+
+    public int getShelves()
+    {
+        return shelves;
+    }
+
+    public int getWidth()
+    {
+        return width;
+    }
+
+    public void setStartPos(Vector3 sp)
+    {
+        startPos = sp;
+    }
+
+    public void setDistanceBetween(Vector3 db)
+    {
+        distanceBetween = db;
+    }
+
+    public void setHeightDistance(Vector3 hd)
+    {
+        heightDistance = hd;
+    }
+
+    public void setRotation(Quaternion rot)
+    {
+        rotation = rot;
+    }
+
+    public void setShelves(int s)
+    {
+        shelves = s;
+    }
+
+    public void setWidth(int w)
+    {
+        width = w;
     }
 }

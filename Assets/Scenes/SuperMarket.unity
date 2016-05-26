@@ -1274,31 +1274,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef437bb6bf36a4c4d8336a5ff0de0d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reference: 0.04
-  Radius: 0.05
+  Reference: 0.02
+  Radius: 0.01
 --- !u!114 &848894425 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11458538, guid: 665a8f70475154b48b61b616136d6589,
     type: 2}
   m_PrefabInternal: {fileID: 1960145500}
   m_Script: {fileID: 11500000, guid: 88793050c1038a444b6cad33f3c57e05, type: 3}
---- !u!1 &913134118 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 123270, guid: 665a8f70475154b48b61b616136d6589, type: 2}
-  m_PrefabInternal: {fileID: 1960145500}
---- !u!114 &913134120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 913134118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef437bb6bf36a4c4d8336a5ff0de0d53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Reference: 0.04
-  Radius: 0.05
 --- !u!114 &913134122 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11403154, guid: 665a8f70475154b48b61b616136d6589,
@@ -2564,7 +2547,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11416344, guid: 665a8f70475154b48b61b616136d6589, type: 2}
+      propertyPath: Reference
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416344, guid: 665a8f70475154b48b61b616136d6589, type: 2}
+      propertyPath: Radius
+      value: 0.01
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11482674, guid: 665a8f70475154b48b61b616136d6589, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 665a8f70475154b48b61b616136d6589, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1972901461 stripped

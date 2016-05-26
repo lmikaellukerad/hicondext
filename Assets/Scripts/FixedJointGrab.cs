@@ -10,8 +10,8 @@ using UnityEngine;
 public class FixedJointGrab : GrabBehaviour
 {
 
-    public float Reference = 0.04f;
-    public float Radius = 0.05f;
+    public float Reference;
+    public float Radius;
 
     private HandModel model;
     private int interactable = 8; // Layer with interactables
@@ -121,7 +121,7 @@ public class FixedJointGrab : GrabBehaviour
                 if (finger.TipPosition.DistanceTo(thumb.TipPosition) < this.Reference)
                 {
                     this.Pinch = true;
-                    this.PinchPosition = thumb.TipPosition.ToVector3();
+                    this.PinchPosition = leapHand.Fingers[1].TipPosition.ToVector3();
                     return;
                 }
             }

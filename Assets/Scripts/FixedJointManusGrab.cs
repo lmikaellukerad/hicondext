@@ -15,6 +15,7 @@ public class FixedJointManusGrab : FixedJointGrab
         Transform[] fingerTipTransforms = GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
         if (fingerTipTransforms != null && fingerTipTransforms.Length != 0)
         {
+            // compare the distance between thumb and all other fingers to recognize a pinch/grabbing motion
             Transform thumb = fingerTipTransforms[0];
             for (int i = 1; i < fingerTipTransforms.Length; i++)
             {
@@ -22,7 +23,7 @@ public class FixedJointManusGrab : FixedJointGrab
                 if (Vector3.Distance(fingerTip.position, thumb.position) < this.Reference)
                 {
                     this.Pinch = true;
-                    this.PinchPosition = thumb.position;
+                    this.PinchPosition = fingerTipTransforms[1].position; // set the pinch position to the index finger
                     return;
                 }
             }
@@ -51,7 +52,7 @@ public class FixedJointManusGrab : FixedJointGrab
 
         if (this.Pinch && this.Pinching)
         {
-            Gizmos.DrawSphere(this.PinchPosition, 0.05f);
+            Gizmos.DrawSphere(this.PinchPosition, this.Radius);
         }
     }
 }

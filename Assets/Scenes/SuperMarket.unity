@@ -809,7 +809,7 @@ MonoBehaviour:
   m_WalkSpeed: 2
   m_RunSpeed: 5
   m_RunstepLenghten: 0.7
-  m_JumpSpeed: 5
+  m_JumpSpeed: 0
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
   m_MouseLook:
@@ -1349,9 +1349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef437bb6bf36a4c4d8336a5ff0de0d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pinchPosition: {x: 0, y: 0, z: 0}
-  reference: 0.025
-  radius: 0.05
+  Reference: 0.04
+  Radius: 0.05
 --- !u!114 &848894425 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11458538, guid: 665a8f70475154b48b61b616136d6589,
@@ -1467,9 +1466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef437bb6bf36a4c4d8336a5ff0de0d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pinchPosition: {x: 0, y: 0, z: 0}
-  reference: 0.025
-  radius: 0.05
+  Reference: 0.04
+  Radius: 0.05
 --- !u!114 &913134122 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11403154, guid: 665a8f70475154b48b61b616136d6589,

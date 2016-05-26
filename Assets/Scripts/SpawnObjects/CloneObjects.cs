@@ -115,37 +115,114 @@ public class CloneObjects : MonoBehaviour
     /// <summary>
     /// An objects holding the data of the back shelf.
     /// </summary>
-    private ShelfData backShelf = new ShelfData(backObjectType, startPosBackwall, distanceBetweenBack, heightDistanceBack, rotationBack, amountBack);
+    private static ShelfData backShelf = new ShelfData(backObjectType, startPosBackwall, distanceBetweenBack, heightDistanceBack, rotationBack, amountBack);
 
     /// <summary>
     /// An objects holding the data of the left shelf.
     /// </summary>
-    private ShelfData leftShelf = new ShelfData(objectTypeLeft, startPosLeftwall, distanceBetweenLeft, heightDistanceLeft, rotationLeft, amountLeft);
+    private static ShelfData leftShelf = new ShelfData(objectTypeLeft, startPosLeftwall, distanceBetweenLeft, heightDistanceLeft, rotationLeft, amountLeft);
 
     /// <summary>
     /// An objects holding the data of the left shelf.
     /// </summary>
-    private ShelfData rightShelf = new ShelfData(objectTypeRight, startPosRightwall, distanceBetweenRight, heightDistanceRight, rotationRight, amountRight);
+    private static ShelfData rightShelf = new ShelfData(objectTypeRight, startPosRightwall, distanceBetweenRight, heightDistanceRight, rotationRight, amountRight);
+
+    /// <summary>
+    /// Fills a shelf.
+    /// </summary>
+    /// <param name="shelf">The ShelfData object holding the data for the shelf.</param>
+    /// <returns>A boolean, telling if the actions succeeded or not.</returns>
+    public static bool FillShelf(ShelfData shelf)
+    {
+        if (shelf == null)
+        {
+            return false;
+        }
+
+        bool result = true;
+        for (int i = 0; i < shelf.getShelves(); i++)
+        {
+            if (FillLayer(shelf, i) == false)
+            {
+                result = false;
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Fills one layer of a shelf.
+    /// </summary>
+    /// <param name="shelf">The shelf on which this layer has to be filled.</param>
+    /// <param name="layer">The layer.</param>
+    /// <returns>A boolean, telling if the actions succeeded or not.</returns>
+    public static bool FillLayer(ShelfData shelf, int layer)
+    {
+        Vector3 position = shelf.getStartPos();
+        position += layer * shelf.getHeightDistance();
+        for (int i = 0; i < shelf.getWidth(); i++)
+        {
+            if (SpawnObject(shelf.getObjectType(), position, shelf.getRotation()) == true)
+            {
+                position += shelf.getDistanceBetween();
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Spawns an object
+    /// </summary>
+    /// <param name="o">The string representing the object.</param>
+    /// <param name="pos">The position to spawn the object on.</param>
+    /// <param name="quat">The rotation to spawn the object in.</param>
+    /// <returns>A boolean, telling if the actions succeeded or not.</returns>
+    public static bool SpawnObject(string o, Vector3 pos, Quaternion quat)
+    {
+        GameObject obj = GameObject.Find(o);
+        if (obj != null)
+        {
+            MonoBehaviour.Instantiate(obj, pos, quat);
+            return true;
+        }
+
+        return false;
+    }
 
     /// <summary>
     /// Starts this instance.
     /// </summary>
     public void Start()
     {
+        bool backshelfDone = false;
+        bool leftshelfDone = false;
+        bool rightshelfDone = false;
+
         if (this.FillBackShelf)
         {
-            this.FillShelf(this.backShelf);
+            backshelfDone = FillShelf(backShelf);
         }
 
         if (this.FillLeftShelf)
         {
-            this.FillShelf(this.leftShelf);
+            leftshelfDone = FillShelf(leftShelf);
         }
 
         if (this.FillRightShelf)
         {
-            this.FillShelf(this.rightShelf);
+            rightshelfDone = FillShelf(rightShelf);
         }
+
+        CloneObjects.print("Spawning objects...");
+        CloneObjects.print("Back shelf: " + backshelfDone);
+        CloneObjects.print("Left shelf: " + leftshelfDone);
+        CloneObjects.print("Right shelf: " + rightshelfDone);
     }
 
     /// <summary>
@@ -153,34 +230,5 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     public void Update()
     {
-    }
-
-    public void FillShelf(ShelfData shelf)
-    {
-        for (int i = 0; i < shelf.getShelves(); i++)
-        {
-            this.FillLayer(shelf, i);
-        }
-    }
-
-    public void FillLayer(ShelfData shelf, int layer)
-    {
-        Vector3 position = shelf.getStartPos();
-        position += layer * shelf.getHeightDistance();
-        for (int i = 0; i < shelf.getWidth(); i++)
-        {
-            this.SpawnObject(shelf.getObjectType(), position, shelf.getRotation());
-            position += shelf.getDistanceBetween();
-        }
-    }
-
-    private void SpawnObject(string o, Vector3 pos, Quaternion quat)
-    {
-        GameObject obj = GameObject.Find(o);
-        if (obj != null)
-        {
-            // print("mntdewPrefab found, spawning...");
-            MonoBehaviour.Instantiate(obj, pos, quat);
-        }
     }
 }

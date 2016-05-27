@@ -231,7 +231,7 @@ public class IKScript : MonoBehaviour
         {
             IKJoint j = this.Chain[i];
             this.UpdateJoint(j, jointTarget);
-            if (jointTarget != this.Goal)
+            if (jointTarget != this.Goal.transform)
             {
                 jointTarget.parent = j.Joint.GetChild(0);
             }

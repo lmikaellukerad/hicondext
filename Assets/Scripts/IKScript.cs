@@ -45,7 +45,7 @@ public class IKScript : MonoBehaviour
     /// </summary>
     public void Update()
     {
-        if (this.ChainFound && Goal.activeSelf)
+        if (this.ChainFound && this.Goal.activeSelf)
         {
             this.ResetChildRotations();
             this.SolveIK();
@@ -74,7 +74,7 @@ public class IKScript : MonoBehaviour
     /// </summary>
     public void OnDrawGizmos()
     {
-        if (this.ChainFound && Goal)
+        if (this.ChainFound && this.Goal)
         {
             this.polePositions.Clear();
             this.UpdatePolePositions(0);
@@ -82,21 +82,21 @@ public class IKScript : MonoBehaviour
             {
                 Gizmos.DrawSphere(this.polePositions[i], 0.02f);
             }
-        }
 
-        for (int i = 0; i < this.Chain.Count - 1; i++)
-        {
-            IKJoint j1 = this.Chain[i];
-            IKJoint j2 = this.Chain[i + 1];
-            Vector3 targetPos = (j1.Joint.forward * j1.JointLength) + j1.Joint.position;
-            Vector3 target = targetPos - j2.Joint.position;
-            Vector3 otherJoint = j1.Joint.position - j2.Joint.position;
-            Vector3 poleVector = this.polePositions[i + 1] - j2.Joint.position;
-
-            if (Vector3.Angle(otherJoint, poleVector) > Vector3.Angle(target, poleVector))
+            for (int i = 0; i < this.Chain.Count - 1; i++)
             {
-                Gizmos.DrawLine(j1.Joint.position, this.polePositions[i]);
-                Gizmos.DrawLine(j2.Joint.position, this.polePositions[i]);
+                IKJoint j1 = this.Chain[i];
+                IKJoint j2 = this.Chain[i + 1];
+                Vector3 targetPos = (j1.Joint.forward * j1.JointLength) + j1.Joint.position;
+                Vector3 target = targetPos - j2.Joint.position;
+                Vector3 otherJoint = j1.Joint.position - j2.Joint.position;
+                Vector3 poleVector = this.polePositions[i + 1] - j2.Joint.position;
+
+                if (Vector3.Angle(otherJoint, poleVector) > Vector3.Angle(target, poleVector))
+                {
+                    Gizmos.DrawLine(j1.Joint.position, this.polePositions[i]);
+                    Gizmos.DrawLine(j2.Joint.position, this.polePositions[i]);
+                }
             }
         }
     }
@@ -106,7 +106,6 @@ public class IKScript : MonoBehaviour
     /// </summary>
     private void PointChainRoot()
     {
-        Transform jointTarget = this.Goal.transform;
         Vector3 look = this.Goal.transform.position - this.chainRoot.position;
         Vector3 poleVector = this.Pole.position - this.chainRoot.position;
         Vector3.Normalize(look);

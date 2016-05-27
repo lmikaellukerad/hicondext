@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.17)  27 MAY 2016 16:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.17)  27 MAY 2016 17:12
 entering extended mode
 **./arch_design_condext.tex
 (arch_design_condext.tex
@@ -523,18 +523,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 metry.cfg")) (arch_design_condext.aux)
 \openout1 = `arch_design_condext.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
 \AtBeginShipoutBox=\box32
 
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-
@@ -596,13 +596,13 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 36.
 
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\ums
 a.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\ums
 b.fd"
@@ -620,61 +620,76 @@ _design_condext.toc)
 
 ]
 Chapter 1.
-[3
+<control_of_bodyparts.png, id=17, 311.36325pt x 293.29575pt>
+File: control_of_bodyparts.png Graphic file (type png)
 
-]
+<use control_of_bodyparts.png>
+Package pdftex.def Info: control_of_bodyparts.png used on input line 81.
+(pdftex.def)             Requested size: 249.09093pt x 234.6369pt.
+ [3
+
+ <./control_of_bodyparts.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 92.
+
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.
+fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 92.
+ [4]
 Chapter 2.
-[4
+[5
 
 ]
 Chapter 3.
-<CondExt_UML.pdf, id=23, 1465.475pt x 953.5625pt>
+<CondExt_UML.pdf, id=28, 1465.475pt x 953.5625pt>
 File: CondExt_UML.pdf Graphic file (type pdf)
  <use CondExt_UML.pdf>
-Package pdftex.def Info: CondExt_UML.pdf used on input line 120.
+Package pdftex.def Info: CondExt_UML.pdf used on input line 148.
 (pdftex.def)             Requested size: 1465.47144pt x 953.56018pt.
 File: CondExt_UML.pdf Graphic file (type pdf)
 
 <use CondExt_UML.pdf>
-Package pdftex.def Info: CondExt_UML.pdf used on input line 120.
+Package pdftex.def Info: CondExt_UML.pdf used on input line 148.
 (pdftex.def)             Requested size: 1465.47144pt x 953.56018pt.
 
-<CondExt_UML.pdf, id=26, page=1, 1465.475pt x 953.5625pt>
+<CondExt_UML.pdf, id=31, page=1, 1465.475pt x 953.5625pt>
 File: CondExt_UML.pdf Graphic file (type pdf)
 
 <use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
 (pdftex.def)             Requested size: 1465.47144pt x 953.56018pt.
 File: CondExt_UML.pdf Graphic file (type pdf)
  <use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
 (pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
- [5
+ [6
 
 ]
 File: CondExt_UML.pdf Graphic file (type pdf)
 
 <use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
 (pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
 File: CondExt_UML.pdf Graphic file (type pdf)
  <use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
 (pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
 File: CondExt_UML.pdf Graphic file (type pdf)
 
 <use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
 (pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
- [6 <./CondExt_UML.pdf>] (arch_design_condext.aux) ) 
+ [7 <./CondExt_UML.pdf>] (arch_design_condext.aux) ) 
 Here is how much of TeX's memory you used:
- 5006 strings out of 493634
- 68872 string characters out of 3132789
- 147913 words of memory out of 3000000
- 8303 multiletter control sequences out of 15000+200000
+ 5034 strings out of 493634
+ 69425 string characters out of 3132789
+ 147926 words of memory out of 3000000
+ 8326 multiletter control sequences out of 15000+200000
  12733 words of font info for 48 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 37i,18n,40p,273b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,18n,40p,273b,441s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Bart Ziengs/AppDa
 ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/User
 s/Bart Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
@@ -682,11 +697,12 @@ cmbx12.pfb><C:/Users/Bart Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmr10.pfb><C:/Users/Bart Ziengs/AppData/Local/Programs/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Bart Ziengs/AppData/Lo
 cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Bart
- Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12
-.pfb>
-Output written on arch_design_condext.pdf (7 pages, 94116 bytes).
+ Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><C:/Users/Bart Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmtt12.pfb>
+Output written on arch_design_condext.pdf (8 pages, 110639 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
+ 67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

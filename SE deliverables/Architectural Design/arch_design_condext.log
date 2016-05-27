@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.1.18)  27 MAY 2016 15:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.17)  27 MAY 2016 16:18
 entering extended mode
 **./arch_design_condext.tex
 (arch_design_condext.tex
@@ -375,17 +375,119 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty"
+Package: pdfpages 2016/04/19 v0.5f Insert pages of external PDF documents (AM)
+
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.
+sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\calc.s
+ty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count102
+\calc@Bcount=\count103
+\calc@Adimen=\dimen114
+\calc@Bdimen=\dimen115
+\calc@Askip=\skip47
+\calc@Bskip=\skip48
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count104
+\calc@Cskip=\skip49
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\a
+tbegshi.sty"
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\i
+nfwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\l
+txcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\i
+fpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+))
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\key
+val.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks23
+)
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolo
+r.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\col
+or.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftex-def\p
+dftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+\Gread@gobject=\count105
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\gra
+phicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\gra
+phics.sty"
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\tri
+g.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\gra
+phics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+)
+\Gin@req@height=\dimen116
+\Gin@req@width=\dimen117
+)
+\AM@pagewidth=\dimen118
+\AM@pageheight=\dimen119
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
+File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box29
+\AM@global@opts=\toks24
+\AM@toc@title=\toks25
+\c@AM@survey=\count106
+\AM@templatesizebox=\box30
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
-\ttl@box=\box29
-\beforetitleunit=\skip47
-\aftertitleunit=\skip48
-\ttl@plus=\dimen114
-\ttl@minus=\dimen115
-\ttl@toksa=\toks23
-\titlewidth=\dimen116
-\titlewidthlast=\dimen117
-\titlewidthfirst=\dimen118
+\ttl@box=\box31
+\beforetitleunit=\skip50
+\aftertitleunit=\skip51
+\ttl@plus=\dimen120
+\ttl@minus=\dimen121
+\ttl@toksa=\toks26
+\titlewidth=\dimen122
+\titlewidthlast=\dimen123
+\titlewidthfirst=\dimen124
 )
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\ams
 symb.sty"
@@ -395,16 +497,6 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 metry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\key
-val.sty"
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks24
-)
-("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\i
-fpdf.sty"
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is not detected.
-)
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\i
 fvtex.sty"
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
@@ -414,40 +506,66 @@ Package ifvtex Info: VTeX not detected.
 xetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count102
-\Gm@cntv=\count103
-\c@Gm@tempcnt=\count104
-\Gm@bindingoffset=\dimen119
-\Gm@wd@mp=\dimen120
-\Gm@odd@mp=\dimen121
-\Gm@even@mp=\dimen122
-\Gm@layoutwidth=\dimen123
-\Gm@layoutheight=\dimen124
-\Gm@layouthoffset=\dimen125
-\Gm@layoutvoffset=\dimen126
-\Gm@dimlist=\toks25
+\Gm@cnth=\count107
+\Gm@cntv=\count108
+\c@Gm@tempcnt=\count109
+\Gm@bindingoffset=\dimen125
+\Gm@wd@mp=\dimen126
+\Gm@odd@mp=\dimen127
+\Gm@even@mp=\dimen128
+\Gm@layoutwidth=\dimen129
+\Gm@layoutheight=\dimen130
+\Gm@layouthoffset=\dimen131
+\Gm@layoutvoffset=\dimen132
+\Gm@dimlist=\toks27
 
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geo
 metry.cfg")) (arch_design_condext.aux)
 \openout1 = `arch_design_condext.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+\AtBeginShipoutBox=\box32
 
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-
+pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count110
+\scratchdimen=\dimen133
+\scratchbox=\box33
+\nofMPsegments=\count111
+\nofMParguments=\count112
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count113
+\MPscratchDim=\dimen134
+\MPnumerator=\count114
+\makeMPintoPDFobject=\count115
+\everyMPtoPDFconversion=\toks29
+)
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\pdf
+lscape.sty"
+Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
+
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\lsc
+ape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
+)
 *geometry* driver: auto-detecting
-*geometry* detected driver: dvips
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: dvips
+* driver: pdftex
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -478,20 +596,21 @@ LaTeX Font Info:    ... okay on input line 30.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 32.
+LaTeX Font Info:    Try loading font information for U+msa on input line 33.
 
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\ums
 a.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 32.
+LaTeX Font Info:    Try loading font information for U+msb on input line 33.
 
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\ums
 b.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] (arch_design_condext.toc)
+{C:/Users/Bart Ziengs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (arch
+_design_condext.toc)
 \tf@toc=\write3
 \openout3 = `arch_design_condext.toc'.
 
@@ -509,16 +628,65 @@ Chapter 2.
 
 ]
 Chapter 3.
-[5
+<CondExt_UML.pdf, id=23, 1465.475pt x 953.5625pt>
+File: CondExt_UML.pdf Graphic file (type pdf)
+ <use CondExt_UML.pdf>
+Package pdftex.def Info: CondExt_UML.pdf used on input line 120.
+(pdftex.def)             Requested size: 1465.47144pt x 953.56018pt.
+File: CondExt_UML.pdf Graphic file (type pdf)
 
-] (arch_design_condext.aux) ) 
+<use CondExt_UML.pdf>
+Package pdftex.def Info: CondExt_UML.pdf used on input line 120.
+(pdftex.def)             Requested size: 1465.47144pt x 953.56018pt.
+
+<CondExt_UML.pdf, id=26, page=1, 1465.475pt x 953.5625pt>
+File: CondExt_UML.pdf Graphic file (type pdf)
+
+<use CondExt_UML.pdf, page 1>
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+(pdftex.def)             Requested size: 1465.47144pt x 953.56018pt.
+File: CondExt_UML.pdf Graphic file (type pdf)
+ <use CondExt_UML.pdf, page 1>
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+(pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
+ [5
+
+]
+File: CondExt_UML.pdf Graphic file (type pdf)
+
+<use CondExt_UML.pdf, page 1>
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+(pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
+File: CondExt_UML.pdf Graphic file (type pdf)
+ <use CondExt_UML.pdf, page 1>
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+(pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
+File: CondExt_UML.pdf Graphic file (type pdf)
+
+<use CondExt_UML.pdf, page 1>
+Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 120.
+(pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
+ [6 <./CondExt_UML.pdf>] (arch_design_condext.aux) ) 
 Here is how much of TeX's memory you used:
- 2848 strings out of 493635
- 37634 string characters out of 3132815
- 106434 words of memory out of 3000000
- 6210 multiletter control sequences out of 15000+200000
+ 5006 strings out of 493634
+ 68872 string characters out of 3132789
+ 147913 words of memory out of 3000000
+ 8303 multiletter control sequences out of 15000+200000
  12733 words of font info for 48 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 27i,6n,28p,238b,231s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,18n,40p,273b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Bart Ziengs/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/User
+s/Bart Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb><C:/Users/Bart Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmr10.pfb><C:/Users/Bart Ziengs/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Bart Ziengs/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Bart
+ Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12
+.pfb>
+Output written on arch_design_condext.pdf (7 pages, 94116 bytes).
+PDF statistics:
+ 59 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on arch_design_condext.dvi (6 pages, 9400 bytes).

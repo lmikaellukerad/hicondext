@@ -3,5 +3,6 @@ languages:
 - csharp
 exclude:
 - /Assets/Hardware Plugins/*
-- /Assets/UnityTestTools/*
-- /Assets/Standard Assets/*
+- /Assets/UnityTestTools/*.*
+- /Assets/Standard Assets/*.*
+- /Assets/Kinect/*.*

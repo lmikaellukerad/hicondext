@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>372</y>
+      <x>246</x>
+      <y>408</y>
       <w>126</w>
       <h>186</h>
     </coordinates>
@@ -13,110 +13,29 @@
 -
 -model : HandModel;
 -interactable: int;
-+pinching: bool;
-+pinch: bool;
-+pinchPosition: Vector3 ;
++Pinching: bool;
++Pinch: bool;
++PinchPosition: Vector3 ;
 -previous: Vector3;
 -grabbedObject: GameObject;
-+reference: float;
-+radius: float;
++Reference: float;
++Radius: float;
 --
 -Start
 -OnDrawGizmos
-+getHandModel
-+onRelease
-+recognizeGesture
++GetHandModel
++OnRelease
++RecognizeGesture
 +Hold
-+updateGrab
++UpdateGrab
 -Update</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>516</x>
-      <y>372</y>
-      <w>126</w>
-      <h>174</h>
-    </coordinates>
-    <panel_attributes>GrabbableObject
--
-+preferredOrientation: bool
-+objectOrientation: bool
-+palmOrientation: Vector3/
-+ignoreOnGrab: Rigidbody[]
-+breakableJoint: Rigidbody
-+breakForce: float
-+breakTorque: float
-+rotateQuickly: bool
-#grabbed_: float
-#hovered_ : float
---
-+ IsHovered: bool
-+OnStartHover
-+OnStopHover
-+OnGrab
-+OnRelease
--Update
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>870</x>
-      <y>372</y>
-      <w>210</w>
-      <h>324</h>
-    </coordinates>
-    <panel_attributes>GrabbingHand
--
-#RELEASE_MAXIMUM_SPRING: float
-#RELEASE_DAMPING : float
-+grabbableLayers: LayerMask
-+grabObjectDistanceRatio: float
-+releaseDistanceRatio: float
-+grabObjectDistance: float
-+releaseBreakDistance: float
-+rotationFiltering : float
-+positionFiltering: float
-+minConfidence: float
-+maxVelocity: float
-+maxMovement: Vector3
-+Vector3 : Vector3
-#pinch_state_: PinchState
-#active_object_: Collider
-#last_max_angular_velocity_: float
-#rotation_from_palm_: Quaternion
-#current_pinch_: Vector3
-#Quaternion palm_rotation_: Quaternion
---
-#IgnoreCollisions(obj: GameObject,ignore: bool)
-#GetClosestGrabbableObject(pinch_position: Vector3 )
-#Hover(pinch_position: Vector3)
-#StartPinch(pinch_position: Vector3)
--Onrelease
-#GetPinchState(pinch_position: Vector3): Pinchstate
--GetPinchPosition: Vector3
--UpdatePalmRotation
--ContinueHardPinch(pinch_position: Vector3)
--ObjectReleaseBreak(pinch_position: Vector3): bool
--ContinueSoftPinch(pinch_position: Vector3)
--FixedUpdate
-
-
-
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>378</x>
-      <y>372</y>
+      <x>384</x>
+      <y>408</y>
       <w>126</w>
       <h>138</h>
     </coordinates>
@@ -141,27 +60,27 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>654</x>
-      <y>372</y>
-      <w>204</w>
+      <x>246</x>
+      <y>276</y>
+      <w>132</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>GrabBehaviour
 -
 
 --
-/+onPinch(Vector3 v);/
-/+onRelease/
+/+OnPinch(Vector3 v);/
+/+OnRelease/
 /+Hold/
-/+recognizeGesture/
-/+updateGrab/
+/+RecognizeGesture/
+/+UpdateGrab/
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>396</x>
+      <x>402</x>
       <y>150</y>
       <w>150</w>
       <h>78</h>
@@ -179,7 +98,7 @@ shelfDouble
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
+      <x>246</x>
       <y>150</y>
       <w>126</w>
       <h>42</h>
@@ -187,80 +106,35 @@ shelfDouble
     <panel_attributes>Scenes
 --
 work_env
-Supermarket
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>288</x>
+      <x>294</x>
       <y>186</y>
       <w>18</w>
-      <h>192</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;300.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>288</x>
-      <y>264</y>
-      <w>702</w>
-      <h>18</h>
+      <h>102</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>1150.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>438</x>
+      <x>444</x>
       <y>264</y>
       <w>18</w>
-      <h>114</h>
+      <h>156</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;240.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>264</y>
-      <w>18</w>
-      <h>114</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>708</x>
-      <y>264</y>
-      <w>18</w>
-      <h>114</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>972</x>
-      <y>264</y>
-      <w>18</w>
-      <h>114</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>288</x>
+      <x>294</x>
       <y>240</y>
       <w>186</w>
       <h>18</h>
@@ -271,7 +145,7 @@ Supermarket
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>456</x>
+      <x>462</x>
       <y>222</y>
       <w>18</w>
       <h>36</h>
@@ -282,7 +156,7 @@ Supermarket
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>582</x>
+      <x>588</x>
       <y>150</y>
       <w>150</w>
       <h>78</h>
@@ -299,86 +173,155 @@ Oculus Rift
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>540</y>
-      <w>300</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>lt=-()
-m2=
-</panel_attributes>
-    <additional_attributes>10.0;20.0;480.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>654</x>
-      <y>654</y>
-      <w>204</w>
-      <h>42</h>
-    </coordinates>
-    <panel_attributes>FixedJointManusGrabTest
--
-
---
-+setup
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>654</x>
-      <y>474</y>
-      <w>204</w>
-      <h>162</h>
-    </coordinates>
-    <panel_attributes>FixedJointGrabTest
--
-+interactable: LayerMask
-#grab: FixedJointGrab
---
-+setup
-+cleaup
--createPhysicalObject(pos: Vector3): GameObject
-+holdPincingTest
-+holdNoGrabbableItemTest()
-+holdGrabbableItemNoFixedJointTest
-+onPinchPinchingTest
-+onPinchNoGrabbableItemTest
-+onPinchGrabbableItemTest
-+onReleasePinchingTest
-+onReleaseNoGrabbableItemTest
-+onReleaseGrabbableItemTest
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>492</x>
-      <y>546</y>
-      <w>168</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes>lt=-()
-m2=
-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;230.0;260.0;230.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>540</x>
+      <x>546</x>
       <y>180</y>
       <w>54</w>
       <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>264</y>
+      <w>414</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>670.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>354</y>
+      <w>18</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>528</x>
+      <y>408</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>HandShelfColission
+-
+
+--
+-Start
+-Update
+-OnCollisionEnter
+-OnCollisionExit</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>582</x>
+      <y>264</y>
+      <w>18</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;240.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>246</x>
+      <y>642</y>
+      <w>126</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>FixedJointManusGrab
+-
+-model : HandModel;
+-interactable: int;
+--
++RecognizeGesture
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>588</y>
+      <w>18</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>570</y>
+      <w>132</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>FingerTipCollider
+-
+
+--
+-Start</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>624</y>
+      <w>132</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>DetectColission
+-
+
+--
+-OnCollisionEnter
+-OnCollisionExit</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>264</y>
+      <w>180</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;580.0;280.0;580.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>606</y>
+      <w>36</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;40.0;120.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>582</y>
+      <w>36</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0;40.0;50.0</additional_attributes>
   </element>
 </diagram>

@@ -2,7 +2,7 @@ component_depth: 1
 languages:
 - csharp
 exclude:
-- /Assets/Hardware Plugins/*
+- /Assets/Hardware Plugins/*.*
 - /Assets/UnityTestTools/*.*
 - /Assets/Standard Assets/*.*
 - /Assets/Kinect/*.*

@@ -21,8 +21,9 @@ public class IKJoint
     {
         this.joint = (new GameObject("joint_" + trans.name)).transform;
         Vector3 look = child.position - trans.position;
+        Vector3 poleVector = pole.position - trans.position;
         Vector3.Normalize(look);
-        Vector3 orth = pole.position - Vector3.Project(pole.position, look);
+        Vector3 orth = poleVector - Vector3.Project(poleVector, look);
 
         this.joint.rotation = Quaternion.LookRotation(look, orth);
         this.joint.position = trans.position;

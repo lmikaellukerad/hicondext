@@ -7,7 +7,7 @@ public class IKTestScript {
 	private Transform start;
 	private Transform center;
 	private Transform end;
-	private Transform goal;
+	private GameObject goal;
 	private Transform pole;
 	private IKScript script;
 
@@ -18,8 +18,7 @@ public class IKTestScript {
 		center = new GameObject("first").transform;
 		end = new GameObject("second").transform;
 		pole = new GameObject("pole").transform;
-		goal = new GameObject("goal").transform;
-
+		goal = new GameObject("goal");
 		center.parent = start;
 		end.parent = center;
 
@@ -27,7 +26,7 @@ public class IKTestScript {
 		center.position = new Vector3(0, 5, 0);
 		end.position = new Vector3(0, 10, 0);
 		pole.position = new Vector3(0, 0, -5);
-		goal.position = new Vector3(0, 10, 0);
+		goal.transform.position = new Vector3(0, 10, 0);
 
 		script = (new GameObject()).AddComponent<IKScript>();
 
@@ -42,38 +41,39 @@ public class IKTestScript {
 	public void ChainFoundTest()
 	{
 		script.Start();
-		Assert.True(script.chainFound);
+		Assert.True(script.ChainFound);
 		center.parent = null;
 		end.parent = null;
 		script.Start();
-		Assert.False(script.chainFound);
+		Assert.False(script.ChainFound);
 	}
 
-    [Test]
-    public void IKTestOne()
-    {
-        goal.position = new Vector3(0, 5, 5);
-        script.Start();
-        script.Update();
-        Assert.True(Vector3.Distance(goal.position, end.position) < 0.001);
-    }
+	[Test]
+	public void IKTest()
+	{
+		goal.transform.position = new Vector3(0, 5, 5);
+		script.Start();
+		script.Update();
+		Assert.True(Vector3.Distance(goal.transform.position, end.position) < 0.001);
+	}
 
-    [Test]
-    public void PoleTestOne()
-    {
-        goal.position = new Vector3(0, 5, 0);
-        script.Start();
-        script.Update();
-        Assert.Greater(center.position.z,0);
-    }
-
-    [Test]
-    public void PoleTestTwo()
-    {
-        goal.position = new Vector3(0, 5, 0);
-        pole.position = new Vector3(0, 0, 5);
-        script.Start();
+	[Test]
+	public void PoleTestOne()
+	{
+		goal.transform.position = new Vector3(0, 2.5f, 2.5f);
+		pole.position = new Vector3(0, 0, -5);
+		script.Start();
         script.Update();
         Assert.Greater(0, center.position.z);
-    }
+	}
+
+	[Test]
+	public void PoleTestTwo()
+    {
+        goal.transform.position = new Vector3(0, 2.5f, -2.5f);
+		pole.position = new Vector3(0, 0, 5);
+		script.Start();
+        script.Update();
+        Assert.Greater(center.position.z, 0);
+	}
 }

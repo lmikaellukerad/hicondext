@@ -21,8 +21,6 @@ To run the tests we made, you can open the Editor Tests Runner view, found under
  We use the following tools as recommended by CleVR: StyleCop, CodeMaid, GhostDoc and VSSpellingChecker. We use all these tools to improve our final product quality and increase productivity.
 StyleCop is used to make sure all of our code has the same style. GhostDoc can automatically generate documentation which makes documenting our code faster and easier. 
 To prevent spelling errors we use VSSpellingChecker, and CodeMaid makes it easier to run StyleCop on our code.
-In order to run StyleCop with our adjusted ruleset, copy the file "Settings.StyleCop" in the folder "StyleCop", go to the StyleCop installation folder on your local machine and paste and
-overwrite the Settings.StyleCop file
 
  We also make use of Unity Cloud Build which is an easy to use continuous integration solution for Unity projects.
 To see our builds and wether or not they succeeded please create a Unity id and send us the email adress that was used so we can add you to the project.

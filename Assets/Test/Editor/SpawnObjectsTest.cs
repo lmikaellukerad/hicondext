@@ -9,6 +9,7 @@ public class SpawnObjectsTest {
     [SetUp]
     public virtual void setup()
     {
+        GameObject one = new GameObject("mntdewPrefab");
         Vector3 startPosTest = new Vector3(-2.198f, 0.6f, -1.9f);
         Vector3 distanceBetweenTest = new Vector3(0f, 0f, 0.25f);
         Vector3 heightDistanceTest = new Vector3(0f, -0.13f, 0f);

@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using Leap;
+using UnityEngine;
 
 /**
  * Script for behaviour when tracking of hand is lost
@@ -17,38 +17,57 @@ namespace Leap.Unity
         private Vector3 armCenter;
         private Quaternion armRotation;
 
+        /// <summary>
+        /// Awakes this instance and initiates private variables.
+        /// </summary>
         protected override void Awake()
         {
             base.Awake();
-            palm = GetComponent<HandModel>().palm;
-            forearm = GetComponent<HandModel>().forearm;
-            armCenter = forearm.localPosition;
-            armRotation = forearm.localRotation;
-            startingPalmPosition = palm.localPosition;
-            startingPalmPosition = palm.localPosition;
-            startingOrientation = palm.localRotation;
+            this.palm = GetComponent<HandModel>().palm;
+            this.forearm = GetComponent<HandModel>().forearm;
+            this.armCenter = this.forearm.localPosition;
+            this.armRotation = this.forearm.localRotation;
+            this.startingPalmPosition = this.palm.localPosition;
+            this.startingPalmPosition = this.palm.localPosition;
+            this.startingOrientation = this.palm.localRotation;
         }
 
+        /// <summary>
+        /// Finishes the hand.
+        /// </summary>
         protected override void HandFinish()
         {
-            StartCoroutine(LerpToStart());
-        }
-        protected override void HandReset()
-        {
-            StopAllCoroutines();
+            this.StartCoroutine(this.LerpToStart());
         }
 
+        /// <summary>
+        /// Resets the hand.
+        /// </summary>
+        protected override void HandReset()
+        {
+            this.StopAllCoroutines();
+        }
+
+        /// <summary>
+        /// Returns the result of a call to a non-linear function.
+        /// </summary>
+        /// <param name="t">The t.</param>
+        /// <returns>float t</returns>
         private float NonLinearInterpolation(float t)
         {
             return (-Mathf.Cos(t * Mathf.PI) + 1) / 2;
         }
 
+        /// <summary>
+        /// Uses linear interpolation to smoothly move the hand back to its starting position, used when loss of tracking occurs.
+        /// </summary>
+        /// <returns>IEnumerator IE</returns>
         private IEnumerator LerpToStart()
         {
-            Vector3 droppedArmCenter = forearm.localPosition;
-            Quaternion droppedArmRotation = forearm.localRotation;
-            Vector3 droppedPosition = palm.localPosition;
-            Quaternion droppedOrientation = palm.localRotation;
+            Vector3 droppedArmCenter = this.forearm.localPosition;
+            Quaternion droppedArmRotation = this.forearm.localRotation;
+            Vector3 droppedPosition = this.palm.localPosition;
+            Quaternion droppedOrientation = this.palm.localRotation;
             float duration = 0.7f;
             float startTime = Time.time;
             float endTime = startTime + duration;
@@ -56,19 +75,23 @@ namespace Leap.Unity
             while (Time.time <= endTime)
             {
                 float t = (Time.time - startTime) / duration;
-                palm.localPosition = Vector3.Lerp(droppedPosition, startingPalmPosition, NonLinearInterpolation(t));
-                palm.localRotation = Quaternion.Lerp(droppedOrientation, startingOrientation, NonLinearInterpolation(t));
-                forearm.localPosition = Vector3.Lerp(droppedArmCenter, armCenter, NonLinearInterpolation(t));
-                forearm.localRotation = Quaternion.Lerp(droppedArmRotation, armRotation, NonLinearInterpolation(t));
+                this.palm.localPosition = Vector3.Lerp(droppedPosition, this.startingPalmPosition, this.NonLinearInterpolation(t));
+                this.palm.localRotation = Quaternion.Lerp(droppedOrientation, this.startingOrientation, this.NonLinearInterpolation(t));
+                this.forearm.localPosition = Vector3.Lerp(droppedArmCenter, this.armCenter, this.NonLinearInterpolation(t));
+                this.forearm.localRotation = Quaternion.Lerp(droppedArmRotation, this.armRotation, this.NonLinearInterpolation(t));
 
                 yield return null;
             }
         }
 
+        /// <summary>
+        /// Moves the hand using linear interpolation.
+        /// </summary>
+        /// <returns>IEnumerator IE</returns>
         private IEnumerator LerpBack()
         {
-            Vector3 droppedPosition = palm.localPosition;
-            Quaternion droppedOrientation = palm.localRotation;
+            Vector3 droppedPosition = this.palm.localPosition;
+            Quaternion droppedOrientation = this.palm.localRotation;
             float duration = 0.25f;
             float startTime = Time.time;
             float endTime = startTime + duration;
@@ -76,12 +99,10 @@ namespace Leap.Unity
             while (Time.time <= endTime)
             {
                 float t = (Time.time - startTime) / duration;
-                palm.localPosition = Vector3.Slerp(droppedPosition, startingPalmPosition, NonLinearInterpolation(1 - t));
-                palm.localRotation = Quaternion.Lerp(droppedOrientation, startingOrientation, NonLinearInterpolation(1 - t));
+                this.palm.localPosition = Vector3.Slerp(droppedPosition, this.startingPalmPosition, this.NonLinearInterpolation(1 - t));
+                this.palm.localRotation = Quaternion.Lerp(droppedOrientation, this.startingOrientation, this.NonLinearInterpolation(1 - t));
                 yield return null;
             }
         }
     }
 }
-
-

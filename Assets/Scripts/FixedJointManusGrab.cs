@@ -1,26 +1,44 @@
-﻿using UnityEngine;
-using Leap.Unity;
-using Leap;
+﻿using Leap.Unity;
+using UnityEngine;
 
 /**
-* TODO: Grabbed object lags behind when walking or moving.
 *   This script determines the behaviour when grabbing gesture is made with Leap Motion
 */
+
 public class FixedJointManusGrab : FixedJointGrab
 {
-
-    //Debug only
-    void OnDrawGizmos()
+    /// <summary>
+    /// Determines the current gesture given the current finger positions and -rotations
+    /// </summary>
+    public override void RecognizeGesture()
     {
+        Transform[] fingerTipTransforms = GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
+        if (fingerTipTransforms != null && fingerTipTransforms.Length != 0)
+        {
+            // compare the distance between thumb and all other fingers to recognize a pinch/grabbing motion
+            Transform thumb = fingerTipTransforms[0];
+            for (int i = 1; i < fingerTipTransforms.Length; i++)
+            {
+                Transform fingerTip = fingerTipTransforms[i];
+                if (Vector3.Distance(fingerTip.position, thumb.position) < this.Reference)
+                {
+                    this.Pinch = true;
+                    this.PinchPosition = fingerTipTransforms[1].position; // set the pinch position to the index finger
+                    return;
+                }
+            }
+        }
+    }
 
+    // Debug only
+    private void OnDrawGizmos()
+    {
         HandModel hand_model = GetComponent<HandModel>();
 
         Gizmos.color = Color.red;
-        //Gizmos.DrawSphere(pinchPosition, radius);
-        //Gizmos.DrawLine(thumb.GetTipPosition(), model.palm.transform.position);
-        if (getHandModel() != null)
+        if (this.GetHandModel() != null)
         {
-            Transform[] fingerTipTransforms = getHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
+            Transform[] fingerTipTransforms = this.GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
             if (fingerTipTransforms != null && fingerTipTransforms.Length != 0)
             {
                 for (int i = 0; i < fingerTipTransforms.Length; i++)
@@ -30,29 +48,10 @@ public class FixedJointManusGrab : FixedJointGrab
                 }
             }
         }
-        if (pinch && pinching)
+
+        if (this.Pinch && this.Pinching)
         {
-            Gizmos.DrawSphere(pinchPosition, 0.05f);
+            Gizmos.DrawSphere(this.PinchPosition, this.Radius);
         }
     }
-
-    public override void recognizeGesture()
-    {
-        Transform[] fingerTipTransforms = getHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
-        if (fingerTipTransforms != null && fingerTipTransforms.Length != 0)
-        {
-            Transform thumb = fingerTipTransforms[0];
-            for (int i = 1; i < fingerTipTransforms.Length; i++)
-            {
-                Transform fingerTip = fingerTipTransforms[i];
-                if (Vector3.Distance(fingerTip.position, thumb.position) < reference)
-                {
-                    pinch = true;
-                    pinchPosition = thumb.position;
-                    return;
-                }
-            }
-        }
-    }
-
 }

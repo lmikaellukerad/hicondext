@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.17)  27 MAY 2016 17:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=latex 2016.1.18)  27 MAY 2016 17:45
 entering extended mode
 **./arch_design_condext.tex
 (arch_design_condext.tex
@@ -413,7 +413,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\i
 fpdf.sty"
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
 ))
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\key
 val.sty"
@@ -428,15 +428,13 @@ Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 or.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Driver file: dvips.def on input line 225.
 
-("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftex-def\p
-dftex.def"
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-\Gread@gobject=\count105
+("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\dvi
+ps.def"
+File: dvips.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
 )
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
@@ -461,7 +459,7 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 phics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 94.
+Package graphics Info: Driver file: dvips.def on input line 94.
 )
 \Gin@req@height=\dimen116
 \Gin@req@width=\dimen117
@@ -470,14 +468,23 @@ Package graphics Info: Driver file: pdftex.def on input line 94.
 \AM@pageheight=\dimen119
  ("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
 File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
-)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\ppnull.def"
+File: ppnull.def 2016/04/19 v0.5f Pdfpages dummy driver (AM)
+
+
+Package pdfpages Warning: I will use a dummy \includepdf command which
+(pdfpages)                will insert empty pages instead of the actual PDF,
+(pdfpages)                because we are running in DVI mode or with
+(pdfpages)                dvips driver.
+
+))
 \AM@pagebox=\box29
 \AM@global@opts=\toks24
 \AM@toc@title=\toks25
-\c@AM@survey=\count106
+\c@AM@survey=\count105
 \AM@templatesizebox=\box30
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box31
 \beforetitleunit=\skip50
@@ -506,9 +513,9 @@ Package ifvtex Info: VTeX not detected.
 xetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count107
-\Gm@cntv=\count108
-\c@Gm@tempcnt=\count109
+\Gm@cnth=\count106
+\Gm@cntv=\count107
+\c@Gm@tempcnt=\count108
 \Gm@bindingoffset=\dimen125
 \Gm@wd@mp=\dimen126
 \Gm@odd@mp=\dimen127
@@ -537,21 +544,6 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
 \AtBeginShipoutBox=\box32
 
-("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-
-pdf.mkii"
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count110
-\scratchdimen=\dimen133
-\scratchbox=\box33
-\nofMPsegments=\count111
-\nofMParguments=\count112
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count113
-\MPscratchDim=\dimen134
-\MPnumerator=\count114
-\makeMPintoPDFobject=\count115
-\everyMPtoPDFconversion=\toks29
-)
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\pdf
 lscape.sty"
 Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
@@ -560,12 +552,12 @@ Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
 ape.sty"
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
-Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
+Package pdflscape Info: Auto-detected driver: dvips (dvips) on input line 124.
 )
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: dvips
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: dvips
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -609,8 +601,7 @@ b.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/Bart Ziengs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (arch
-_design_condext.toc)
+] (arch_design_condext.toc)
 \tf@toc=\write3
 \openout3 = `arch_design_condext.toc'.
 
@@ -620,89 +611,38 @@ _design_condext.toc)
 
 ]
 Chapter 1.
-<control_of_bodyparts.png, id=17, 311.36325pt x 293.29575pt>
-File: control_of_bodyparts.png Graphic file (type png)
-
-<use control_of_bodyparts.png>
-Package pdftex.def Info: control_of_bodyparts.png used on input line 81.
-(pdftex.def)             Requested size: 249.09093pt x 234.6369pt.
- [3
-
- <./control_of_bodyparts.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 92.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 93.
 
 ("C:\Users\Bart Ziengs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.
 fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 92.
- [4]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 93.
+ [3
+
+] [4]
 Chapter 2.
 [5
 
 ]
 Chapter 3.
-<CondExt_UML.pdf, id=28, 1465.475pt x 953.5625pt>
-File: CondExt_UML.pdf Graphic file (type pdf)
- <use CondExt_UML.pdf>
-Package pdftex.def Info: CondExt_UML.pdf used on input line 148.
-(pdftex.def)             Requested size: 1465.47144pt x 953.56018pt.
-File: CondExt_UML.pdf Graphic file (type pdf)
 
-<use CondExt_UML.pdf>
-Package pdftex.def Info: CondExt_UML.pdf used on input line 148.
-(pdftex.def)             Requested size: 1465.47144pt x 953.56018pt.
+Package pdfpages Warning: I cannot determine the number of pages of the
+(pdfpages)                included document, because we are running in
+(pdfpages)                DVI mode. 
+(pdfpages)                You can use the option `lastpage' to give me a hint.
 
-<CondExt_UML.pdf, id=31, page=1, 1465.475pt x 953.5625pt>
-File: CondExt_UML.pdf Graphic file (type pdf)
+[6
 
-<use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
-(pdftex.def)             Requested size: 1465.47144pt x 953.56018pt.
-File: CondExt_UML.pdf Graphic file (type pdf)
- <use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
-(pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
- [6
-
-]
-File: CondExt_UML.pdf Graphic file (type pdf)
-
-<use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
-(pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
-File: CondExt_UML.pdf Graphic file (type pdf)
- <use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
-(pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
-File: CondExt_UML.pdf Graphic file (type pdf)
-
-<use CondExt_UML.pdf, page 1>
-Package pdftex.def Info: CondExt_UML.pdf, page1 used on input line 148.
-(pdftex.def)             Requested size: 845.3026pt x 550.02565pt.
- [7 <./CondExt_UML.pdf>] (arch_design_condext.aux) ) 
+] [7] (arch_design_condext.aux) ) 
 Here is how much of TeX's memory you used:
- 5034 strings out of 493634
- 69425 string characters out of 3132789
- 147926 words of memory out of 3000000
- 8326 multiletter control sequences out of 15000+200000
+ 4594 strings out of 493635
+ 63376 string characters out of 3132815
+ 138792 words of memory out of 3000000
+ 7894 multiletter control sequences out of 15000+200000
  12733 words of font info for 48 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 37i,18n,40p,273b,441s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Bart Ziengs/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/User
-s/Bart Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><C:/Users/Bart Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr10.pfb><C:/Users/Bart Ziengs/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Bart Ziengs/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Bart
- Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><C:/Users/Bart Ziengs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmtt12.pfb>
-Output written on arch_design_condext.pdf (8 pages, 110639 bytes).
-PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 37i,9n,39p,273b,276s stack positions out of 5000i,500n,10000p,200000b,50000s
 
+Output written on arch_design_condext.dvi (8 pages, 13760 bytes).

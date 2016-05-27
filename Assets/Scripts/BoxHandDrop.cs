@@ -16,8 +16,8 @@ namespace Leap.Unity
         private Transform forearm;
         private Vector3 armCenter;
         private Quaternion armRotation;
-        private float LerpToStartDuration = 0.7f;
-        private float LerpBackDuration = 0.25f;
+        private float lerpToStartDuration = 0.7f;
+        private float lerpBackDuration = 0.25f;
 
         /// <summary>
         /// Awakes this instance and initiates private variables.
@@ -72,10 +72,11 @@ namespace Leap.Unity
             Quaternion droppedArmRotation = this.forearm.localRotation;
             Vector3 droppedPosition = this.palm.localPosition;
             Quaternion droppedOrientation = this.palm.localRotation;
-            float duration = LerpToStartDuration;
+            float duration = this.lerpToStartDuration;
             float startTime = Time.time;
             float endTime = startTime + duration;
 
+            // move the arm to its startingposition with speed determined by the NonLinearInterpolation function
             while (Time.time <= endTime)
             {
                 float t = (Time.time - startTime) / duration;
@@ -96,10 +97,11 @@ namespace Leap.Unity
         {
             Vector3 droppedPosition = this.palm.localPosition;
             Quaternion droppedOrientation = this.palm.localRotation;
-            float duration = LerpBackDuration;
+            float duration = this.lerpBackDuration;
             float startTime = Time.time;
             float endTime = startTime + duration;
 
+            // move the arm to its droppedPosition with speed determined by the NonLinearInterpolation function
             while (Time.time <= endTime)
             {
                 float t = (Time.time - startTime) / duration;

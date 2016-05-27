@@ -5,6 +5,10 @@ using UnityEngine;
 public class ModePicker : MonoBehaviour
 {
     public bool VRMode;
+    private Vector3 VR_position = new Vector3(0, 0, 0);
+    private Vector3 VR_rotation = new Vector3(-90, 180, 0);
+    private Vector3 non_VR_position = new Vector3(0, -0.3f, 0.4f);
+    private Vector3 non_VR_rotation = new Vector3(0, 0, 0);
 
     /// <summary>
     /// initializes the Leap for either VR mounted or non-mounted mode.
@@ -24,8 +28,8 @@ public class ModePicker : MonoBehaviour
                 transform.GetComponent<LeapVRTemporalWarping>().enabled = true;
             }
 
-			transform.localPosition = new Vector3(0, 0, 0);
-			transform.localRotation = Quaternion.Euler(new Vector3(-90, 180, 0));
+			transform.localPosition = VR_position;
+			transform.localRotation = Quaternion.Euler(VR_rotation);
 		}
 		else
         {
@@ -40,8 +44,8 @@ public class ModePicker : MonoBehaviour
                 transform.GetComponent<LeapVRTemporalWarping>().enabled = false;
             }
 
-            transform.localPosition = new Vector3(0, -0.3f, 0.4f);
-            transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            transform.localPosition = non_VR_position;
+            transform.localRotation = Quaternion.Euler(non_VR_rotation);
 		}
 	}
 
@@ -63,8 +67,8 @@ public class ModePicker : MonoBehaviour
                 transform.GetComponent<LeapVRTemporalWarping>().enabled = true;
             }
 
-            transform.localPosition = new Vector3(0, 0, 0);
-            transform.localRotation = Quaternion.Euler(new Vector3(-90, 180, 0));
+            transform.localPosition = VR_position;
+            transform.localRotation = Quaternion.Euler(VR_rotation);
         }
         else
         {
@@ -79,8 +83,8 @@ public class ModePicker : MonoBehaviour
                 transform.GetComponent<LeapVRTemporalWarping>().enabled = false;
             }
 
-            transform.localPosition = new Vector3(0, -0.3f, 0.4f);
-            transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            transform.localPosition = non_VR_position;
+            transform.localRotation = Quaternion.Euler(non_VR_rotation);
         }
 	}
 }

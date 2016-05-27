@@ -16,6 +16,8 @@ namespace Leap.Unity
         private Transform forearm;
         private Vector3 armCenter;
         private Quaternion armRotation;
+        private float LerpToStartDuration = 0.7f;
+        private float LerpBackDuration = 0.25f;
 
         /// <summary>
         /// Awakes this instance and initiates private variables.
@@ -49,7 +51,9 @@ namespace Leap.Unity
         }
 
         /// <summary>
-        /// Returns the result of a call to a non-linear function.
+        /// Returns the result of a call to a non-linear function. 
+        /// It is used to calculate the movement of the hand while moving back to it's origin.
+        /// In order to move smoothly, we need a function that starts fast and ends slow, but is not linear.
         /// </summary>
         /// <param name="t">The t.</param>
         /// <returns>float t</returns>
@@ -68,7 +72,7 @@ namespace Leap.Unity
             Quaternion droppedArmRotation = this.forearm.localRotation;
             Vector3 droppedPosition = this.palm.localPosition;
             Quaternion droppedOrientation = this.palm.localRotation;
-            float duration = 0.7f;
+            float duration = LerpToStartDuration;
             float startTime = Time.time;
             float endTime = startTime + duration;
 
@@ -92,7 +96,7 @@ namespace Leap.Unity
         {
             Vector3 droppedPosition = this.palm.localPosition;
             Quaternion droppedOrientation = this.palm.localRotation;
-            float duration = 0.25f;
+            float duration = LerpBackDuration;
             float startTime = Time.time;
             float endTime = startTime + duration;
 

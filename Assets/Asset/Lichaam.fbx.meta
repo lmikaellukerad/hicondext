@@ -264,7 +264,7 @@ ModelImporter:
       - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L/Foot_L
         weight: 1
       - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipBone_R
         weight: 1
       - path: Armature/HipSpine/HipBone_R/UpperLeg_R
@@ -274,7 +274,7 @@ ModelImporter:
       - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R/Foot_R
         weight: 1
       - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine
@@ -282,7 +282,7 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Head
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Head/Head_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L
@@ -298,9 +298,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11/L_Finger_12
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11/L_Finger_12/L_Finger_12_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20
@@ -308,9 +308,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21/L_Finger_22
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21/L_Finger_22/L_Finger_22_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40
@@ -318,9 +318,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41/L_Finger_42
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41/L_Finger_42/L_Finger_42_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30
@@ -328,9 +328,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31/L_Finger_32
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31/L_Finger_32/L_Finger_32_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00
@@ -338,9 +338,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01/L_Finger_02
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01/L_Finger_02/L_Finger_02_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R
@@ -356,9 +356,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11/R_Finger_12
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11/R_Finger_12/R_Finger_12_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20
@@ -366,9 +366,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21/R_Finger_22
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21/R_Finger_22/R_Finger_22_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40
@@ -376,9 +376,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41/R_Finger_42
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41/R_Finger_42/R_Finger_42_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30
@@ -386,9 +386,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31/R_Finger_32
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31/R_Finger_32/R_Finger_32_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00
@@ -396,21 +396,19 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01/R_Finger_02
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01/R_Finger_02/R_Finger_02_end
-        weight: 0
-      - path: Cube
-        weight: 0
-      - path: Cube.001
-        weight: 0
-      - path: Cube.001/Cube.001_MeshPart0
-        weight: 0
-      - path: Cube.001/Cube.001_MeshPart1
-        weight: 0
+        weight: 1
+      - path: Body
+        weight: 1
       - path: LeftShoe
-        weight: 0
+        weight: 1
+      - path: Pants
+        weight: 1
       - path: RightShoe
-        weight: 0
+        weight: 1
+      - path: Shirt
+        weight: 1
       maskType: 0
       maskSource: {fileID: 101100000, guid: f00268be78e6ce441aaf92d4f2f45747, type: 2}
       additiveReferencePoseFrame: 0
@@ -454,7 +452,7 @@ ModelImporter:
       - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L/Foot_L
         weight: 1
       - path: Armature/HipSpine/HipBone_L/UpperLeg_L/LowerLeg_L/Foot_L/Foot_L_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipBone_R
         weight: 1
       - path: Armature/HipSpine/HipBone_R/UpperLeg_R
@@ -464,7 +462,7 @@ ModelImporter:
       - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R/Foot_R
         weight: 1
       - path: Armature/HipSpine/HipBone_R/UpperLeg_R/LowerLeg_R/Foot_R/Foot_R_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine
@@ -472,7 +470,7 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Head
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Head/Head_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L
@@ -488,9 +486,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11/L_Finger_12
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/IndexBone/L_Finger_10/L_Finger_11/L_Finger_12/L_Finger_12_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20
@@ -498,9 +496,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21/L_Finger_22
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/MiddleFinger/L_Finger_20/L_Finger_21/L_Finger_22/L_Finger_22_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40
@@ -508,9 +506,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41/L_Finger_42
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/Pinky/L_Finger_40/L_Finger_41/L_Finger_42/L_Finger_42_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30
@@ -518,9 +516,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31/L_Finger_32
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/RingFinger/L_Finger_30/L_Finger_31/L_Finger_32/L_Finger_32_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00
@@ -528,9 +526,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01/L_Finger_02
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_L/UpperArm_L/LowerArm_L/Palm/ThumbBone/L_Finger_00/L_Finger_01/L_Finger_02/L_Finger_02_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R
@@ -546,9 +544,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11/R_Finger_12
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/IndexBone.001/R_Finger_10/R_Finger_11/R_Finger_12/R_Finger_12_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20
@@ -556,9 +554,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21/R_Finger_22
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/MiddleFinger.001/R_Finger_20/R_Finger_21/R_Finger_22/R_Finger_22_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40
@@ -566,9 +564,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41/R_Finger_42
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/Pinky.001/R_Finger_40/R_Finger_41/R_Finger_42/R_Finger_42_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30
@@ -576,9 +574,9 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31/R_Finger_32
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/RingFinger.001/R_Finger_30/R_Finger_31/R_Finger_32/R_Finger_32_end
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00
@@ -586,17 +584,19 @@ ModelImporter:
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01
         weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01/R_Finger_02
-        weight: 0
+        weight: 1
       - path: Armature/HipSpine/HipSpine.001/Spine/Shoulder_R/UpperArm_R/LowerArm_R/Palm.001/ThumbBone.001/R_Finger_00/R_Finger_01/R_Finger_02/R_Finger_02_end
-        weight: 0
-      - path: Cube
-        weight: 0
-      - path: Cube.001
-        weight: 0
-      - path: Cube.001/Cube.001_MeshPart0
-        weight: 0
-      - path: Cube.001/Cube.001_MeshPart1
-        weight: 0
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: LeftShoe
+        weight: 1
+      - path: Pants
+        weight: 1
+      - path: RightShoe
+        weight: 1
+      - path: Shirt
+        weight: 1
       maskType: 0
       maskSource: {fileID: 101100000, guid: f00268be78e6ce441aaf92d4f2f45747, type: 2}
       additiveReferencePoseFrame: 0

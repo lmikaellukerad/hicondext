@@ -117,18 +117,7 @@ public class FixedJointGrab : GrabBehaviour
         Hand leapHand = this.model.GetLeapHand();
         if (leapHand != null)
         {
-              // compare the distance between thumb and all other fingers to recognize a pinch/grabbing motion
-            Finger thumb = leapHand.Fingers[0];
-            for (int i = 1; i < HandModel.NUM_FINGERS; i++)
-            {
-                Finger finger = leapHand.Fingers[i];
-                if (finger.TipPosition.DistanceTo(thumb.TipPosition) < this.Reference)
-                {
-                    this.Pinch = true;
-                    this.PinchPosition = leapHand.Fingers[1].TipPosition.ToVector3();       // set the pinch position to the index finger
-                    return;
-                }
-            }
+            this.DetectGrab(leapHand);
         }
     }
 
@@ -198,5 +187,33 @@ public class FixedJointGrab : GrabBehaviour
     private void Update()
     {
         this.UpdateGrab();
+    }
+
+    /// <summary>
+    /// Detects a grabbing motion of a leap hand.
+    /// </summary>
+    /// <param name="leapHand">The leap hand object.</param>
+    private void DetectGrab(Hand leapHand)
+    {
+        Finger thumb = leapHand.Fingers[0];
+        for (int i = 1; i < HandModel.NUM_FINGERS; i++)
+        {
+            this.DetectPinch(thumb, leapHand.Fingers[i]);
+        }
+    }
+
+    /// <summary>
+    /// Detects a pinching motion between the thumb and another finger.
+    /// </summary>
+    /// <param name="thumb">The thumb.</param>
+    /// <param name="finger">The finger.</param>
+    private void DetectPinch(Finger thumb, Finger finger)
+    {
+        if (finger.TipPosition.DistanceTo(thumb.TipPosition) < this.Reference)
+        {
+            this.Pinch = true;
+            this.PinchPosition = thumb.TipPosition.ToVector3();
+            return;
+        }
     }
 }

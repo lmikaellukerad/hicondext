@@ -28,6 +28,7 @@
           <Value>on</Value>
           <Value>to</Value>
           <Value>ui</Value>
+          <Value>vr</Value>
           <Value>vs</Value>
           <Value>x</Value>
           <Value>y</Value>
@@ -37,11 +38,6 @@
     </Analyzer>
     <Analyzer AnalyzerId="StyleCop.CSharp.DocumentationRules">
       <Rules>
-        <Rule Name="FileMustHaveHeader">
-          <RuleSettings>
-            <BooleanProperty Name="Enabled">False</BooleanProperty>
-          </RuleSettings>
-        </Rule>
         <Rule Name="FileHeaderMustShowCopyright">
           <RuleSettings>
             <BooleanProperty Name="Enabled">False</BooleanProperty>
@@ -52,47 +48,12 @@
             <BooleanProperty Name="Enabled">False</BooleanProperty>
           </RuleSettings>
         </Rule>
-        <Rule Name="ElementsMustBeDocumented">
-          <RuleSettings>
-            <BooleanProperty Name="Enabled">False</BooleanProperty>
-          </RuleSettings>
-        </Rule>
       </Rules>
       <AnalyzerSettings />
     </Analyzer>
     <Analyzer AnalyzerId="StyleCop.CSharp.LayoutRules">
       <Rules>
         <Rule Name="OpeningCurlyBracketsMustNotBeFollowedByBlankLine">
-          <RuleSettings>
-            <BooleanProperty Name="Enabled">False</BooleanProperty>
-          </RuleSettings>
-        </Rule>
-      </Rules>
-      <AnalyzerSettings />
-    </Analyzer>
-    <Analyzer AnalyzerId="StyleCop.CSharp.OrderingRules">
-      <Rules>
-        <Rule Name="UsingDirectivesMustBePlacedWithinNamespace">
-          <RuleSettings>
-            <BooleanProperty Name="Enabled">False</BooleanProperty>
-          </RuleSettings>
-        </Rule>
-      </Rules>
-      <AnalyzerSettings />
-    </Analyzer>
-    <Analyzer AnalyzerId="StyleCop.CSharp.SpacingRules">
-      <Rules>
-        <Rule Name="TabsMustNotBeUsed">
-          <RuleSettings>
-            <BooleanProperty Name="Enabled">False</BooleanProperty>
-          </RuleSettings>
-        </Rule>
-      </Rules>
-      <AnalyzerSettings />
-    </Analyzer>
-    <Analyzer AnalyzerId="StyleCop.CSharp.MaintainabilityRules">
-      <Rules>
-        <Rule Name="FieldsMustBePrivate">
           <RuleSettings>
             <BooleanProperty Name="Enabled">False</BooleanProperty>
           </RuleSettings>

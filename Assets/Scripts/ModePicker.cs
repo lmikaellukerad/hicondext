@@ -15,7 +15,8 @@ public class ModePicker : MonoBehaviour
     /// </summary>
     public void Start()
     {
-		if (this.VRMode)
+        // set the program to work in VR mode or non-VR mode
+        if (this.VRMode)
         {
             if (transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
             {
@@ -31,7 +32,7 @@ public class ModePicker : MonoBehaviour
 			transform.localPosition = this.vrPosition;
 			transform.localRotation = Quaternion.Euler(this.vrRotation);
 		}
-		else
+        else
         {
             if (transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
             {
@@ -54,7 +55,8 @@ public class ModePicker : MonoBehaviour
     /// </summary>
     public void Update()
     {
-        if (this.VRMode)
+        // set the program to work in VR mode or non-VR mode
+        if (this.VRMode) 
         {
             if (transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
             {

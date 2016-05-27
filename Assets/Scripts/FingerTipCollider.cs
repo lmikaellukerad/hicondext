@@ -69,7 +69,7 @@ public class FingerTipCollider : MonoBehaviour
     private void GetNextBone(GameObject obj)
     {
         this.InitializeFingerCollider(obj);
-        if (obj.transform.parent.name != "Palm" && obj.transform.parent.name != "Palm 1")
+        if (obj.transform.parent.name != "Palm" && obj.transform.parent.name != "Palm.001")
         {
             this.GetNextBone(obj.transform.parent.gameObject);
         }

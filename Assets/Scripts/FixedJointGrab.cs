@@ -10,8 +10,8 @@ using UnityEngine;
 public class FixedJointGrab : GrabBehaviour
 {
 
-    public float Reference = 0.04f;
-    public float Radius = 0.05f;
+    public float Reference;
+    public float Radius;
 
     private HandModel model;
     private int interactable = 8; // Layer with interactables
@@ -71,9 +71,12 @@ public class FixedJointGrab : GrabBehaviour
     /// <param name="pinch">The pinch.</param>
     public override void OnPinch(Vector3 pinch)
     {
+        // create a collision sphere at position pinch with radius Radius.
         Collider[] objects = Physics.OverlapSphere(pinch, this.Radius, 1 << this.interactable);
         float minimumDistance = float.MaxValue;
         this.Pinching = true;
+
+        // check what object is closest to our pinch, this object is the grabbed object
         for (int i = 0; i < objects.Length; i++)
         {
             Collider o = objects[i];
@@ -114,6 +117,7 @@ public class FixedJointGrab : GrabBehaviour
         Hand leapHand = this.model.GetLeapHand();
         if (leapHand != null)
         {
+              // compare the distance between thumb and all other fingers to recognize a pinch/grabbing motion
             Finger thumb = leapHand.Fingers[0];
             for (int i = 1; i < HandModel.NUM_FINGERS; i++)
             {
@@ -121,7 +125,7 @@ public class FixedJointGrab : GrabBehaviour
                 if (finger.TipPosition.DistanceTo(thumb.TipPosition) < this.Reference)
                 {
                     this.Pinch = true;
-                    this.PinchPosition = thumb.TipPosition.ToVector3();
+                    this.PinchPosition = leapHand.Fingers[1].TipPosition.ToVector3();       // set the pinch position to the index finger
                     return;
                 }
             }
@@ -184,7 +188,7 @@ public class FixedJointGrab : GrabBehaviour
 
         if (this.Pinch && this.Pinching)
         {
-            Gizmos.DrawSphere(this.PinchPosition, 0.05f);
+            Gizmos.DrawSphere(this.PinchPosition, this.Radius);
         }
     }
 

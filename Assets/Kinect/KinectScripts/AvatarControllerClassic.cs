@@ -121,12 +121,12 @@ public class AvatarControllerClassic : AvatarController
     {
         if (UseLeapHands)
         {
-            if (rightHandTarget != null && rightHandTarget.activeInHierarchy && (boneIndex == 4 || boneIndex == 5 || boneIndex == 6 || boneIndex == 7 || boneIndex == 8))
+            if (rightHandTarget.activeSelf && rightHandTarget.activeInHierarchy && (boneIndex == 4 || boneIndex == 5 || boneIndex == 6 || boneIndex == 7 || boneIndex == 8))
             {
                 return true;
             }
 
-            if (leftHandTarget != null && leftHandTarget.activeInHierarchy && (boneIndex == 9 || boneIndex == 10 || boneIndex == 11 || boneIndex == 12 || boneIndex == 13))
+            if (leftHandTarget.activeSelf && leftHandTarget.activeInHierarchy && (boneIndex == 9 || boneIndex == 10 || boneIndex == 11 || boneIndex == 12 || boneIndex == 13))
             {
                 return true;
             }
@@ -172,45 +172,6 @@ public class AvatarControllerClassic : AvatarController
                         //TransformSpecialBone(UserID, alJoints[0], alJoints[1], boneIndex, baseDir, !mirroredMovement);
                     }
                 }
-            }
-        }
-    }
-
-    //a callback for calculating IK
-    void OnAnimatorIK()
-    {
-        if (animator)
-        {
-
-            //if the IK is active, set the position and rotation directly to the goal. 
-            if (UseLeapHands)
-            {
-
-                // Set the right hand target position and rotation, if one has been assigned
-                if (rightHandTarget != null && rightHandTarget.activeInHierarchy)
-                {
-                    animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
-                    animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
-                    animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandTarget.transform.position);
-                    animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandTarget.transform.rotation);
-                }
-                // Set the right hand target position and rotation, if one has been assigned
-                if (leftHandTarget != null && rightHandTarget.activeInHierarchy)
-                {
-                    animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
-                    animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
-                    animator.SetIKPosition(AvatarIKGoal.LeftHand, leftHandTarget.transform.position);
-                    animator.SetIKRotation(AvatarIKGoal.LeftHand, leftHandTarget.transform.rotation);
-                }
-
-            }
-
-            //if the IK is not active, set the position and rotation of the hand and head back to the original position
-            else
-            {
-                animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 0);
-                animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 0);
-                animator.SetLookAtWeight(0);
             }
         }
     }

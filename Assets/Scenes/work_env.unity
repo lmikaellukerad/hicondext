@@ -156,9 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChainStart: {fileID: 954577146}
   ChainEnd: {fileID: 1382971723}
-  Goal: {fileID: 773162512}
+  Goal: {fileID: 773162511}
   Pole: {fileID: 1610817751}
-  ConnectPole: 1
+  ConnectPole: 0
 --- !u!4 &110094784 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400032, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
@@ -618,7 +618,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModelCollection:
-  - {fileID: 1504933421}
+  - {fileID: 1359749363}
+  - {fileID: 773162513}
   ModelPool: []
   EnforceHandedness: 1
 --- !u!114 &821741664
@@ -1251,7 +1252,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 13753264, guid: 665a8f70475154b48b61b616136d6589, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 13794168, guid: 665a8f70475154b48b61b616136d6589, type: 2}
       propertyPath: m_Enabled
@@ -1475,12 +1476,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!114 &1504933421 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11403154, guid: 665a8f70475154b48b61b616136d6589,
-    type: 2}
-  m_PrefabInternal: {fileID: 1258089478}
-  m_Script: {fileID: 11500000, guid: 88793050c1038a444b6cad33f3c57e05, type: 3}
 --- !u!1001 &1518378969
 Prefab:
   m_ObjectHideFlags: 0
@@ -1885,7 +1880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirroredMovement: 0
   verticalMovement: 1
-  smoothFactor: 0
+  smoothFactor: 3
   offsetRelativeToSensor: 0
   HipCenter: {fileID: 0}
   Spine: {fileID: 1234630271}
@@ -1973,9 +1968,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChainStart: {fileID: 1800589444}
   ChainEnd: {fileID: 191606273}
-  Goal: {fileID: 1359749362}
+  Goal: {fileID: 1359749361}
   Pole: {fileID: 1181640254}
-  ConnectPole: 1
+  ConnectPole: 0
 --- !u!4 &1920469550 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400038, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}

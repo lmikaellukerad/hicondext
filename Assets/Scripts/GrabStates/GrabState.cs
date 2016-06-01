@@ -8,7 +8,6 @@ using UnityEngine;
 /// </summary>
 public abstract class GrabState : ScriptableObject
 {
-
     /// <summary>
     /// Handle the state of the grab based on the current GrabBehavior properties.
     /// </summary>

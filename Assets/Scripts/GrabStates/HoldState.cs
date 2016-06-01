@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class HoldState : GrabState
 {
-
     /// <summary>
     /// Handle the state of the grab based on the current GrabBehavior properties.
     /// </summary>

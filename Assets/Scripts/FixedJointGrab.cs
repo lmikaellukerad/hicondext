@@ -9,13 +9,13 @@ using UnityEngine;
 /// </summary>
 public class FixedJointGrab : GrabBehaviour
 {
-
     public float Reference;
     public float Radius;
 
     private HandModel model;
     private int interactable = 8; // Layer with interactables
     private Vector3 previous;
+    private GrabState previousState;
 
     public GameObject GrabbedObject
     {
@@ -35,6 +35,7 @@ public class FixedJointGrab : GrabBehaviour
         this.GrabbedObject = null;
         this.previous = this.model.palm.transform.position;
         this.State = ScriptableObject.CreateInstance<NeutralState>();
+        this.previousState = this.State;
     }
 
     /// <summary>
@@ -105,6 +106,7 @@ public class FixedJointGrab : GrabBehaviour
                 return;
             }
         }
+
         this.Pinch = false;
     }
 
@@ -122,17 +124,25 @@ public class FixedJointGrab : GrabBehaviour
                 this.GrabbedObject.GetComponent<Collider>().enabled = false;
             }
         }
+
         this.RecognizeGesture();
     }
 
     /// <summary>
-    /// Updates to check for grabbing, pinching or holding.
+    /// Updates to check for grabbing, pinching or holding. Actions are implemented through a state pattern.
     /// </summary>
     public override void UpdateGrab()
     {
         this.State.Handle(this);
         this.previous = this.model.palm.transform.position;
-        Debug.Log(this.State);
+
+        // Debug log
+        if (!this.State.Equals(this.previousState))
+        {
+            Debug.Log(this.State);
+        }
+
+        this.previousState = this.State;
     }
 
     /// <summary>
@@ -166,6 +176,7 @@ public class FixedJointGrab : GrabBehaviour
                 return true;
             }
         }
+
         return false;
     }
 
@@ -183,6 +194,7 @@ public class FixedJointGrab : GrabBehaviour
             this.PinchPosition = thumb.TipPosition.ToVector3();
             return true;
         }
+
         return false;
     }
 

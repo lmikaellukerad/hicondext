@@ -1410,7 +1410,6 @@ GameObject:
   - 114: {fileID: 1359749366}
   - 114: {fileID: 1359749365}
   - 114: {fileID: 1359749369}
-  - 114: {fileID: 1359749370}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -1545,18 +1544,6 @@ MonoBehaviour:
   Goal: {fileID: 1437507557}
   Pole: {fileID: 1181640254}
   ConnectPole: 0
---- !u!114 &1359749370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1359749361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81233bf2cd4cad74f8c77bd1b147f2cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Vibrate: 0
 --- !u!4 &1382971723 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400104, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}

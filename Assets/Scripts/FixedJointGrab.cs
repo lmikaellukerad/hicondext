@@ -9,8 +9,8 @@ using UnityEngine;
 /// </summary>
 public class FixedJointGrab : GrabBehaviour
 {
-    public float Reference;
-    public float Radius;
+    public float Reference = 0.03f;
+    public float Radius = 0.01f;
 
     private HandModel model;
     private int interactable = 8; // Layer with interactables

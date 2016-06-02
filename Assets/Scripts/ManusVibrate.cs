@@ -43,6 +43,12 @@ public class ManusVibrate : MonoBehaviour
             this.ShortVibration();
         }
 
+        // Triggers a double short vibration.
+        if (Input.GetKeyDown("h"))
+        {
+            this.DoubleShortVibration();
+        }
+
         // Turns vibration on.
         if (Input.GetKeyDown("n"))
         {
@@ -86,7 +92,7 @@ public class ManusVibrate : MonoBehaviour
     /// </summary>
     public void ShortVibration()
     {
-        this.VibrateFor(0.2f);
+        this.VibrateFor(0.1f);
     }
 
     /// <summary>
@@ -103,9 +109,9 @@ public class ManusVibrate : MonoBehaviour
     /// <returns>IEnumerator, used for timing purposes. Can be ignored.</returns>
     public IEnumerator DoubleShortVibrationCoroutine()
     {
-        ShortVibration();
-        yield return new WaitForSeconds(0.5f);
-        ShortVibration();
+        this.ShortVibration();
+        yield return new WaitForSeconds(0.2f);
+        this.ShortVibration();
     }
 
     /// <summary>

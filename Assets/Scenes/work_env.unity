@@ -710,9 +710,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseHandRotation: 0
   hand: 0
-  RootTransform: {fileID: 0}
-  modelObject: {fileID: 0}
-  animationClip: {fileID: 0}
+  RootTransform: {fileID: 1382971723}
+  modelObject: {fileID: 100026, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
+  animationClip: {fileID: 7400000, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
   FingerTipTransforms: []
 --- !u!1 &821741660
 GameObject:
@@ -1527,10 +1527,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseHandRotation: 0
-  hand: 0
-  RootTransform: {fileID: 0}
-  modelObject: {fileID: 0}
-  animationClip: {fileID: 0}
+  hand: 1
+  RootTransform: {fileID: 191606273}
+  modelObject: {fileID: 100026, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
+  animationClip: {fileID: 7400004, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
   FingerTipTransforms: []
 --- !u!114 &1359749366
 MonoBehaviour:

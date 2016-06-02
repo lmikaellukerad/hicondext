@@ -37,9 +37,10 @@ public class GrabHandSimulator : HandSimulator
             this.RootTransform.localRotation = q;
         }
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < fingers.Length; i++)
         {
             float manusData = fingers[i];
+            float test = this.min[i];
             if (manusData > this.min[i] && manusData < this.max[i])
             {
                 this.SetFingerTransform(i, manusData);

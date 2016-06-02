@@ -191,6 +191,14 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     }
 
     /// <summary>
+    /// Called during initialization
+    /// </summary>
+    private void Start()
+    {
+        this.Initialize();
+    }
+
+    /// <summary>
     /// Updates this for each frame.
     /// </summary>
     private void Update()

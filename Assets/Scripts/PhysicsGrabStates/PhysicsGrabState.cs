@@ -16,6 +16,5 @@ public abstract class PhysicsGrabState : ScriptableObject
 
     internal void Handle(PhysicsGrab physicsGrab)
     {
-        throw new NotImplementedException();
     }
 }

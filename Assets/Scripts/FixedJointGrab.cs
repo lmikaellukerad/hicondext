@@ -124,8 +124,6 @@ public class FixedJointGrab : GrabBehaviour
                 this.GrabbedObject.GetComponent<Collider>().enabled = false;
             }
         }
-
-        this.RecognizeGesture();
     }
 
     /// <summary>

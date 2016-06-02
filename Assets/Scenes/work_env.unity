@@ -578,7 +578,6 @@ GameObject:
   - 114: {fileID: 773162513}
   - 114: {fileID: 773162514}
   - 114: {fileID: 773162518}
-  - 114: {fileID: 773162517}
   - 114: {fileID: 773162515}
   - 114: {fileID: 773162519}
   - 114: {fileID: 773162520}
@@ -664,19 +663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b7df94fbefc0d42aa22e3c7a8aeee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &773162517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 773162511}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef437bb6bf36a4c4d8336a5ff0de0d53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Reference: 0.05
-  Radius: 0.01
 --- !u!114 &773162518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,14 +705,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 773162511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed648ecc0cb73574f986a9ddb08c806b, type: 3}
+  m_Script: {fileID: 11500000, guid: 804774f515ff7c34dbc42102cf01ba9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UseHandRotation: 0
   hand: 0
-  RootTransform: {fileID: 1382971723}
-  modelObject: {fileID: 100026, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
-  animationClip: {fileID: 7400000, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
+  RootTransform: {fileID: 0}
+  modelObject: {fileID: 0}
+  animationClip: {fileID: 0}
   FingerTipTransforms: []
 --- !u!1 &821741660
 GameObject:
@@ -1467,7 +1453,6 @@ GameObject:
   - 114: {fileID: 1359749363}
   - 114: {fileID: 1359749364}
   - 114: {fileID: 1359749368}
-  - 114: {fileID: 1359749367}
   - 114: {fileID: 1359749366}
   - 114: {fileID: 1359749369}
   - 114: {fileID: 1359749365}
@@ -1538,14 +1523,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1359749361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed648ecc0cb73574f986a9ddb08c806b, type: 3}
+  m_Script: {fileID: 11500000, guid: 804774f515ff7c34dbc42102cf01ba9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UseHandRotation: 0
-  hand: 1
-  RootTransform: {fileID: 191606273}
-  modelObject: {fileID: 100026, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
-  animationClip: {fileID: 7400004, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
+  hand: 0
+  RootTransform: {fileID: 0}
+  modelObject: {fileID: 0}
+  animationClip: {fileID: 0}
   FingerTipTransforms: []
 --- !u!114 &1359749366
 MonoBehaviour:
@@ -1559,19 +1544,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: 1
---- !u!114 &1359749367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1359749361}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef437bb6bf36a4c4d8336a5ff0de0d53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Reference: 0.05
-  Radius: 0.01
 --- !u!114 &1359749368
 MonoBehaviour:
   m_ObjectHideFlags: 0

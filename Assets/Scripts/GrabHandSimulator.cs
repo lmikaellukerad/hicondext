@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Adds a limit for when the hand is in a grabbing state.
+/// </summary>
 public class GrabHandSimulator : HandSimulator
 {
-    private float[] min = new float[5];
-    private float[] max = new float[5];
+    private float[] min;
+    private float[] max;
 
     /// <summary>
     /// Constructor which loads the HandModel
@@ -13,7 +16,9 @@ public class GrabHandSimulator : HandSimulator
     public override void Start()
     {
         base.Start();
-        for (int i = 0; i < this.min.Length; i++)
+        this.min = new float[this.glove.Fingers.Length];
+        this.max = new float[this.glove.Fingers.Length];
+        for (int i = 0; i < this.glove.Fingers.Length; i++)
         {
             this.min[i] = 0;
             this.max[i] = 1;
@@ -21,7 +26,7 @@ public class GrabHandSimulator : HandSimulator
     }
 
     /// <summary>
-    /// Updates a skeletal from glove data
+    /// Updates a skeletal from glove data and limits these when 
     /// </summary>
     public override void Update()
     {
@@ -34,13 +39,18 @@ public class GrabHandSimulator : HandSimulator
 
         for (int i = 0; i < 5; i++)
         {
-            if (fingers[i] > this.min[i] && fingers[i] < this.max[i])
+            float manusData = fingers[i];
+            if (manusData > this.min[i] && manusData < this.max[i])
             {
-                animationClip.SampleAnimation(this.modelObject, fingers[i] * GrabHandSimulator.timeFactor);
-                for (int j = 0; j < 4; j++)
-                {
-                    this.gameTransforms[i][j].localRotation = this.modelTransforms[i][j].localRotation;
-                }
+                this.SetFingerTransform(i, manusData);
+            }
+            else if (manusData < this.min[i])
+            {
+                this.SetFingerTransform(i, this.min[i]);
+            }
+            else if (manusData > this.max[i])
+            {
+                this.SetFingerTransform(i, this.max[i]);
             }
         }
     }
@@ -80,12 +90,11 @@ public class GrabHandSimulator : HandSimulator
     public void ResetFingerLimit(Transform finger)
     {
         int i = this.GetFingerID(finger);
-        this.min[i] = 0;
-        this.max[i] = 1;
+        this.ResetFingerLimit(i);
     }
 
     /// <summary>
-    /// Gets the current state of the finger.
+    /// Gets the current bending state of the finger.
     /// </summary>
     /// <param name="finger">The finger identifier.</param>
     /// <returns>Returns current bending state of a finger ranging from 0 to 1</returns>
@@ -102,11 +111,11 @@ public class GrabHandSimulator : HandSimulator
     public float GetFingerState(Transform finger)
     {
         int i = this.GetFingerID(finger);
-        return glove.Fingers[i];
+        return this.GetFingerState(i);
     }
 
     /// <summary>
-    /// Sets the this.Minimum finger bend value to its current state.
+    /// Sets the minimum finger bend value to its current state.
     /// </summary>
     /// <param name="finger">The finger identifier.</param>
     public void ClampMin(int finger)
@@ -115,13 +124,13 @@ public class GrabHandSimulator : HandSimulator
     }
 
     /// <summary>
-    /// Sets the this.Minimum finger bend value to its current state.
+    /// Sets the minimum finger bend value to its current state.
     /// </summary>
     /// <param name="finger">The finger transform.</param>
     public void ClampMin(Transform finger)
     {
         int i = this.GetFingerID(finger);
-        this.min[i] = this.GetFingerState(i);
+        this.ClampMin(i);
     }
 
     /// <summary>
@@ -140,6 +149,20 @@ public class GrabHandSimulator : HandSimulator
     public void ClampMax(Transform finger)
     {
         int i = this.GetFingerID(finger);
-        this.max[i] = this.GetFingerState(i);
+        this.ClampMax(i);
+    }
+
+    /// <summary>
+    /// Sets the finger transform according to its current interval and the animation.
+    /// </summary>
+    /// <param name="fingerID">The fingerID.</param>
+    /// <param name="interval">The interval of the animation.</param>
+    private void SetFingerTransform(int fingerID, float interval)
+    {
+        this.animationClip.SampleAnimation(this.modelObject, interval * GrabHandSimulator.timeFactor);
+        for (int j = 0; j < 4; j++)
+        {
+            this.gameTransforms[fingerID][j].localRotation = this.modelTransforms[fingerID][j].localRotation;
+        }
     }
 }

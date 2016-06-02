@@ -26,7 +26,7 @@ public abstract class PhysicsGrabBehaviour : MonoBehaviour
 
     public abstract void CheckRelease();
 
-    public abstract void OnHold();
+    public abstract void OnGrab();
 
     public abstract void OnRelease();
 

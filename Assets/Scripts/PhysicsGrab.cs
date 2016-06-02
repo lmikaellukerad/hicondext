@@ -45,7 +45,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
         Transform[] fingerTipTransforms = this.GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
         if (this.DetectGrab(fingerTipTransforms))
         {
-            this.OnHold();
+            this.OnGrab();
             this.State = ScriptableObject.CreateInstance<PhysicsHoldState>();
         }  
     }
@@ -111,7 +111,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// <summary>
     /// The item gets locked to a finger using FixedJoint. Gets executed when the user starts holding an item.
     /// </summary>
-    public override void OnHold()
+    public override void OnGrab()
     {
         if (this.GrabbedObject != null)
         {

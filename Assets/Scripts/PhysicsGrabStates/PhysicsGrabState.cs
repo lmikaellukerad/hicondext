@@ -13,8 +13,4 @@ public abstract class PhysicsGrabState : ScriptableObject
     /// </summary>
     /// <param name="context">The GrabBehavior object that provides context for the state.</param>
     public abstract void Handle(PhysicsGrabBehaviour context);
-
-    internal void Handle(PhysicsGrab physicsGrab)
-    {
-    }
 }

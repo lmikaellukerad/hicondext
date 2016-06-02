@@ -144,9 +144,9 @@ public class PhysicsGrab : PhysicsGrabBehaviour
 
         this.GrabbedObject = null;
         this.PinchPosition = Vector3.zero;
-        this.pinchingFinger = null;
         this.GetHandModel().GetComponent<GrabHandSimulator>().ResetFingerLimit(pinchingFinger);
         this.GetHandModel().GetComponent<GrabHandSimulator>().ResetFingerLimit(0);
+        this.pinchingFinger = null;
     }
 
     /// <summary>

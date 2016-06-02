@@ -33,4 +33,9 @@ public class HandController : MonoBehaviour {
     void onApplicationQuit() {
         Manus.ManusExit();
     }
+
+    public Glove GetGlove()
+    {
+        return glove;
+    }
 }

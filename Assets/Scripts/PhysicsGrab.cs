@@ -120,6 +120,8 @@ public class PhysicsGrab : PhysicsGrabBehaviour
                 FixedJoint joint = this.GrabbedObject.AddComponent<FixedJoint>();
                 joint.connectedBody = this.pinchingFinger.GetComponent<Rigidbody>();
                 this.GrabbedObject.GetComponent<Collider>().enabled = false;
+                this.GetHandModel().GetComponent<GrabHandSimulator>().ClampMax(pinchingFinger);
+                this.GetHandModel().GetComponent<GrabHandSimulator>().ClampMax(1);
             }
         }
     }
@@ -143,6 +145,8 @@ public class PhysicsGrab : PhysicsGrabBehaviour
         this.GrabbedObject = null;
         this.PinchPosition = Vector3.zero;
         this.pinchingFinger = null;
+        this.GetHandModel().GetComponent<GrabHandSimulator>().ResetFingerLimit(pinchingFinger);
+        this.GetHandModel().GetComponent<GrabHandSimulator>().ResetFingerLimit(0);
     }
 
     /// <summary>

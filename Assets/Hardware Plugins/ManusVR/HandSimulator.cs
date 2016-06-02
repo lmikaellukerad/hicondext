@@ -19,17 +19,17 @@ using ManusMachina;
 
 public class HandSimulator : MonoBehaviour
 {
-    private const float timeFactor = 10.0f;
+    protected const float timeFactor = 10.0f;
 
     public bool UseHandRotation;
     public GLOVE_HAND hand;
     public Transform RootTransform;
 
-    private Glove glove;
+    protected Glove glove;
     public GameObject modelObject;
     public AnimationClip animationClip;
-    private Transform[][] gameTransforms;
-    private Transform[][] modelTransforms;
+    protected Transform[][] gameTransforms;
+    protected Transform[][] modelTransforms;
     public Transform[] FingerTipTransforms;
 
     /// <summary>
@@ -55,7 +55,7 @@ public class HandSimulator : MonoBehaviour
     /// <summary>
     /// Constructor which loads the HandModel
     /// </summary>
-    void Start()
+    public virtual void Start()
     {
         // Ensure the library initialized correctly.
         Manus.ManusInit();
@@ -110,7 +110,7 @@ public class HandSimulator : MonoBehaviour
     /// <summary>
     /// Updates a skeletal from glove data
     /// </summary>
-    void LateUpdate()
+    public virtual void Update()
     {
         Quaternion q = glove.Quaternion;
         float[] fingers = glove.Fingers;

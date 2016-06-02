@@ -43,6 +43,12 @@ public class ManusVibrate : MonoBehaviour
             this.ShortVibration();
         }
 
+        // Triggers a double short vibration.
+        if (Input.GetKeyDown("h"))
+        {
+            this.DoubleShortVibration();
+        }
+
         // Turns vibration on.
         if (Input.GetKeyDown("n"))
         {
@@ -82,11 +88,30 @@ public class ManusVibrate : MonoBehaviour
     }
     
     /// <summary>
-    /// Makes the current clove vibrate for 150 milliseconds.
+    /// Makes the current glove vibrate for 150 milliseconds.
     /// </summary>
     public void ShortVibration()
     {
-        this.VibrateFor(0.2f);
+        this.VibrateFor(0.1f);
+    }
+
+    /// <summary>
+    /// Makes the current glove vibrate shortly twice, with a brief pause.
+    /// </summary>
+    public void DoubleShortVibration()
+    {
+        this.StartCoroutine(this.DoubleShortVibrationCoroutine());
+    }
+
+    /// <summary>
+    /// Co-routine to DoubleShortVibration, makes timing possible.
+    /// </summary>
+    /// <returns>IEnumerator, used for timing purposes. Can be ignored.</returns>
+    public IEnumerator DoubleShortVibrationCoroutine()
+    {
+        this.ShortVibration();
+        yield return new WaitForSeconds(0.2f);
+        this.ShortVibration();
     }
 
     /// <summary>

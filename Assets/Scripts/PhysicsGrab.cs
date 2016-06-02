@@ -159,6 +159,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
         if (grabbed != null)
         {
             this.PinchPosition = finger.position;
+            this.pinchingFinger = finger;
             this.GrabbedObject = grabbed.gameObject;
             this.grabDist = Vector3.Distance(this.pinchingFinger.position, thumb.position);
             return true;

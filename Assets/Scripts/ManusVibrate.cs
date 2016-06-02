@@ -36,43 +36,48 @@ public class ManusVibrate : MonoBehaviour
     /// </summary>
     public void Update()
     {
+
+        // Triggers a short vibration.
         if (Input.GetKeyDown("b"))
         {
-            print("TRIGGERED: Short vibration");
             this.ShortVibration();
         }
+
+        // Turns vibration on.
         if (Input.GetKeyDown("n"))
         {
-            print("TRIGGERED: Vibration on");
-            VibrateOn();
+            this.VibrateOn();
         }
+
+        // Turns vibration off.
         if (Input.GetKeyDown("m"))
         {
-            print("TRIGGERED: Vibration off");
-            VibrateOff();
+            this.VibrateOff();
         }
 	}
 
     /// <summary>
     /// Makes the glove vibrate for a given amount of milliseconds.
     /// </summary>
-    /// <param name="ms">The amount of time the glove has to vibrate for.</param>
+    /// <param name="sec">The amount of time the glove has to vibrate for.</param>
     public void VibrateFor(float sec)
     {
-        StartCoroutine(VibrateForCoroutine(sec));
+        this.StartCoroutine(this.VibrateForCoroutine(sec));
     }
 
+    /// <summary>
+    /// Co-routine to VibrateFor, makes timing possible.
+    /// </summary>
+    /// <param name="sec">The amount of time the glove has to vibrate for.</param>
+    /// <returns>IEnumerator, used for timing purposes. Can be ignored.</returns>
     public IEnumerator VibrateForCoroutine(float sec)
     {
         
         if (!this.vibrating)
         {
             this.VibrateOn();
-            print("vibON");
             yield return new WaitForSeconds(sec);
             this.VibrateOff();
-            print("vibOFF");
-            //Invoke("VibrateOff", sec);
         }
     }
     
@@ -84,6 +89,9 @@ public class ManusVibrate : MonoBehaviour
         this.VibrateFor(0.2f);
     }
 
+    /// <summary>
+    /// Turns vibration on.
+    /// </summary>
     public void VibrateOn()
     {
         // GloveIndex, Power (0 to 1)
@@ -91,6 +99,9 @@ public class ManusVibrate : MonoBehaviour
         Manus.ManusSetVibration(this.hand, 1f);
     }
 
+    /// <summary>
+    /// Turns vibration off.
+    /// </summary>
     public void VibrateOff()
     {
         this.vibrating = false;

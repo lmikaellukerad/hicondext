@@ -36,26 +36,43 @@ public class ManusVibrate : MonoBehaviour
     /// </summary>
     public void Update()
     {
-        if (this.Vibrate)
+        if (Input.GetKeyDown("b"))
         {
+            print("TRIGGERED: Short vibration");
             this.ShortVibration();
-            this.Vibrate = false;
+        }
+        if (Input.GetKeyDown("n"))
+        {
+            print("TRIGGERED: Vibration on");
+            VibrateOn();
+        }
+        if (Input.GetKeyDown("m"))
+        {
+            print("TRIGGERED: Vibration off");
+            VibrateOff();
         }
 	}
 
     /// <summary>
-    /// Makes the glove vibrate for a given amount of seconds.
+    /// Makes the glove vibrate for a given amount of milliseconds.
     /// </summary>
     /// <param name="ms">The amount of time the glove has to vibrate for.</param>
-    public void VibrateFor(int ms)
+    public void VibrateFor(float sec)
     {
+        StartCoroutine(VibrateForCoroutine(sec));
+    }
+
+    public IEnumerator VibrateForCoroutine(float sec)
+    {
+        
         if (!this.vibrating)
         {
-            this.vibrating = true;
-            Manus.ManusSetVibration(this.hand, 100f);
-            Thread.Sleep(ms);
-            Manus.ManusSetVibration(this.hand, 0f);
-            this.vibrating = false;
+            this.VibrateOn();
+            print("vibON");
+            yield return new WaitForSeconds(sec);
+            this.VibrateOff();
+            print("vibOFF");
+            //Invoke("VibrateOff", sec);
         }
     }
     
@@ -64,6 +81,19 @@ public class ManusVibrate : MonoBehaviour
     /// </summary>
     public void ShortVibration()
     {
-        this.VibrateFor(150);
+        this.VibrateFor(0.2f);
+    }
+
+    public void VibrateOn()
+    {
+        // GloveIndex, Power (0 to 1)
+        this.vibrating = true;
+        Manus.ManusSetVibration(this.hand, 1f);
+    }
+
+    public void VibrateOff()
+    {
+        this.vibrating = false;
+        Manus.ManusSetVibration(this.hand, 0f);
     }
 }

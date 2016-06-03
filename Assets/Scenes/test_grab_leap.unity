@@ -756,6 +756,10 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 495184, guid: 665a8f70475154b48b61b616136d6589, type: 2}
   m_PrefabInternal: {fileID: 2098311109}
+--- !u!4 &1259206498 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 463896, guid: 665a8f70475154b48b61b616136d6589, type: 2}
+  m_PrefabInternal: {fileID: 2098311109}
 --- !u!4 &1304570625 stripped
 Transform:
   m_PrefabParentObject: {fileID: 443692, guid: 665a8f70475154b48b61b616136d6589, type: 2}
@@ -1112,25 +1116,29 @@ MonoBehaviour:
   - {fileID: 1304570625}
   Thumb: {fileID: 1411486046}
   Material: {fileID: 13400000, guid: bf78a30eec3e80946a186a000764c54e, type: 2}
+--- !u!114 &1795429050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1795429047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804774f515ff7c34dbc42102cf01ba9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseHandRotation: 0
+  hand: 0
+  RootTransform: {fileID: 1259206498}
+  modelObject: {fileID: 100012, guid: 5bfec1a74098eb34992fd5ecf1788c1f, type: 3}
+  animationClip: {fileID: 7400000, guid: 5bfec1a74098eb34992fd5ecf1788c1f, type: 3}
+  FingerTipTransforms: []
 --- !u!114 &1795429053 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11458538, guid: 665a8f70475154b48b61b616136d6589,
     type: 2}
   m_PrefabInternal: {fileID: 2098311109}
   m_Script: {fileID: 11500000, guid: 88793050c1038a444b6cad33f3c57e05, type: 3}
---- !u!114 &1795429054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1795429047}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8861f7bf79623b4188ef1b5aaab21a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Reference: 0
-  Radius: 0
 --- !u!1001 &1912053574
 Prefab:
   m_ObjectHideFlags: 0
@@ -1431,6 +1439,10 @@ Prefab:
     - target: {fileID: 11482674, guid: 665a8f70475154b48b61b616136d6589, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488484, guid: 665a8f70475154b48b61b616136d6589, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11436528, guid: 665a8f70475154b48b61b616136d6589, type: 2}

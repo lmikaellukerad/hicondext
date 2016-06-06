@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using Leap;
+using Leap.Unity;
+using UnityEngine;
 
 public abstract class PhysicsGrabBehaviour : MonoBehaviour
 {
@@ -30,7 +33,7 @@ public abstract class PhysicsGrabBehaviour : MonoBehaviour
 
     public abstract void OnRelease();
 
-    public abstract bool DetectGrab(Transform[] fingers);
+    public abstract bool DetectGrab(Transform[] leftFingers, Transform[] rightFingers);
 
-    public abstract bool DetectRelease(Transform thumb);
+    public abstract bool DetectRelease(Transform[] leftFingers, Transform[] rightFingers);
 }

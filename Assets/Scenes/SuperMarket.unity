@@ -1648,7 +1648,6 @@ GameObject:
   - 114: {fileID: 692179513}
   - 114: {fileID: 692179512}
   - 114: {fileID: 692179511}
-  - 114: {fileID: 692179510}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -1681,17 +1680,6 @@ MonoBehaviour:
   elbowJoint: {fileID: 0}
   modelFingerPointing: {x: 1, y: 0, z: 0}
   modelPalmFacing: {x: -0, y: -1, z: -0}
---- !u!114 &692179510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 692179508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66b7df94fbefc0d42aa22e3c7a8aeee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &692179511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1929,7 +1917,6 @@ GameObject:
   - 114: {fileID: 773904133}
   - 114: {fileID: 773904132}
   - 114: {fileID: 773904131}
-  - 114: {fileID: 773904130}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -1952,17 +1939,6 @@ Transform:
   - {fileID: 1374931344}
   m_Father: {fileID: 1183995786}
   m_RootOrder: 2
---- !u!114 &773904130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 773904128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66b7df94fbefc0d42aa22e3c7a8aeee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &773904131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2714,6 +2690,7 @@ GameObject:
   - 114: {fileID: 1183995784}
   - 54: {fileID: 1183995783}
   - 82: {fileID: 1183995782}
+  - 114: {fileID: 1183995787}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Untagged
@@ -2942,6 +2919,19 @@ Transform:
   - {fileID: 773904129}
   m_Father: {fileID: 0}
   m_RootOrder: 32
+--- !u!114 &1183995787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1183995781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b7df94fbefc0d42aa22e3c7a8aeee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftHand: {fileID: 773904136}
+  RightHand: {fileID: 692179509}
 --- !u!1 &1186654710
 GameObject:
   m_ObjectHideFlags: 0

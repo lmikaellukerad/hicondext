@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PhysicsGrab : PhysicsGrabBehaviour
 {
+    public HandModel LeftHand;
+    public HandModel RightHand;
+
     private HandModel model;
     private int interactable = 8; // Layer with interactables
     private float grabDist;
@@ -25,7 +28,6 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// </summary>
     public override void Initialize()
     {
-        this.model = this.GetHandModel();
         this.PinchPosition = Vector3.zero;
         this.grabDist = 0.0f;
         this.grabDistMargin = 1.1f;
@@ -42,8 +44,9 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// </summary>
     public override void CheckGrab()
     {
-        Transform[] fingerTipTransforms = this.GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
-        if (this.DetectGrab(fingerTipTransforms))
+        Transform[] fingerTipTransformsLeft = LeftHand.GetComponent<HandSimulator>().FingerTipTransforms;
+        Transform[] fingerTipTransformsRight = RightHand.GetComponent<HandSimulator>().FingerTipTransforms;
+        if (this.DetectGrab(fingerTipTransformsLeft, fingerTipTransformsRight))
         {
             this.OnGrab();
             this.State = ScriptableObject.CreateInstance<PhysicsHoldState>();
@@ -55,23 +58,13 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// </summary>
     public override void CheckRelease()
     {
-        Transform[] fingerTipTransforms = this.GetHandModel().GetComponent<HandSimulator>().FingerTipTransforms;
-        if (this.DetectRelease(fingerTipTransforms[0]))
+        Transform[] fingerTipTransformsLeftHand = LeftHand.GetComponent<HandSimulator>().FingerTipTransforms;
+        Transform[] fingerTipTransformsRightHand = RightHand.GetComponent<HandSimulator>().FingerTipTransforms;
+        /*if (this.DetectRelease(fingerTipTransforms[0]))
         {
             this.OnRelease();
             this.State = ScriptableObject.CreateInstance<PhysicsNeutralState>();
-        }
-    }
-
-    /// <summary>
-    /// Returns the hand model.
-    /// </summary>
-    /// <returns>
-    /// HandModel of this
-    /// </returns>
-    public HandModel GetHandModel()
-    {
-        return transform.GetComponent<HandModel>();
+        }*/
     }
 
     /// <summary>
@@ -79,9 +72,9 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// </summary>
     /// <param name="fingers">The fingers.</param>
     /// <returns>boolean b</returns>
-    public override bool DetectGrab(Transform[] fingers)
+    public override bool DetectGrab(Transform[] leftFingers, Transform[] rightFingers)
     {
-        Transform thumb = fingers[0];
+        /*Transform thumb = fingers[0];
         for (int i = 1; i < fingers.Length; i++)
         {
             if (this.DetectPinch(thumb, fingers[i]))
@@ -89,7 +82,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
                 return true;
             }
         }
-
+        */
         return false;
     }
 
@@ -98,12 +91,12 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// </summary>
     /// <param name="thumb">The thumb.</param>
     /// <returns>boolean b</returns>
-    public override bool DetectRelease(Transform thumb)
+    public override bool DetectRelease(Transform[] leftFingers, Transform[] rightFingers)
     {
-        if (Vector3.Distance(this.pinchingFinger.position, thumb.position) > (this.grabDist * this.grabDistMargin))
+        /*if (Vector3.Distance(this.pinchingFinger.position, thumb.position) > (this.grabDist * this.grabDistMargin))
         {
             return true;
-        }
+        }*/
 
         return false;
     }
@@ -112,7 +105,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// The item gets locked to a finger using FixedJoint. Gets executed when the user starts holding an item.
     /// </summary>
     public override void OnGrab()
-    {
+    {/*
         if (this.GrabbedObject != null)
         {
             if (this.GrabbedObject.GetComponent<FixedJoint>() == null)
@@ -123,14 +116,14 @@ public class PhysicsGrab : PhysicsGrabBehaviour
                 this.GetHandModel().GetComponent<GrabHandSimulator>().ClampMax(pinchingFinger);
                 this.GetHandModel().GetComponent<GrabHandSimulator>().ClampMax(1);
             }
-        }
+        }*/
     }
 
     /// <summary>
     /// This method gets executed whenever the fingers stop pinching.
     /// </summary>
     public override void OnRelease()
-    {
+    {/*
         if (this.GrabbedObject != null)
         {
             if (Application.isPlaying)
@@ -146,7 +139,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
         this.PinchPosition = Vector3.zero;
         this.GetHandModel().GetComponent<GrabHandSimulator>().ResetFingerLimit(pinchingFinger);
         this.GetHandModel().GetComponent<GrabHandSimulator>().ResetFingerLimit(0);
-        this.pinchingFinger = null;
+        this.pinchingFinger = null;*/
     }
 
     /// <summary>
@@ -156,7 +149,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// <param name="finger">The finger.</param>
     /// <returns>true if pinch detected, false otherwise</returns>
     private bool DetectPinch(Transform thumb, Transform finger)
-    {
+    {/*
         Collider[] fingerCollisions = Physics.OverlapSphere(finger.position, this.fingerSize, 1 << this.interactable);
         Collider[] thumbCollisions = Physics.OverlapSphere(thumb.position, this.fingerSize, 1 << this.interactable);
         Collider grabbed = this.FindIntersection(fingerCollisions, thumbCollisions);
@@ -168,7 +161,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
             this.grabDist = Vector3.Distance(this.pinchingFinger.position, thumb.position);
             return true;
         }
-
+        */
         return false;
     }
 

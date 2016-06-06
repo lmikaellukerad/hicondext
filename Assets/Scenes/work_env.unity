@@ -582,6 +582,7 @@ GameObject:
   - 114: {fileID: 773162519}
   - 114: {fileID: 773162520}
   - 114: {fileID: 773162516}
+  - 114: {fileID: 773162517}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -663,6 +664,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b7df94fbefc0d42aa22e3c7a8aeee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftHand: {fileID: 0}
+  RightHand: {fileID: 0}
+  ReleaseRange: 0
+--- !u!114 &773162517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 773162511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09914df39b39354787c012c09145ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChainStart: {fileID: 954577146}
+  ChainEnd: {fileID: 1382971723}
+  Goal: {fileID: 1050965256}
+  Pole: {fileID: 1610817751}
+  ConnectPole: 0
+  ReferencePoint: {fileID: 0}
+  Constrain: 0
 --- !u!114 &773162518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,9 +1480,9 @@ GameObject:
   - 114: {fileID: 1359749364}
   - 114: {fileID: 1359749368}
   - 114: {fileID: 1359749366}
-  - 114: {fileID: 1359749369}
   - 114: {fileID: 1359749365}
   - 114: {fileID: 1359749370}
+  - 114: {fileID: 1359749367}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -1548,6 +1570,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: 1
+--- !u!114 &1359749367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1359749361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09914df39b39354787c012c09145ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChainStart: {fileID: 1800589444}
+  ChainEnd: {fileID: 191606273}
+  Goal: {fileID: 1437507557}
+  Pole: {fileID: 1181640254}
+  ConnectPole: 0
+  ReferencePoint: {fileID: 0}
+  Constrain: 0
 --- !u!114 &1359749368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,22 +1606,6 @@ MonoBehaviour:
   - {fileID: 325528120}
   Thumb: {fileID: 247562856}
   Material: {fileID: 13400000, guid: bf78a30eec3e80946a186a000764c54e, type: 2}
---- !u!114 &1359749369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1359749361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3587601a8ef125447952002d72810b28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChainStart: {fileID: 1800589444}
-  ChainEnd: {fileID: 191606273}
-  Goal: {fileID: 1437507557}
-  Pole: {fileID: 1181640254}
-  ConnectPole: 0
 --- !u!114 &1359749370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,6 +1617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b7df94fbefc0d42aa22e3c7a8aeee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftHand: {fileID: 0}
+  RightHand: {fileID: 0}
+  ReleaseRange: 0
 --- !u!4 &1382971723 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400104, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}

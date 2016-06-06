@@ -166,4 +166,25 @@ public class GrabHandSimulator : HandSimulator
             this.gameTransforms[fingerID][j].localRotation = this.modelTransforms[fingerID][j].localRotation;
         }
     }
+
+    /// <summary>
+    /// Gets the finger minimum clamp.
+    /// </summary>
+    /// <param name="finger">The finger transform.</param>
+    /// <returns>the minimum of this finger</returns>
+    public float GetFingerMin(Transform finger)
+    {
+        int i = this.GetFingerID(finger);
+        return GetFingerMin(i);
+    }
+
+    /// <summary>
+    /// Gets the finger minimum clamp.
+    /// </summary>
+    /// <param name="finger">The finger id.</param>
+    /// <returns>the minimum of this finger</returns>
+    public float GetFingerMin(int i)
+    {
+        return min[i];
+    }
 }

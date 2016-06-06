@@ -2,6 +2,7 @@
 using Leap;
 using Leap.Unity;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PhysicsGrab : PhysicsGrabBehaviour
 {
@@ -12,7 +13,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     private int interactable = 8; // Layer with interactables
     private float grabDist;
     private float grabDistMargin;
-    private Transform pinchingFinger;
+    private List<Transform> grabbingFingers;
     private float fingerSize;
     private Vector3 previous;
     private PhysicsGrabState previousState;
@@ -31,7 +32,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
         this.PinchPosition = Vector3.zero;
         this.grabDist = 0.0f;
         this.grabDistMargin = 1.1f;
-        this.pinchingFinger = null;
+        this.grabbingFingers = new List<Transform>();
         this.fingerSize = 0.01f;
         this.GrabbedObject = null;
         this.previous = this.model.palm.transform.position;

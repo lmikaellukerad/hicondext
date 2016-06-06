@@ -23,6 +23,7 @@ public class GrabHandSimulator : HandSimulator
             this.min[i] = 0;
             this.max[i] = 1;
         }
+        GetComponent<FingerTipCollider>().SetColliders(this.FingerTipTransforms);
     }
 
     /// <summary>

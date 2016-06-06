@@ -14,6 +14,7 @@ public class HoldState : GrabState
     public override void Handle(GrabBehaviour context)
     {
         context.Hold();
+        context.RecognizeGesture();
         if (!context.Pinch && context.Pinching)
         {
             context.State = ScriptableObject.CreateInstance<ReleaseState>();

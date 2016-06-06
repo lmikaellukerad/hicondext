@@ -11,10 +11,10 @@ public class IKScript : MonoBehaviour
     public GameObject Goal;
     public Transform Pole;
     public bool ConnectPole;
+    protected Quaternion chainEndRotateCorrection;
     private Transform chainRoot;
     private List<Vector3> polePositions = new List<Vector3>();
     private List<Quaternion> childRotations = new List<Quaternion>();
-    private Quaternion chainEndRotateCorrection;
 
     public bool ChainFound { get; private set; }
 
@@ -43,7 +43,7 @@ public class IKScript : MonoBehaviour
     /// <summary>
     /// Updates the chain if the chain was found.
     /// </summary>
-    public void Update()
+    public virtual void Update()
     {
         if (this.ChainFound && this.Goal.activeSelf)
         {
@@ -102,6 +102,62 @@ public class IKScript : MonoBehaviour
     }
 
     /// <summary>
+    /// Resets the child rotations for all joints.
+    /// </summary>
+    protected void ResetChildRotations()
+    {
+        for (int i = 0; i < this.Chain.Count; i++)
+        {
+            this.Chain[i].Joint.GetChild(0).transform.localRotation = this.childRotations[i];
+        }
+    }
+
+    /// <summary>
+    /// Constrains the joints to prevent impossible rotations.
+    /// It uses the local pole for each joint.
+    /// </summary>
+    protected void ConstrainJoints()
+    {
+        this.UpdatePolePositions(1);
+        for (int i = 0; i < this.Chain.Count - 1; i++)
+        {
+            IKJoint j1 = this.Chain[i];
+            IKJoint j2 = this.Chain[i + 1];
+            this.Constrain(j1, j2, this.polePositions[i]);
+        }
+    }
+
+    /// <summary>
+    /// Solves the inverse kinematics of the chain by iterating over the joints and updating each of them.
+    /// Joints only rotate over their local x-axis and all the other rotations are done at the start in the chain root.
+    /// </summary>
+    protected void SolveIK()
+    {
+        Vector3 root = this.ChainStart.position;
+        Transform jointTarget = this.Goal.transform;
+        this.PointChainRoot();
+        for (int i = 0; i < this.Chain.Count; i++)
+        {
+            IKJoint j = this.Chain[i];
+            this.UpdateJoint(j, jointTarget);
+            if (jointTarget != this.Goal.transform)
+            {
+                jointTarget.parent = j.Joint.GetChild(0);
+            }
+
+            if (i == this.Chain.Count - 1)
+            {
+                j.Joint.position = root;
+            }
+            else
+            {
+                j.Joint.parent = null;
+                jointTarget = j.Joint;
+            }
+        }
+    }
+
+    /// <summary>
     /// Points the chain root his forward in the direction of the goal and the up vector to the pole.
     /// </summary>
     private void PointChainRoot()
@@ -111,17 +167,6 @@ public class IKScript : MonoBehaviour
         Vector3.Normalize(look);
         Vector3 orth = poleVector - Vector3.Project(poleVector, look);
         this.chainRoot.rotation = Quaternion.LookRotation(look, orth);
-    }
-
-    /// <summary>
-    /// Resets the child rotations for all joints.
-    /// </summary>
-    private void ResetChildRotations()
-    {
-        for (int i = 0; i < this.Chain.Count; i++)
-        {
-            this.Chain[i].Joint.GetChild(0).transform.localRotation = this.childRotations[i];
-        }
     }
 
     /// <summary>
@@ -178,21 +223,6 @@ public class IKScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Constrains the joints to prevent impossible rotations.
-    /// It uses the local pole for each joint.
-    /// </summary>
-    private void ConstrainJoints()
-    {
-        this.UpdatePolePositions(1);
-        for (int i = 0; i < this.Chain.Count - 1; i++)
-        {
-            IKJoint j1 = this.Chain[i];
-            IKJoint j2 = this.Chain[i + 1];
-            this.Constrain(j1, j2, this.polePositions[i]);
-        }
-    }
-
-    /// <summary>
     /// Constrains two joints if their angle goes against the pole.
     /// Constraining is done by inverting their local x rotation seen from the joint to the goal.
     /// </summary>
@@ -214,36 +244,6 @@ public class IKScript : MonoBehaviour
             float angle = this.AngleSigned(otherJoint, target, j2.Joint.right);
             j2.Joint.Rotate(new Vector3(1, 0, 0), angle * 2);
             targetPos -= j1.Joint.position;
-        }
-    }
-
-    /// <summary>
-    /// Solves the inverse kinematics of the chain by iterating over the joints and updating each of them.
-    /// Joints only rotate over their local x-axis and all the other rotations are done at the start in the chain root.
-    /// </summary>
-    private void SolveIK()
-    {
-        Vector3 root = this.ChainStart.position;
-        Transform jointTarget = this.Goal.transform;
-        this.PointChainRoot();
-        for (int i = 0; i < this.Chain.Count; i++)
-        {
-            IKJoint j = this.Chain[i];
-            this.UpdateJoint(j, jointTarget);
-            if (jointTarget != this.Goal.transform)
-            {
-                jointTarget.parent = j.Joint.GetChild(0);
-            }
-
-            if (i == this.Chain.Count - 1)
-            {
-                j.Joint.position = root;
-            }
-            else
-            {
-                j.Joint.parent = null;
-                jointTarget = j.Joint;
-            }
         }
     }
 

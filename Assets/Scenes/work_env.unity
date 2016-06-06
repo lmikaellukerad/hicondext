@@ -450,14 +450,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 580771594}
-  m_LocalRotation: {x: 0.000000010499522, y: -0.9799202, z: -0.19939014, w: -0.000000014005696}
-  m_LocalPosition: {x: -0, y: 0.02, z: 0.22}
+  m_LocalRotation: {x: -0.021339089, y: 2.8548507e-14, z: -2.5739824e-14, w: 0.9997723}
+  m_LocalPosition: {x: 0, y: 3.1106398, z: 0.30515507}
   m_LocalScale: {x: 5, y: 5, z: 5}
-  m_LocalEulerAnglesHint: {x: -23.0026, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.4455, y: -360, z: 0}
   m_Children:
   - {fileID: 1726560712}
-  m_Father: {fileID: 353303736}
-  m_RootOrder: 0
+  m_Father: {fileID: 1283443265}
+  m_RootOrder: 1
 --- !u!114 &580771596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,6 +1438,10 @@ Transform:
   - {fileID: 1550178862}
   m_Father: {fileID: 821741661}
   m_RootOrder: 0
+--- !u!4 &1283443265 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400054, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
+  m_PrefabInternal: {fileID: 1787700753}
 --- !u!4 &1358489930 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400074, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
@@ -2167,7 +2171,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1820355880}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d90cf61d110c46d49b8b382c1a375647, type: 3}
   m_Name: 
@@ -2199,6 +2203,48 @@ MonoBehaviour:
   UseLeapHands: 1
   rightHandTarget: {fileID: 1437507557}
   leftHandTarget: {fileID: 1050965256}
+--- !u!114 &1820355883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1820355880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00db858c1f8ff90478dad0aa1bac9a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TwoUsers: 0
+  ComputeUserMap: 0
+  ComputeColorMap: 0
+  DisplayUserMap: 0
+  DisplayColorMap: 0
+  DisplaySkeletonLines: 0
+  DisplayMapsWidthPercent: 20
+  SensorHeight: 1
+  SensorAngle: 0
+  MinUserDistance: 1
+  MaxUserDistance: 0
+  DetectClosestUser: 1
+  IgnoreInferredJoints: 1
+  smoothing: 1
+  UseBoneOrientationsFilter: 0
+  UseClippedLegsFilter: 0
+  UseBoneOrientationsConstraint: 1
+  UseSelfIntersectionConstraint: 0
+  Player1Avatars: []
+  Player2Avatars: []
+  Player1CalibrationPose: 3
+  Player2CalibrationPose: 0
+  Player1Gestures: 
+  Player2Gestures: 
+  MinTimeBetweenGestures: 0.7
+  GestureListeners: []
+  CalibrationText: {fileID: 0}
+  HandCursor1: {fileID: 0}
+  HandCursor2: {fileID: 0}
+  ControlMouseCursor: 0
+  GesturesDebugText: {fileID: 0}
 --- !u!4 &1820355884 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400026, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}

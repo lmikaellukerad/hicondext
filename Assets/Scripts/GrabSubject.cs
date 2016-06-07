@@ -15,8 +15,9 @@ public class GrabSubject : GrabSubjectBehaviour
     /// </summary>
     public override void Initialize()
     {
-        this.fingers = this.LeftHand.fingers.Cast<Transform>().ToList<Transform>();
-        this.fingers.AddRange(this.RightHand.fingers.Cast<Transform>().ToList<Transform>());
+        this.State = new NeutralSubjectState();
+        this.fingers = this.LeftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList<Transform>();
+        this.fingers.AddRange(this.RightHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList<Transform>());
     }
 
     /// <summary>
@@ -27,8 +28,10 @@ public class GrabSubject : GrabSubjectBehaviour
         Transform[] leftFingers = LeftHand.GetComponent<HandSimulator>().FingerTipTransforms;
         Transform[] rightFingers = RightHand.GetComponent<HandSimulator>().FingerTipTransforms;
         this.DetectGrab(leftFingers, rightFingers);
-
-        this.State = new HoldSubjectState();
+        if (Grabs.Count != 0 && this.State.GetType() == typeof(NeutralSubjectState))
+        {
+            this.State = new HoldSubjectState();
+        }
     }
 
     private void DetectGrab(Transform[] leftFingers, Transform[] rightFingers)

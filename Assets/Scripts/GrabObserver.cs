@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public class GrabObserver
 {
-    private SubjectGrabBehaviour sub;
+    private GrabSubjectBehaviour sub;
     private List<Transform> allFingerTips;
     private List<Transform> grabbingFingerTips = new List<Transform>();
     private GameObject obj;
@@ -23,7 +23,7 @@ public class GrabObserver
     /// <param name="right">The right hand model.</param>
     /// <param name="left">The left hand model.</param>
     /// <param name="obj">The object that is currently grabbed.</param>
-    public GrabObserver(SubjectGrabBehaviour subject, HandModel right, HandModel left, GameObject obj)
+    public GrabObserver(GrabSubjectBehaviour subject, HandModel right, HandModel left, GameObject obj)
     {
         this.sub = subject;
         this.rightHand = right;

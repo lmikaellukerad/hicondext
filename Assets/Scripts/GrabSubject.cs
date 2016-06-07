@@ -4,7 +4,7 @@ using System.Linq;
 using Leap.Unity;
 using UnityEngine;
 
-public class SubjectGrab : SubjectGrabBehaviour
+public class GrabSubject : GrabSubjectBehaviour
 {
     public HandModel LeftHand;
     public HandModel RightHand;
@@ -24,7 +24,7 @@ public class SubjectGrab : SubjectGrabBehaviour
     /// </summary>
     public override void Detect()
     {
-        this.State = new SubjectHoldState();
+        this.State = new HoldSubjectState();
     }
 
     /// <summary>
@@ -40,7 +40,7 @@ public class SubjectGrab : SubjectGrabBehaviour
 
         if (Grabs.Count == 0)
         {
-            this.State = new SubjectNeutralState();
+            this.State = new NeutralSubjectState();
         }
     }
 }

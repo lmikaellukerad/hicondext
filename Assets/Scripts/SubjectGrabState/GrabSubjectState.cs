@@ -6,11 +6,11 @@ using UnityEngine;
 /// Author: Luke
 /// Abstract class GrabState for defining the state of a grab.
 /// </summary>
-public abstract class SubjectGrabState
+public abstract class GrabSubjectState
 {
     /// <summary>
     /// Handle the state of the grab based on the current GrabBehavior properties.
     /// </summary>
     /// <param name="context">The GrabBehavior object that provides context for the state.</param>
-    public abstract void Handle(SubjectGrabBehaviour context);
+    public abstract void Handle(GrabSubjectBehaviour context);
 }

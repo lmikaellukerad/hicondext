@@ -4,12 +4,12 @@ using Leap;
 using Leap.Unity;
 using UnityEngine;
 
-public abstract class SubjectGrabBehaviour : MonoBehaviour
+public abstract class GrabSubjectBehaviour : MonoBehaviour
 {
     public List<GrabObserver> Grabs = new List<GrabObserver>();
-    private SubjectGrabState previousState;
+    private GrabSubjectState previousState;
 
-    public SubjectGrabState State
+    public GrabSubjectState State
     {
         get;
         set;

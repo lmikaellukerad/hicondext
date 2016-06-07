@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine;
 
 
-public class MultiGrab : SubjectGrabBehaviour
+public class MultiGrab : GrabSubjectBehaviour
 {
     public HandModel LeftHand;
     public HandModel RightHand;

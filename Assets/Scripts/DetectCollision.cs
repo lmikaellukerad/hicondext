@@ -26,7 +26,7 @@ public class DetectCollision : MonoBehaviour
     /// <value>
     /// The Collision object.
     /// </value>
-    public Collision Object
+    public Collision Collision
     {
         get;
         private set;
@@ -39,7 +39,7 @@ public class DetectCollision : MonoBehaviour
     private void OnCollisionEnter(Collision c)
     {
         this.Collided = true;
-        this.Object = c;
+        this.Collision = c;
     }
 
     /// <summary>
@@ -49,6 +49,6 @@ public class DetectCollision : MonoBehaviour
     private void OnCollisionExit(Collision c)
     {
         this.Collided = false;
-        this.Object = null;
+        this.Collision = null;
     }
 }

@@ -24,7 +24,40 @@ public class GrabSubject : GrabSubjectBehaviour
     /// </summary>
     public override void Detect()
     {
+        Transform[] leftFingers = LeftHand.GetComponent<HandSimulator>().FingerTipTransforms;
+        Transform[] rightFingers = RightHand.GetComponent<HandSimulator>().FingerTipTransforms;
+        this.DetectGrab(leftFingers, rightFingers);
+
         this.State = new HoldSubjectState();
+    }
+
+    private void DetectGrab(Transform[] leftFingers, Transform[] rightFingers)
+    {
+        HashSet<GameObject> touched = new HashSet<GameObject>();
+        CheckFingers(leftFingers, touched);
+        CheckFingers(rightFingers, touched);
+    }
+
+    private void CheckFingers(Transform[] fingers, HashSet<GameObject> touched)
+    {
+        foreach (Transform f in fingers)
+        {
+            CheckFinger(f, touched);
+        }
+    }
+    
+    private void CheckFinger(Transform f, HashSet<GameObject> touched)
+    {
+        DetectCollision d = f.GetComponent<DetectCollision>();
+        if (d.Collided)
+        {
+            GameObject o = d.Collision.gameObject;
+            if (!touched.Contains(o))
+            {
+                new GrabObserver(this, LeftHand, RightHand, o);
+            }
+            touched.Add(o);
+        }
     }
 
     /// <summary>

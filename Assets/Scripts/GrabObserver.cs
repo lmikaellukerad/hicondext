@@ -63,10 +63,10 @@ public class GrabObserver
         for (int i = 0; i < this.allFingerTips.Count; i++)
         {
             DetectCollision tip = this.allFingerTips[i].GetComponent<DetectCollision>();
-            if (tip.Collided && tip.Object.gameObject == this.obj)
+            if (tip.Collided && tip.Collision.gameObject == this.obj)
             {
                 this.grabbingFingerTips.Add(this.allFingerTips[i]);
-                normals.Add(Vector3.Normalize(tip.Object.contacts[0].normal));
+                normals.Add(Vector3.Normalize(tip.Collision.contacts[0].normal));
             }
         }
 

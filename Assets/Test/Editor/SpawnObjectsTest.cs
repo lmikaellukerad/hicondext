@@ -19,7 +19,8 @@ public class SpawnObjectsTest {
         string testObjectType = "mntdewPrefab";
         testShelf = new ShelfData(testObjectType, startPosTest, distanceBetweenTest, heightDistanceTest, rotationTest, amountTest);
 
-        testClone = new CloneObjects();
+        GameObject useless = new GameObject();
+        testClone = useless.AddComponent<CloneObjects>();
         testClone.FillBackShelf = true;
         testClone.FillLeftShelf = true;
         testClone.FillRightShelf = true;

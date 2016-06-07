@@ -126,6 +126,21 @@ public class CloneObjects : MonoBehaviour
     /// An objects holding the data of the left shelf.
     /// </summary>
     private static ShelfData rightShelf = new ShelfData(objectTypeRight, startPosRightwall, distanceBetweenRight, heightDistanceRight, rotationRight, amountRight);
+    
+    /// <summary>
+    /// Keeps track of filling the back shelf.
+    /// </summary>
+    public bool backshelfDone;
+
+    /// <summary>
+    /// Keeps track of filling the left shelf.
+    /// </summary>
+    public bool leftshelfDone;
+
+    /// <summary>
+    /// Keeps track of filling the right shelf.
+    /// </summary>
+    public bool rightshelfDone;
 
     /// <summary>
     /// Fills a shelf.
@@ -194,15 +209,15 @@ public class CloneObjects : MonoBehaviour
 
         return false;
     }
-
+    
     /// <summary>
     /// Starts this instance.
     /// </summary>
     public void Start()
     {
-        bool backshelfDone = false;
-        bool leftshelfDone = false;
-        bool rightshelfDone = false;
+        backshelfDone = false;
+        leftshelfDone = false;
+        rightshelfDone = false;
 
         if (this.FillBackShelf)
         {
@@ -223,12 +238,5 @@ public class CloneObjects : MonoBehaviour
         CloneObjects.print("Back shelf: " + backshelfDone);
         CloneObjects.print("Left shelf: " + leftshelfDone);
         CloneObjects.print("Right shelf: " + rightshelfDone);
-    }
-
-    /// <summary>
-    /// Updates this instance.
-    /// </summary>
-    public void Update()
-    {
     }
 }

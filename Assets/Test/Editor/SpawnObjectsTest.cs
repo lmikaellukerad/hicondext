@@ -5,6 +5,7 @@ using NUnit.Framework;
 public class SpawnObjectsTest {
 
     private ShelfData testShelf;
+    private CloneObjects testClone;
     
     [SetUp]
     public virtual void setup()
@@ -18,6 +19,10 @@ public class SpawnObjectsTest {
         string testObjectType = "mntdewPrefab";
         testShelf = new ShelfData(testObjectType, startPosTest, distanceBetweenTest, heightDistanceTest, rotationTest, amountTest);
 
+        testClone = new CloneObjects();
+        testClone.FillBackShelf = true;
+        testClone.FillLeftShelf = true;
+        testClone.FillRightShelf = true;
     }
 
     [TearDown]
@@ -50,6 +55,12 @@ public class SpawnObjectsTest {
     }
 
     [Test]
+    public void FillShelfTestAllShelves()
+    {
+        Assert.True(CloneObjects.FillShelf(testShelf));
+    }
+
+    [Test]
     public void FillNoLayerShelfTest()
     {
         testShelf.setShelves(0);
@@ -74,5 +85,17 @@ public class SpawnObjectsTest {
     public void NullShelfTest()
     {
         Assert.False(CloneObjects.FillShelf(null));
+    }
+
+    [Test]
+    public void BooleansTrueTest()
+    {
+        Assert.True(testClone.FillBackShelf);
+        Assert.True(testClone.FillLeftShelf);
+        Assert.True(testClone.FillRightShelf);
+        testClone.Start();
+        Assert.True(testClone.backshelfDone);
+        Assert.True(testClone.backshelfDone);
+        Assert.True(testClone.backshelfDone);
     }
 }

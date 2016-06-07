@@ -86,6 +86,18 @@ public class GrabHandSimulator : HandSimulator
     }
 
     /// <summary>
+    /// Resets all the finger limit of finger with a certain id.
+    /// </summary>
+    public void ResetFingerLimits()
+    {
+        for (int i = 0; i < this.min.Length; i++)
+        {
+            this.min[i] = 0;
+            this.max[i] = 1;
+        }
+    }
+
+    /// <summary>
     /// Resets the finger limit of a specific finger by matching a transform.
     /// </summary>
     /// <param name="finger">The finger Transform.</param>

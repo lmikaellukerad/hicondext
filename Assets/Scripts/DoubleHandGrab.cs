@@ -67,7 +67,7 @@ public class DoubleHandGrab : MonoBehaviour
     {
         if (detector.Collided)
         {
-            return detector.Collision;
+            return null;
         }
         return null;
     }

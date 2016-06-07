@@ -33,6 +33,7 @@ public class FingerTipCollider : MonoBehaviour
         SphereCollider s = obj.AddComponent<SphereCollider>();
         s.material = this.Material;
         s.radius = 0.03f;
+        s.isTrigger = true;
     }
 
     /// <summary>
@@ -61,12 +62,11 @@ public class FingerTipCollider : MonoBehaviour
     /// <param name="obj">The object to add a RigidBody to.</param>
     private void InitializeFingerCollider(GameObject obj)
     {
-        this.AddCollider(obj);
         if (obj.name.Contains("end"))
         {
+            this.AddCollider(obj);
             this.AddCollisionDetection(obj);
         }
-        this.AddRigidbody(obj);
     }
 
     /// <summary>

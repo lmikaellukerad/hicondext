@@ -37,8 +37,17 @@ public class GrabSubject : GrabSubjectBehaviour
     private void DetectGrab(Transform[] leftFingers, Transform[] rightFingers)
     {
         HashSet<GameObject> touched = new HashSet<GameObject>();
+        AddCurrentGrabbedObjects(touched);
         CheckFingers(leftFingers, touched);
         CheckFingers(rightFingers, touched);
+    }
+
+    private void AddCurrentGrabbedObjects(HashSet<GameObject> touched)
+    {
+        foreach(GrabObserver g in Grabs)
+        {
+            touched.Add(g.obj);
+        }
     }
 
     private void CheckFingers(Transform[] fingers, HashSet<GameObject> touched)

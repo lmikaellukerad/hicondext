@@ -26,7 +26,7 @@ public class DetectCollision : MonoBehaviour
     /// <value>
     /// The Collision object.
     /// </value>
-    public Collision Collision
+    public Collider Collision
     {
         get;
         private set;
@@ -36,17 +36,20 @@ public class DetectCollision : MonoBehaviour
     /// Called when collision is detected.
     /// </summary>
     /// <param name="c">The Collision object.</param>
-    private void OnCollisionEnter(Collision c)
+    private void OnTriggerEnter(Collider c)
     {
-        this.Collided = true;
-        this.Collision = c;
+        if(c.gameObject.layer == 8)
+        {
+            this.Collided = true;
+            this.Collision = c;
+        }
     }
 
     /// <summary>
     /// Called when collision has ended.
     /// </summary>
     /// <param name="c">The Collision object.</param>
-    private void OnCollisionExit(Collision c)
+    private void OnTriggerExit(Collider c)
     {
         this.Collided = false;
         this.Collision = null;

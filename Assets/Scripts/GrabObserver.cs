@@ -12,7 +12,9 @@ public class GrabObserver
     private GrabSubjectBehaviour sub;
     private List<Transform> allFingerTips;
     private List<Transform> grabbingFingerTips = new List<Transform>();
-    private GameObject obj;
+    private List<Transform> thumbs = new List<Transform>();
+    public GameObject obj;
+    private Vector3 offset;
     private HandModel leftHand;
     private HandModel rightHand;
 
@@ -28,11 +30,15 @@ public class GrabObserver
         this.sub = subject;
         this.rightHand = right;
         this.leftHand = left;
-        this.allFingerTips = this.leftHand.fingers.Cast<Transform>().ToList<Transform>();
-        this.allFingerTips.AddRange(this.rightHand.fingers.Cast<Transform>().ToList<Transform>());
+        this.thumbs.Add(rightHand.GetComponent<HandSimulator>().FingerTipTransforms[0]);
+        this.thumbs.Add(leftHand.GetComponent<HandSimulator>().FingerTipTransforms[0]);
+        this.allFingerTips = this.leftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList<Transform>();
+        this.allFingerTips.AddRange(this.rightHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList<Transform>());
         this.obj = obj;
         if (this.CheckGrabbed())
         {
+            offset = obj.transform.position - AveragePosition(grabbingFingerTips);
+            obj.GetComponent<Rigidbody>().isKinematic = true;
             this.sub.Subscribe(this);
         }
     }
@@ -42,14 +48,30 @@ public class GrabObserver
     /// </summary>
     public void Notify()
     {
+        Vector3 averageBefore = AveragePosition(grabbingFingerTips);
         if (this.CheckGrabbed())
         {
+            Vector3 averageAfter = AveragePosition(grabbingFingerTips);
+            offset = offset + averageBefore - averageAfter;
+            this.ConstrainHands();
             this.UpdateObject();
         }
         else
         {
+            obj.GetComponent<Rigidbody>().isKinematic = false;
+            this.ReleaseHands();
             this.sub.UnSubscribe(this);
         }
+    }
+
+    private void ReleaseHands()
+    {
+        rightHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
+        leftHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
+        rightHand.GetComponent<IKGrabConstrain>().ReferencePoint = null;
+        rightHand.GetComponent<IKGrabConstrain>().Constrain = false;
+        leftHand.GetComponent<IKGrabConstrain>().ReferencePoint = null;
+        leftHand.GetComponent<IKGrabConstrain>().Constrain = true;
     }
 
     /// <summary>
@@ -59,18 +81,16 @@ public class GrabObserver
     private bool CheckGrabbed()
     {
         this.grabbingFingerTips.Clear();
-        List<Vector3> normals = new List<Vector3>();
         for (int i = 0; i < this.allFingerTips.Count; i++)
         {
             DetectCollision tip = this.allFingerTips[i].GetComponent<DetectCollision>();
             if (tip.Collided && tip.Collision.gameObject == this.obj)
             {
                 this.grabbingFingerTips.Add(this.allFingerTips[i]);
-                normals.Add(Vector3.Normalize(tip.Collision.contacts[0].normal));
             }
         }
 
-        if (this.HasOpposites(normals))
+        if (this.IsValidGrab())
         {
             return true;
         }
@@ -83,24 +103,56 @@ public class GrabObserver
     /// </summary>
     /// <param name="vectors">The vectors.</param>
     /// <returns>True if the list has two opposite vectors</returns>
-    private bool HasOpposites(List<Vector3> vectors)
+    private bool IsValidGrab()
     {
-        foreach (Vector3 n in vectors)
+        List<Transform> rightFingers = rightHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
+        List<Transform> leftFingers = leftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
+        if (grabbingFingerTips.Intersect(rightFingers).Count() > 0 && grabbingFingerTips.Intersect(leftFingers).Count() > 0)
         {
-            foreach (Vector3 m in vectors)
-            {
-                if (n != m)
-                {
-                    float d = Vector3.Dot(n, m);
-                    if (d < 0.5)
-                    {
-                        return true;
-                    }
-                }
-            }
+            return true;
+        }
+        else if (grabbingFingerTips.Intersect(rightFingers).Count() > 1 && grabbingFingerTips.Intersect(thumbs).Count() > 0)
+        {
+            return true;
+        }
+        else if (grabbingFingerTips.Intersect(leftFingers).Count() > 1 && grabbingFingerTips.Intersect(thumbs).Count() > 0)
+        {
+            return true;
         }
 
         return false;
+    }
+
+    private void ConstrainHands()
+    {
+        List<Transform> rightFingers = rightHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
+        List<Transform> leftFingers = leftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
+        List<Transform> grabbingRight = grabbingFingerTips.Intersect(rightFingers).ToList();
+        List<Transform> grabbingLeft = grabbingFingerTips.Intersect(leftFingers).ToList();
+
+        if (grabbingRight.Count > 0)
+        {
+            for (int i = 0; i < grabbingRight.Count; i++)
+            {
+                rightHand.GetComponent<GrabHandSimulator>().ClampMin(grabbingRight[i]);
+            }
+        }
+
+        if (grabbingLeft.Count > 0)
+        {
+            for (int i = 0; i < grabbingLeft.Count; i++)
+            {
+                leftHand.GetComponent<GrabHandSimulator>().ClampMin(grabbingLeft[i]);
+            }
+        }
+
+        if (grabbingRight.Count > 0 && grabbingLeft.Count > 0)
+        {
+            rightHand.GetComponent<IKGrabConstrain>().ReferencePoint = obj.transform;
+            rightHand.GetComponent<IKGrabConstrain>().Constrain = false;
+            leftHand.GetComponent<IKGrabConstrain>().ReferencePoint = obj.transform;
+            leftHand.GetComponent<IKGrabConstrain>().Constrain = false;
+        }
     }
 
     /// <summary>
@@ -108,7 +160,25 @@ public class GrabObserver
     /// </summary>
     private void UpdateObject()
     {
-        this.obj.transform.position = this.AveragePosition(this.grabbingFingerTips);
+        this.obj.transform.position = this.AveragePosition(this.grabbingFingerTips) + offset;
+
+        List<Transform> rightFingers = rightHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
+        List<Transform> leftFingers = leftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
+        List<Transform> grabbingRight = grabbingFingerTips.Intersect(rightFingers).ToList();
+        List<Transform> grabbingLeft = grabbingFingerTips.Intersect(leftFingers).ToList();
+
+
+        if (grabbingRight.Count > 0 && grabbingLeft.Count > 0)
+        {
+
+        } 
+        else if (grabbingRight.Count > 0)
+        {
+        }
+        else if (grabbingLeft.Count > 0)
+        {
+        }
+
     }
 
     /// <summary>

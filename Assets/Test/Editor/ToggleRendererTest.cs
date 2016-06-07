@@ -55,4 +55,13 @@ public class ToggleRendererTest
         this.testToggler.EnableRenderer();
         Assert.True(this.rend.enabled);
     }
+
+    [Test]
+    public void StartTest()
+    {
+        this.testToggler.EnableRender = true;
+        Assert.False(this.rend.enabled);
+        this.testToggler.Start();
+        Assert.True(this.rend.enabled);
+    }
 }

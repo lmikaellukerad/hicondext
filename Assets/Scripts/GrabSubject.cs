@@ -1,13 +1,22 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Leap.Unity;
 using UnityEngine;
 
 public class SubjectGrab : SubjectGrabBehaviour
 {
+    public HandModel LeftHand;
+    public HandModel RightHand;
+    private List<Transform> fingers;
+
     /// <summary>
     /// Initializes this instance.
     /// </summary>
     public override void Initialize()
     {
+        this.fingers = this.LeftHand.fingers.Cast<Transform>().ToList<Transform>();
+        this.fingers.AddRange(this.RightHand.fingers.Cast<Transform>().ToList<Transform>());
     }
 
     /// <summary>

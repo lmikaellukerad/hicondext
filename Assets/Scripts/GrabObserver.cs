@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Leap.Unity;
 using UnityEngine;
 
 /// <summary>
@@ -11,17 +13,23 @@ public class GrabObserver
     private List<Transform> allFingerTips;
     private List<Transform> grabbingFingerTips = new List<Transform>();
     private GameObject obj;
+    private HandModel leftHand;
+    private HandModel rightHand;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GrabObserver"/> class.
     /// </summary>
     /// <param name="subject">The subject to subscribe to.</param>
-    /// <param name="fingerTips">The finger tips of all hands.</param>
+    /// <param name="right">The right hand model.</param>
+    /// <param name="left">The left hand model.</param>
     /// <param name="obj">The object that is currently grabbed.</param>
-    public GrabObserver(SubjectGrabBehaviour subject, List<Transform> fingerTips, GameObject obj)
+    public GrabObserver(SubjectGrabBehaviour subject, HandModel right, HandModel left, GameObject obj)
     {
         this.sub = subject;
-        this.grabbingFingerTips = fingerTips;
+        this.rightHand = right;
+        this.leftHand = right;
+        this.allFingerTips = this.leftHand.fingers.Cast<Transform>().ToList<Transform>();
+        this.allFingerTips.AddRange(this.rightHand.fingers.Cast<Transform>().ToList<Transform>());
         this.obj = obj;
         if (this.CheckGrabbed())
         {
@@ -36,6 +44,7 @@ public class GrabObserver
     {
         if (this.CheckGrabbed())
         {
+            this.UpdateObject();
         }
         else
         {

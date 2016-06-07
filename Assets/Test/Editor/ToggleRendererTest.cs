@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using NUnit.Framework;
 using UnityEditor;
-using NUnit.Framework;
+using UnityEngine;
 
-public class ToggleRendererTest {
-
+public class ToggleRendererTest 
+{
     private MeshRenderer rend;
 
     private bool enableRender;
@@ -16,9 +16,9 @@ public class ToggleRendererTest {
     public void Setup()
     {
         this.testObject = new GameObject();
-        this.rend = testObject.AddComponent<MeshRenderer>();
+        this.rend = this.testObject.AddComponent<MeshRenderer>();
         this.rend.enabled = false;
-        this.testToggler = testObject.AddComponent<ToggleRenderer>();
+        this.testToggler = this.testObject.AddComponent<ToggleRenderer>();
         this.enableRender = false;
     }
     
@@ -32,9 +32,9 @@ public class ToggleRendererTest {
     public void RendererOffToOnTest()
     {
         Assert.False(this.rend.enabled);
-        testToggler.EnableRender = true;
+        this.testToggler.EnableRender = true;
         Assert.False(this.rend.enabled);
-        testToggler.EnableRenderer();
+        this.testToggler.EnableRenderer();
         Assert.True(this.rend.enabled);
     }
 
@@ -42,7 +42,7 @@ public class ToggleRendererTest {
     public void RendererOffToOffTest()
     {
         Assert.False(this.rend.enabled);
-        testToggler.EnableRenderer();
+        this.testToggler.EnableRenderer();
         Assert.False(this.rend.enabled);
     }
 
@@ -50,9 +50,9 @@ public class ToggleRendererTest {
     public void RendererOnToOnTest()
     {
         this.rend.enabled = true;
-        testToggler.EnableRender = true;
+        this.testToggler.EnableRender = true;
         Assert.True(this.rend.enabled);
-        testToggler.EnableRenderer();
+        this.testToggler.EnableRenderer();
         Assert.True(this.rend.enabled);
     }
 }

@@ -60,10 +60,10 @@ public class GrabSubject : GrabSubjectBehaviour
     
     private void CheckFinger(Transform f, HashSet<GameObject> touched)
     {
-        DetectCollision d = f.GetComponent<DetectCollision>();
-        if (d.Collided)
+        DetectFingerCollision d = f.GetComponent<DetectFingerCollision>();
+        if (d.CheckFinger(f.gameObject))
         {
-            GameObject o = d.Collision.gameObject;
+            GameObject o = d.LastCollider.gameObject;
             if (!touched.Contains(o))
             {
                 new GrabObserver(this, LeftHand, RightHand, o);

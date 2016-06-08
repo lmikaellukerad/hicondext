@@ -28,12 +28,14 @@ public class FingerTipCollider : MonoBehaviour
     /// This method is used to add a SphereCollider to a GameObject.
     /// </summary>
     /// <param name="obj">The object to add a SphereCollider to.</param>
-    private void AddCollider(GameObject obj)
+    private Collider AddCollider(GameObject obj)
     {
         SphereCollider s = obj.AddComponent<SphereCollider>();
         s.material = this.Material;
         s.radius = 0.03f;
+        s.isTrigger = false;
         s.isTrigger = true;
+        return s;
     }
 
     /// <summary>
@@ -62,11 +64,14 @@ public class FingerTipCollider : MonoBehaviour
     /// <param name="obj">The object to add a RigidBody to.</param>
     private void InitializeFingerCollider(GameObject obj)
     {
+        Collider c = this.AddCollider(obj);
+        this.AddCollisionDetection(obj);
         if (obj.name.Contains("end"))
         {
-            this.AddCollider(obj);
             this.AddCollisionDetection(obj);
+            obj.AddComponent<DetectFingerCollision>();
         }
+        this.AddRigidbody(obj);
     }
 
     /// <summary>
@@ -76,7 +81,7 @@ public class FingerTipCollider : MonoBehaviour
     private void GetNextBone(GameObject obj)
     {
         this.InitializeFingerCollider(obj);
-        if (!obj.transform.parent.name.Contains("Palm"))
+        if (!obj.transform.parent.parent.name.Contains("Palm"))
         {
             this.GetNextBone(obj.transform.parent.gameObject);
         }

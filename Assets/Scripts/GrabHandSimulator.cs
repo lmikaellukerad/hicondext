@@ -75,6 +75,18 @@ public class GrabHandSimulator : HandSimulator
         return -1;
     }
 
+    public bool AllFingersOpen(float margin)
+    {
+        for (int i = 0; i < FingerTipTransforms.Length;i++)
+        {
+            if (GetFingerState(i) > 1 - margin)
+            {
+                return false;
+            } 
+        }
+        return true;
+    }
+
     /// <summary>
     /// Resets the finger limit of finger with a certain id.
     /// </summary>
@@ -92,8 +104,7 @@ public class GrabHandSimulator : HandSimulator
     {
         for (int i = 0; i < this.min.Length; i++)
         {
-            this.min[i] = 0;
-            this.max[i] = 1;
+            this.ResetFingerLimit(i);
         }
     }
 

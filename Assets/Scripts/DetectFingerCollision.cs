@@ -23,7 +23,7 @@ public class DetectFingerCollision : MonoBehaviour
     /// </summary>
     /// <param name="obj">The object to check.</param>
     /// <returns>true if collision is detected, otherwise false.</returns>
-    public bool Detect(GameObject obj)
+    private bool Detect(GameObject obj)
     {
         DetectCollision detector = obj.GetComponent<DetectCollision>();
         if (detector.Collided)
@@ -40,9 +40,9 @@ public class DetectFingerCollision : MonoBehaviour
     /// </summary>
     /// <param name="obj">The object to check.</param>
     /// <returns>true if collision is detected, otherwise false.</returns>
-    private bool CheckFinger(GameObject obj)
+    public bool CheckFinger(GameObject obj)
     {
-        if (obj.GetComponent<SphereCollider>().isTrigger)
+        if (obj.GetComponent<SphereCollider>()  != null)
         {
             if (this.Detect(obj))
             {
@@ -55,6 +55,7 @@ public class DetectFingerCollision : MonoBehaviour
         }
         else
         {
+            LastCollider = null;
             return false;
         }
     }

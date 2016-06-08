@@ -15,7 +15,7 @@ public class FingerTipCollider : MonoBehaviour
     /// <summary>
     /// Starts this instance.
     /// </summary>
-    private void Start()
+    public void Start()
     {
         this.Initialize();
     }
@@ -24,7 +24,7 @@ public class FingerTipCollider : MonoBehaviour
     /// This method is used to add a SphereCollider to a GameObject.
     /// </summary>
     /// <param name="obj">The object to add a SphereCollider to.</param>
-    private void AddCollider(GameObject obj)
+    public void AddCollider(GameObject obj)
     {
         SphereCollider s = obj.AddComponent<SphereCollider>();
         s.material = this.Material;
@@ -35,7 +35,7 @@ public class FingerTipCollider : MonoBehaviour
     /// This method is used to add a RigidBody to a GameObject.
     /// </summary>
     /// <param name="obj">The object to add a RigidBody to.</param>
-    private void AddRigidbody(GameObject obj)
+    public void AddRigidbody(GameObject obj)
     {
         Rigidbody r = obj.AddComponent<Rigidbody>();
         r.useGravity = false;
@@ -46,7 +46,7 @@ public class FingerTipCollider : MonoBehaviour
     /// This method is used to add a DetectCollision to a GameObject.
     /// </summary>
     /// <param name="obj">The object to add a DetectCollision script to.</param>
-    private void AddCollisionDetection(GameObject obj)
+    public void AddCollisionDetection(GameObject obj)
     {
         obj.AddComponent<DetectCollision>();
     }
@@ -55,7 +55,7 @@ public class FingerTipCollider : MonoBehaviour
     /// This method is used to add a SphereCollider to part of the finger
     /// </summary>
     /// <param name="obj">The object to add a RigidBody to.</param>
-    private void InitializeFingerCollider(GameObject obj)
+    public void InitializeFingerCollider(GameObject obj)
     {
         this.AddCollider(obj);
         this.AddCollisionDetection(obj);
@@ -66,7 +66,7 @@ public class FingerTipCollider : MonoBehaviour
     /// This method is used to get the next part of the finger.
     /// </summary>
     /// <param name="obj">The object to initialize.</param>
-    private void GetNextBone(GameObject obj)
+    public void GetNextBone(GameObject obj)
     {
         this.InitializeFingerCollider(obj);
         if (obj.transform.parent.name != "Palm" && obj.transform.parent.name != "Palm.001")

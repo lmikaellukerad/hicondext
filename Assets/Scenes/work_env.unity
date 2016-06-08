@@ -119,7 +119,7 @@ MonoBehaviour:
   player: {fileID: 898200061}
   cart_fric: 0.95
   cart_rot: 0.9
-  interaction_radius: 1
+  interaction_radius: 1.2
 --- !u!54 &34579815
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ public class IKJointTest
     }
 
     [Test]
-    public void SetJointTest()
+    public void ConstructJointTest()
     {
         // Is the joint set right?
         Vector3 look = this.testObj1.transform.position - this.testObj0.transform.position;
@@ -72,22 +72,7 @@ public class IKJointTest
     [Test]
     public void SetJointTest()
     {
-        Vector3 look = this.testObj1.transform.position - this.testObj0.transform.position;
-        Vector3 poleVector = this.testObj2.transform.position - this.testObj0.transform.position;
-        Vector3.Normalize(look);
-        Vector3 orth = poleVector - Vector3.Project(poleVector, look);
-
-        this.testTrans.rotation = Quaternion.LookRotation(look, orth);
-        this.testTrans.position = this.testObj0.transform.position;
-        this.testTrans.parent = this.testObj0.transform.parent;
-
-        // Assert that the Joint is initialized properly.
-        Assert.AreEqual(this.testJoint.Joint, Vector3.Distance(this.testObj0.transform.position, this.testObj1.transform.position));
-
-        // Set the new joint.
         this.testJoint.Joint = this.testObj2.transform;
-
-        // Assert that the new joint is correctly set.
         Assert.AreEqual(this.testJoint.Joint, this.testObj2.transform);
     }
 }

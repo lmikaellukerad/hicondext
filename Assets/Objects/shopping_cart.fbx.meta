@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 3e88bd7654223984eba1f0bab36b634f
+timeCreated: 1465394826
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Cube.007
+    100004: gx
+    100006: gx.001
+    100008: gx.002
+    100010: gx.003
+    100012: gx.004
+    100014: honeycomb
+    100016: honeycomb.007
+    100018: Lamp
+    100020: NurbsPath
+    100022: //RootNode
+    100024: wiell.000
+    100026: wiell.001
+    100028: wiell.002
+    100030: wiell.003
+    100032: Bovenstel
+    100034: chasis
+    100036: wielen
+    400000: Camera
+    400002: Cube.007
+    400004: gx
+    400006: gx.001
+    400008: gx.002
+    400010: gx.003
+    400012: gx.004
+    400014: honeycomb
+    400016: honeycomb.007
+    400018: Lamp
+    400020: NurbsPath
+    400022: //RootNode
+    400024: wiell.000
+    400026: wiell.001
+    400028: wiell.002
+    400030: wiell.003
+    400032: Bovenstel
+    400034: chasis
+    400036: wielen
+    2300000: Cube.007
+    2300002: gx
+    2300004: gx.001
+    2300006: gx.002
+    2300008: gx.003
+    2300010: gx.004
+    2300012: honeycomb
+    2300014: honeycomb.007
+    2300016: NurbsPath
+    2300018: wiell.000
+    2300020: wiell.001
+    2300022: wiell.002
+    2300024: wiell.003
+    2300026: Bovenstel
+    2300028: chasis
+    2300030: wielen
+    3300000: Cube.007
+    3300002: gx
+    3300004: gx.001
+    3300006: gx.002
+    3300008: gx.003
+    3300010: gx.004
+    3300012: honeycomb
+    3300014: honeycomb.007
+    3300016: NurbsPath
+    3300018: wiell.000
+    3300020: wiell.001
+    3300022: wiell.002
+    3300024: wiell.003
+    3300026: Bovenstel
+    3300028: chasis
+    3300030: wielen
+    4300000: wiell.000
+    4300002: wiell.003
+    4300004: wiell.002
+    4300006: wiell.001
+    4300008: gx.004
+    4300010: gx.003
+    4300012: gx.002
+    4300014: gx.001
+    4300016: gx
+    4300018: NurbsPath
+    4300020: honeycomb.007
+    4300022: Cube.007
+    4300024: honeycomb
+    4300026: wielen
+    4300028: chasis
+    4300030: Bovenstel
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

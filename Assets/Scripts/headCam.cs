@@ -1,21 +1,33 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class headCam : MonoBehaviour {
+public class HeadCam : MonoBehaviour 
+{
     public GameObject Head;
     private Quaternion initial;
 
     // Use this for initialization
-    void Start () {
-        initial = transform.rotation;
+    public void Start() 
+    {
+        this.initial = transform.rotation;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (Head != null)
+    public void Update()
+    {
+        if (this.Head != null)
         {
-            transform.position = Head.GetComponent<Transform>().position;
-            transform.rotation = Quaternion.Euler(initial.eulerAngles + Head.GetComponent<Transform>().rotation.eulerAngles);
+            this.transform.position = this.Head.GetComponent<Transform>().position;
+            this.transform.rotation = Quaternion.Euler(this.initial.eulerAngles + this.Head.GetComponent<Transform>().rotation.eulerAngles);
         }
+    }
+
+    /// <summary>
+    /// Gets the initial Quaternion.
+    /// </summary>
+    /// <returns>The initial Quaternion.</returns>
+    public Quaternion GetInitial()
+    {
+        return this.initial;
     }
 }

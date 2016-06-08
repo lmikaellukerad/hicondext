@@ -42,7 +42,7 @@ public class ModePicker : MonoBehaviour
         }
         else
         {
-            if (transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
+            if (transform.childCount > 0 && transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
             {
                 transform.GetChild(0).GetComponent<LeapServiceProvider>()._isHeadMounted = false;
                 transform.GetChild(0).GetComponent<LeapServiceProvider>().overrideDeviceType = false;

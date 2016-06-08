@@ -154,6 +154,10 @@ namespace ManusMachina {
             center = Quaternion.identity;
             hand = gh;
         }
+
+        public GLOVE_HAND GetHand(){
+            return hand;
+        }
     }
 }
 

@@ -55,7 +55,7 @@ public class FixedJointGrabTest
     [Test]
     public void holdNoGrabbableItemTest()
     {
-        grab.OnPinch(Vector3.zero);
+        grab.OnPinch();
         grab.Hold();
         Assert.AreSame(null, grab.GrabbedObject);
     }
@@ -64,7 +64,7 @@ public class FixedJointGrabTest
     public void holdGrabbableItemNoFixedJointTest()
     {
         GameObject grabbable = createPhysicalObject(Vector3.zero);
-        grab.OnPinch(Vector3.zero);
+        grab.OnPinch();
         grab.Hold();
         Assert.AreNotSame(null, grab.GrabbedObject.GetComponent<FixedJoint>());
         Object.DestroyImmediate(grabbable);
@@ -73,14 +73,14 @@ public class FixedJointGrabTest
     [Test]
     public void onPinchPinchingTest()
     {
-        grab.OnPinch(Vector3.zero);
+        grab.OnPinch();
         Assert.True(grab.Pinching);
     }
 
     [Test]
     public void onPinchNoGrabbableItemTest()
     {
-        grab.OnPinch(Vector3.zero);
+        grab.OnPinch();
         Assert.AreSame(null, grab.GrabbedObject);
     }
 
@@ -88,7 +88,7 @@ public class FixedJointGrabTest
     public void onPinchGrabbableItemTest()
     {
         GameObject grabbable = createPhysicalObject(Vector3.zero);
-        grab.OnPinch(Vector3.zero);
+        grab.OnPinch();
         Assert.AreSame(grabbable, grab.GrabbedObject);
         Object.DestroyImmediate(grabbable);
     }
@@ -103,7 +103,7 @@ public class FixedJointGrabTest
     [Test]
     public void onReleaseNoGrabbableItemTest()
     {
-        grab.OnPinch(Vector3.zero);
+        grab.OnPinch();
         grab.OnRelease();
         Assert.AreSame(null, grab.GrabbedObject);
     }
@@ -112,7 +112,7 @@ public class FixedJointGrabTest
     public void onReleaseGrabbableItemTest()
     {
         GameObject grabbable = createPhysicalObject(Vector3.zero);
-        grab.OnPinch(Vector3.zero);
+        grab.OnPinch();
         grab.Hold();
         grab.OnRelease();
         Assert.AreSame(null, grab.GrabbedObject);

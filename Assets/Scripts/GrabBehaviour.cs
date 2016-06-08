@@ -2,7 +2,31 @@
 
 public abstract class GrabBehaviour : MonoBehaviour
 {
-    public abstract void OnPinch(Vector3 v);
+    public GrabState State
+    {
+        get;
+        set;
+    }
+
+    public bool Pinching
+    {
+        get;
+        protected set;
+    }
+
+    public bool Pinch
+    {
+        get;
+        protected set;
+    }
+
+    public Vector3 PinchPosition
+    {
+        get;
+        protected set;
+    }
+
+    public abstract void OnPinch();
 
     public abstract void OnRelease();
 

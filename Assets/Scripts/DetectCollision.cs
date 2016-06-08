@@ -51,4 +51,22 @@ public class DetectCollision : MonoBehaviour
         this.Collided = false;
         this.Object = null;
     }
+
+    /// <summary>
+    /// Called when collision is detected. Used for testing purposes.
+    /// </summary>
+    /// <param name="c">The Collision object.</param>
+    public void CollisionEnterSimulator(Collision c)
+    {
+        OnCollisionEnter(c);
+    }
+
+    /// <summary>
+    /// Called when collision has ended. Used for testing purposes.
+    /// </summary>
+    /// <param name="c">The Collision object.</param>
+    public void CollisionExitSimulator(Collision c)
+    {
+        OnCollisionExit(c);
+    }
 }

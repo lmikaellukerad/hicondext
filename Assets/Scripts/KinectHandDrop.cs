@@ -1,32 +1,77 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using Leap.Unity;
+using UnityEngine;
 
 public class KinectHandDrop : HandTransitionBehavior
 {
+    public Transform Palm;
+    public Transform Wrist;
     private bool tracking;
-    public Transform palm;
-    public Transform wrist;
+
+    // Update is called once per frame
+    public void Update()
+    {
+        if (!this.tracking)
+        {
+            this.Palm.position = this.Wrist.position;
+        }
+    }
+
+    /// <summary>
+    /// Gets the tracking boolean.
+    /// </summary>
+    /// <returns>The tracking boolean.</returns>
+    public bool GetTracking()
+    {
+        return this.tracking;
+    }
+
+    /// <summary>
+    /// Sets the tracking boolean.
+    /// </summary>
+    /// <param name="b">The value to set tracking to.</param>
+    public void SetTracking(bool b)
+    {
+        this.tracking = b;
+    }
+
+    /// <summary>
+    /// Same as Awake(), but public, for testing purposes.
+    /// </summary>
+    public void PublicAwake()
+    {
+        this.Awake();
+    }
+
+    /// <summary>
+    /// Same as HandFinish(), but public, for testing purposes.
+    /// </summary>
+    public void PublicHandFinish()
+    {
+        this.HandFinish();
+    }
+
+    /// <summary>
+    /// Same as HandReset(), but public, for testing purposes.
+    /// </summary>
+    public void PublicHandReset()
+    {
+        this.HandReset();
+    }
 
     protected override void Awake()
     {
         base.Awake();
-        tracking = true;
+        this.tracking = true;
     }
 
     protected override void HandFinish()
     {
-        tracking = false;
+        this.tracking = false;
     }
 
     protected override void HandReset()
     {
-        tracking = true;
-    }
-
-    // Update is called once per frame
-    void Update () {
-        if (!tracking)
-            palm.position = wrist.position;
-	}
+        this.tracking = true;
+    }    
 }

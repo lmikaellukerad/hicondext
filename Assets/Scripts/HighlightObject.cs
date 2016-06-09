@@ -53,7 +53,7 @@ public class HighlightObject : MonoBehaviour
         {
             if (!obj.GetComponent<Renderer>().material.shader.Equals(Shader.Find("Standard")))
             {
-                this.previousObject.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+                obj.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
             }
         }
     }

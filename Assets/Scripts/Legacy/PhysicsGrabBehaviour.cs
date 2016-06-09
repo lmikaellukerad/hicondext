@@ -35,5 +35,5 @@ public abstract class PhysicsGrabBehaviour : MonoBehaviour
 
     public abstract bool DetectGrab(Transform[] leftFingers, Transform[] rightFingers);
 
-    public abstract bool DetectRelease(Transform[] leftFingers, Transform[] rightFingers);
+    public abstract bool DetectRelease();
 }

@@ -101,7 +101,7 @@ BoxCollider:
   m_GameObject: {fileID: 34579812}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.359964, y: 0.12580585, z: 2.0197368}
   m_Center: {x: -0.06641483, y: -1.0712066, z: 0.0025167465}
@@ -569,69 +569,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400012, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
   m_PrefabInternal: {fileID: 1787700753}
---- !u!1001 &289785420
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 2.886
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.842
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.106
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 151176, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_Name
-      value: Cube (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5450066, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5450066, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &325528120 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400150, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
@@ -1848,40 +1785,6 @@ Transform:
   - {fileID: 1550178862}
   m_Father: {fileID: 821741661}
   m_RootOrder: 0
---- !u!1 &1292275498 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 151176, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
-  m_PrefabInternal: {fileID: 289785420}
---- !u!114 &1292275499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1292275498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e43d71763e6ba046bc31d5ce3ccbe4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 898200061}
-  cart_fric: 0.9
-  cart_rot: 0.9
-  interaction_radius: 1
---- !u!54 &1292275500
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1292275498}
-  serializedVersion: 2
-  m_Mass: 0.4
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
 --- !u!4 &1358489930 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400074, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}

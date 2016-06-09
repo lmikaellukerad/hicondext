@@ -16,6 +16,7 @@ public class GrabObserver
     private List<Transform> thumbs = new List<Transform>();
     private GrabStrategy strategy = new NeutralGrab();
     private Vector3 offset;
+    private Vector3 previous;
     private HandModel leftHand;
     private HandModel rightHand;
 
@@ -38,6 +39,7 @@ public class GrabObserver
         this.Obj = obj;
         if (this.CheckGrabbed())
         {
+            this.previous = obj.transform.position;
             this.Obj.GetComponent<Rigidbody>().isKinematic = true;
             this.sub.Subscribe(this);
         }
@@ -53,12 +55,14 @@ public class GrabObserver
         this.strategy.ConstrainHands(this.grabbingFingerTips);
         if (!grabbed)
         {
+            this.Obj.GetComponent<Rigidbody>().velocity = (this.Obj.transform.position - this.previous) / Time.deltaTime;
             this.Obj.GetComponent<Rigidbody>().isKinematic = false;
             this.rightHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
             this.leftHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
             this.strategy.Destroy();
             this.sub.UnSubscribe(this);
         }
+        this.previous = this.Obj.transform.position;
     }
 
     /// <summary>
@@ -94,7 +98,10 @@ public class GrabObserver
     {
         List<Transform> rightFingers = this.rightHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
         List<Transform> leftFingers = this.leftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
-        if (this.grabbingFingerTips.Intersect(rightFingers).Count() > 0 && this.grabbingFingerTips.Intersect(leftFingers).Count() > 0)
+        bool leftOpen = this.leftHand.GetComponent<GrabHandSimulator>().AllFingersOpen();
+        bool rightOpen = this.rightHand.GetComponent<GrabHandSimulator>().AllFingersOpen();
+
+        if (!leftOpen && !rightOpen && this.grabbingFingerTips.Intersect(rightFingers).Count() > 0 && this.grabbingFingerTips.Intersect(leftFingers).Count() > 0)
         {
             if (this.strategy.GetType() != typeof(DoubleGrab))
             {
@@ -104,31 +111,25 @@ public class GrabObserver
 
             return true;
         }
-        else if (this.grabbingFingerTips.Intersect(leftFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
+        else if (! leftOpen && this.grabbingFingerTips.Intersect(leftFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
         {
-            if (!this.leftHand.GetComponent<GrabHandSimulator>().AllFingersOpen())
+            if (this.strategy.GetType() != typeof(LeftGrab))
             {
-                if (this.strategy.GetType() != typeof(LeftGrab))
-                {
-                    this.strategy.Destroy();
-                    this.strategy = new LeftGrab(this.leftHand, this.rightHand, this.Obj);
-                }
-
-                return true;
+                this.strategy.Destroy();
+                this.strategy = new LeftGrab(this.leftHand, this.rightHand, this.Obj);
             }
+
+            return true;
         }
-        else if (this.grabbingFingerTips.Intersect(rightFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
+        else if (!rightOpen && this.grabbingFingerTips.Intersect(rightFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
         {
-            if (!this.rightHand.GetComponent<GrabHandSimulator>().AllFingersOpen())
+            if (this.strategy.GetType() != typeof(RightGrab))
             {
-                if (this.strategy.GetType() != typeof(RightGrab))
-                {
-                    this.strategy.Destroy();
-                    this.strategy = new RightGrab(this.leftHand, this.rightHand, this.Obj);
-                }
-
-                return true;
+                this.strategy.Destroy();
+                this.strategy = new RightGrab(this.leftHand, this.rightHand, this.Obj);
             }
+
+            return true;
         }
 
         return false;

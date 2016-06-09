@@ -38,6 +38,7 @@ public class IKScript : MonoBehaviour
         }
 
         this.chainEndRotateCorrection = this.ChainEnd.rotation;
+
     }
 
     /// <summary>

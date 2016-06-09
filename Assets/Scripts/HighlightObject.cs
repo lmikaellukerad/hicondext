@@ -41,15 +41,20 @@ public class HighlightObject : MonoBehaviour
     /// </summary>
     private void Clear()
     {
-        if (this.previousObject != null)
-        {
-            this.previousObject.GetComponent<Renderer>().material.shader = this.old;
-        }
+        this.ResetObject(this.previousObject);
+        this.previousObject = null;
+        this.ResetObject(this.nearestObject);
+        this.nearestObject = null;
+    }
 
-        if (this.nearestObject != null)
+    private void ResetObject(GameObject obj)
+    {
+        if (obj != null)
         {
-            this.nearestObject.GetComponent<Renderer>().material.shader = this.old;
-            this.nearestObject = null;
+            if (!obj.GetComponent<Renderer>().material.shader.Equals(Shader.Find("Standard")))
+            {
+                this.previousObject.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+            }
         }
     }
 
@@ -81,25 +86,23 @@ public class HighlightObject : MonoBehaviour
     private void Check()
     {
         if (this.previousObject != null)
-        { 
+        {
             if (!this.previousObject.Equals(this.nearestObject))
             {
                 this.Clear();
-                this.Highlight();
             }
         }
-        else
-        {
-            this.Highlight();
-        }
+
+        this.Highlight();
     }
 
     /// <summary>
-    /// Highlights the nearest object by changing the shader.
+    /// Highlights the nearest object by changing the Shader.
     /// </summary>
     private void Highlight()
     {
-        if (this.nearestObject != null)
+        if (this.nearestObject != null && 
+            !this.nearestObject.GetComponent<Renderer>().material.shader.Equals(Shader.Find("Outlined/Silhouetted Bumped Diffuse")))
         {
             this.old = this.nearestObject.GetComponent<Renderer>().material.shader;
             this.nearestObject.GetComponent<Renderer>().material.shader = 

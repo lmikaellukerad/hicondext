@@ -54,5 +54,6 @@ public abstract class SingleGrab : GrabStrategy
         this.root.transform.position = this.hand.palm.position;
         this.root.transform.rotation = this.hand.palm.rotation;
         this.obj.transform.parent = this.root.transform;
+        this.hand.transform.GetComponent<ManusVibrate>().ShortVibration();
     }
 }

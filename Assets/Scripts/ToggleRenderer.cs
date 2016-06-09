@@ -22,13 +22,6 @@ public class ToggleRenderer : MonoBehaviour
     }
 
     /// <summary>
-    /// Updates this instance.
-    /// </summary>
-    public void Update()
-    {
-    }
-
-    /// <summary>
     /// Enables the renderer.
     /// </summary>
     private void EnableRenderer()

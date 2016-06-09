@@ -2,17 +2,19 @@
 using Leap;
 using Leap.Unity;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PhysicsGrab : PhysicsGrabBehaviour
 {
     public HandModel LeftHand;
     public HandModel RightHand;
+    public float ReleaseRange;
 
     private HandModel model;
     private int interactable = 8; // Layer with interactables
     private float grabDist;
     private float grabDistMargin;
-    private Transform pinchingFinger;
+    private List<Transform> grabbingFingers;
     private float fingerSize;
     private Vector3 previous;
     private PhysicsGrabState previousState;
@@ -31,7 +33,7 @@ public class PhysicsGrab : PhysicsGrabBehaviour
         this.PinchPosition = Vector3.zero;
         this.grabDist = 0.0f;
         this.grabDistMargin = 1.1f;
-        this.pinchingFinger = null;
+        this.grabbingFingers = new List<Transform>();
         this.fingerSize = 0.01f;
         this.GrabbedObject = null;
         this.previous = this.model.palm.transform.position;
@@ -58,13 +60,11 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// </summary>
     public override void CheckRelease()
     {
-        Transform[] fingerTipTransformsLeftHand = LeftHand.GetComponent<HandSimulator>().FingerTipTransforms;
-        Transform[] fingerTipTransformsRightHand = RightHand.GetComponent<HandSimulator>().FingerTipTransforms;
-        /*if (this.DetectRelease(fingerTipTransforms[0]))
+        if (this.DetectRelease())
         {
             this.OnRelease();
             this.State = ScriptableObject.CreateInstance<PhysicsNeutralState>();
-        }*/
+        }
     }
 
     /// <summary>
@@ -91,14 +91,36 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// </summary>
     /// <param name="thumb">The thumb.</param>
     /// <returns>boolean b</returns>
-    public override bool DetectRelease(Transform[] leftFingers, Transform[] rightFingers)
+    public override bool DetectRelease()
     {
-        /*if (Vector3.Distance(this.pinchingFinger.position, thumb.position) > (this.grabDist * this.grabDistMargin))
-        {
-            return true;
-        }*/
+        for(int i = grabbingFingers.Count - 1; i >= 0 ; i--){
+            GrabHandSimulator handSim = this.GetHandModel(grabbingFingers[i]).GetComponent<GrabHandSimulator>();
+            float currentState = handSim.GetFingerState(grabbingFingers[i]);
+            float minState = handSim.GetFingerMin(grabbingFingers[i]);
+            if (currentState > (minState + ReleaseRange * (currentState - minState)))
+            {
+                handSim.ResetFingerLimit(grabbingFingers[i]);
+                grabbingFingers.RemoveAt(i);
+            }
+        }
+        return grabbingFingers.Count == 0;
+    }
 
-        return false;
+    /// <summary>
+    /// Gets the correct hand model of a certain finger.
+    /// </summary>
+    /// <param name="finger">The finger transform.</param>
+    /// <returns>The correct hand model</returns>
+    private HandModel GetHandModel(Transform finger)
+    {
+        if (RightHand.GetComponent<GrabHandSimulator>().GetFingerID(finger) != -1)
+        {
+            return RightHand;
+        }
+        else
+        {
+            return LeftHand;
+        }
     }
 
     /// <summary>

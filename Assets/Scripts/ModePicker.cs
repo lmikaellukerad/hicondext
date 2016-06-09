@@ -2,13 +2,16 @@
 using Leap.Unity;
 using UnityEngine;
 
+/// <summary>
+/// TODO: Needs refactoring and fix.
+/// </summary>
 public class ModePicker : MonoBehaviour
 {
     public bool VRMode;
-    private Vector3 vrPosition = new Vector3(0, 0, 0);
-    private Vector3 vrRotation = new Vector3(-90, 180, 0);
-    private Vector3 nonVrPosition = new Vector3(0, -0.3f, 0.4f);
-    private Vector3 nonVrRotation = new Vector3(0, 0, 0);
+    private Vector3 headPosition = new Vector3(0, 0, 0);
+    private Vector3 headRotation = new Vector3(-90, 180, 0);
+    private Vector3 desktopPosition = new Vector3(0, -0.3f, 0.4f);
+    private Vector3 desktopRotation = new Vector3(0, 0, 0);
 
     /// <summary>
     /// initializes the Leap for either VR mounted or non-mounted mode.
@@ -29,8 +32,8 @@ public class ModePicker : MonoBehaviour
                 transform.GetComponent<LeapVRTemporalWarping>().enabled = true;
             }
 
-			transform.localPosition = this.vrPosition;
-			transform.localRotation = Quaternion.Euler(this.vrRotation);
+			transform.localPosition = this.headPosition;
+			transform.localRotation = Quaternion.Euler(this.headRotation);
 		}
         else
         {
@@ -45,8 +48,8 @@ public class ModePicker : MonoBehaviour
                 transform.GetComponent<LeapVRTemporalWarping>().enabled = false;
             }
 
-            transform.localPosition = this.nonVrPosition;
-            transform.localRotation = Quaternion.Euler(this.nonVrRotation);
+            transform.localPosition = this.desktopPosition;
+            transform.localRotation = Quaternion.Euler(this.desktopRotation);
 		}
 	}
 
@@ -69,8 +72,8 @@ public class ModePicker : MonoBehaviour
                 transform.GetComponent<LeapVRTemporalWarping>().enabled = true;
             }
 
-            transform.localPosition = this.vrPosition;
-            transform.localRotation = Quaternion.Euler(this.vrRotation);
+            transform.localPosition = this.headPosition;
+            transform.localRotation = Quaternion.Euler(this.headRotation);
         }
         else
         {
@@ -85,8 +88,8 @@ public class ModePicker : MonoBehaviour
                 transform.GetComponent<LeapVRTemporalWarping>().enabled = false;
             }
 
-            transform.localPosition = this.nonVrPosition;
-            transform.localRotation = Quaternion.Euler(this.nonVrRotation);
+            transform.localPosition = this.desktopPosition;
+            transform.localRotation = Quaternion.Euler(this.desktopRotation);
         }
 	}
 }

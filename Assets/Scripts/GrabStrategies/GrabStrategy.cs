@@ -1,11 +1,11 @@
-﻿using Leap.Unity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Leap.Unity;
 using UnityEngine;
 
-abstract class GrabStrategy
+public abstract class GrabStrategy
 {
     public abstract void Destroy();
 
@@ -13,15 +13,39 @@ abstract class GrabStrategy
 
     public abstract void UpdateObject();
 
-
-    protected void ClampFingers(HandModel hand, List<Transform> grabbingFingers)
+    /// <summary>
+    /// Adds the clamp to the fingers if they are from this HandModel.
+    /// </summary>
+    /// <param name="hand">The hand.</param>
+    /// <param name="fingersToClamp">The fingers to clamp.</param>
+    protected void AddClampFingers(HandModel hand, List<Transform> fingersToClamp)
     {
         List<Transform> fingers = hand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
-        List<Transform> grabbing = grabbingFingers.Intersect(fingers).ToList();
+        List<Transform> grabbing = fingersToClamp.Intersect(fingers).ToList();
 
         for (int i = 0; i < grabbing.Count; i++)
         {
-            hand.GetComponent<GrabHandSimulator>().ClampMax(grabbing[i]);
+            Transform finger = grabbing[i];
+            finger.GetComponent<DetectFingerCollision>().SetRadius(finger.gameObject, 0.02f);
+            hand.GetComponent<GrabHandSimulator>().ClampMax(finger);
+        }
+    }
+
+    /// <summary>
+    /// Removes the clamp of the fingers if they are from this HandModel.
+    /// </summary>
+    /// <param name="hand">The hand.</param>
+    /// <param name="fingersToRelease">The fingers to release.</param>
+    protected void RemoveClampFingers(HandModel hand, List<Transform> fingersToRelease)
+    {
+        List<Transform> fingers = hand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
+        List<Transform> grabbing = fingersToRelease.Intersect(fingers).ToList();
+
+        for (int i = 0; i < grabbing.Count; i++)
+        {
+            Transform finger = grabbing[i];
+            finger.GetComponent<DetectFingerCollision>().SetRadius(finger.gameObject, 0.01f);
+            hand.GetComponent<GrabHandSimulator>().ResetFingerLimit(finger);
         }
     }
 

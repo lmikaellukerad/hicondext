@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 public class GrabHandSimulator : HandSimulator
 {
+    public bool Emulate;
+    public float[] EmulateValues = new float[5];
     private float[] min;
     private float[] max;
 
@@ -23,6 +25,7 @@ public class GrabHandSimulator : HandSimulator
             this.min[i] = 0;
             this.max[i] = 1;
         }
+
         GetComponent<FingerTipCollider>().SetColliders(this.FingerTipTransforms);
     }
 
@@ -33,6 +36,11 @@ public class GrabHandSimulator : HandSimulator
     {
         Quaternion q = this.glove.Quaternion;
         float[] fingers = this.glove.Fingers;
+        if (this.Emulate)
+        {
+            fingers = this.EmulateValues;
+        }
+
         if (this.UseHandRotation)
         {
             this.RootTransform.localRotation = q;
@@ -75,15 +83,21 @@ public class GrabHandSimulator : HandSimulator
         return -1;
     }
 
+    /// <summary>
+    /// Checks if all the fingers open given a certain margin.
+    /// </summary>
+    /// <param name="margin">The margin.</param>
+    /// <returns></returns>
     public bool AllFingersOpen(float margin)
     {
-        for (int i = 0; i < FingerTipTransforms.Length;i++)
+        for (int i = 0; i < FingerTipTransforms.Length; i++)
         {
-            if (GetFingerState(i) > 1 - margin)
+            if (this.GetFingerState(i) > margin)
             {
                 return false;
             } 
         }
+
         return true;
     }
 
@@ -125,6 +139,11 @@ public class GrabHandSimulator : HandSimulator
     /// <returns>Returns current bending state of a finger ranging from 0 to 1</returns>
     public float GetFingerState(int finger)
     {
+        if (this.Emulate)
+        {
+            return this.EmulateValues[finger];
+        }
+
         return glove.Fingers[finger];
     }
 
@@ -178,6 +197,27 @@ public class GrabHandSimulator : HandSimulator
     }
 
     /// <summary>
+    /// Gets the finger minimum clamp.
+    /// </summary>
+    /// <param name="finger">The finger transform.</param>
+    /// <returns>the minimum of this finger</returns>
+    public float GetFingerMin(Transform finger)
+    {
+        int i = this.GetFingerID(finger);
+        return this.GetFingerMin(i);
+    }
+
+    /// <summary>
+    /// Gets the finger minimum clamp.
+    /// </summary>
+    /// <param name="i">The finger id.</param>
+    /// <returns>the minimum of this finger</returns>
+    public float GetFingerMin(int i)
+    {
+        return this.min[i];
+    }
+
+    /// <summary>
     /// Sets the finger transform according to its current interval and the animation.
     /// </summary>
     /// <param name="fingerID">The fingerID.</param>
@@ -189,26 +229,5 @@ public class GrabHandSimulator : HandSimulator
         {
             this.gameTransforms[fingerID][j].localRotation = this.modelTransforms[fingerID][j].localRotation;
         }
-    }
-
-    /// <summary>
-    /// Gets the finger minimum clamp.
-    /// </summary>
-    /// <param name="finger">The finger transform.</param>
-    /// <returns>the minimum of this finger</returns>
-    public float GetFingerMin(Transform finger)
-    {
-        int i = this.GetFingerID(finger);
-        return GetFingerMin(i);
-    }
-
-    /// <summary>
-    /// Gets the finger minimum clamp.
-    /// </summary>
-    /// <param name="finger">The finger id.</param>
-    /// <returns>the minimum of this finger</returns>
-    public float GetFingerMin(int i)
-    {
-        return min[i];
     }
 }

@@ -1,19 +1,20 @@
-﻿using Leap.Unity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Leap.Unity;
 using UnityEngine;
 
 /// <summary>
-/// Handles a grab with two hands
+/// Strategy that handles a grab with two hands.
 /// </summary>
-class DoubleGrab : GrabStrategy
+public class DoubleGrab : GrabStrategy
 {
     private HandModel right;
     private HandModel left;
     private GameObject obj;
     private GameObject root;
+    private List<Transform> clampedFingers = new List<Transform>(); 
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DoubleGrab"/> class.
@@ -26,12 +27,12 @@ class DoubleGrab : GrabStrategy
         this.right = right;
         this.left = left;
         this.obj = obj;
-        root = new GameObject("root");
-        root.transform.parent = obj.transform.parent;
-        Vector3 averageHandPos = this.AveragePosition(new List<Transform> { right.palm.transform, left.palm.transform });
-        root.transform.position = averageHandPos;
-        root.transform.rotation = Quaternion.LookRotation(left.palm.position - averageHandPos);
-        obj.transform.parent = root.transform;
+        this.root = new GameObject("root");
+        this.root.transform.parent = this.obj.transform.parent;
+        Vector3 averageHandPos = this.AveragePosition(new List<Transform> { this.right.palm.transform, this.left.palm.transform });
+        this.root.transform.position = averageHandPos;
+        this.root.transform.rotation = Quaternion.LookRotation(this.left.palm.position - averageHandPos);
+        this.obj.transform.parent = this.root.transform;
     }
 
     /// <summary>
@@ -40,6 +41,17 @@ class DoubleGrab : GrabStrategy
     /// <param name="grabbingFingers">The grabbing fingers.</param>
     public override void ConstrainHands(List<Transform> grabbingFingers)
     {
+        List<Transform> newFingers = grabbingFingers.Except(this.clampedFingers).ToList();
+        List<Transform> removedFingers = this.clampedFingers.Except(grabbingFingers).ToList();
+
+        this.AddClampFingers(this.right, newFingers);
+        this.RemoveClampFingers(this.right, removedFingers);
+
+        this.AddClampFingers(this.left, newFingers);
+        this.RemoveClampFingers(this.left, removedFingers);
+
+        this.clampedFingers.Clear();
+        this.clampedFingers.AddRange(grabbingFingers);
     }
 
     /// <summary>
@@ -47,9 +59,9 @@ class DoubleGrab : GrabStrategy
     /// </summary>
     public override void UpdateObject()
     {
-        Vector3 averageHandPos = this.AveragePosition(new List<Transform> { right.palm.transform, left.palm.transform });
-        root.transform.position = averageHandPos;
-        root.transform.rotation = Quaternion.LookRotation(left.palm.position - averageHandPos);
+        Vector3 averageHandPos = this.AveragePosition(new List<Transform> { this.right.palm.transform, this.left.palm.transform });
+        this.root.transform.position = averageHandPos;
+        this.root.transform.rotation = Quaternion.LookRotation(this.left.palm.position - averageHandPos);
     }
 
     /// <summary>
@@ -57,9 +69,9 @@ class DoubleGrab : GrabStrategy
     /// </summary>
     public override void Destroy()
     {
-        root.transform.GetChild(0).transform.parent = root.transform.parent;
-        GameObject.Destroy(root);
-        right.GetComponent<GrabHandSimulator>().ResetFingerLimits();
-        left.GetComponent<GrabHandSimulator>().ResetFingerLimits();
+        this.root.transform.GetChild(0).transform.parent = this.root.transform.parent;
+        GameObject.Destroy(this.root);
+        this.right.GetComponent<GrabHandSimulator>().ResetFingerLimits();
+        this.left.GetComponent<GrabHandSimulator>().ResetFingerLimits();
     }
 }

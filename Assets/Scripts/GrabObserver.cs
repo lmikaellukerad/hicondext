@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public class GrabObserver
 {
-    public GameObject obj;
+    public GameObject Obj;
     private GrabSubjectBehaviour sub;
     private List<Transform> allFingerTips;
     private List<Transform> grabbingFingerTips = new List<Transform>();
@@ -23,22 +23,22 @@ public class GrabObserver
     /// Initializes a new instance of the <see cref="GrabObserver"/> class.
     /// </summary>
     /// <param name="subject">The subject to subscribe to.</param>
-    /// <param name="right">The right hand model.</param>
     /// <param name="left">The left hand model.</param>
+    /// <param name="right">The right hand model.</param>
     /// <param name="obj">The object that is currently grabbed.</param>
     public GrabObserver(GrabSubjectBehaviour subject, HandModel left, HandModel right, GameObject obj)
     {
         this.sub = subject;
         this.rightHand = right;
         this.leftHand = left;
-        this.thumbs.Add(rightHand.GetComponent<HandSimulator>().FingerTipTransforms[0]);
-        this.thumbs.Add(leftHand.GetComponent<HandSimulator>().FingerTipTransforms[0]);
+        this.thumbs.Add(this.rightHand.GetComponent<HandSimulator>().FingerTipTransforms[0]);
+        this.thumbs.Add(this.leftHand.GetComponent<HandSimulator>().FingerTipTransforms[0]);
         this.allFingerTips = this.leftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList<Transform>();
         this.allFingerTips.AddRange(this.rightHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList<Transform>());
-        this.obj = obj;
+        this.Obj = obj;
         if (this.CheckGrabbed())
         {
-            obj.GetComponent<Rigidbody>().isKinematic = true;
+            this.Obj.GetComponent<Rigidbody>().isKinematic = true;
             this.sub.Subscribe(this);
         }
     }
@@ -49,14 +49,12 @@ public class GrabObserver
     public void Notify()
     {
         this.strategy.UpdateObject();
-        if (this.CheckGrabbed())
+        bool grabbed = this.CheckGrabbed();
+        this.strategy.ConstrainHands(this.grabbingFingerTips);
+        if (!grabbed)
         {
-            this.strategy.ConstrainHands(grabbingFingerTips);
-        }
-        else
-        {
-            obj.GetComponent<Rigidbody>().isKinematic = false;
-            strategy.Destroy();
+            this.Obj.GetComponent<Rigidbody>().isKinematic = false;
+            this.strategy.Destroy();
             this.sub.UnSubscribe(this);
         }
     }
@@ -71,7 +69,7 @@ public class GrabObserver
         for (int i = 0; i < this.allFingerTips.Count; i++)
         {
             DetectFingerCollision tip = this.allFingerTips[i].GetComponent<DetectFingerCollision>();
-            if (tip.CheckFinger(allFingerTips[i].gameObject) && tip.LastCollider.gameObject == this.obj)
+            if (tip.CheckFinger() && tip.LastCollider.gameObject == this.Obj)
             {
                 this.grabbingFingerTips.Add(this.allFingerTips[i]);
             }
@@ -82,51 +80,55 @@ public class GrabObserver
             return true;
         }
 
+        this.grabbingFingerTips.Clear();
         return false;
     }
 
     /// <summary>
-    /// Determines whether the specified vectors has opposites.
+    /// Determines whether the current grabbing fingers make a valid grab.
     /// </summary>
-    /// <param name="vectors">The vectors.</param>
     /// <returns>True if the list has two opposite vectors</returns>
     private bool IsValidGrab()
     {
-        List<Transform> rightFingers = rightHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
-        List<Transform> leftFingers = leftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
-        if (grabbingFingerTips.Intersect(rightFingers).Count() > 0 && grabbingFingerTips.Intersect(leftFingers).Count() > 0)
+        List<Transform> rightFingers = this.rightHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
+        List<Transform> leftFingers = this.leftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList();
+        if (this.grabbingFingerTips.Intersect(rightFingers).Count() > 0 && this.grabbingFingerTips.Intersect(leftFingers).Count() > 0)
         {
-            if (strategy.GetType() != typeof(DoubleGrab))
+            if (this.strategy.GetType() != typeof(DoubleGrab))
             {
-                strategy.Destroy();
-                strategy = new DoubleGrab(leftHand, rightHand, obj);
+                this.strategy.Destroy();
+                this.strategy = new DoubleGrab(this.leftHand, this.rightHand, this.Obj);
             }
+
             return true;
         }
-        else if (grabbingFingerTips.Intersect(leftFingers).Count() > 1 && grabbingFingerTips.Intersect(thumbs).Count() > 0)
+        else if (this.grabbingFingerTips.Intersect(leftFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
         {
-            if (!leftHand.GetComponent<GrabHandSimulator>().AllFingersOpen(0.2f))
+            if (!this.leftHand.GetComponent<GrabHandSimulator>().AllFingersOpen(0.3f))
             {
-                if (strategy.GetType() != typeof(LeftGrab))
+                if (this.strategy.GetType() != typeof(LeftGrab))
                 {
-                    strategy.Destroy();
-                    strategy = new LeftGrab(leftHand, obj);
+                    this.strategy.Destroy();
+                    this.strategy = new LeftGrab(this.leftHand, this.Obj);
                 }
+
                 return true;
             }
         }
-        else if (grabbingFingerTips.Intersect(rightFingers).Count() > 1 && grabbingFingerTips.Intersect(thumbs).Count() > 0)
+        else if (this.grabbingFingerTips.Intersect(rightFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
         {
-            if (!rightHand.GetComponent<GrabHandSimulator>().AllFingersOpen(0.2f))
+            if (!this.rightHand.GetComponent<GrabHandSimulator>().AllFingersOpen(0.3f))
             {
-                if (strategy.GetType() != typeof(RightGrab))
+                if (this.strategy.GetType() != typeof(RightGrab))
                 {
-                    strategy.Destroy();
-                    strategy = new RightGrab(rightHand, obj);
+                    this.strategy.Destroy();
+                    this.strategy = new RightGrab(this.rightHand, this.Obj);
                 }
+
                 return true;
             }
         }
+
         return false;
     }
 }

@@ -18,6 +18,7 @@ public class HighlightObject : MonoBehaviour
     private GameObject previousObject;
     private GameObject nearestObject;
     private Shader old;
+    private Collider[] objects;
 
     /// <summary>
     /// This method detects objects within range.
@@ -25,7 +26,7 @@ public class HighlightObject : MonoBehaviour
     public void DetectObject()
     {
         Vector3 pos = transform.position;
-        Collider[] objects = Physics.OverlapSphere(pos, this.Radius, 1 << this.interactable);
+        objects = Physics.OverlapSphere(pos, this.Radius, 1 << this.interactable);
         if (objects.Length > 0)
         {
             this.FindNearest(objects, pos);
@@ -113,5 +114,23 @@ public class HighlightObject : MonoBehaviour
     private void Update()
     {
         this.DetectObject();
+    }
+
+    public GameObject PreviousObject
+    {
+        get { return previousObject; }
+        set { previousObject = value; }
+    }
+
+    public GameObject NearestObject
+    {
+        get { return nearestObject; }
+        set { nearestObject = value; }
+    }
+
+    public Collider[] Objects
+    {
+        get { return objects; }
+        set { objects = value; }
     }
 }

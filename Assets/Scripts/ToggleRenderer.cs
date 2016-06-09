@@ -22,6 +22,13 @@ public class ToggleRenderer : MonoBehaviour
     }
 
     /// <summary>
+    /// Updates this instance.
+    /// </summary>
+    public void Update()
+    {
+    }
+
+    /// <summary>
     /// Enables the renderer.
     /// </summary>
     private void EnableRenderer()
@@ -31,12 +38,5 @@ public class ToggleRenderer : MonoBehaviour
         {
             this.Rend.enabled = true;
         }
-    }
-
-    /// <summary>
-    /// Updates this instance.
-    /// </summary>
-    public void Update()
-    {
     }
 }

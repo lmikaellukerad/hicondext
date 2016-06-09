@@ -275,6 +275,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.2069614
       objectReference: {fileID: 0}
+    - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
   m_IsPrefabParent: 0
@@ -723,8 +727,6 @@ MonoBehaviour:
   Goal: {fileID: 1050965256}
   Pole: {fileID: 1610817751}
   ConnectPole: 0
-  ReferencePoint: {fileID: 1765512000}
-  Constrain: 0
 --- !u!114 &773162518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,7 +738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d40556df65dde4c9b35de19290cd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Material: {fileID: 13400000, guid: bf78a30eec3e80946a186a000764c54e, type: 2}
 --- !u!114 &773162520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,8 +755,9 @@ MonoBehaviour:
   modelObject: {fileID: 100026, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
   animationClip: {fileID: 7400000, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
   FingerTipTransforms: []
-  emulate: 0
-  emulateValues:
+  OpenMargin: 0.3
+  Emulate: 0
+  EmulateValues:
   - 0
   - 0
   - 0
@@ -848,7 +850,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.194
+      value: -0.971
       objectReference: {fileID: 0}
     - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -856,7 +858,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.257
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 480412, guid: 50d56850226bfcf48aaaedf98f0ff97d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -950,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbe5ee370907c74db180418db598031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHand: {fileID: 1359749365}
+  RightHand: {fileID: 1359749365}
 --- !u!82 &898200064
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1172,6 +1174,22 @@ Transform:
   - {fileID: 773162512}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &907891323 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100118, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
+  m_PrefabInternal: {fileID: 1787700753}
+--- !u!114 &907891325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 907891323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009d1a0595597704ea8bc4823a195f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0.01
 --- !u!4 &954577146 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400046, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
@@ -1641,8 +1659,9 @@ MonoBehaviour:
   modelObject: {fileID: 100026, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
   animationClip: {fileID: 7400004, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
   FingerTipTransforms: []
-  emulate: 1
-  emulateValues:
+  OpenMargin: 0.3
+  Emulate: 0
+  EmulateValues:
   - 0
   - 0
   - 0
@@ -1676,8 +1695,6 @@ MonoBehaviour:
   Goal: {fileID: 1437507557}
   Pole: {fileID: 1181640254}
   ConnectPole: 0
-  ReferencePoint: {fileID: 1765512000}
-  Constrain: 0
 --- !u!114 &1359749368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1689,7 +1706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d40556df65dde4c9b35de19290cd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Material: {fileID: 13400000, guid: bf78a30eec3e80946a186a000764c54e, type: 2}
 --- !u!4 &1382971723 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400104, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}

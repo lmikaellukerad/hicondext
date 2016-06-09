@@ -8,6 +8,11 @@ using UnityEngine;
 public class CloneObjects : MonoBehaviour
 {
     /// <summary>
+    /// The start position of the items that have to be placed against the back wall.
+    /// </summary>
+    public static Vector3 StartPosBackwall = new Vector3(-4.516461f, -0.5596735f, -4.45f);
+
+    /// <summary>
     /// Whether or not to fill the back shelf, can be switched from within Unity.
     /// </summary>
     public bool FillBackShelf;
@@ -21,11 +26,6 @@ public class CloneObjects : MonoBehaviour
     /// Whether or not to fill the right shelf, can be switched from within Unity.
     /// </summary>
     public bool FillRightShelf;
-
-    /// <summary>
-    /// The start position of the items that have to be placed against the back wall.
-    /// </summary>
-    public static Vector3 startPosBackwall = new Vector3(-4.516461f, -0.5596735f, -4.45f);
 
     /// <summary>
     /// The distance that has to be left between objects on the back shelf.
@@ -46,7 +46,7 @@ public class CloneObjects : MonoBehaviour
     /// The amount of items per layer on the back shelf.
     /// </summary>
     private static int amountBack = 20;
-    
+
     /// <summary>
     /// The type of objects to spawn on the back shelf.
     /// </summary>
@@ -115,7 +115,7 @@ public class CloneObjects : MonoBehaviour
     /// <summary>
     /// An objects holding the data of the back shelf.
     /// </summary>
-    private static ShelfData backShelf = new ShelfData(backObjectType, startPosBackwall, distanceBetweenBack, heightDistanceBack, rotationBack, amountBack);
+    private static ShelfData backShelf = new ShelfData(backObjectType, StartPosBackwall, distanceBetweenBack, heightDistanceBack, rotationBack, amountBack);
 
     /// <summary>
     /// An objects holding the data of the left shelf.

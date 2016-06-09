@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class GrabHandSimulator : HandSimulator
 {
+    public float OpenMargin = 0.4f;
     public bool Emulate;
     public float[] EmulateValues = new float[5];
     private float[] min;
@@ -86,13 +87,12 @@ public class GrabHandSimulator : HandSimulator
     /// <summary>
     /// Checks if all the fingers open given a certain margin.
     /// </summary>
-    /// <param name="margin">The margin.</param>
-    /// <returns></returns>
-    public bool AllFingersOpen(float margin)
+    /// <returns>True if all fingers are open.</returns>
+    public bool AllFingersOpen()
     {
         for (int i = 0; i < FingerTipTransforms.Length; i++)
         {
-            if (this.GetFingerState(i) > margin)
+            if (this.GetFingerState(i) > this.OpenMargin)
             {
                 return false;
             } 

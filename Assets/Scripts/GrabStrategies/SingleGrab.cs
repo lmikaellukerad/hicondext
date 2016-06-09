@@ -12,7 +12,6 @@ public abstract class SingleGrab : GrabStrategy
 {
     protected HandModel hand;
     protected GameObject obj;
-    private List<Transform> clampedFingers = new List<Transform>(); 
     private GameObject root;
 
     /// <summary>
@@ -22,7 +21,6 @@ public abstract class SingleGrab : GrabStrategy
     {
         this.root.transform.GetChild(0).transform.parent = this.root.transform.parent;
         GameObject.Destroy(this.root);
-        this.hand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
     }
 
     /// <summary>
@@ -31,14 +29,10 @@ public abstract class SingleGrab : GrabStrategy
     /// <param name="grabbingFingers">The grabbing fingers.</param>
     public override void ConstrainHands(List<Transform> grabbingFingers)
     {
-        List<Transform> newFingers = grabbingFingers.Except(this.clampedFingers).ToList();
-        List<Transform> removedFingers = this.clampedFingers.Except(grabbingFingers).ToList();
+        this.HandleClamps(grabbingFingers);
 
-        this.AddClampFingers(this.hand, newFingers);
-        this.RemoveClampFingers(this.hand, removedFingers);
-
-        this.clampedFingers.Clear();
-        this.clampedFingers.AddRange(grabbingFingers);
+        GrabStrategy.clampedFingers.Clear();
+        GrabStrategy.clampedFingers.AddRange(grabbingFingers);
     }
 
     /// <summary>

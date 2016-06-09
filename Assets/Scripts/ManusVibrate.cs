@@ -36,7 +36,6 @@ public class ManusVibrate : MonoBehaviour
     /// </summary>
     public void Update()
     {
-
         // Triggers a short vibration.
         if (Input.GetKeyDown("b"))
         {
@@ -78,7 +77,6 @@ public class ManusVibrate : MonoBehaviour
     /// <returns>IEnumerator, used for timing purposes. Can be ignored.</returns>
     public IEnumerator VibrateForCoroutine(float sec)
     {
-        
         if (!this.vibrating)
         {
             this.VibrateOn();

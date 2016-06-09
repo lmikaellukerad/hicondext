@@ -1,25 +1,28 @@
-﻿using Leap.Unity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Leap.Unity;
 using UnityEngine;
 
 /// <summary>
-/// Sets the correct hand model upon creation.
+/// Sets the hand model for the single grab to the right hand.
 /// </summary>
 /// <seealso cref="SingleGrab"/>
-class RightGrab : SingleGrab
+public class RightGrab : SingleGrab
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="RightGrab"/> class.
+    /// Initializes a new instance of the <see cref="RightGrab" /> class.
     /// </summary>
-    /// <param name="right">The right.</param>
+    /// <param name="left">The left hand.</param>
+    /// <param name="right">The right hand.</param>
     /// <param name="obj">The object.</param>
-    public RightGrab(HandModel right, GameObject obj)
+    public RightGrab(HandModel left, HandModel right, GameObject obj)
     {
+        this.left = left;
+        this.right = right;
         this.hand = right;
         this.obj = obj;
-        Init();
+        this.Init();
     }
 }

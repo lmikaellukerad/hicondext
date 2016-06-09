@@ -10,11 +10,8 @@ using UnityEngine;
 /// </summary>
 public class DoubleGrab : GrabStrategy
 {
-    private HandModel right;
-    private HandModel left;
     private GameObject obj;
     private GameObject root;
-    private List<Transform> clampedFingers = new List<Transform>(); 
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DoubleGrab"/> class.
@@ -41,17 +38,10 @@ public class DoubleGrab : GrabStrategy
     /// <param name="grabbingFingers">The grabbing fingers.</param>
     public override void ConstrainHands(List<Transform> grabbingFingers)
     {
-        List<Transform> newFingers = grabbingFingers.Except(this.clampedFingers).ToList();
-        List<Transform> removedFingers = this.clampedFingers.Except(grabbingFingers).ToList();
+        this.HandleClamps(grabbingFingers);
 
-        this.AddClampFingers(this.right, newFingers);
-        this.RemoveClampFingers(this.right, removedFingers);
-
-        this.AddClampFingers(this.left, newFingers);
-        this.RemoveClampFingers(this.left, removedFingers);
-
-        this.clampedFingers.Clear();
-        this.clampedFingers.AddRange(grabbingFingers);
+        this.right.GetComponent<IKGrabConstrain>().ConstrainedUpdate(this.obj.transform);
+        this.left.GetComponent<IKGrabConstrain>().ConstrainedUpdate(this.obj.transform);
     }
 
     /// <summary>
@@ -59,9 +49,10 @@ public class DoubleGrab : GrabStrategy
     /// </summary>
     public override void UpdateObject()
     {
-        Vector3 averageHandPos = this.AveragePosition(new List<Transform> { this.right.palm.transform, this.left.palm.transform });
-        this.root.transform.position = averageHandPos;
-        this.root.transform.rotation = Quaternion.LookRotation(this.left.palm.position - averageHandPos);
+        Vector3 newPos = this.AveragePosition(new List<Transform> { this.right.palm.transform, this.left.palm.transform });
+
+        this.root.transform.position = newPos;
+        this.root.transform.rotation = Quaternion.LookRotation(this.left.palm.position - newPos);
     }
 
     /// <summary>
@@ -71,7 +62,23 @@ public class DoubleGrab : GrabStrategy
     {
         this.root.transform.GetChild(0).transform.parent = this.root.transform.parent;
         GameObject.Destroy(this.root);
-        this.right.GetComponent<GrabHandSimulator>().ResetFingerLimits();
-        this.left.GetComponent<GrabHandSimulator>().ResetFingerLimits();
+        this.right.GetComponent<IKGrabConstrain>().Reset();
+        this.left.GetComponent<IKGrabConstrain>().Reset();
+    }
+
+    /// <summary>
+    /// Averages the position of the transforms.
+    /// </summary>
+    /// <param name="transforms">The transforms.</param>
+    /// <returns>The average position vector</returns>
+    protected Vector3 AveragePosition(List<Transform> transforms)
+    {
+        Vector3 total = Vector3.zero;
+        foreach (Transform trans in transforms)
+        {
+            total += trans.position;
+        }
+
+        return total / transforms.Count;
     }
 }

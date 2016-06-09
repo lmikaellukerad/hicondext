@@ -54,6 +54,8 @@ public class GrabObserver
         if (!grabbed)
         {
             this.Obj.GetComponent<Rigidbody>().isKinematic = false;
+            this.rightHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
+            this.leftHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
             this.strategy.Destroy();
             this.sub.UnSubscribe(this);
         }
@@ -104,12 +106,12 @@ public class GrabObserver
         }
         else if (this.grabbingFingerTips.Intersect(leftFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
         {
-            if (!this.leftHand.GetComponent<GrabHandSimulator>().AllFingersOpen(0.3f))
+            if (!this.leftHand.GetComponent<GrabHandSimulator>().AllFingersOpen())
             {
                 if (this.strategy.GetType() != typeof(LeftGrab))
                 {
                     this.strategy.Destroy();
-                    this.strategy = new LeftGrab(this.leftHand, this.Obj);
+                    this.strategy = new LeftGrab(this.leftHand, this.rightHand, this.Obj);
                 }
 
                 return true;
@@ -117,12 +119,12 @@ public class GrabObserver
         }
         else if (this.grabbingFingerTips.Intersect(rightFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
         {
-            if (!this.rightHand.GetComponent<GrabHandSimulator>().AllFingersOpen(0.3f))
+            if (!this.rightHand.GetComponent<GrabHandSimulator>().AllFingersOpen())
             {
                 if (this.strategy.GetType() != typeof(RightGrab))
                 {
                     this.strategy.Destroy();
-                    this.strategy = new RightGrab(this.rightHand, this.Obj);
+                    this.strategy = new RightGrab(this.leftHand, this.rightHand, this.Obj);
                 }
 
                 return true;

@@ -62,6 +62,7 @@ public class GrabObserver
             this.strategy.Destroy();
             this.sub.UnSubscribe(this);
         }
+
         this.previous = this.Obj.transform.position;
     }
 
@@ -111,7 +112,7 @@ public class GrabObserver
 
             return true;
         }
-        else if (! leftOpen && this.grabbingFingerTips.Intersect(leftFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
+        else if (!leftOpen && this.grabbingFingerTips.Intersect(leftFingers).Count() > 1 && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
         {
             if (this.strategy.GetType() != typeof(LeftGrab))
             {

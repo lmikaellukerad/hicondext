@@ -10,7 +10,7 @@ public class CloneObjects : MonoBehaviour
     /// <summary>
     /// The start position of the items that have to be placed against the back wall.
     /// </summary>
-    public static Vector3 StartPosBackwall = new Vector3(-4.516461f, -0.5596735f, -4.45f);
+    public static Vector3 StartPosBackwall = new Vector3(-6.344999f, 1.61f, -6.2452f);
 
     /// <summary>
     /// Whether or not to fill the back shelf, can be switched from within Unity.
@@ -30,12 +30,12 @@ public class CloneObjects : MonoBehaviour
     /// <summary>
     /// The distance that has to be left between objects on the back shelf.
     /// </summary>
-    private static Vector3 distanceBetweenBack = new Vector3(0f, 0f, 0.47f);
+    private static Vector3 distanceBetweenBack = new Vector3(0f, 0f, 0.65f);
 
     /// <summary>
     /// The height distance between objects on the back shelf.
     /// </summary>
-    private static Vector3 heightDistanceBack = new Vector3(0f, -0.33f, 0f);
+    private static Vector3 heightDistanceBack = new Vector3(0f, -0.44f, 0f);
 
     /// <summary>
     /// The rotation of the objects on the back shelf.
@@ -55,17 +55,17 @@ public class CloneObjects : MonoBehaviour
     /// <summary>
     /// The start position of the items that have to be placed against the left wall.
     /// </summary>
-    private static Vector3 startPosLeftwall = new Vector3(4.663f, -0.5596735f, -4.528774f);
+    private static Vector3 startPosLeftwall = new Vector3(6.5062f, 1.61f, -6.3452f);
 
     /// <summary>
     /// The distance that has to be left between objects on the left shelf.
     /// </summary>
-    private static Vector3 distanceBetweenLeft = new Vector3(-0.22f, 0f, 0f);
+    private static Vector3 distanceBetweenLeft = new Vector3(-0.32f, 0f, 0f);
 
     /// <summary>
     /// The height distance between objects on the left shelf.
     /// </summary>
-    private static Vector3 heightDistanceLeft = new Vector3(0f, -0.33f, 0f);
+    private static Vector3 heightDistanceLeft = new Vector3(0f, -0.44f, 0f);
 
     /// <summary>
     /// The rotation of the objects on the left shelf.
@@ -85,17 +85,17 @@ public class CloneObjects : MonoBehaviour
     /// <summary>
     /// The start position of the items that have to be placed against the right wall.
     /// </summary>
-    private static Vector3 startPosRightwall = new Vector3(-4.217f, -0.5596735f, 4.55f);
+    private static Vector3 startPosRightwall = new Vector3(-5.9258f, 1.61f, 6.3651f);
 
     /// <summary>
     /// The distance that has to be left between objects on the right shelf.
     /// </summary>
-    private static Vector3 distanceBetweenRight = new Vector3(0.20f, 0f, 0f);
+    private static Vector3 distanceBetweenRight = new Vector3(0.30f, 0f, 0f);
 
     /// <summary>
     /// The height distance between objects on the right shelf.
     /// </summary>
-    private static Vector3 heightDistanceRight = new Vector3(0f, -0.33f, 0f);
+    private static Vector3 heightDistanceRight = new Vector3(0f, -0.44f, 0f);
 
     /// <summary>
     /// The rotation of the objects on the right shelf.

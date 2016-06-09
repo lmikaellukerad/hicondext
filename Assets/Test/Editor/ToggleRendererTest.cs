@@ -10,15 +10,13 @@ public class ToggleRendererTest
 
     private GameObject testObject;
 
-    private ToggleRenderer testToggler;
-
 	[SetUp]
     public void Setup()
     {
         this.testObject = new GameObject();
         this.rend = this.testObject.AddComponent<MeshRenderer>();
         this.rend.enabled = false;
-        this.testToggler = this.testObject.AddComponent<ToggleRenderer>();
+        testObject.AddComponent<ToggleRenderer>();
         this.enableRender = false;
     }
     
@@ -32,9 +30,9 @@ public class ToggleRendererTest
     public void RendererOffToOnTest()
     {
         Assert.False(this.rend.enabled);
-        this.testToggler.EnableRender = true;
+        this.testObject.GetComponent<ToggleRenderer>().EnableRender = true;
         Assert.False(this.rend.enabled);
-        this.testToggler.EnableRenderer();
+        this.testObject.GetComponent<ToggleRenderer>().EnableRenderer();
         Assert.True(this.rend.enabled);
     }
 
@@ -42,7 +40,7 @@ public class ToggleRendererTest
     public void RendererOffToOffTest()
     {
         Assert.False(this.rend.enabled);
-        this.testToggler.EnableRenderer();
+        this.testObject.GetComponent<ToggleRenderer>().EnableRenderer();
         Assert.False(this.rend.enabled);
     }
 
@@ -50,18 +48,18 @@ public class ToggleRendererTest
     public void RendererOnToOnTest()
     {
         this.rend.enabled = true;
-        this.testToggler.EnableRender = true;
+        this.testObject.GetComponent<ToggleRenderer>().EnableRender = true;
         Assert.True(this.rend.enabled);
-        this.testToggler.EnableRenderer();
+        this.testObject.GetComponent<ToggleRenderer>().EnableRenderer();
         Assert.True(this.rend.enabled);
     }
 
     [Test]
     public void StartTest()
     {
-        this.testToggler.EnableRender = true;
+        this.testObject.GetComponent<ToggleRenderer>().EnableRender = true;
         Assert.False(this.rend.enabled);
-        this.testToggler.Start();
+        this.testObject.GetComponent<ToggleRenderer>().Start();
         Assert.True(this.rend.enabled);
     }
 }

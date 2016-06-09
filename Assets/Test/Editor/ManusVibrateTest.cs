@@ -41,7 +41,8 @@ public class ManusVibrateTest
         Assert.False(this.testVib.GetVibrating());
     }
 
-    [Test]
+    // These tests CANNOT be run on CloudBuild!
+    //[Test]
     public void VibrateForTest()
     {
         Assert.False(this.testVib.GetVibrating());
@@ -56,7 +57,8 @@ public class ManusVibrateTest
         Assert.False(this.testVib.GetVibrating());
     }
 
-    [Test]
+    // These tests CANNOT be run on CloudBuild!
+    //[Test]
     public void DoubleShortVibrationCoroutineTest()
     {
         Assert.False(this.testVib.GetVibrating());

@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 public class DetectFingerCollision : MonoBehaviour
 {
+    public float Radius = 0.01f;
+
     /// <summary>
     /// Gets the object.
     /// </summary>
@@ -18,85 +20,49 @@ public class DetectFingerCollision : MonoBehaviour
         private set;
     }
 
-    public float radius = 0.01f;
-
+    /// <summary>
+    /// Used for debug.
+    /// </summary>
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
 
-        Gizmos.DrawSphere(transform.position, radius);
+        Gizmos.DrawSphere(transform.position, this.Radius);
     }
 
     /// <summary>
-    /// Detects if there is a collision in the GameObject and saves the Collider if so.
+    /// Checks the finger for collision using Physics.OverlapSphere.
     /// </summary>
-    /// <param name="obj">The object to check.</param>
-    /// <returns>true if collision is detected, otherwise false.</returns>
-    private bool Detect(GameObject obj)
-    {
-        DetectCollision detector = obj.GetComponent<DetectCollision>();
-        if (detector.Collided)
-        {
-            this.LastCollider = detector.Collision;
-            return true;
-        }
-
-        return false;
-    }
-
+    /// <returns>true if collision is found, else false</returns>
     public bool CheckFinger()
     {
-
-        Collider[] objects = Physics.OverlapSphere(transform.position, radius, 1 << 8);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, this.Radius, 1 << 8);
         float minimumDistance = float.MaxValue;
-        Collider col = null;
-        // check what object is closest to our pinch, this object is the grabbed object
-        for (int i = 0; i < objects.Length; i++)
-        {
-            Collider o = objects[i];
-            float currentDistance = Vector3.Distance(transform.position, o.GetComponent<Transform>().position);
-            if (currentDistance < minimumDistance)
-            {
-                col = o;
-                minimumDistance = currentDistance;
-            }
-        }
-        LastCollider = col;
-        return col != null;
-    }
 
-    public void SetRadius(GameObject obj, float rad)
-    {
-        this.radius = rad;
-        if (obj.GetComponent<SphereCollider>() != null)
+        foreach (Collider c in colliders)
         {
-            obj.GetComponent<SphereCollider>().radius = radius;
-            this.SetRadius(obj.transform.parent.gameObject,radius);
+            float currentDistance = Vector3.SqrMagnitude(transform.position - c.transform.position);
+            minimumDistance = this.CheckDistance(minimumDistance, currentDistance, c);
         }
+
+        return this.LastCollider != null;
     }
 
     /// <summary>
-    /// Checks the finger for collision, should start at the tip.
+    /// Checks the distance.
     /// </summary>
-    /// <param name="obj">The object to check.</param>
-    /// <returns>true if collision is detected, otherwise false.</returns>
-    public bool CheckFinger(GameObject obj)
+    /// <param name="m">The minimum found distance.</param>
+    /// <param name="c">The current found distance.</param>
+    /// <param name="collider">The current collider.</param>
+    /// <returns>Current distance if less than minimum distance, else the minimum distance</returns>
+    private float CheckDistance(float m, float c, Collider collider) 
     {
-        if (obj.GetComponent<SphereCollider>()  != null)
+        if (c < m)
         {
-            if (this.Detect(obj))
-            {
-                return true;
-            }
-            else
-            {
-                return this.CheckFinger(obj.transform.parent.gameObject);
-            }
+            this.LastCollider = collider;
+            return c;
         }
-        else
-        {
-            LastCollider = null;
-            return false;
-        }
+
+        return m;
     }
 }

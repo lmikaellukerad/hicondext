@@ -26,7 +26,7 @@ public abstract class GrabStrategy
         for (int i = 0; i < grabbing.Count; i++)
         {
             Transform finger = grabbing[i];
-            finger.GetComponent<DetectFingerCollision>().SetRadius(finger.gameObject, 0.02f);
+            finger.GetComponent<DetectFingerCollision>().Radius = 0.02f;
             hand.GetComponent<GrabHandSimulator>().ClampMax(finger);
         }
     }
@@ -44,7 +44,7 @@ public abstract class GrabStrategy
         for (int i = 0; i < grabbing.Count; i++)
         {
             Transform finger = grabbing[i];
-            finger.GetComponent<DetectFingerCollision>().SetRadius(finger.gameObject, 0.01f);
+            finger.GetComponent<DetectFingerCollision>().Radius = 0.01f;
             hand.GetComponent<GrabHandSimulator>().ResetFingerLimit(finger);
         }
     }

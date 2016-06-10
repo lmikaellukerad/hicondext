@@ -27,6 +27,10 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     public bool FillRightShelf;
 
+    public bool backshelfDone = false;
+    public bool leftshelfDone = false;
+    public bool rightshelfDone = false;
+
     /// <summary>
     /// The distance that has to be left between objects on the back shelf.
     /// </summary>
@@ -200,9 +204,7 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        bool backshelfDone = false;
-        bool leftshelfDone = false;
-        bool rightshelfDone = false;
+        
 
         if (this.FillBackShelf)
         {

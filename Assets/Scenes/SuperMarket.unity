@@ -2303,7 +2303,7 @@ MonoBehaviour:
   animationClip: {fileID: 7400004, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
   FingerTipTransforms: []
   OpenMargin: 0.3
-  Emulate: 0
+  Emulate: 1
   EmulateValues:
   - 0
   - 0

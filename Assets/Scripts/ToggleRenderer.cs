@@ -6,7 +6,7 @@ public class ToggleRenderer : MonoBehaviour
     /// <summary>
     /// The mesh renderer object
     /// </summary>
-    public Renderer Rend;
+    public MeshRenderer Rend;
 
     /// <summary>
     /// A boolean to turn this scripts functionality on or off.
@@ -24,9 +24,9 @@ public class ToggleRenderer : MonoBehaviour
     /// <summary>
     /// Enables the renderer.
     /// </summary>
-    private void EnableRenderer()
+    public void EnableRenderer()
     {
-        this.Rend = this.GetComponent<Renderer>();
+        this.Rend = this.GetComponent<MeshRenderer>();
         if (this.EnableRender)
         {
             this.Rend.enabled = true;

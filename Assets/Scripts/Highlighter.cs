@@ -3,6 +3,7 @@ using Leap;
 using Leap.Unity;
 using UnityEngine;
 using Interfaces;
+using System;
 
 /// <summary>
 /// Author: Luke
@@ -28,6 +29,16 @@ public class Highlighter : MonoBehaviour, IHighlighterController
         return col.transform.position;
     }
 
+    public void FindNearestObject(Collider[] cols)
+    {
+        controller.FindNearestObject(cols);
+    }
+
+    public void ResetObjects()
+    {
+        controller.ResetObjects();
+    }
+
     public bool CompareShaders(GameObject obj, Shader shader)
     {
         return obj.GetComponent<Renderer>().material.shader.Equals(shader);
@@ -47,6 +58,16 @@ public class Highlighter : MonoBehaviour, IHighlighterController
     public Collider[] FindObjects()
     {
         return Physics.OverlapSphere(this.transform.position, this.Radius, 1 << this.interactable); 
+    }
+
+    public void Highlight()
+    {
+        controller.Highlight();
+    }
+
+    public void Check()
+    {
+        controller.Check();
     }
 
     private void OnEnable()

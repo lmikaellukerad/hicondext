@@ -21,25 +21,17 @@ public class HighlighterController {
 
     public void DetectObjects()
     {
+        
         Collider[] cols = Controller.FindObjects();
         if (cols.Length > 0)
         {
-            this.FindNearestObject(cols);
+            Debug.Log("Detecting");
+            Controller.FindNearestObject(cols);
         }
         else
         {
-            this.ResetObjects();
+            Controller.ResetObjects();
         }
-    }
-
-    public Collider[] FindObjects()
-    {
-        return Controller.FindObjects();
-    }
-
-    public Vector3 GetPositionOfCollider(Collider col)
-    {
-        return col.transform.position;
     }
 
     public void FindNearestObject(Collider[] cols)
@@ -50,21 +42,21 @@ public class HighlighterController {
         {
             float currentDistance = (Controller.GetPosition() 
                 - Controller.GetPosition(col)).sqrMagnitude;
-            
             if (currentDistance < minimumDistance)
             {
                 this.nearestObject = col.gameObject;
                 minimumDistance = currentDistance;
             }
         }
+        Controller.Check();
     }
 
     public void ResetObjects()
     {
+        this.ResetObject(this.previousObject);
+        this.ResetObject(this.nearestObject);
         this.previousObject = null;
         this.nearestObject = null;
-        this.ResetObject(this.previousObject);
-        this.ResetObject(this.nearestObject);  
     }
 
     public void ResetObject(GameObject obj)
@@ -84,14 +76,12 @@ public class HighlighterController {
         {
             if (!Controller.CompareObjects(this.previousObject, this.nearestObject))
             {
-                this.ResetObjects();
+                Controller.ResetObjects();
             }
         }
 
-        this.Highlight();
+        Controller.Highlight();
     }
-
-
 
     public void Highlight()
     {

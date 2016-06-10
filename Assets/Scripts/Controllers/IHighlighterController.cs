@@ -12,6 +12,14 @@ namespace Interfaces
 
         Collider[] FindObjects();
 
+        void FindNearestObject(Collider[] cols);
+
+        void ResetObjects();
+
+        void Highlight();
+
+        void Check();
+
         void SetShader(GameObject obj, Shader shader);
 
         bool CompareShaders(GameObject obj, Shader shader);

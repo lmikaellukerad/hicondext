@@ -12,7 +12,7 @@ using System;
 /// For the most optimal behavior in conjunction with FixedJointGrab, 
 /// this script should be attached to the thumb transform of the hand model with the radius set to 0.01.
 /// </summary>
-public class Highlighter : MonoBehaviour, IHighlighterController
+public class Highlighter : MonoBehaviour, IHighlighterController, IOverlapSphere
 {
     public float Radius = 0.01f;
 
@@ -73,6 +73,7 @@ public class Highlighter : MonoBehaviour, IHighlighterController
     private void OnEnable()
     {
         controller.Controller = this;
+        controller.OverlapSphere = this;
     }
 
     /// <summary>

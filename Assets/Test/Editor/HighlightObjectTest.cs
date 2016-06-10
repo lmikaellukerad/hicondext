@@ -6,22 +6,12 @@ using Interfaces;
 
 public class HighlightObjectTest {
 
-    [SetUp]
-    public void setup()
-    {
-
-    }
-
     private HighlighterController GetMock()
     {
         var mock = Substitute.For<HighlighterController>();
-        mock.Controller = this.GetController();
+        mock.Controller = Substitute.For<IHighlighterController>();
+        mock.OverlapSphere = Substitute.For<IOverlapSphere>();
         return mock;
-    }
-
-    private IHighlighterController GetController()
-    {
-        return Substitute.For<IHighlighterController>();
     }
 
     [Test]
@@ -31,7 +21,7 @@ public class HighlightObjectTest {
         cols[0] = new GameObject().AddComponent<BoxCollider>();
         var mock = GetMock();
         var controller = mock.Controller;
-        controller.FindObjects().Returns(cols);
+        mock.OverlapSphere.FindObjects().Returns(cols);
         controller.GetPosition().Returns(Vector3.zero);
         controller.ClearReceivedCalls();
         mock.DetectObjects();
@@ -44,7 +34,7 @@ public class HighlightObjectTest {
         Collider[] cols = new Collider[0];
         var mock = GetMock();
         var controller = mock.Controller;
-        controller.FindObjects().Returns(cols);
+        mock.OverlapSphere.FindObjects().Returns(cols);
         controller.GetPosition().Returns(Vector3.zero);
         controller.ClearReceivedCalls();
         mock.DetectObjects();
@@ -57,7 +47,7 @@ public class HighlightObjectTest {
         Collider[] cols = new Collider[0];
         var mock = GetMock();
         var controller = mock.Controller;
-        controller.FindObjects().Returns(cols);
+        mock.OverlapSphere.FindObjects().Returns(cols);
         controller.GetPosition().Returns(Vector3.zero);
         mock.FindNearestObject(cols);
         Assert.IsNull(mock.nearestObject);
@@ -74,7 +64,7 @@ public class HighlightObjectTest {
         cols[1].transform.position = new Vector3(0, 0.1f, 0);
         var mock = GetMock();
         var controller = mock.Controller;
-        controller.FindObjects().Returns(cols);
+        mock.OverlapSphere.FindObjects().Returns(cols);
         controller.GetPosition().Returns(Vector3.zero);
         mock.FindNearestObject(cols);
         Assert.AreSame(cols[0], mock.nearestObject.GetComponent<Collider>());

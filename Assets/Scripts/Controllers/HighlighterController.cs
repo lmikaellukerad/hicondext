@@ -7,6 +7,7 @@ public class HighlighterController {
     public float Radius = 0.01f;
 
     public IHighlighterController Controller;
+    public IOverlapSphere OverlapSphere;
 
     public GameObject nearestObject
     {
@@ -22,7 +23,7 @@ public class HighlighterController {
     public void DetectObjects()
     {
         
-        Collider[] cols = Controller.FindObjects();
+        Collider[] cols = OverlapSphere.FindObjects();
         if (cols.Length > 0)
         {
             Debug.Log("Detecting");

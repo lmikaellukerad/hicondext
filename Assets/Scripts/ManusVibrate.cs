@@ -32,6 +32,36 @@ public class ManusVibrate : MonoBehaviour
 	}
 
     /// <summary>
+    /// Updates this instance.
+    /// </summary>
+    public void Update()
+    {
+        // Triggers a short vibration.
+        if (Input.GetKeyDown("b"))
+        {
+            this.ShortVibration();
+        }
+
+        // Triggers a double short vibration.
+        if (Input.GetKeyDown("h"))
+        {
+            this.DoubleShortVibration();
+        }
+
+        // Turns vibration on.
+        if (Input.GetKeyDown("n"))
+        {
+            this.VibrateOn();
+        }
+
+        // Turns vibration off.
+        if (Input.GetKeyDown("m"))
+        {
+            this.VibrateOff();
+        }
+	}
+
+    /// <summary>
     /// Makes the glove vibrate for a given amount of milliseconds.
     /// </summary>
     /// <param name="sec">The amount of time the glove has to vibrate for.</param>
@@ -46,7 +76,7 @@ public class ManusVibrate : MonoBehaviour
     /// <param name="sec">The amount of time the glove has to vibrate for.</param>
     /// <returns>IEnumerator, used for timing purposes. Can be ignored.</returns>
     public IEnumerator VibrateForCoroutine(float sec)
-    {        
+    {
         if (!this.vibrating)
         {
             this.VibrateOn();
@@ -56,7 +86,7 @@ public class ManusVibrate : MonoBehaviour
     }
     
     /// <summary>
-    /// Makes the current glove vibrate for 100 milliseconds.
+    /// Makes the current glove vibrate for 150 milliseconds.
     /// </summary>
     public void ShortVibration()
     {
@@ -99,23 +129,5 @@ public class ManusVibrate : MonoBehaviour
     {
         this.vibrating = false;
         Manus.ManusSetVibration(this.hand, 0f);
-    }
-
-    /// <summary>
-    /// Returns the current value of vibrating.
-    /// </summary>
-    /// <returns>The current value of vibrating.</returns>
-    public bool GetVibrating()
-    {
-        return this.vibrating;
-    }
-
-    /// <summary>
-    /// Sets the vibrating boolean.
-    /// </summary>
-    /// <param name="newbool">The value to set vibrating to.</param>
-    public void SetVibrating(bool newbool)
-    {
-        this.vibrating = newbool;
     }
 }

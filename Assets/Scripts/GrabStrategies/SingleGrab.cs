@@ -57,5 +57,7 @@ public abstract class SingleGrab : GrabStrategy
         this.obj.transform.parent = this.root.transform;
         this.hand.palm.gameObject.layer = 10;
         MonoBehaviour.print("the layer has just changed to" + this.hand.palm.gameObject.layer);
+        this.root.gameObject.layer = 10;
+        MonoBehaviour.print("the layer of" + this.root.gameObject.name +"has changed");
     }
 }

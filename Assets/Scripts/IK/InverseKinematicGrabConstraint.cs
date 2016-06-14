@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class IKGrabConstrain : IKScript
+public class InverseKinematicGrabConstraint : InverseKinematicBehaviour
 {
     private Transform referencePoint;
     private Vector3 goalRefDifPosition;
@@ -12,7 +12,7 @@ public class IKGrabConstrain : IKScript
     /// <summary>
     /// Updates the chain if the chain was found.
     /// </summary>
-    public void Update()
+    public override void Update()
     {
         if (this.ChainFound && this.Goal.activeSelf)
         {

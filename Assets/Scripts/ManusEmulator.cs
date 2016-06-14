@@ -7,13 +7,6 @@ using UnityEngine;
 public class ManusEmulator : MonoBehaviour
 {
     public GrabHandSimulator RightHand;
-
-    /// <summary>
-    /// Starts this instance.
-    /// </summary>
-    public void Start()
-    {
-    }
     
     /// <summary>
     /// Updates this instance.

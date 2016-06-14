@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// IK script used to solve the inverse kinematics of an arm.
 /// </summary>
-public class IKScript : MonoBehaviour
+public class InverseKinematicBehaviour : MonoBehaviour
 {
     public Transform ChainStart;
     public Transform ChainEnd;
@@ -18,14 +18,14 @@ public class IKScript : MonoBehaviour
 
     public bool ChainFound { get; private set; }
 
-    public List<IKJoint> Chain { get; private set; }
+    public List<InverseKinematicJoint> Chain { get; private set; }
 
     /// <summary>
     /// Builds the chain and remembers starting rotations of the chain.
     /// </summary>
     public void Start()
     {
-        this.Chain = new List<IKJoint>();
+        this.Chain = new List<InverseKinematicJoint>();
         this.chainRoot = (new GameObject("IKChain")).transform;
         this.chainRoot.position = this.ChainStart.position;
         this.PointChainRoot();
@@ -86,8 +86,8 @@ public class IKScript : MonoBehaviour
 
             for (int i = 0; i < this.Chain.Count - 1; i++)
             {
-                IKJoint j1 = this.Chain[i];
-                IKJoint j2 = this.Chain[i + 1];
+                InverseKinematicJoint j1 = this.Chain[i];
+                InverseKinematicJoint j2 = this.Chain[i + 1];
                 Vector3 targetPos = (j1.Joint.forward * j1.JointLength) + j1.Joint.position;
                 Vector3 target = targetPos - j2.Joint.position;
                 Vector3 otherJoint = j1.Joint.position - j2.Joint.position;
@@ -122,8 +122,8 @@ public class IKScript : MonoBehaviour
         this.UpdatePolePositions(1);
         for (int i = 0; i < this.Chain.Count - 1; i++)
         {
-            IKJoint j1 = this.Chain[i];
-            IKJoint j2 = this.Chain[i + 1];
+            InverseKinematicJoint j1 = this.Chain[i];
+            InverseKinematicJoint j2 = this.Chain[i + 1];
             this.Constrain(j1, j2, this.polePositions[i]);
         }
     }
@@ -139,7 +139,7 @@ public class IKScript : MonoBehaviour
         this.PointChainRoot();
         for (int i = 0; i < this.Chain.Count; i++)
         {
-            IKJoint j = this.Chain[i];
+            InverseKinematicJoint j = this.Chain[i];
             this.UpdateJoint(j, jointTarget);
             if (jointTarget != this.Goal.transform)
             {
@@ -187,7 +187,7 @@ public class IKScript : MonoBehaviour
             Transform child = node.GetChild(i);
             if (this.BuildChain(child))
             {
-                IKJoint j = new IKJoint(node, child, this.Pole);
+                InverseKinematicJoint j = new InverseKinematicJoint(node, child, this.Pole);
                 if (this.Chain.Count != 0)
                 {
                     this.Chain[0].Joint.parent = node;
@@ -230,7 +230,7 @@ public class IKScript : MonoBehaviour
     /// <param name="j1">The first joint to constrain.</param>
     /// <param name="j2">The second joint to constrain.</param>
     /// <param name="pole">The pole to compare against.</param>
-    private void Constrain(IKJoint j1, IKJoint j2, Vector3 pole)
+    private void Constrain(InverseKinematicJoint j1, InverseKinematicJoint j2, Vector3 pole)
     {
         Vector3 targetPos = (j1.Joint.forward * j1.JointLength) + j1.Joint.position;
         Vector3 target = targetPos - j2.Joint.position;
@@ -253,7 +253,7 @@ public class IKScript : MonoBehaviour
     /// </summary>
     /// <param name="joint">The joint.</param>
     /// <param name="target">The target.</param>
-    private void UpdateJoint(IKJoint joint, Transform target)
+    private void UpdateJoint(InverseKinematicJoint joint, Transform target)
     {
         Vector3 next = target.position - joint.Joint.position;
         Vector3 current = joint.Joint.forward * joint.JointLength;

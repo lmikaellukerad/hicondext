@@ -26,8 +26,8 @@ public class DetectFingerCollision : MonoBehaviour
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
-        Gizmos.DrawSphere(transform.position, this.Radius);
+        Vector3 offset = new Vector3(0, 0, -0.01f);
+        Gizmos.DrawSphere(transform.position + (transform.rotation * offset), this.Radius);
     }
 
     /// <summary>
@@ -36,7 +36,11 @@ public class DetectFingerCollision : MonoBehaviour
     /// <returns>true if collision is found, else false</returns>
     public bool CheckFinger()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, this.Radius, 1 << 8);
+        Vector3 offset = new Vector3(0, 0, -0.01f);
+        Collider[] colliders = Physics.OverlapSphere(
+            transform.position + (transform.rotation * offset), 
+            this.Radius, 
+            1 << 8);
         float minimumDistance = float.MaxValue;
 
         this.LastCollider = null;

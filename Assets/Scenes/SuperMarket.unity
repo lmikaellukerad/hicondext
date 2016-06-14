@@ -1106,10 +1106,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11f522c52e5c49f43830f8ee91470b83, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &249428441 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100018, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
-  m_PrefabInternal: {fileID: 179470803}
 --- !u!4 &249428442 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400018, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
@@ -1464,7 +1460,6 @@ GameObject:
   - 4: {fileID: 441723948}
   - 114: {fileID: 441723949}
   - 114: {fileID: 441723954}
-  - 114: {fileID: 441723953}
   - 114: {fileID: 441723952}
   - 114: {fileID: 441723947}
   - 114: {fileID: 441723951}
@@ -1494,7 +1489,7 @@ MonoBehaviour:
   animationClip: {fileID: 7400004, guid: fd0c515802a50fe41a195e5e33403cb5, type: 3}
   FingerTipTransforms: []
   OpenMargin: 0.4
-  Emulate: 0
+  Emulate: 1
   EmulateValues:
   - 0
   - 0
@@ -1581,17 +1576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: 1
---- !u!114 &441723953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 441723946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d40556df65dde4c9b35de19290cd0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &441723954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,7 +2518,6 @@ GameObject:
   - 4: {fileID: 878119227}
   - 114: {fileID: 878119234}
   - 114: {fileID: 878119233}
-  - 114: {fileID: 878119232}
   - 114: {fileID: 878119231}
   - 114: {fileID: 878119230}
   - 114: {fileID: 878119229}
@@ -2626,17 +2609,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: 0
---- !u!114 &878119232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 878119226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d40556df65dde4c9b35de19290cd0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &878119233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3800,7 +3772,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421d8b7473db8c240a8ef92c927369e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Head: {fileID: 249428441}
 --- !u!81 &1483428689
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4789,6 +4760,9 @@ MonoBehaviour:
   FillBackShelf: 1
   FillLeftShelf: 1
   FillRightShelf: 1
+  backshelfDone: 0
+  leftshelfDone: 0
+  rightshelfDone: 0
 --- !u!1 &1997041187
 GameObject:
   m_ObjectHideFlags: 0

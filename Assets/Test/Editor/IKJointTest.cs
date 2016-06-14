@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IKJointTest 
 {
-    private IKJoint testJoint;
+    private InverseKinematicJoint testJoint;
     private Transform testTrans;
     private GameObject testObj0;
     private GameObject testObj1;
@@ -22,7 +22,7 @@ public class IKJointTest
         this.testObj2 = new GameObject("object2");
         this.testObj2.transform.Translate(3f, 2f, 1f, Space.Self);
 
-        this.testJoint = new IKJoint(this.testObj0.transform, this.testObj1.transform, this.testObj2.transform);
+        this.testJoint = new InverseKinematicJoint(this.testObj0.transform, this.testObj1.transform, this.testObj2.transform);
 
         this.testTrans = (new GameObject("joint_" + this.testObj0.name)).transform;
     }

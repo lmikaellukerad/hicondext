@@ -3,7 +3,8 @@ using Interfaces;
 using UnityEngine;
 
 /// <summary>
-/// This is the controller for the Highlighter class, all logic is here.
+/// This is the controller for the Highlighter class, all logic related to Highlighter is located here.
+/// This is part of the Humble Object pattern application on Highlighter class.
 /// </summary>
 public class HighlighterController
 {

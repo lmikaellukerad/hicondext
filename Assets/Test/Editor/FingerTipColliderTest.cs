@@ -17,7 +17,6 @@ public class FingerTipColliderTest
     public void Setup()
     {
         this.testObj = new GameObject();
-        this.testObj.AddComponent<FingerTipCollider>();
         this.secondObj = new GameObject();
         this.juan = new GameObject("Palm");
         this.two = new GameObject();

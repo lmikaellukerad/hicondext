@@ -78,7 +78,7 @@ public abstract class GrabStrategy
         for (int i = 0; i < grabbing.Count; i++)
         {
             Transform finger = grabbing[i];
-            finger.GetComponent<DetectFingerCollision>().Radius = 0.02f;
+            finger.GetComponent<DetectFingerCollision>().Radius = 0.04f;
             hand.GetComponent<GrabHandSimulator>().ClampMax(finger);
         }
     }

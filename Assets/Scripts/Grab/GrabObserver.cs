@@ -47,6 +47,8 @@ public class GrabObserver
     /// </summary>
     public void Notify()
     {
+        this.rightHand.GetComponent<InverseKinematicGrabConstraint>().Update();
+        this.leftHand.GetComponent<InverseKinematicGrabConstraint>().Update();
         this.strategy.UpdateObject();
         this.strategy.ConstrainHands(this.grabbingFingerTips);
         if (!this.CheckGrabbed())
@@ -58,6 +60,7 @@ public class GrabObserver
             this.strategy.Destroy();
             this.subject.UnSubscribe(this);
         }
+        this.strategy.UpdateObject();
         this.previous = this.grabbedObject.transform.position;
     }
 

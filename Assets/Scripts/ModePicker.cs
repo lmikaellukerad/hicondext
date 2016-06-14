@@ -15,39 +15,7 @@ public class ModePicker : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        // set the program to work in VR mode or non-VR mode
-        if (this.VRMode)
-        {
-            if (transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
-            {
-                transform.GetChild(0).GetComponent<LeapServiceProvider>()._isHeadMounted = true;
-                transform.GetChild(0).GetComponent<LeapServiceProvider>().overrideDeviceType = true;
-            }
-
-            if (transform.GetComponent<LeapVRTemporalWarping>() != null)
-            {
-                transform.GetComponent<LeapVRTemporalWarping>().enabled = true;
-            }
-
-			transform.localPosition = this.vrPosition;
-			transform.localRotation = Quaternion.Euler(this.vrRotation);
-		}
-        else
-        {
-            if (transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
-            {
-                transform.GetChild(0).GetComponent<LeapServiceProvider>()._isHeadMounted = false;
-                transform.GetChild(0).GetComponent<LeapServiceProvider>().overrideDeviceType = false;
-            }
-
-            if (transform.GetComponent<LeapVRTemporalWarping>() != null)
-            {
-                transform.GetComponent<LeapVRTemporalWarping>().enabled = false;
-            }
-
-            transform.localPosition = this.nonVrPosition;
-            transform.localRotation = Quaternion.Euler(this.nonVrRotation);
-		}
+        this.Update();
 	}
 
     /// <summary>
@@ -74,7 +42,7 @@ public class ModePicker : MonoBehaviour
         }
         else
         {
-            if (transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
+            if (transform.childCount > 0 && transform.GetChild(0) != null && transform.GetChild(0).GetComponent<LeapServiceProvider>() != null)
             {
                 transform.GetChild(0).GetComponent<LeapServiceProvider>()._isHeadMounted = false;
                 transform.GetChild(0).GetComponent<LeapServiceProvider>().overrideDeviceType = false;

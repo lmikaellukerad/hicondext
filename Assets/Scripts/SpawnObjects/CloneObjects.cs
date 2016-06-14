@@ -27,6 +27,10 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     public bool FillRightShelf;
 
+    public bool backshelfDone = false;
+    public bool leftshelfDone = false;
+    public bool rightshelfDone = false;
+
     /// <summary>
     /// The distance that has to be left between objects on the back shelf.
     /// </summary>
@@ -55,7 +59,7 @@ public class CloneObjects : MonoBehaviour
     /// <summary>
     /// The start position of the items that have to be placed against the left wall.
     /// </summary>
-    private static Vector3 startPosLeftwall = new Vector3(6.5062f, 1.61f, -6.3452f);
+    private static Vector3 startPosLeftwall = new Vector3(6.5062f, 1.61f, -6.0052f);
 
     /// <summary>
     /// The distance that has to be left between objects on the left shelf.
@@ -85,7 +89,7 @@ public class CloneObjects : MonoBehaviour
     /// <summary>
     /// The start position of the items that have to be placed against the right wall.
     /// </summary>
-    private static Vector3 startPosRightwall = new Vector3(-5.9258f, 1.61f, 6.3651f);
+    private static Vector3 startPosRightwall = new Vector3(-5.9258f, 1.61f, 6.2051f);
 
     /// <summary>
     /// The distance that has to be left between objects on the right shelf.
@@ -200,9 +204,7 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        bool backshelfDone = false;
-        bool leftshelfDone = false;
-        bool rightshelfDone = false;
+        
 
         if (this.FillBackShelf)
         {

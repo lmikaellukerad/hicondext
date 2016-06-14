@@ -9,7 +9,7 @@ public class IKTestScript {
 	private Transform end;
 	private GameObject goal;
 	private Transform pole;
-	private IKScript script;
+	private InverseKinematicBehaviour script;
 
 	[SetUp]
 	public void Setup()
@@ -28,7 +28,7 @@ public class IKTestScript {
 		pole.position = new Vector3(0, 0, -5);
 		goal.transform.position = new Vector3(0, 10, 0);
 
-		script = (new GameObject()).AddComponent<IKScript>();
+		script = (new GameObject()).AddComponent<InverseKinematicBehaviour>();
 
 		script.ChainStart = start;
 		script.ChainEnd = end;

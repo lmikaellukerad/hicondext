@@ -157,8 +157,8 @@ public class AvatarController : MonoBehaviour
         // Restore the offset's position and rotation
         if(offsetNode != null)
         {
-            offsetNode.transform.position = initialPosition;
-            offsetNode.transform.rotation = initialRotation;
+            offsetNode.transform.localPosition = Vector3.zero;
+            offsetNode.transform.localRotation = Quaternion.identity;
         }
         else
         {
@@ -170,11 +170,6 @@ public class AvatarController : MonoBehaviour
     // Invoked on the successful calibration of a player.
     public void SuccessfulCalibration(uint userId)
     {
-        // reset the models position
-        if(offsetNode != null)
-        {
-            offsetNode.transform.rotation = initialRotation;
-        }
         
         // re-calibrate the position offset
         offsetCalibrated = false;

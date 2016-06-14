@@ -10,7 +10,6 @@ public class IKScript : MonoBehaviour
     public Transform ChainEnd;
     public GameObject Goal;
     public Transform Pole;
-    public bool ConnectPole;
     protected Quaternion chainEndRotateCorrection;
     private Transform chainRoot;
     private List<Vector3> polePositions = new List<Vector3>();
@@ -32,10 +31,6 @@ public class IKScript : MonoBehaviour
         this.chainRoot.parent = this.ChainStart.parent;
         this.ChainStart.parent = this.chainRoot;
         this.ChainFound = this.BuildChain(this.ChainStart);
-        if (this.ConnectPole)
-        {
-            this.Pole.parent = this.chainRoot;
-        }
 
         this.chainEndRotateCorrection = this.ChainEnd.rotation;
 

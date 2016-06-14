@@ -25,11 +25,6 @@ public class HeadCamTest
         this.testObj.GetComponent<HeadCam>().Start();
     }
 
-	[Test]
-	public void StartTest()
-	{
-        Assert.AreEqual(this.testInitial, this.testObj.GetComponent<HeadCam>().GetInitial());
-	}
 
     [Test]
     public void UpdateWithNullTest()

@@ -49,20 +49,7 @@ public class GrabHandSimulator : HandSimulator
 
         for (int i = 0; i < fingers.Length; i++)
         {
-            float manusData = fingers[i];
-            float test = this.min[i];
-            if (manusData > this.min[i] && manusData < this.max[i])
-            {
-                this.SetFingerTransform(i, manusData);
-            }
-            else if (manusData < this.min[i])
-            {
-                this.SetFingerTransform(i, this.min[i]);
-            }
-            else if (manusData > this.max[i])
-            {
-                this.SetFingerTransform(i, this.max[i]);
-            }
+            this.SetFingerTransform(i, Mathf.Max(this.max[i], Mathf.Min(this.min[i], fingers[i])));
         }
     }
 

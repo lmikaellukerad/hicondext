@@ -17,6 +17,39 @@ public abstract class GrabStrategy
 
     public abstract void UpdateObject();
 
+    /// <summary>
+    /// Switch strategy to a left hand strategy.
+    /// </summary>
+    /// <param name="grabbedObject">The grabbed object.</param>
+    /// <returns>LeftGrab strategy.</returns>
+    public virtual GrabStrategy LeftHand(GameObject grabbedObject)
+    {
+        this.Destroy();
+        return new LeftGrab(left, right, grabbedObject);
+    }
+
+    /// <summary>
+    /// Switch strategy to a right hand strategy.
+    /// </summary>
+    /// <param name="grabbedObject">The grabbed object.</param>
+    /// <returns>RightGrab strategy.</returns>
+    public virtual GrabStrategy RightHand(GameObject grabbedObject)
+    {
+        this.Destroy();
+        return new RightGrab(left, right, grabbedObject);
+    }
+
+    /// <summary>
+    /// Switch strategy to a double hand strategy.
+    /// </summary>
+    /// <param name="grabbedObject">The grabbed object.</param>
+    /// <returns>DoubleGrab strategy.</returns>
+    public virtual GrabStrategy DoubleHand(GameObject grabbedObject)
+    {
+        this.Destroy();
+        return new DoubleGrab(left, right, grabbedObject);
+    }
+
     protected void HandleClamps(List<Transform> grabbingFingers)
     {
         List<Transform> newFingers = grabbingFingers.Except(GrabStrategy.clampedFingers).ToList();

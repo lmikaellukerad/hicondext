@@ -32,7 +32,6 @@ public class HighlighterController
         Collider[] cols = this.OverlapSphere.FindObjects();
         if (cols.Length > 0)
         {
-            Debug.Log("Detecting");
             this.Controller.FindNearestObject(cols);
         }
         else

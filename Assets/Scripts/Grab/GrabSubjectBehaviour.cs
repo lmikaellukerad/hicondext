@@ -44,7 +44,7 @@ public abstract class GrabSubjectBehaviour : MonoBehaviour
     /// <summary>
     /// Handle the state on update.
     /// </summary>
-    public void LateUpdate()
+    public void Update()
     {
         this.State.Handle(this);
 

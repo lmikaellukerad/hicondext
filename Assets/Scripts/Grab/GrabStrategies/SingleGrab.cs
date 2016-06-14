@@ -11,9 +11,22 @@ using UnityEngine;
 public abstract class SingleGrab : GrabStrategy
 {
     protected HandModel hand;
-    protected GameObject obj;
+    protected GameObject grabbedObject;
     private GameObject root;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SingleGrab"/> class.
+    /// </summary>
+    /// <param name="left">The left hand.</param>
+    /// <param name="right">The right hand.</param>
+    /// <param name="obj">The object.</param>
+    public SingleGrab(HandModel left, HandModel right, GameObject obj)
+    {
+        this.left = left;
+        this.right = right;
+        this.grabbedObject = obj;
+    }
+    
     /// <summary>
     /// Destroys the root of the object.
     /// </summary>
@@ -50,10 +63,10 @@ public abstract class SingleGrab : GrabStrategy
     protected void Init()
     {
         this.root = new GameObject("root");
-        this.root.transform.parent = this.obj.transform.parent;
+        this.root.transform.parent = this.grabbedObject.transform.parent;
         this.root.transform.position = this.hand.palm.position;
         this.root.transform.rotation = this.hand.palm.rotation;
-        this.obj.transform.parent = this.root.transform;
+        this.grabbedObject.transform.parent = this.root.transform;
         this.hand.transform.GetComponent<ManusVibrate>().ShortVibration();
     }
 }

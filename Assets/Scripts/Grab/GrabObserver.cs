@@ -33,6 +33,7 @@ public class GrabObserver
         this.rightHand = right;
         this.leftHand = left;
         this.grabbedObject = obj;
+        this.Init();
         if (this.CheckGrabbed())
         {
             this.previous = obj.transform.position;

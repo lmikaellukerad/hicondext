@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class KeyBoardController : MonoBehaviour 
+public class KeyboardController : MonoBehaviour 
 {    
     /// <summary>
     /// Updates this instance.

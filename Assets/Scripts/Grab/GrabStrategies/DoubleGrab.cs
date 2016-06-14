@@ -40,8 +40,8 @@ public class DoubleGrab : GrabStrategy
     public override void ConstrainHands(List<Transform> grabbingFingers)
     {
         this.HandleClamps(grabbingFingers);
-        this.right.GetComponent<IKGrabConstrain>().ConstrainedUpdate(this.grabbedObject.transform);
-        this.left.GetComponent<IKGrabConstrain>().ConstrainedUpdate(this.grabbedObject.transform);
+        this.right.GetComponent<InverseKinematicGrabConstraint>().ConstrainedUpdate(this.grabbedObject.transform);
+        this.left.GetComponent<InverseKinematicGrabConstraint>().ConstrainedUpdate(this.grabbedObject.transform);
     }
 
     /// <summary>
@@ -61,8 +61,8 @@ public class DoubleGrab : GrabStrategy
     {
         this.root.transform.GetChild(0).transform.parent = this.root.transform.parent;
         GameObject.Destroy(this.root);
-        this.right.GetComponent<IKGrabConstrain>().Reset();
-        this.left.GetComponent<IKGrabConstrain>().Reset();
+        this.right.GetComponent<InverseKinematicGrabConstraint>().Reset();
+        this.left.GetComponent<InverseKinematicGrabConstraint>().Reset();
     }
 
     /// <summary>

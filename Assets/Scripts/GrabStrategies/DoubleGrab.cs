@@ -24,6 +24,7 @@ public class DoubleGrab : GrabStrategy
         this.right = right;
         this.left = left;
         this.obj = obj;
+        this.obj.gameObject.layer = 10;
         this.root = new GameObject("root");
         this.root.transform.parent = this.obj.transform.parent;
         Vector3 averageHandPos = this.AveragePosition(new List<Transform> { this.right.palm.transform, this.left.palm.transform });
@@ -62,6 +63,7 @@ public class DoubleGrab : GrabStrategy
     {
         this.root.transform.GetChild(0).transform.parent = this.root.transform.parent;
         GameObject.Destroy(this.root);
+        this.obj.gameObject.layer = 0;
         this.right.GetComponent<IKGrabConstrain>().Reset();
         this.left.GetComponent<IKGrabConstrain>().Reset();
     }

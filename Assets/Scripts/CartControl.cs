@@ -10,7 +10,15 @@ public class CartControl : MonoBehaviour
     public float MaxCos;
 
     private float playerRot;
+    public float PlayerRot
+    {
+        get { return playerRot; }
+    }
     private float initialY;
+    public float InitialY
+    {
+        get { return initialY; }
+    }
 
     /// <summary>
     /// Checks if the player is within a certain range of the cart.
@@ -67,11 +75,19 @@ public class CartControl : MonoBehaviour
         this.GetComponent<Rigidbody>().angularVelocity *= this.CartRot;
     }
 
-    // Use this for initialization
-    private void Start()
+    /// <summary>
+    /// Initializes this instance.
+    /// </summary>
+    public void Init()
     {
         this.playerRot = -1;
         this.initialY = this.transform.position.y;
+    }
+
+    // Use this for initialization
+    private void Start()
+    {
+        this.Init();
     }
 
     // Update is called once per frame

@@ -113,13 +113,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 34579812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e43d71763e6ba046bc31d5ce3ccbe4f, type: 3}
+  m_Script: {fileID: 11500000, guid: cab1bb4380a81bc4593f34a9a04fe586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 898200061}
-  cart_fric: 0.95
+  cart_fric: 0.96
   cart_rot: 0.9
   interaction_radius: 1.2
+  maxCos: 0.8
 --- !u!54 &34579815
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 34579812}
   serializedVersion: 2
-  m_Mass: 0.4
+  m_Mass: 4
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -282,7 +283,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400022, guid: 3e88bd7654223984eba1f0bab36b634f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.911
+      value: -4.338
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 3e88bd7654223984eba1f0bab36b634f, type: 3}
       propertyPath: m_LocalPosition.y

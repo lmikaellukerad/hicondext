@@ -8,8 +8,8 @@ using UnityEngine;
 public abstract class GrabStrategy
 {
     protected static List<Transform> clampedFingers = new List<Transform>(); 
-    protected HandModel left;
-    protected HandModel right;
+    public HandModel left;
+    public HandModel right;
 
     public abstract void Destroy();
 

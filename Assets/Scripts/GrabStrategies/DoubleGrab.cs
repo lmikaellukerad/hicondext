@@ -23,6 +23,8 @@ public class DoubleGrab : GrabStrategy
     {
         this.right = right;
         this.left = left;
+        this.left.gameObject.layer = 10;
+        this.left.gameObject.layer = 10;
         this.obj = obj;
         this.obj.gameObject.layer = 10;
         this.root = new GameObject("root");
@@ -64,6 +66,8 @@ public class DoubleGrab : GrabStrategy
         this.root.transform.GetChild(0).transform.parent = this.root.transform.parent;
         GameObject.Destroy(this.root);
         this.obj.gameObject.layer = 0;
+        this.left.gameObject.layer = 0;
+        this.left.gameObject.layer = 0;
         this.right.GetComponent<IKGrabConstrain>().Reset();
         this.left.GetComponent<IKGrabConstrain>().Reset();
     }

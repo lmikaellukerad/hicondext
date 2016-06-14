@@ -20,8 +20,10 @@ public abstract class SingleGrab : GrabStrategy
     public override void Destroy()
     {
         this.root.transform.GetChild(0).transform.parent = this.root.transform.parent;
-        this.hand.palm.gameObject.layer = 0;
-        MonoBehaviour.print("the layer of hand palm has just changed to" + this.hand.palm.gameObject.layer);
+        //this.hand.palm.gameObject.layer = 0;
+        //MonoBehaviour.print("the layer of hand palm has just changed to" + this.hand.palm.gameObject.layer);
+        this.left.gameObject.layer = 0;
+        this.right.gameObject.layer = 0;
         this.root.gameObject.layer = 0;
         GameObject.Destroy(this.root);
     }
@@ -45,6 +47,7 @@ public abstract class SingleGrab : GrabStrategy
         this.root.transform.position = this.hand.palm.position;
         this.root.transform.rotation = this.hand.palm.rotation;
         
+
     }
 
     /// <summary>
@@ -52,14 +55,15 @@ public abstract class SingleGrab : GrabStrategy
     /// </summary>
     protected void Init()
     {
+        
         this.root = new GameObject("root");
         this.root.transform.parent = this.obj.transform.parent;
         this.root.transform.position = this.hand.palm.position;
         this.root.transform.rotation = this.hand.palm.rotation;
         this.obj.transform.parent = this.root.transform;
-        this.hand.palm.gameObject.layer = 10;
-        MonoBehaviour.print("the layer of hand palm has just changed to" + this.hand.palm.gameObject.layer);
+        this.left.gameObject.layer = 10;
+        this.right.gameObject.layer = 10;
         this.root.gameObject.layer = 10;
-        MonoBehaviour.print("the layer of" + this.root.gameObject.name +"has changed");
+        MonoBehaviour.print("the layer of" + this.obj.gameObject.name +"has changed");
     }
 }

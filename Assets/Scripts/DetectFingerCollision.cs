@@ -40,15 +40,15 @@ public class DetectFingerCollision : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(
             transform.position + (transform.rotation * offset), 
             this.Radius, 
-            1 << 8);
+            LayerMask.NameToLayer("Interactable"));
         float minimumDistance = float.MaxValue;
 
         this.LastCollider = null;
 
-        foreach (Collider c in colliders)
+        foreach (Collider collider in colliders)
         {
-            float currentDistance = Vector3.SqrMagnitude(transform.position - c.transform.position);
-            minimumDistance = this.CheckDistance(minimumDistance, currentDistance, c);
+            float currentDistance = (transform.position - collider.transform.position).sqrMagnitude;
+            minimumDistance = this.CheckDistance(minimumDistance, currentDistance, collider);
         }
 
         return this.LastCollider != null;
@@ -57,18 +57,18 @@ public class DetectFingerCollision : MonoBehaviour
     /// <summary>
     /// Checks the distance.
     /// </summary>
-    /// <param name="m">The minimum found distance.</param>
-    /// <param name="c">The current found distance.</param>
+    /// <param name="minimum">The minimum found distance.</param>
+    /// <param name="current">The current found distance.</param>
     /// <param name="collider">The current collider.</param>
     /// <returns>Current distance if less than minimum distance, else the minimum distance</returns>
-    private float CheckDistance(float m, float c, Collider collider) 
+    private float CheckDistance(float minimum, float current, Collider collider) 
     {
-        if (c < m)
+        if (current < minimum)
         {
             this.LastCollider = collider;
-            return c;
+            return current;
         }
 
-        return m;
+        return minimum;
     }
 }

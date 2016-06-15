@@ -32,7 +32,6 @@ public class IKTestScript {
 
 		script.ChainStart = start;
 		script.ChainEnd = end;
-		script.ConnectPole = false;
 		script.Goal = goal;
 		script.Pole = pole;
 	}

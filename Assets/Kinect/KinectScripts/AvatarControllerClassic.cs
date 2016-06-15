@@ -132,7 +132,7 @@ public class AvatarControllerClassic : AvatarController
 
             if (leftHandTarget.activeSelf 
                 && leftHandTarget.activeInHierarchy 
-                && (boneIndex >= 9 && boneIndex <= 13))
+                && (boneIndex >= 4 && boneIndex <= 13))
             {
                 return true;
             }

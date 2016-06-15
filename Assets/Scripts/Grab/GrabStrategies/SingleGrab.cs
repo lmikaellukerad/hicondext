@@ -53,8 +53,8 @@ public abstract class SingleGrab : GrabStrategy
     /// </summary>
     public override void UpdateObject()
     {
-        this.root.transform.position = this.hand.palm.position;
-        this.root.transform.rotation = this.hand.palm.rotation;
+        this.root.transform.position = this.hand.RealPalm.position;
+        this.root.transform.rotation = this.hand.RealPalm.rotation;
     }
 
     /// <summary>
@@ -64,8 +64,8 @@ public abstract class SingleGrab : GrabStrategy
     {
         this.root = new GameObject("root");
         this.root.transform.parent = this.grabbedObject.transform.parent;
-        this.root.transform.position = this.hand.palm.position;
-        this.root.transform.rotation = this.hand.palm.rotation;
+        this.root.transform.position = this.hand.RealPalm.position;
+        this.root.transform.rotation = this.hand.RealPalm.rotation;
         this.grabbedObject.transform.parent = this.root.transform;
         this.hand.transform.GetComponent<ManusVibrate>().ShortVibration();
     }

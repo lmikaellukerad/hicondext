@@ -29,7 +29,7 @@ public class DoubleGrab : GrabStrategy
         this.root.transform.parent = this.grabbedObject.transform.parent;
 
         this.root.transform.position = averageHandPos;
-        this.root.transform.rotation = Quaternion.LookRotation(this.left.palm.position - averageHandPos);
+        this.root.transform.rotation = Quaternion.LookRotation(this.left.RealPalm.position - averageHandPos);
         this.grabbedObject.transform.parent = this.root.transform;
     }
 
@@ -51,7 +51,7 @@ public class DoubleGrab : GrabStrategy
     {
         Vector3 newPos = this.AveragePosition(this.left, this.right);
         this.root.transform.position = newPos;
-        this.root.transform.rotation = Quaternion.LookRotation(this.left.palm.position - newPos);
+        this.root.transform.rotation = Quaternion.LookRotation(this.left.RealPalm.position - newPos);
     }
 
     /// <summary>
@@ -85,6 +85,6 @@ public class DoubleGrab : GrabStrategy
     /// <returns>The average position vector</returns>
     protected Vector3 AveragePosition(HandModel left, HandModel right)
     {
-        return (left.palm.transform.position + right.palm.transform.position) / 2;
+        return (left.RealPalm.transform.position + right.RealPalm.transform.position) / 2;
     }
 }

@@ -46,6 +46,8 @@ namespace Leap.Unity{
     // Unity references
     /** Transform object for the palm object of this hand. */
     public Transform palm;
+
+    public Transform RealPalm;
     /** Transform object for the forearm object of this hand. */
     public Transform forearm;
     /** Transform object for the wrist joint of this hand. */

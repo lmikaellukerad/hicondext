@@ -9,7 +9,7 @@ public class SceneFadeInOut : MonoBehaviour
     public float fadeSpeed = 1.5f;
     public bool sceneStarting = true;
     public int NextLevel;
-    private string[] levels = { "1_Movement", "2_PickUp", "3_Drop", "4_PickUpFromGround" };
+    private string[] levels = { "1_Movement", "2_PickUp", "3_Drop", "4_PickUpFromGround", "SuperMarket" };
 
     void Start()
     {

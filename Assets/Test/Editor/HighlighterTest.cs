@@ -4,7 +4,7 @@ using NUnit.Framework;
 using NSubstitute;
 using Interfaces;
 
-public class HighlightObjectTest {
+public class HighlighterTest {
 
     private HighlighterController GetMock()
     {

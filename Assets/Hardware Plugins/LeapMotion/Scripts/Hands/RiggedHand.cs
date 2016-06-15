@@ -22,18 +22,23 @@ namespace Leap.Unity
         }
         public Vector3 modelFingerPointing = Vector3.forward;
         public Vector3 modelPalmFacing = -Vector3.up;
+        private Quaternion InitOrient;
         private GameObject temp;
+
+        void Start()
+        {
+            InitOrient = Quaternion.Inverse(Quaternion.LookRotation(modelFingerPointing, -modelPalmFacing));
+            CreateArm();
+        }
 
         public override void InitHand()
         {
             UpdateHand();
-            OnBegin += CreateArm;
-
         }
 
         public Quaternion Reorientation()
         {
-            return Quaternion.Inverse(Quaternion.LookRotation(modelFingerPointing, -modelPalmFacing));
+            return InitOrient;
         }
 
         public override void UpdateHand()
@@ -43,7 +48,7 @@ namespace Leap.Unity
                 if (palm != null)
                 {
                     palm.position = GetWristPosition();
-                    palm.rotation = GetPalmRotation() * Reorientation();
+                    palm.rotation = GetPalmRotation() * InitOrient;
                 }
 
                 if (forearm != null)
@@ -74,6 +79,7 @@ namespace Leap.Unity
             {
                 temp = new GameObject("temp");
                 temp.transform.position = forearm.position;
+                temp.transform.rotation = forearm.rotation;
                 temp.transform.parent = forearm.parent;
                 forearm.parent = temp.transform;
             }

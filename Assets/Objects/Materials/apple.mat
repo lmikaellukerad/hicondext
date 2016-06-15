@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: unnamed
+  m_Name: apple
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: facfc4352c353fe4594d7f8e700a756c, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -38,66 +38,42 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _MetallicGlossMap
-=======
           name: _ParallaxMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _ParallaxMap
-=======
           name: _OcclusionMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _OcclusionMap
-=======
           name: _EmissionMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _EmissionMap
-=======
           name: _DetailMask
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _DetailMask
-=======
           name: _DetailAlbedoMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-<<<<<<< HEAD
-          name: _DetailAlbedoMap
-=======
           name: _MetallicGlossMap
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -117,13 +93,10 @@ Material:
         second: 0.5
       data:
         first:
-<<<<<<< HEAD
-=======
           name: _Parallax
         second: 0.02
       data:
         first:
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
           name: _ZWrite
         second: 1
       data:
@@ -132,24 +105,10 @@ Material:
         second: 0.5
       data:
         first:
-<<<<<<< HEAD
-          name: _Metallic
-        second: 0
-      data:
-        first:
-=======
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
           name: _BumpScale
         second: 1
       data:
         first:
-<<<<<<< HEAD
-          name: _Parallax
-        second: 0.02
-      data:
-        first:
-=======
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
           name: _OcclusionStrength
         second: 1
       data:
@@ -164,13 +123,10 @@ Material:
         first:
           name: _Mode
         second: 0
-<<<<<<< HEAD
-=======
       data:
         first:
           name: _Metallic
         second: 0
->>>>>>> db6b2566e94262a0a28e52777fbc6f07d3abb733
     m_Colors:
       data:
         first:

@@ -100,13 +100,11 @@ public class AvatarControllerClassic : AvatarController
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
         }
-
-        //		if(bodyRoot == null)
-        //		{
-        //			bodyRoot = transform;
-        //		}
     }
 
+    /// <summary>
+    /// Used for debug only.
+    /// </summary>
     public void OnDrawGizmos()
     {
         if (rightHandTarget != null)

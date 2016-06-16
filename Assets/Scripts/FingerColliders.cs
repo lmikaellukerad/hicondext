@@ -15,12 +15,12 @@ public class FingerColliders
     {
         foreach (Transform tip in fingerTips)
         {
-            NextJoint(tip.gameObject);
+            this.NextJoint(tip.gameObject);
         }
     }
 
     /// <summary>
-    /// Creates the collider.
+    /// Adds a CapsuleCollider to the object. (Not used at the moment)
     /// </summary>
     /// <param name="joint">The joint.</param>
     /// <param name="nextJoint">The next joint.</param>
@@ -30,14 +30,14 @@ public class FingerColliders
         collider.enabled = false;
         float offset = (joint.transform.position - nextJoint.transform.position).magnitude;
         float radius = 0.03f;
-        collider.center = new Vector3(0, -(offset + 2 * radius)/2, 0);
+        collider.center = new Vector3(0, -(offset + (2 * radius)) / 2, 0);
         collider.radius = radius;
-        collider.height = offset + 2 * radius;
+        collider.height = offset + (2 * radius);
         collider.direction = 1;
     }
 
     /// <summary>
-    /// Creates the collider.
+    /// Adds a SphereCollider to the object.
     /// </summary>
     /// <param name="joint">The joint.</param>
     private void CreateCollider(GameObject joint)
@@ -48,7 +48,7 @@ public class FingerColliders
     }
 
     /// <summary>
-    /// Nexts the joint.
+    /// Selects next joint to create a collider in.
     /// </summary>
     /// <param name="joint">The joint.</param>
     private void NextJoint(GameObject joint)
@@ -60,9 +60,8 @@ public class FingerColliders
         else
         {
             GameObject parent = joint.transform.parent.gameObject;
-            CreateCollider(joint);
-            NextJoint(parent);
+            this.CreateCollider(joint);
+            this.NextJoint(parent);
         }
     }
-
 }

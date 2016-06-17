@@ -1,12 +1,10 @@
-﻿using UnityEngine;
-//using Windows.Kinect;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
+using UnityEngine;
 
 /// <summary>
 /// This class manages leap and kinect movements.
@@ -23,88 +21,37 @@ public class AvatarLeapController : AvatarController
     public Transform LeftUpperArm;
     public Transform LeftElbow;
     public Transform LeftHand;
-    private Transform LeftFingers = null;
 
     public Transform RightClavicle;
     public Transform RightUpperArm;
     public Transform RightElbow;
     public Transform RightHand;
-    private Transform RightFingers = null;
 
     public Transform LeftThigh;
     public Transform LeftKnee;
     public Transform LeftFoot;
-    private Transform LeftToes = null;
 
     public Transform RightThigh;
     public Transform RightKnee;
     public Transform RightFoot;
-    private Transform RightToes = null;
 
     public Transform BodyRoot;
     public GameObject OffsetNode;
 
+    public bool UseLeapHands = false;
+    public GameObject RightHandTarget = null;
+    public GameObject LeftHandTarget = null;
 
     protected Animator animator;
 
-    public bool UseLeapHands = false;
-    public GameObject rightHandTarget = null;
-    public GameObject leftHandTarget = null;
+    private Transform leftFingers = null;
+    private Transform rightFingers = null;
+    private Transform leftToes = null;
+    private Transform rightToes = null;
 
-    void Start()
+    public void Start()
     {
-        animator = GetComponent<Animator>();
-    }
-
-    // If the bones to be mapped have been declared, map that bone to the model.
-    protected override void MapBones()
-    {
-        bones[0] = HipCenter;
-        bones[1] = Spine;
-        bones[2] = Neck;
-        bones[3] = Head;
-
-        bones[4] = LeftClavicle;
-        bones[5] = LeftUpperArm;
-        bones[6] = LeftElbow;
-        bones[7] = LeftHand;
-        bones[8] = LeftFingers;
-
-        bones[9] = RightClavicle;
-        bones[10] = RightUpperArm;
-        bones[11] = RightElbow;
-        bones[12] = RightHand;
-        bones[13] = RightFingers;
-
-        bones[14] = LeftThigh;
-        bones[15] = LeftKnee;
-        bones[16] = LeftFoot;
-        bones[17] = LeftToes;
-
-        bones[18] = RightThigh;
-        bones[19] = RightKnee;
-        bones[20] = RightFoot;
-        bones[21] = RightToes;
-
-        // body root and offset
-        bodyRoot = BodyRoot;
-        offsetNode = OffsetNode;
-
-        if (offsetNode == null)
-        {
-            offsetNode = new GameObject(name + "Ctrl")
-            {
-                layer = transform.gameObject.layer,
-                tag = transform.gameObject.tag
-            };
-            offsetNode.transform.position = transform.position;
-            offsetNode.transform.rotation = transform.rotation;
-            offsetNode.transform.parent = transform.parent;
-
-            transform.parent = offsetNode.transform;
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
-        }
+        this.animator = this.GetComponent<Animator>();
     }
 
     /// <summary>
@@ -112,13 +59,14 @@ public class AvatarLeapController : AvatarController
     /// </summary>
     public void OnDrawGizmos()
     {
-        if (rightHandTarget != null)
+        if (this.RightHandTarget != null)
         {
-            Gizmos.DrawSphere(rightHandTarget.transform.position, 0.05f);
+            Gizmos.DrawSphere(this.RightHandTarget.transform.position, 0.05f);
         }
-        if (leftHandTarget != null)
+
+        if (this.LeftHandTarget != null)
         {
-            Gizmos.DrawSphere(leftHandTarget.transform.position, 0.05f);
+            Gizmos.DrawSphere(this.LeftHandTarget.transform.position, 0.05f);
         }
     }
 
@@ -126,54 +74,59 @@ public class AvatarLeapController : AvatarController
     /// Checks if the leap is active.
     /// </summary>
     /// <param name="boneIndex">Index of the bone.</param>
-    /// <returns></returns>
-    public bool checkLeap(int boneIndex)
+    /// <returns>boolean b</returns>
+    public bool CheckLeap(int boneIndex)
     {
-        if (UseLeapHands)
+        if (this.UseLeapHands)
         {
-            if (rightHandTarget.activeSelf
-                && rightHandTarget.activeInHierarchy
+            if (this.RightHandTarget.activeSelf
+                && this.RightHandTarget.activeInHierarchy
                 && (boneIndex >= 4 && boneIndex <= 13))
             {
                 return true;
             }
 
-            if (leftHandTarget.activeSelf
-                && leftHandTarget.activeInHierarchy
+            if (this.LeftHandTarget.activeSelf
+                && this.LeftHandTarget.activeInHierarchy
                 && (boneIndex >= 4 && boneIndex <= 13))
             {
                 return true;
             }
         }
+
         return false;
     }
 
     // Update the avatar each frame.
-    public override void UpdateAvatar(uint UserID)
+    public override void UpdateAvatar(uint userID)
     {
         if (!transform.gameObject.activeInHierarchy)
+        {
             return;
+        }
 
         // Get the KinectManager instance
-        if (kinectManager == null)
+        if (this.kinectManager == null)
         {
-            kinectManager = KinectManager.Instance;
+            this.kinectManager = KinectManager.Instance;
         }
 
         // move the avatar to its Kinect position
-        MoveAvatar(UserID);
+        this.MoveAvatar(userID);
 
         for (var boneIndex = 0; boneIndex < bones.Length; boneIndex++)
         {
-            if (!checkLeap(boneIndex))
+            if (!this.CheckLeap(boneIndex))
             {
-                if (!bones[boneIndex])
+                if (!this.bones[boneIndex])
+                {
                     continue;
+                }
 
                 if (boneIndex2JointMap.ContainsKey(boneIndex))
                 {
-                    KinectWrapper.NuiSkeletonPositionIndex joint = !mirroredMovement ? boneIndex2JointMap[boneIndex] : boneIndex2MirrorJointMap[boneIndex];
-                    TransformBone(UserID, joint, boneIndex, !mirroredMovement);
+                    KinectWrapper.NuiSkeletonPositionIndex joint = !this.mirroredMovement ? boneIndex2JointMap[boneIndex] : boneIndex2MirrorJointMap[boneIndex];
+                    this.TransformBone(userID, joint, boneIndex, !this.mirroredMovement);
                 }
                 else if (specIndex2JointMap.ContainsKey(boneIndex))
                 {
@@ -183,5 +136,55 @@ public class AvatarLeapController : AvatarController
             }
         }
     }
-}
 
+    // If the bones to be mapped have been declared, map that bone to the model.
+    protected override void MapBones()
+    {
+        this.bones[0] = this.HipCenter;
+        this.bones[1] = this.Spine;
+        this.bones[2] = this.Neck;
+        this.bones[3] = this.Head;
+
+        this.bones[4] = this.LeftClavicle;
+        this.bones[5] = this.LeftUpperArm;
+        this.bones[6] = this.LeftElbow;
+        this.bones[7] = this.LeftHand;
+        this.bones[8] = this.leftFingers;
+
+        this.bones[9] = this.RightClavicle;
+        this.bones[10] = this.RightUpperArm;
+        this.bones[11] = this.RightElbow;
+        this.bones[12] = this.RightHand;
+        this.bones[13] = this.rightFingers;
+
+        this.bones[14] = this.LeftThigh;
+        this.bones[15] = this.LeftKnee;
+        this.bones[16] = this.LeftFoot;
+        this.bones[17] = this.leftToes;
+
+        this.bones[18] = this.RightThigh;
+        this.bones[19] = this.RightKnee;
+        this.bones[20] = this.RightFoot;
+        this.bones[21] = this.rightToes;
+
+        // body root and offset
+        this.bodyRoot = this.BodyRoot;
+        this.offsetNode = this.OffsetNode;
+
+        if (this.offsetNode == null)
+        {
+            this.offsetNode = new GameObject(name + "Ctrl")
+            {
+                layer = transform.gameObject.layer,
+                tag = transform.gameObject.tag
+            };
+            this.offsetNode.transform.position = transform.position;
+            this.offsetNode.transform.rotation = transform.rotation;
+            this.offsetNode.transform.parent = transform.parent;
+
+            this.transform.parent = offsetNode.transform;
+            this.transform.localPosition = Vector3.zero;
+            this.transform.localRotation = Quaternion.identity;
+        }
+    }
+}

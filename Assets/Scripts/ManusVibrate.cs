@@ -36,36 +36,6 @@ public class ManusVibrate : MonoBehaviour
 	}
 
     /// <summary>
-    /// Updates this instance.
-    /// </summary>
-    public void Update()
-    {
-        // Triggers a short vibration.
-        if (Input.GetKeyDown("b"))
-        {
-            this.ShortVibration();
-        }
-
-        // Triggers a double short vibration.
-        if (Input.GetKeyDown("h"))
-        {
-            this.DoubleShortVibration();
-        }
-
-        // Turns vibration on.
-        if (Input.GetKeyDown("n"))
-        {
-            this.VibrateOn();
-        }
-
-        // Turns vibration off.
-        if (Input.GetKeyDown("m"))
-        {
-            this.VibrateOff();
-        }
-	}
-
-    /// <summary>
     /// Makes the glove vibrate for a given amount of milliseconds.
     /// </summary>
     /// <param name="sec">The amount of time the glove has to vibrate for.</param>

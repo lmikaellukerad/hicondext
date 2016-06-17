@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Author: Matthias
+/// This class controls a cart. 
+/// </summary>
 public class CartControl : MonoBehaviour
 {
     public GameObject Player;
@@ -26,8 +30,8 @@ public class CartControl : MonoBehaviour
     /// <returns>Boolean b</returns>
     public bool PlayerIsInRange()
     {
-        float d = Vector3.Distance(this.Player.transform.position, this.transform.position);
-        if (d < this.InteractionRadius)
+        float distance = Vector3.Distance(this.Player.transform.position, this.transform.position);
+        if (distance < this.InteractionRadius)
         {
             return true;
         }
@@ -41,8 +45,8 @@ public class CartControl : MonoBehaviour
     /// <returns>Boolean b</returns>
     public bool PlayerIsBehind()
     {
-        Vector3 dir = (this.transform.position - this.Player.transform.position).normalized;
-        float cosA = Vector3.Dot(dir, -this.transform.right.normalized);
+        Vector3 direction = (this.transform.position - this.Player.transform.position).normalized;
+        float cosA = Vector3.Dot(direction, -this.transform.right.normalized);
         if (cosA > this.MaxCos)
         {
             return true;

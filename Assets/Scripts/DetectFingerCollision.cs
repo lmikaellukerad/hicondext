@@ -41,7 +41,8 @@ public class DetectFingerCollision : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(
             transform.position + (transform.rotation * offset), 
             this.Radius, 
-            1 << 8);
+            1 << 8 | 1 << 11);
+     
         float minimumDistance = float.MaxValue;
 
         this.LastCollider = null;

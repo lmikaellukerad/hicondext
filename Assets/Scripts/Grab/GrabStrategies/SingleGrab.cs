@@ -33,6 +33,9 @@ public abstract class SingleGrab : GrabStrategy
     public override void Destroy()
     {
         this.root.transform.GetChild(0).transform.parent = this.root.transform.parent;
+        this.left.RealPalm.gameObject.layer = 10;
+        this.right.RealPalm.gameObject.layer = 10;
+        this.root.gameObject.layer = 11;
         GameObject.Destroy(this.root);
     }
 
@@ -66,6 +69,9 @@ public abstract class SingleGrab : GrabStrategy
         this.root.transform.parent = this.grabbedObject.transform.parent;
         this.root.transform.position = this.hand.RealPalm.position;
         this.root.transform.rotation = this.hand.RealPalm.rotation;
+        this.left.RealPalm.gameObject.layer = 0;
+        this.right.RealPalm.gameObject.layer = 0;
+        this.root.gameObject.layer = 8;
         this.grabbedObject.transform.parent = this.root.transform;
         this.hand.transform.GetComponent<ManusVibrate>().ShortVibration();
     }

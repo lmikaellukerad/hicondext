@@ -53,6 +53,10 @@ public class FingerColliders
     /// <param name="joint">The joint.</param>
     private void NextJoint(GameObject joint)
     {
+        if (joint.transform.parent == null)
+        {
+            return;
+        }
         if (joint.transform.parent.gameObject.name.Contains("Palm"))
         {
             return;

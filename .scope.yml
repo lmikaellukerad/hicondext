@@ -6,3 +6,4 @@ exclude:
 - /Assets/UnityTestTools/*.*
 - /Assets/Standard Assets/*.*
 - /Assets/Kinect/*.*
+- /Assets/Scripts/Legacy/*.*

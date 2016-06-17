@@ -11,7 +11,6 @@ using UnityEngine;
 /// <seealso cref="SingleGrab"/>
 public class RightGrab : SingleGrab
 {
-
     public RightGrab(HandModel left, HandModel right, GameObject obj) : base(left, right, obj)
     {
         Debug.Log(this.left);

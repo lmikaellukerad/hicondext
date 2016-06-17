@@ -72,7 +72,7 @@ public class GrabSubject : GrabSubjectBehaviour
     {
         foreach (GrabObserver grab in this.Grabs)
         {
-            touched.Add(grab.grabbedObject);
+            touched.Add(grab.GrabbedObject);
         }
     }
 

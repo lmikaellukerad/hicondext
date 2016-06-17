@@ -26,7 +26,8 @@ public class GrabHandSimulator : HandSimulator
             this.min[i] = 0;
             this.max[i] = 1;
         }
-        //new FingerColliders(this.FingerTipTransforms);
+
+        // new FingerColliders(this.FingerTipTransforms);
         new FingerTipDetector(this.FingerTipTransforms);
     }
 

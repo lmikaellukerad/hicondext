@@ -33,7 +33,6 @@ public class InverseKinematicBehaviour : MonoBehaviour
         this.ChainFound = this.BuildChain(this.ChainStart);
 
         this.chainEndRotateCorrection = this.ChainEnd.rotation;
-
     }
 
     /// <summary>

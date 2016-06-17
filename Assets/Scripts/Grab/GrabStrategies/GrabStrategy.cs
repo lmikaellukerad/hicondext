@@ -25,7 +25,7 @@ public abstract class GrabStrategy
     public virtual GrabStrategy LeftHand(GameObject grabbedObject)
     {
         this.Destroy();
-        return new LeftGrab(left, right, grabbedObject);
+        return new LeftGrab(this.left, this.right, grabbedObject);
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ public abstract class GrabStrategy
     public virtual GrabStrategy RightHand(GameObject grabbedObject)
     {
         this.Destroy();
-        return new RightGrab(left, right, grabbedObject);
+        return new RightGrab(this.left, this.right, grabbedObject);
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ public abstract class GrabStrategy
     public virtual GrabStrategy DoubleHand(GameObject grabbedObject)
     {
         this.Destroy();
-        return new DoubleGrab(left, right, grabbedObject);
+        return new DoubleGrab(this.left, this.right, grabbedObject);
     }
 
     protected void HandleClamps(List<Transform> grabbingFingers)

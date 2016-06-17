@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class ShelfData
 {
@@ -22,72 +22,72 @@ public class ShelfData
         this.width = w;
     }
 
-    public string getObjectType()
+    public string GetObjectType()
     {
         return this.objectType;
     }
 
-    public Vector3 getStartPos()
+    public Vector3 GetSTartPos()
     {
         return this.startPos;
     }
 
-    public Vector3 getDistanceBetween()
+    public Vector3 GetDistanceBetween()
     {
-        return distanceBetween;
+        return this.distanceBetween;
     }
 
-    public Vector3 getHeightDistance()
+    public Vector3 GetHeightDistance()
     {
-        return heightDistance;
+        return this.heightDistance;
     }
 
-    public Quaternion getRotation()
+    public Quaternion GetRotation()
     {
-        return rotation;
+        return this.rotation;
     }
 
-    public int getShelves()
+    public int GetShelves()
     {
-        return shelves;
+        return this.shelves;
     }
 
-    public int getWidth()
+    public int GetWidth()
     {
         return this.width;
     }
 
-    public void setObjectType(string o)
+    public void SetObjectType(string o)
     {
         this.objectType = o;
     }
 
-    public void setStartPos(Vector3 sp)
+    public void SetStartPos(Vector3 sp)
     {
         this.startPos = sp;
     }
 
-    public void setDistanceBetween(Vector3 db)
+    public void SetDistanceBetween(Vector3 db)
     {
         this.distanceBetween = db;
     }
 
-    public void setHeightDistance(Vector3 hd)
+    public void SetHeightDistance(Vector3 hd)
     {
         this.heightDistance = hd;
     }
 
-    public void setRotation(Quaternion rot)
+    public void SetRotation(Quaternion rot)
     {
         this.rotation = rot;
     }
 
-    public void setShelves(int s)
+    public void SetShelves(int s)
     {
         this.shelves = s;
     }
 
-    public void setWidth(int w)
+    public void SetWidth(int w)
     {
         this.width = w;
     }

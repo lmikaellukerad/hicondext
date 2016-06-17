@@ -5,6 +5,10 @@ using System.Threading;
 using ManusMachina;
 using UnityEngine;
 
+/// <summary>
+/// Author: Luke
+/// This class controls vibration in the ManusVR gloves.
+/// </summary>
 public class ManusVibrate : MonoBehaviour 
 {
     /// <summary>
@@ -29,36 +33,6 @@ public class ManusVibrate : MonoBehaviour
     {
         this.hand = GetComponent<HandSimulator>().hand;
         this.vibrating = false;
-	}
-
-    /// <summary>
-    /// Updates this instance.
-    /// </summary>
-    public void Update()
-    {
-        // Triggers a short vibration.
-        if (Input.GetKeyDown("b"))
-        {
-            this.ShortVibration();
-        }
-
-        // Triggers a double short vibration.
-        if (Input.GetKeyDown("h"))
-        {
-            this.DoubleShortVibration();
-        }
-
-        // Turns vibration on.
-        if (Input.GetKeyDown("n"))
-        {
-            this.VibrateOn();
-        }
-
-        // Turns vibration off.
-        if (Input.GetKeyDown("m"))
-        {
-            this.VibrateOff();
-        }
 	}
 
     /// <summary>

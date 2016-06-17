@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScenes/3_Drop.unity
   - enabled: 1
     path: Assets/Scenes/TestScenes/4_PickUpFromGround.unity
+  - enabled: 1
+    path: Assets/Scenes/SuperMarket.unity

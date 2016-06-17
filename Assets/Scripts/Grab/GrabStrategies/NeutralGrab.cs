@@ -10,6 +10,12 @@ using UnityEngine;
 /// </summary>
 public class NeutralGrab : GrabStrategy
 {
+    public NeutralGrab(HandModel left, HandModel right)
+    {
+        this.left = left;
+        this.right = right;
+    }
+
     public override void Destroy()
     {
     }

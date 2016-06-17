@@ -70,9 +70,9 @@ public class GrabSubject : GrabSubjectBehaviour
     /// <param name="touched">The touched set of objects.</param>
     private void AddCurrentGrabbedObjects(HashSet<GameObject> touched)
     {
-        foreach (GrabObserver g in this.Grabs)
+        foreach (GrabObserver grab in this.Grabs)
         {
-            touched.Add(g.Obj);
+            touched.Add(grab.GrabbedObject);
         }
     }
 
@@ -83,29 +83,29 @@ public class GrabSubject : GrabSubjectBehaviour
     /// <param name="touched">The touched set of objects.</param>
     private void CheckFingers(Transform[] fingers, HashSet<GameObject> touched)
     {
-        foreach (Transform f in fingers)
+        foreach (Transform finger in fingers)
         {
-            this.CheckFinger(f, touched);
+            this.CheckFinger(finger, touched);
         }
     }
 
     /// <summary>
     /// Checks if the finger touches a new object if so creates a GrabObserver.
     /// </summary>
-    /// <param name="f">The finger.</param>
+    /// <param name="transform">The finger.</param>
     /// <param name="touched">The touched objects.</param>
-    private void CheckFinger(Transform f, HashSet<GameObject> touched)
+    private void CheckFinger(Transform transform, HashSet<GameObject> touched)
     {
-        DetectFingerCollision d = f.GetComponent<DetectFingerCollision>();
-        if (d.CheckFinger())
+        DetectFingerCollision detector = transform.GetComponent<DetectFingerCollision>();
+        if (detector.CheckFinger())
         {
-            GameObject o = d.LastCollider.gameObject;
-            if (!touched.Contains(o))
+            GameObject obj = detector.LastCollider.gameObject;
+            if (!touched.Contains(obj))
             {
-                new GrabObserver(this, this.LeftHand, this.RightHand, o);
+                new GrabObserver(this, this.LeftHand, this.RightHand, obj);
             }
 
-            touched.Add(o);
+            touched.Add(obj);
         }
     }
 }

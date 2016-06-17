@@ -127,44 +127,6 @@ public class AvatarController : MonoBehaviour
     // Set bones to their initial positions and rotations
     public void ResetToInitialPosition()
     {	
-        if(bones == null)
-            return;
-        
-        if(offsetNode != null)
-        {
-            offsetNode.transform.rotation = Quaternion.identity;
-        }
-        else
-        {
-            transform.rotation = Quaternion.identity;
-        }
-        
-        // For each bone that was defined, reset to initial position.
-        for (int i = 0; i < bones.Length; i++)
-        {
-            if (bones[i] != null)
-            {
-                bones[i].rotation = initialRotations[i];
-            }
-        }
-        
-        if(bodyRoot != null)
-        {
-            bodyRoot.localPosition = Vector3.zero;
-            bodyRoot.localRotation = Quaternion.identity;
-        }
-        
-        // Restore the offset's position and rotation
-        if(offsetNode != null)
-        {
-            offsetNode.transform.localPosition = Vector3.zero;
-            offsetNode.transform.localRotation = Quaternion.identity;
-        }
-        else
-        {
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
-        }
     }
     
     // Invoked on the successful calibration of a player.

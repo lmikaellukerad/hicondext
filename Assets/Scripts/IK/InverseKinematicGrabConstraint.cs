@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class IKGrabConstrain : IKScript
+public class InverseKinematicGrabConstraint : InverseKinematicBehaviour
 {
     private Transform referencePoint;
     private Vector3 goalRefDifPosition;
@@ -12,7 +12,7 @@ public class IKGrabConstrain : IKScript
     /// <summary>
     /// Updates the chain if the chain was found.
     /// </summary>
-    public void Update()
+    public override void Update()
     {
         if (this.ChainFound && this.Goal.activeSelf)
         {
@@ -74,7 +74,7 @@ public class IKGrabConstrain : IKScript
             Quaternion refRotCompensate = this.referencePoint.rotation * Quaternion.Inverse(this.referenceInitRotation);
             Vector3 currentPosDif = refRotCompensate * (this.Goal.transform.position - this.referencePoint.position);
             currentPosDif = Vector3.Project(currentPosDif, Vector3.Normalize(this.goalRefDifPosition));
-            if (currentPosDif.magnitude < this.goalRefDifPosition.magnitude)
+            if ((currentPosDif.sqrMagnitude + (currentPosDif.sqrMagnitude * 0.05)) < this.goalRefDifPosition.sqrMagnitude)
             {
                 this.Goal.transform.position = (refRotCompensate * this.goalRefDifPosition) + this.referencePoint.position;
                 this.Goal.transform.rotation = refRotCompensate * this.goalInitRotation;

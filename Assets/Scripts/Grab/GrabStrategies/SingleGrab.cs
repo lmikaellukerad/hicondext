@@ -11,15 +11,31 @@ using UnityEngine;
 public abstract class SingleGrab : GrabStrategy
 {
     protected HandModel hand;
-    protected GameObject obj;
+    protected GameObject grabbedObject;
     private GameObject root;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SingleGrab"/> class.
+    /// </summary>
+    /// <param name="left">The left hand.</param>
+    /// <param name="right">The right hand.</param>
+    /// <param name="obj">The object.</param>
+    public SingleGrab(HandModel left, HandModel right, GameObject obj)
+    {
+        this.left = left;
+        this.right = right;
+        this.grabbedObject = obj;
+    }
+    
     /// <summary>
     /// Destroys the root of the object.
     /// </summary>
     public override void Destroy()
     {
         this.root.transform.GetChild(0).transform.parent = this.root.transform.parent;
+        this.left.RealPalm.gameObject.layer = 10;
+        this.right.RealPalm.gameObject.layer = 10;
+        this.root.gameObject.layer = 11;
         GameObject.Destroy(this.root);
     }
 
@@ -40,8 +56,8 @@ public abstract class SingleGrab : GrabStrategy
     /// </summary>
     public override void UpdateObject()
     {
-        this.root.transform.position = this.hand.palm.position;
-        this.root.transform.rotation = this.hand.palm.rotation;
+        this.root.transform.position = this.hand.RealPalm.position;
+        this.root.transform.rotation = this.hand.RealPalm.rotation;
     }
 
     /// <summary>
@@ -50,10 +66,13 @@ public abstract class SingleGrab : GrabStrategy
     protected void Init()
     {
         this.root = new GameObject("root");
-        this.root.transform.parent = this.obj.transform.parent;
-        this.root.transform.position = this.hand.palm.position;
-        this.root.transform.rotation = this.hand.palm.rotation;
-        this.obj.transform.parent = this.root.transform;
+        this.root.transform.parent = this.grabbedObject.transform.parent;
+        this.root.transform.position = this.hand.RealPalm.position;
+        this.root.transform.rotation = this.hand.RealPalm.rotation;
+        this.left.RealPalm.gameObject.layer = 0;
+        this.right.RealPalm.gameObject.layer = 0;
+        this.root.gameObject.layer = 8;
+        this.grabbedObject.transform.parent = this.root.transform;
         this.hand.transform.GetComponent<ManusVibrate>().ShortVibration();
     }
 }

@@ -1,96 +1,122 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using Interfaces;
+using UnityEngine;
 
-public class HighlighterController {
-
+/// <summary>
+/// This is the controller for the Highlighter class, all logic related to Highlighter is located here.
+/// This is part of the Humble Object pattern application on Highlighter class.
+/// </summary>
+public class HighlighterController
+{
     public float Radius = 0.01f;
 
     public IHighlighterController Controller;
     public IOverlapSphere OverlapSphere;
 
-    public GameObject nearestObject
-    {
-        get;
-        private set;
-    }
-    public GameObject previousObject
+    public GameObject NearestObject
     {
         get;
         private set;
     }
 
+    public GameObject PreviousObject
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+    /// Detects the nearby objects.
+    /// </summary>
     public void DetectObjects()
     {
-        
-        Collider[] cols = OverlapSphere.FindObjects();
+        Collider[] cols = this.OverlapSphere.FindObjects();
         if (cols.Length > 0)
         {
-            Debug.Log("Detecting");
-            Controller.FindNearestObject(cols);
+            this.Controller.FindNearestObject(cols);
         }
         else
         {
-            Controller.ResetObjects();
+            this.Controller.ResetObjects();
         }
     }
 
-    public void FindNearestObject(Collider[] cols)
+    /// <summary>
+    /// Update the nearest object.
+    /// </summary>
+    /// <param name="colliders">The colliders to search the nearest object for.</param>
+    public void UpdateNearestObject(Collider[] colliders)
     {
-        this.previousObject = this.nearestObject;
+        this.PreviousObject = this.NearestObject;
         float minimumDistance = float.MaxValue;
-        foreach (Collider col in cols)
+        foreach (Collider collider in colliders)
         {
-            float currentDistance = (Controller.GetPosition() 
-                - Controller.GetPosition(col)).sqrMagnitude;
+            float currentDistance = (this.Controller.GetPosition() 
+                - this.Controller.GetPosition(collider)).sqrMagnitude;
             if (currentDistance < minimumDistance)
             {
-                this.nearestObject = col.gameObject;
+                this.NearestObject = collider.gameObject;
                 minimumDistance = currentDistance;
             }
         }
-        Controller.Check();
+
+        this.Controller.Check();
     }
 
+    /// <summary>
+    /// Resets the nearest object and the previous object.
+    /// </summary>
     public void ResetObjects()
     {
-        this.ResetObject(this.previousObject);
-        this.ResetObject(this.nearestObject);
-        this.previousObject = null;
-        this.nearestObject = null;
+        this.ResetObject(this.PreviousObject);
+        this.ResetObject(this.NearestObject);
+        this.PreviousObject = null;
+        this.NearestObject = null;
     }
 
+    /// <summary>
+    /// Resets the object.
+    /// </summary>
+    /// <param name="obj">The object.</param>
     public void ResetObject(GameObject obj)
     {
         if (obj != null)
         {
-            if (!Controller.CompareShaders(obj, Shader.Find("Standard")))
+            if (!this.Controller.CompareShaders(obj, Shader.Find("Standard")))
             {
-                Controller.SetShader(obj, Shader.Find("Standard"));
+                this.Controller.SetShader(obj, Shader.Find("Standard"));
             }
         }
     }
 
+    /// <summary>
+    /// Checks if the nearest object changed and update.
+    /// </summary>
     public void Check()
     {
-        if (this.previousObject != null)
+        if (this.PreviousObject != null)
         {
-            if (!Controller.CompareObjects(this.previousObject, this.nearestObject))
+            if (!this.Controller.CompareObjects(this.PreviousObject, this.NearestObject))
             {
-                Controller.ResetObjects();
+                this.Controller.ResetObjects();
             }
         }
 
-        Controller.Highlight();
+        this.Controller.Highlight();
     }
 
+    /// <summary>
+    /// Highlights the nearest object.
+    /// </summary>
     public void Highlight()
     {
-        if (this.nearestObject != null &&
-            !Controller.CompareShaders(this.nearestObject, 
-            Shader.Find("Outlined/Silhouetted Bumped Diffuse")))
+        if (this.NearestObject != null &&
+            !this.Controller.CompareShaders(
+                this.NearestObject, 
+                Shader.Find("Outlined/Silhouetted Bumped Diffuse")))
         {
-            Controller.SetShader(this.nearestObject, 
+            this.Controller.SetShader(
+                this.NearestObject, 
                 Shader.Find("Outlined/Silhouetted Bumped Diffuse"));
         }
     }

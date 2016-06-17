@@ -17,6 +17,39 @@ public abstract class GrabStrategy
 
     public abstract void UpdateObject();
 
+    /// <summary>
+    /// Switch strategy to a left hand strategy.
+    /// </summary>
+    /// <param name="grabbedObject">The grabbed object.</param>
+    /// <returns>LeftGrab strategy.</returns>
+    public virtual GrabStrategy LeftHand(GameObject grabbedObject)
+    {
+        this.Destroy();
+        return new LeftGrab(this.left, this.right, grabbedObject);
+    }
+
+    /// <summary>
+    /// Switch strategy to a right hand strategy.
+    /// </summary>
+    /// <param name="grabbedObject">The grabbed object.</param>
+    /// <returns>RightGrab strategy.</returns>
+    public virtual GrabStrategy RightHand(GameObject grabbedObject)
+    {
+        this.Destroy();
+        return new RightGrab(this.left, this.right, grabbedObject);
+    }
+
+    /// <summary>
+    /// Switch strategy to a double hand strategy.
+    /// </summary>
+    /// <param name="grabbedObject">The grabbed object.</param>
+    /// <returns>DoubleGrab strategy.</returns>
+    public virtual GrabStrategy DoubleHand(GameObject grabbedObject)
+    {
+        this.Destroy();
+        return new DoubleGrab(this.left, this.right, grabbedObject);
+    }
+
     protected void HandleClamps(List<Transform> grabbingFingers)
     {
         List<Transform> newFingers = grabbingFingers.Except(GrabStrategy.clampedFingers).ToList();
@@ -45,7 +78,7 @@ public abstract class GrabStrategy
         for (int i = 0; i < grabbing.Count; i++)
         {
             Transform finger = grabbing[i];
-            finger.GetComponent<DetectFingerCollision>().Radius = 0.02f;
+            finger.GetComponent<DetectFingerCollision>().Radius = 0.04f;
             hand.GetComponent<GrabHandSimulator>().ClampMax(finger);
         }
     }

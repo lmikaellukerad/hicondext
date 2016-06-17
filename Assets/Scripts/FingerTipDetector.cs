@@ -3,19 +3,20 @@ using System.Collections;
 using UnityEngine;
 
 /// <summary>
-/// This code is used to add colliders to finger models.
+/// Author: Luke
+/// This code is used to add detectors to finger tips.
 /// </summary>
-public class FingerTipCollider : MonoBehaviour
+public class FingerTipDetector
 {
     /// <summary>
-    /// Sets the colliders for an array of fingertip transforms.
+    /// Initializes a new instance of the <see cref="FingerTipDetector"/> class.
     /// </summary>
-    /// <param name="tips">The transforms of the fingertips.</param>
-    public void SetColliders(Transform[] tips)
+    /// <param name="tips">The transforms of fingertips.</param>
+    public FingerTipDetector(Transform[] tips)
     {
-        foreach (Transform t in tips)
+        foreach (Transform tip in tips)
         {
-            this.InitializeFingerCollider(t.gameObject);
+            this.InitializeFingerDetector(tip.gameObject);
         }
     }
 
@@ -23,7 +24,7 @@ public class FingerTipCollider : MonoBehaviour
     /// This method is used to add a DetectFingerCollision script to part of the finger
     /// </summary>
     /// <param name="obj">The object to add a RigidBody to.</param>
-    private void InitializeFingerCollider(GameObject obj)
+    private void InitializeFingerDetector(GameObject obj)
     {
         if (obj.name.Contains("end"))
         {

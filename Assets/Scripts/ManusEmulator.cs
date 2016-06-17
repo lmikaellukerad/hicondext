@@ -2,18 +2,13 @@
 using UnityEngine;
 
 /// <summary>
+/// Author: Jasper
 /// Allows us to emulate the manus with the use of the left and right mouse button.
+/// Used for debug only.
 /// </summary>
 public class ManusEmulator : MonoBehaviour
 {
     public GrabHandSimulator RightHand;
-
-    /// <summary>
-    /// Starts this instance.
-    /// </summary>
-    public void Start()
-    {
-    }
     
     /// <summary>
     /// Updates this instance.

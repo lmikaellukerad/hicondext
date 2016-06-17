@@ -27,7 +27,8 @@ public class GrabHandSimulator : HandSimulator
             this.max[i] = 1;
         }
 
-        GetComponent<FingerTipCollider>().SetColliders(this.FingerTipTransforms);
+        // new FingerColliders(this.FingerTipTransforms);
+        new FingerTipDetector(this.FingerTipTransforms);
     }
 
     /// <summary>
@@ -49,20 +50,7 @@ public class GrabHandSimulator : HandSimulator
 
         for (int i = 0; i < fingers.Length; i++)
         {
-            float manusData = fingers[i];
-            float test = this.min[i];
-            if (manusData > this.min[i] && manusData < this.max[i])
-            {
-                this.SetFingerTransform(i, manusData);
-            }
-            else if (manusData < this.min[i])
-            {
-                this.SetFingerTransform(i, this.min[i]);
-            }
-            else if (manusData > this.max[i])
-            {
-                this.SetFingerTransform(i, this.max[i]);
-            }
+            this.SetFingerTransform(i, Mathf.Min(this.max[i], Mathf.Max(this.min[i], fingers[i])));
         }
     }
 

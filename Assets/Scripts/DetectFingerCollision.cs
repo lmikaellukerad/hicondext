@@ -2,6 +2,7 @@
 using UnityEngine;
 
 /// <summary>
+/// Author: Luke
 /// Detect collision in whole finger
 /// </summary>
 public class DetectFingerCollision : MonoBehaviour
@@ -26,8 +27,8 @@ public class DetectFingerCollision : MonoBehaviour
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
-        Gizmos.DrawSphere(transform.position, this.Radius);
+        Vector3 offset = new Vector3(0, 0, -0.01f);
+        Gizmos.DrawSphere(transform.position + (transform.rotation * offset), this.Radius);
     }
 
     /// <summary>
@@ -36,15 +37,20 @@ public class DetectFingerCollision : MonoBehaviour
     /// <returns>true if collision is found, else false</returns>
     public bool CheckFinger()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, this.Radius, 1 << 8);
+        Vector3 offset = new Vector3(0, 0, -0.01f);
+        Collider[] colliders = Physics.OverlapSphere(
+            transform.position + (transform.rotation * offset), 
+            this.Radius, 
+            1 << 8 | 1 << 11);
+     
         float minimumDistance = float.MaxValue;
 
         this.LastCollider = null;
 
-        foreach (Collider c in colliders)
+        foreach (Collider collider in colliders)
         {
-            float currentDistance = Vector3.SqrMagnitude(transform.position - c.transform.position);
-            minimumDistance = this.CheckDistance(minimumDistance, currentDistance, c);
+            float currentDistance = (transform.position - collider.transform.position).sqrMagnitude;
+            minimumDistance = this.CheckDistance(minimumDistance, currentDistance, collider);
         }
 
         return this.LastCollider != null;
@@ -53,18 +59,18 @@ public class DetectFingerCollision : MonoBehaviour
     /// <summary>
     /// Checks the distance.
     /// </summary>
-    /// <param name="m">The minimum found distance.</param>
-    /// <param name="c">The current found distance.</param>
+    /// <param name="minimum">The minimum found distance.</param>
+    /// <param name="current">The current found distance.</param>
     /// <param name="collider">The current collider.</param>
     /// <returns>Current distance if less than minimum distance, else the minimum distance</returns>
-    private float CheckDistance(float m, float c, Collider collider) 
+    private float CheckDistance(float minimum, float current, Collider collider) 
     {
-        if (c < m)
+        if (current < minimum)
         {
             this.LastCollider = collider;
-            return c;
+            return current;
         }
 
-        return m;
+        return minimum;
     }
 }

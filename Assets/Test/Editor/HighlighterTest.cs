@@ -4,7 +4,7 @@ using NUnit.Framework;
 using NSubstitute;
 using Interfaces;
 
-public class HighlightObjectTest {
+public class HighlighterTest {
 
     private HighlighterController GetMock()
     {
@@ -49,8 +49,8 @@ public class HighlightObjectTest {
         var controller = mock.Controller;
         mock.OverlapSphere.FindObjects().Returns(cols);
         controller.GetPosition().Returns(Vector3.zero);
-        mock.FindNearestObject(cols);
-        Assert.IsNull(mock.nearestObject);
+        mock.UpdateNearestObject(cols);
+        Assert.IsNull(mock.NearestObject);
 
     }
 
@@ -66,8 +66,8 @@ public class HighlightObjectTest {
         var controller = mock.Controller;
         mock.OverlapSphere.FindObjects().Returns(cols);
         controller.GetPosition().Returns(Vector3.zero);
-        mock.FindNearestObject(cols);
-        Assert.AreSame(cols[0], mock.nearestObject.GetComponent<Collider>());
+        mock.UpdateNearestObject(cols);
+        Assert.AreSame(cols[0], mock.NearestObject.GetComponent<Collider>());
     }
 
     [Test]
@@ -120,10 +120,10 @@ public class HighlightObjectTest {
         cols[1].transform.position = new Vector3(0, 0.1f, 0);
         var mock = GetMock();
         var controller = mock.Controller;
-        mock.FindNearestObject(cols);
+        mock.UpdateNearestObject(cols);
         cols[0].transform.position = new Vector3(0, 0.1f, 0); 
         cols[1].transform.position = Vector3.zero;
-        mock.FindNearestObject(cols);
+        mock.UpdateNearestObject(cols);
         mock.Check();
         controller.Received().CompareObjects(Arg.Any<GameObject>(),
             Arg.Any<GameObject>());
@@ -139,10 +139,10 @@ public class HighlightObjectTest {
         cols[1].transform.position = new Vector3(0, 0.1f, 0);
         var mock = GetMock();
         var controller = mock.Controller;
-        mock.FindNearestObject(cols);
+        mock.UpdateNearestObject(cols);
         cols[0].transform.position = new Vector3(0, 0.1f, 0);
         cols[1].transform.position = Vector3.zero;
-        mock.FindNearestObject(cols);
+        mock.UpdateNearestObject(cols);
         controller.CompareObjects(Arg.Any<GameObject>(),
             Arg.Any<GameObject>()).Returns(false);
         mock.Check();
@@ -166,7 +166,7 @@ public class HighlightObjectTest {
         cols[0] = new GameObject().AddComponent<BoxCollider>();
         var mock = GetMock();
         var controller = mock.Controller;
-        mock.FindNearestObject(cols);
+        mock.UpdateNearestObject(cols);
         mock.Highlight();
         controller.Received().SetShader(Arg.Any<GameObject>(),
             Arg.Any<Shader>());

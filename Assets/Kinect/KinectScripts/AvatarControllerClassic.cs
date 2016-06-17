@@ -89,7 +89,9 @@ public class AvatarControllerClassic : AvatarController
 
         if (offsetNode == null)
         {
-            offsetNode = new GameObject(name + "Ctrl") { layer = transform.gameObject.layer, tag = transform.gameObject.tag };
+            offsetNode = new GameObject(name + "Ctrl") {
+                layer = transform.gameObject.layer,
+                tag = transform.gameObject.tag };
             offsetNode.transform.position = transform.position;
             offsetNode.transform.rotation = transform.rotation;
             offsetNode.transform.parent = transform.parent;
@@ -98,13 +100,11 @@ public class AvatarControllerClassic : AvatarController
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
         }
-
-        //		if(bodyRoot == null)
-        //		{
-        //			bodyRoot = transform;
-        //		}
     }
 
+    /// <summary>
+    /// Used for debug only.
+    /// </summary>
     public void OnDrawGizmos()
     {
         if (rightHandTarget != null)
@@ -121,12 +121,16 @@ public class AvatarControllerClassic : AvatarController
     {
         if (UseLeapHands)
         {
-            if (rightHandTarget.activeSelf && rightHandTarget.activeInHierarchy && (boneIndex == 4 || boneIndex == 5 || boneIndex == 6 || boneIndex == 7 || boneIndex == 8))
+            if (rightHandTarget.activeSelf 
+                && rightHandTarget.activeInHierarchy 
+                && (boneIndex >= 4 && boneIndex <= 13))
             {
                 return true;
             }
 
-            if (leftHandTarget.activeSelf && leftHandTarget.activeInHierarchy && (boneIndex == 9 || boneIndex == 10 || boneIndex == 11 || boneIndex == 12 || boneIndex == 13))
+            if (leftHandTarget.activeSelf 
+                && leftHandTarget.activeInHierarchy 
+                && (boneIndex >= 4 && boneIndex <= 13))
             {
                 return true;
             }

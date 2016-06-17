@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class DetectCollision : MonoBehaviour
 {
-
     /// <summary>
     /// Gets a value indicating whether this <see cref="DetectCollision"/> has collided.
     /// </summary>
@@ -38,7 +37,7 @@ public class DetectCollision : MonoBehaviour
     /// <param name="c">The Collision object.</param>
     private void OnTriggerEnter(Collider c)
     {
-        if(c.gameObject.layer == 8)
+        if (c.gameObject.layer == 8)
         {
             this.Collided = true;
             this.Collision = c;

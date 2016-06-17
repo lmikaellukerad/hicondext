@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Leap;
 using Leap.Unity;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class PhysicsGrab : PhysicsGrabBehaviour
 {
@@ -46,8 +46,8 @@ public class PhysicsGrab : PhysicsGrabBehaviour
     /// </summary>
     public override void CheckGrab()
     {
-        Transform[] fingerTipTransformsLeft = LeftHand.GetComponent<HandSimulator>().FingerTipTransforms;
-        Transform[] fingerTipTransformsRight = RightHand.GetComponent<HandSimulator>().FingerTipTransforms;
+        Transform[] fingerTipTransformsLeft = this.LeftHand.GetComponent<HandSimulator>().FingerTipTransforms;
+        Transform[] fingerTipTransformsRight = this.RightHand.GetComponent<HandSimulator>().FingerTipTransforms;
         if (this.DetectGrab(fingerTipTransformsLeft, fingerTipTransformsRight))
         {
             this.OnGrab();

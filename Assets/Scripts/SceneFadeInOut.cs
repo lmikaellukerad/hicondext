@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Author: Arjan
@@ -10,111 +10,108 @@ using UnityEngine.SceneManagement;
 public class SceneFadeInOut : MonoBehaviour
 {
     public Image FadeImg;
-    public float fadeSpeed = 1.5f;
-    public bool sceneStarting = true;
+    public float FadeSpeed = 1.5f;
+    public bool SceneStarting = true;
     public int NextLevel;
     private string[] levels = { "1_Movement", "2_PickUp", "3_Drop", "4_PickUpFromGround", "SuperMarket" };
 
-    void Start()
+    public void Start()
     {
-        if (NextLevel == null)
+        if (this.NextLevel == null)
         {
-            NextLevel = 0;
+            this.NextLevel = 0;
         }
     }
 
-    void Awake()
+    public void Awake()
     {
-        FadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
+        this.FadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
     }
 
-    void Update()
+    public void Update()
     {
         // If the scene is starting...
-        if (sceneStarting)
+        if (this.SceneStarting)
         {
             // ... call the StartScene function.
-            StartScene();
+            this.StartScene();
         }
 
         if (Input.GetKeyDown("space"))
         {
-            print("loading next level");
-            EndScene();
+            this.print("loading next level");
+            this.EndScene();
         }
     }
 
-
-    void FadeToClear()
+    public void FadeToClear()
     {
         // Lerp the colour of the image between itself and transparent.
-        FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, fadeSpeed * Time.deltaTime);
+        this.FadeImg.color = Color.Lerp(this.FadeImg.color, Color.clear, this.FadeSpeed * Time.deltaTime);
     }
 
-
-    void FadeToBlack()
+    public void FadeToBlack()
     {
         // Lerp the colour of the image between itself and black.
-        FadeImg.color = Color.Lerp(FadeImg.color, Color.black, fadeSpeed * Time.deltaTime);
+        this.FadeImg.color = Color.Lerp(this.FadeImg.color, Color.black, this.FadeSpeed * Time.deltaTime);
     }
 
-
-    void StartScene()
+    public void StartScene()
     {
         // Fade the texture to clear.
-        FadeToClear();
+        this.FadeToClear();
 
         // If the texture is almost clear...
-        if (FadeImg.color.a <= 0.05f)
+        if (this.FadeImg.color.a <= 0.05f)
         {
             // ... set the colour to clear and disable the RawImage.
-            FadeImg.color = Color.clear;
-            FadeImg.enabled = false;
+            this.FadeImg.color = Color.clear;
+            this.FadeImg.enabled = false;
 
             // The scene is no longer starting.
-            sceneStarting = false;
+            this.SceneStarting = false;
         }
     }
-
 
     public IEnumerator EndSceneRoutine()
     {
         // Make sure the RawImage is enabled.
-        FadeImg.enabled = true;
+        this.FadeImg.enabled = true;
         do
         {
             // Start fading towards black.
-            FadeToBlack();
+            this.FadeToBlack();
 
             // If the screen is almost black...
-            if (FadeImg.color.a >= 0.99f)
+            if (this.FadeImg.color.a >= 0.99f)
             {
                 // ... reload the level
-                LoadNextLevel();
+                this.LoadNextLevel();
                 yield break;
             }
             else
             {
                 yield return null;
             }
-        } while (true);
+        }
+        while (true);
     }
 
     public void EndScene()
     {
-        sceneStarting = false;
-        StartCoroutine("EndSceneRoutine");
+        this.SceneStarting = false;
+        this.StartCoroutine("EndSceneRoutine");
     }
 
-    void LoadNextLevel()
+    public void LoadNextLevel()
     {
-        if (!NextLevel.Equals(null))
+        if (!this.NextLevel.Equals(null))
         {
-            Application.LoadLevel(levels[NextLevel]);
+            Application.LoadLevel(this.levels[this.NextLevel]);
         }
         else
         {
-            print("No next level found.");
+            this.print("No next level found.");
         }
     }
 }

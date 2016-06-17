@@ -5,8 +5,6 @@ namespace Interfaces
 {
     public interface IOverlapSphere
     {
-
         Collider[] FindObjects();
-
     }
 }

@@ -57,6 +57,7 @@ public class FingerColliders
         {
             return;
         }
+
         if (joint.transform.parent.gameObject.name.Contains("Palm"))
         {
             return;

@@ -14,9 +14,9 @@ public class FingerTipDetector
     /// <param name="tips">The transforms of fingertips.</param>
     public FingerTipDetector(Transform[] tips)
     {
-        foreach (Transform t in tips)
+        foreach (Transform tip in tips)
         {
-            this.InitializeFingerDetector(t.gameObject);
+            this.InitializeFingerDetector(tip.gameObject);
         }
     }
 

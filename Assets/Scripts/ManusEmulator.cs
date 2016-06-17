@@ -2,7 +2,9 @@
 using UnityEngine;
 
 /// <summary>
+/// Author: Jasper
 /// Allows us to emulate the manus with the use of the left and right mouse button.
+/// Used for debug only.
 /// </summary>
 public class ManusEmulator : MonoBehaviour
 {

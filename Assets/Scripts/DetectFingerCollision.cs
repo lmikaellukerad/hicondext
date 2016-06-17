@@ -2,6 +2,7 @@
 using UnityEngine;
 
 /// <summary>
+/// Author: Luke
 /// Detect collision in whole finger
 /// </summary>
 public class DetectFingerCollision : MonoBehaviour

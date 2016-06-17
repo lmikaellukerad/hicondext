@@ -5,6 +5,10 @@ using System.Threading;
 using ManusMachina;
 using UnityEngine;
 
+/// <summary>
+/// Author: Luke
+/// This class controls vibration in the ManusVR gloves.
+/// </summary>
 public class ManusVibrate : MonoBehaviour 
 {
     /// <summary>

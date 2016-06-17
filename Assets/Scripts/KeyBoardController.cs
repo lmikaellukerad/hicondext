@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Author: Arjan
+/// Controls vibration through key button presses.
+/// Used for debug only.
+/// </summary>
 public class KeyboardController : MonoBehaviour 
 {    
     /// <summary>

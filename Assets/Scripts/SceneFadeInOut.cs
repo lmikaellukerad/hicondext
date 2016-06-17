@@ -3,6 +3,10 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Author: Arjan
+/// This was only used during interaction design testing to switch between various scenes and scenarios.
+/// </summary>
 public class SceneFadeInOut : MonoBehaviour
 {
     public Image FadeImg;

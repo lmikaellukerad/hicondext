@@ -2,6 +2,10 @@
 using Leap.Unity;
 using UnityEngine;
 
+/// <summary>
+/// Author: Jasper
+/// Used for debug only to position the virtual leap based on vr or desktop mode.
+/// </summary>
 public class ModePicker : MonoBehaviour
 {
     public bool VRMode;

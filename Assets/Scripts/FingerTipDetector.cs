@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 /// <summary>
+/// Author: Luke
 /// This code is used to add detectors to finger tips.
 /// </summary>
 public class FingerTipDetector

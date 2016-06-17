@@ -22,91 +22,91 @@ public class ShelfDataTest {
 	[Test]
     public void getObjectTypeTest()
 	{
-        Assert.AreEqual(testShelf.getObjectType(), "mntdewPrefab");
+        Assert.AreEqual(testShelf.GetObjectType(), "mntdewPrefab");
 	}
 
     [Test]
     public void getStartPosTest()
     {
-        Assert.AreEqual(testShelf.getStartPos(), new Vector3(-2.198f, 0.6f, -1.9f));
+        Assert.AreEqual(testShelf.GetSTartPos(), new Vector3(-2.198f, 0.6f, -1.9f));
     }
 
     [Test]
     public void getDistanceBetweenTest()
     {
-        Assert.AreEqual(testShelf.getDistanceBetween(), new Vector3(0f, 0f, 0.25f));
+        Assert.AreEqual(testShelf.GetDistanceBetween(), new Vector3(0f, 0f, 0.25f));
     }
 
     [Test]
     public void getHeightDistanceTest()
     {
-        Assert.AreEqual(testShelf.getHeightDistance(), new Vector3(0f, -0.13f, 0f));
+        Assert.AreEqual(testShelf.GetHeightDistance(), new Vector3(0f, -0.13f, 0f));
     }
 
     [Test]
     public void getRotationTest()
     {
-        Assert.AreEqual(testShelf.getRotation(), Quaternion.identity);
+        Assert.AreEqual(testShelf.GetRotation(), Quaternion.identity);
     }
 
     [Test]
     public void getShelvesTest()
     {
-        Assert.AreEqual(testShelf.getShelves(), 4);
+        Assert.AreEqual(testShelf.GetShelves(), 4);
     }
 
     [Test]
     public void getWidthTest()
     {
-        Assert.AreEqual(testShelf.getWidth(), 17);
+        Assert.AreEqual(testShelf.GetWidth(), 17);
     }
 
     [Test]
     public void setObjectTypeTest()
     {
-        testShelf.setObjectType("Boodschap");
-        Assert.AreEqual(testShelf.getObjectType(), "Boodschap");
+        testShelf.SetObjectType("Boodschap");
+        Assert.AreEqual(testShelf.GetObjectType(), "Boodschap");
     }
 
     [Test]
     public void setStartPosTest()
     {
-        testShelf.setStartPos(new Vector3(1f, 2f, 3f));
-        Assert.AreEqual(testShelf.getStartPos(), new Vector3(1f, 2f, 3f));
+        testShelf.SetStartPos(new Vector3(1f, 2f, 3f));
+        Assert.AreEqual(testShelf.GetSTartPos(), new Vector3(1f, 2f, 3f));
     }
 
     [Test]
     public void setDistanceBetweenTest()
     {
-        testShelf.setDistanceBetween(new Vector3(3f, 2f, 1f));
-        Assert.AreEqual(testShelf.getDistanceBetween(), new Vector3(3f, 2f, 1f));
+        testShelf.SetDistanceBetween(new Vector3(3f, 2f, 1f));
+        Assert.AreEqual(testShelf.GetDistanceBetween(), new Vector3(3f, 2f, 1f));
     }
 
     [Test]
     public void setHeightDistanceTest()
     {
-        testShelf.setHeightDistance(new Vector3(5f, 6f, 7f));
-        Assert.AreEqual(testShelf.getHeightDistance(), new Vector3(5f, 6f, 7f));
+        testShelf.SetHeightDistance(new Vector3(5f, 6f, 7f));
+        Assert.AreEqual(testShelf.GetHeightDistance(), new Vector3(5f, 6f, 7f));
     }
 
     [Test]
     public void setRotationTest()
     {
-        testShelf.setRotation(Quaternion.Euler(new Vector3(2f, 4f, 6f)));
-        Assert.AreEqual(testShelf.getRotation(), Quaternion.Euler(new Vector3(2f, 4f, 6f)));
+        testShelf.SetRotation(Quaternion.Euler(new Vector3(2f, 4f, 6f)));
+        Assert.AreEqual(testShelf.GetRotation(), Quaternion.Euler(new Vector3(2f, 4f, 6f)));
     }
 
     [Test]
     public void setShelvesTest()
     {
-        testShelf.setShelves(100);
-        Assert.AreEqual(testShelf.getShelves(), 100);
+        testShelf.SetShelves(100);
+        Assert.AreEqual(testShelf.GetShelves(), 100);
     }
 
     [Test]
     public void setWidthTest()
     {
-        testShelf.setWidth(1);
-        Assert.AreEqual(testShelf.getWidth(), 1);
+        testShelf.SetWidth(1);
+        Assert.AreEqual(testShelf.GetWidth(), 1);
     }
 }

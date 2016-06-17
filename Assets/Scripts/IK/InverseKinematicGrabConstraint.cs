@@ -74,7 +74,7 @@ public class InverseKinematicGrabConstraint : InverseKinematicBehaviour
             Quaternion refRotCompensate = this.referencePoint.rotation * Quaternion.Inverse(this.referenceInitRotation);
             Vector3 currentPosDif = refRotCompensate * (this.Goal.transform.position - this.referencePoint.position);
             currentPosDif = Vector3.Project(currentPosDif, Vector3.Normalize(this.goalRefDifPosition));
-            if (currentPosDif.sqrMagnitude + currentPosDif.sqrMagnitude*0.05 < this.goalRefDifPosition.sqrMagnitude)
+            if ((currentPosDif.sqrMagnitude + (currentPosDif.sqrMagnitude * 0.05)) < this.goalRefDifPosition.sqrMagnitude)
             {
                 this.Goal.transform.position = (refRotCompensate * this.goalRefDifPosition) + this.referencePoint.position;
                 this.Goal.transform.rotation = refRotCompensate * this.goalInitRotation;

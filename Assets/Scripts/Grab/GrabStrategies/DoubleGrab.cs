@@ -16,8 +16,8 @@ public class DoubleGrab : GrabStrategy
     /// <summary>
     /// Initializes a new instance of the <see cref="DoubleGrab"/> class.
     /// </summary>
-    /// <param name="right">The right hand.</param>
-    /// <param name="left">The left hand.</param>
+    /// <param name="left">The right hand.</param>
+    /// <param name="right">The left hand.</param>
     /// <param name="obj">The object which has been grabbed.</param>
     public DoubleGrab(HandModel left, HandModel right, GameObject obj)
     {
@@ -81,7 +81,8 @@ public class DoubleGrab : GrabStrategy
     /// <summary>
     /// Averages the position of the transforms.
     /// </summary>
-    /// <param name="transforms">The transforms.</param>
+    /// <param name="left">The left hand.</param>
+    /// <param name="right">The right hand.</param>
     /// <returns>The average position vector</returns>
     protected Vector3 AveragePosition(HandModel left, HandModel right)
     {

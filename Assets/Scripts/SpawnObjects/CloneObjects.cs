@@ -27,9 +27,9 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     public bool FillRightShelf;
 
-    public bool backshelfDone = false;
-    public bool leftshelfDone = false;
-    public bool rightshelfDone = false;
+    public bool BackShelfDone = false;
+    public bool LeftShelfDone = false;
+    public bool RightShelfDone = false;
 
     /// <summary>
     /// The distance that has to be left between objects on the back shelf.
@@ -144,7 +144,7 @@ public class CloneObjects : MonoBehaviour
         }
 
         bool result = true;
-        for (int i = 0; i < shelf.getShelves(); i++)
+        for (int i = 0; i < shelf.GetShelves(); i++)
         {
             if (FillLayer(shelf, i) == false)
             {
@@ -163,13 +163,13 @@ public class CloneObjects : MonoBehaviour
     /// <returns>A boolean, telling if the actions succeeded or not.</returns>
     public static bool FillLayer(ShelfData shelf, int layer)
     {
-        Vector3 position = shelf.getStartPos();
-        position += layer * shelf.getHeightDistance();
-        for (int i = 0; i < shelf.getWidth(); i++)
+        Vector3 position = shelf.GetSTartPos();
+        position += layer * shelf.GetHeightDistance();
+        for (int i = 0; i < shelf.GetWidth(); i++)
         {
-            if (SpawnObject(shelf.getObjectType(), position, shelf.getRotation()) == true)
+            if (SpawnObject(shelf.GetObjectType(), position, shelf.GetRotation()) == true)
             {
-                position += shelf.getDistanceBetween();
+                position += shelf.GetDistanceBetween();
             }
             else
             {
@@ -204,27 +204,25 @@ public class CloneObjects : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        
-
         if (this.FillBackShelf)
         {
-            backshelfDone = FillShelf(backShelf);
+            this.BackShelfDone = FillShelf(backShelf);
         }
 
         if (this.FillLeftShelf)
         {
-            leftshelfDone = FillShelf(leftShelf);
+            this.LeftShelfDone = FillShelf(leftShelf);
         }
 
         if (this.FillRightShelf)
         {
-            rightshelfDone = FillShelf(rightShelf);
+            this.RightShelfDone = FillShelf(rightShelf);
         }
 
         CloneObjects.print("Spawning objects...");
-        CloneObjects.print("Back shelf: " + backshelfDone);
-        CloneObjects.print("Left shelf: " + leftshelfDone);
-        CloneObjects.print("Right shelf: " + rightshelfDone);
+        CloneObjects.print("Back shelf: " + this.BackShelfDone);
+        CloneObjects.print("Left shelf: " + this.LeftShelfDone);
+        CloneObjects.print("Right shelf: " + this.RightShelfDone);
     }
 
     /// <summary>

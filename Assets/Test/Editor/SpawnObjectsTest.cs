@@ -64,21 +64,21 @@ public class SpawnObjectsTest {
     [Test]
     public void FillNoLayerShelfTest()
     {
-        testShelf.setShelves(0);
+        testShelf.SetShelves(0);
         Assert.True(CloneObjects.FillShelf(testShelf));
     }
 
     [Test]
     public void FillInvalidItemShelf()
     {
-        testShelf.setObjectType("notExistingObject");
+        testShelf.SetObjectType("notExistingObject");
         Assert.False(CloneObjects.FillShelf(testShelf));
     }
 
     [Test]
     public void FillNoWidthShelfTest()
     {
-        testShelf.setWidth(0);
+        testShelf.SetWidth(0);
         Assert.True(CloneObjects.FillShelf(testShelf));
     }
 
@@ -95,8 +95,8 @@ public class SpawnObjectsTest {
         Assert.True(testClone.FillLeftShelf);
         Assert.True(testClone.FillRightShelf);
         testClone.Start();
-        Assert.True(testClone.backshelfDone);
-        Assert.True(testClone.backshelfDone);
-        Assert.True(testClone.backshelfDone);
+        Assert.True(testClone.BackShelfDone);
+        Assert.True(testClone.BackShelfDone);
+        Assert.True(testClone.BackShelfDone);
     }
 }

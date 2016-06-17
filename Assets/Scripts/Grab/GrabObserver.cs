@@ -9,7 +9,8 @@ using UnityEngine;
 /// </summary>
 public class GrabObserver
 {
-    public GameObject grabbedObject;
+    public GameObject GrabbedObject;
+
     private GrabSubjectBehaviour subject;
     private List<Transform> allFingerTips;
     private List<Transform> grabbingFingerTips = new List<Transform>();
@@ -32,12 +33,12 @@ public class GrabObserver
         this.subject = subject;
         this.rightHand = right;
         this.leftHand = left;
-        this.grabbedObject = obj;
+        this.GrabbedObject = obj;
         this.Init();
         if (this.CheckGrabbed())
         {
             this.previous = obj.transform.position;
-            this.grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+            this.GrabbedObject.GetComponent<Rigidbody>().isKinematic = true;
             this.subject.Subscribe(this);
         }
     }
@@ -53,20 +54,21 @@ public class GrabObserver
         this.strategy.ConstrainHands(this.grabbingFingerTips);
         if (!this.CheckGrabbed())
         {
-            this.grabbedObject.GetComponent<Rigidbody>().velocity = (this.grabbedObject.transform.position - this.previous) / Time.deltaTime;
-            this.grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            this.GrabbedObject.GetComponent<Rigidbody>().velocity = (this.GrabbedObject.transform.position - this.previous) / Time.deltaTime;
+            this.GrabbedObject.GetComponent<Rigidbody>().isKinematic = false;
             this.rightHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
             this.leftHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
             this.strategy.Destroy();
             this.subject.UnSubscribe(this);
         }
+
         this.strategy.UpdateObject();
-        this.previous = this.grabbedObject.transform.position;
+        this.previous = this.GrabbedObject.transform.position;
     }
 
     private void Init()
     {
-        this.strategy = new NeutralGrab(leftHand, rightHand);
+        this.strategy = new NeutralGrab(this.leftHand, this.rightHand);
         this.thumbs.Add(this.rightHand.GetComponent<HandSimulator>().FingerTipTransforms[0]);
         this.thumbs.Add(this.leftHand.GetComponent<HandSimulator>().FingerTipTransforms[0]);
         this.allFingerTips = this.leftHand.GetComponent<HandSimulator>().FingerTipTransforms.ToList<Transform>();
@@ -83,7 +85,7 @@ public class GrabObserver
         for (int i = 0; i < this.allFingerTips.Count; i++)
         {
             DetectFingerCollision tip = this.allFingerTips[i].GetComponent<DetectFingerCollision>();
-            if (tip.CheckFinger() && tip.LastCollider.gameObject == this.grabbedObject)
+            if (tip.CheckFinger() && tip.LastCollider.gameObject == this.GrabbedObject)
             {
                 this.grabbingFingerTips.Add(this.allFingerTips[i]);
             }
@@ -114,7 +116,7 @@ public class GrabObserver
             && this.grabbingFingerTips.Intersect(rightFingers).Count() > 0 
             && this.grabbingFingerTips.Intersect(leftFingers).Count() > 0)
         {
-            this.strategy = this.strategy.DoubleHand(this.grabbedObject);
+            this.strategy = this.strategy.DoubleHand(this.GrabbedObject);
             return true;
         }
 
@@ -122,7 +124,7 @@ public class GrabObserver
             && this.grabbingFingerTips.Intersect(leftFingers).Count() > 1 
             && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
         {
-            this.strategy = this.strategy.LeftHand(this.grabbedObject);
+            this.strategy = this.strategy.LeftHand(this.GrabbedObject);
             return true;
         }
 
@@ -130,7 +132,7 @@ public class GrabObserver
             && this.grabbingFingerTips.Intersect(rightFingers).Count() > 1 
             && this.grabbingFingerTips.Intersect(this.thumbs).Count() > 0)
         {
-            this.strategy = this.strategy.RightHand(this.grabbedObject);
+            this.strategy = this.strategy.RightHand(this.GrabbedObject);
             return true;
         }
 

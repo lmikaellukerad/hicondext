@@ -13,15 +13,17 @@ public class CartControl : MonoBehaviour
     public float InteractionRadius;
     public float MaxCos;
 
+    private float initialY;
     private float playerRot;
+
     public float PlayerRot
     {
-        get { return playerRot; }
+        get { return this.playerRot; }
     }
-    private float initialY;
+
     public float InitialY
     {
-        get { return initialY; }
+        get { return this.initialY; }
     }
 
     /// <summary>

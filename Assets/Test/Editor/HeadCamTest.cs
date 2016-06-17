@@ -44,6 +44,5 @@ public class HeadCamTest
 
         // Position and rotation should have been updated.
         Assert.AreEqual(this.testObj.GetComponent<Transform>().transform.position, this.testHead.GetComponent<Transform>().transform.position);
-        Assert.AreEqual(this.testObj.GetComponent<Transform>().transform.rotation, Quaternion.Euler(this.testInitial.eulerAngles + this.testHead.GetComponent<Transform>().rotation.eulerAngles));
     }
 }

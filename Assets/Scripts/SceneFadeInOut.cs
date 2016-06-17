@@ -39,7 +39,6 @@ public class SceneFadeInOut : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            this.print("loading next level");
             this.EndScene();
         }
     }
@@ -111,7 +110,7 @@ public class SceneFadeInOut : MonoBehaviour
         }
         else
         {
-            this.print("No next level found.");
+            // no next level found
         }
     }
 }

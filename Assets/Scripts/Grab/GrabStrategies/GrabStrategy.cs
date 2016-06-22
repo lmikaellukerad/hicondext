@@ -7,7 +7,7 @@ using UnityEngine;
 
 public abstract class GrabStrategy
 {
-    protected static List<Transform> clampedFingers = new List<Transform>(); 
+    public List<Transform> clampedFingers = new List<Transform>(); 
     protected HandModel left;
     protected HandModel right;
 
@@ -25,7 +25,7 @@ public abstract class GrabStrategy
     public virtual GrabStrategy LeftHand(GameObject grabbedObject)
     {
         this.Destroy();
-        return new LeftGrab(this.left, this.right, grabbedObject);
+        return new LeftGrab(this.left, this.right, this.clampedFingers, grabbedObject);
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ public abstract class GrabStrategy
     public virtual GrabStrategy RightHand(GameObject grabbedObject)
     {
         this.Destroy();
-        return new RightGrab(this.left, this.right, grabbedObject);
+        return new RightGrab(this.left, this.right, this.clampedFingers, grabbedObject);
     }
 
     /// <summary>
@@ -47,13 +47,13 @@ public abstract class GrabStrategy
     public virtual GrabStrategy DoubleHand(GameObject grabbedObject)
     {
         this.Destroy();
-        return new DoubleGrab(this.left, this.right, grabbedObject);
+        return new DoubleGrab(this.left, this.right, this.clampedFingers, grabbedObject);
     }
 
     protected void HandleClamps(List<Transform> grabbingFingers)
     {
-        List<Transform> newFingers = grabbingFingers.Except(GrabStrategy.clampedFingers).ToList();
-        List<Transform> removedFingers = GrabStrategy.clampedFingers.Except(grabbingFingers).ToList();
+        List<Transform> newFingers = grabbingFingers.Except(this.clampedFingers).ToList();
+        List<Transform> removedFingers = this.clampedFingers.Except(grabbingFingers).ToList();
 
         this.AddClampFingers(this.right, newFingers);
         this.RemoveClampFingers(this.right, removedFingers);
@@ -61,8 +61,14 @@ public abstract class GrabStrategy
         this.AddClampFingers(this.left, newFingers);
         this.RemoveClampFingers(this.left, removedFingers);
 
-        GrabStrategy.clampedFingers.Clear();
-        GrabStrategy.clampedFingers.AddRange(grabbingFingers);
+        this.clampedFingers.Clear();
+        this.clampedFingers.AddRange(grabbingFingers);
+    }
+
+    public void RemoveClamps()
+    {
+        this.RemoveClampFingers(this.right, this.clampedFingers);
+        this.RemoveClampFingers(this.left, this.clampedFingers);
     }
 
     /// <summary>

@@ -56,8 +56,7 @@ public class GrabObserver
         {
             this.GrabbedObject.GetComponent<Rigidbody>().velocity = (this.GrabbedObject.transform.position - this.previous) / Time.deltaTime;
             this.GrabbedObject.GetComponent<Rigidbody>().isKinematic = false;
-            this.rightHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
-            this.leftHand.GetComponent<GrabHandSimulator>().ResetFingerLimits();
+            this.strategy.RemoveClamps();
             this.strategy.Destroy();
             this.subject.UnSubscribe(this);
         }

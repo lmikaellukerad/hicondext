@@ -11,12 +11,13 @@ using UnityEngine;
 /// <seealso cref="SingleGrab"/>
 public class RightGrab : SingleGrab
 {
-    public RightGrab(HandModel left, HandModel right, GameObject obj) : base(left, right, obj)
+    public RightGrab(HandModel left, HandModel right, List<Transform> fingers, GameObject obj) : base(left, right, obj)
     {
         Debug.Log(this.left);
         Debug.Log(this.right);
         Debug.Log(this.hand);
         this.hand = right;
+        this.clampedFingers = fingers;
         this.Init();
     }
 

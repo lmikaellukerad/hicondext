@@ -47,8 +47,8 @@ public abstract class SingleGrab : GrabStrategy
     {
         this.HandleClamps(grabbingFingers);
 
-        GrabStrategy.clampedFingers.Clear();
-        GrabStrategy.clampedFingers.AddRange(grabbingFingers);
+        this.clampedFingers.Clear();
+        this.clampedFingers.AddRange(grabbingFingers);
     }
 
     /// <summary>

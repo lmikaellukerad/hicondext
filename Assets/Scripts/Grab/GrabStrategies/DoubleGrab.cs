@@ -19,7 +19,7 @@ public class DoubleGrab : GrabStrategy
     /// <param name="left">The right hand.</param>
     /// <param name="right">The left hand.</param>
     /// <param name="obj">The object which has been grabbed.</param>
-    public DoubleGrab(HandModel left, HandModel right, GameObject obj)
+    public DoubleGrab(HandModel left, HandModel right, List<Transform> fingers, GameObject obj)
     {
         this.right = right;
         this.left = left;
@@ -33,6 +33,7 @@ public class DoubleGrab : GrabStrategy
         this.root.transform.position = averageHandPos;
         this.root.transform.rotation = Quaternion.LookRotation(this.left.RealPalm.position - averageHandPos);
         this.grabbedObject.transform.parent = this.root.transform;
+        this.clampedFingers = fingers;
     }
 
     /// <summary>

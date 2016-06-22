@@ -17,12 +17,13 @@ public class LeftGrab : SingleGrab
     /// <param name="left">The left hand.</param>
     /// <param name="right">The right hand.</param>
     /// <param name="obj">The object.</param>
-    public LeftGrab(HandModel left, HandModel right, GameObject obj) : base(left, right, obj)
+    public LeftGrab(HandModel left, HandModel right, List<Transform> fingers, GameObject obj) : base(left, right, obj)
     {
         Debug.Log(this.left);
         Debug.Log(this.right);
         Debug.Log(this.hand);
         this.hand = left;
+        this.clampedFingers = fingers;
         this.Init();
     }
 
